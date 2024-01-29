@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\title{MMath project}
+\author{Saxon Supple }
+\date{January 2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Proof of the Borsuk-Ulam theorem with cohomology}
+
+\textrm{(Hatcher section 3.2 exercise 3) \\}
+We begin by showing that there is no map
+$\mathbb{R} P^n$$\rightarrow$$\mathbb{R} P^m$ inducing a nontrivial map $H^1(\mathbb{R} P^m;\mathbb{Z}_2)\rightarrow H^1(\mathbb{R} P^n;\mathbb{Z}_2)$ if $n>m$.
+
+\begin{proof}
+Let $x_n$ and $x_m$ be the generators of $H^1(\mathbb{R} P^n;\mathbb{Z}_2)$ and $H^1(\mathbb{R} P^m;\mathbb{Z}_2)$ respectively.
+
+\[H^1(\mathbb{R} P^n;\mathbb{Z}_2)\cong \mathbb{Z}_2\] 
+\[H^*(\mathbb{R} P^n;\mathbb{Z}_2)\cong \mathbb{Z}_2[x]/<x^{n+1}>\] 
+
+Let $f:\mathbb{R} P^n\rightarrow\mathbb{R} P^m $ be such a map so that $f^*(x_m)=x_n$.
+Then since $f^*$ is a homomorphism on the cup product structure, $f^*(0)=f^*(x_m^{m+1})=f^*(x_m)^{m+1}=x_n^{m+1}=0$, requiring $m \geq n$. The result follows by contraposition.
+\end{proof}
+
+\end{document}
