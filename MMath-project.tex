@@ -62,12 +62,28 @@ $=\sum_{i=0}^k(\sum_{j<i}(-1)^{i+j}\sigma\circ F_{e_0,...,\overset{\wedge}{e_j},
 $=\sum_{i=0}^k(\sum_{j<i}((-1)^{i+j}+(-1)^{1+j-1})\sigma\circ F_{e_0,...,\overset{\wedge}{e_j},...,\overset{\wedge}{e_i},...,e_k})=0$
 \end{proof}
 
-\noindent A simple example of this fact is that the boundary of a ball is a sphere, which in turn has no boundary. It also implies that \\$\text{im}(\partial:C_{k+1}(x)\rightarrow C_k(X))\in\text{ker}(\partial:C_{k}(x)\rightarrow C_{k-1}(X))$,
-allowing the following to be well-defined
+\noindent A simple example of this fact is that the boundary of a ball is a sphere, which in turn has no boundary.\\
+It also implies that $\text{im}(\partial:C_{k+1}(x)\rightarrow C_k(X))\in\text{ker}(\partial:C_{k}(x)\rightarrow C_{k-1}(X))$,
+allowing the following to be well-defined.
 \begin{definition}
 The \textbf{singular homology} of $X$ is the collection of abelian groups
 $H_k(X)=\frac{\text{ker}(\partial:C_{k}(x)\rightarrow C_{k-1}(X))}{\text{im}(\partial:C_{k+1}(x)\rightarrow C_k(X))}$
 \end{definition}
+
+\begin{lemma}
+If $X$ is path-connected then $H_0(X)=\mathbb{Z}$
+\end{lemma}
+
+\begin{lemma}
+$H_k(\{\text{pt}\})=\begin{cases}
+       \mathbb{Z} &\quad\text{if }k=0 \\
+       0 &\quad\text{otherwise} \\ 
+     \end{cases}$
+\end{lemma}
+\begin{proof}
+There is only one k-simplex $\sigma_k:\Delta^k\rightarrow \{\text{pt}\}$, the constant map. Thus $C_k(\{\text{pt}\})=\{n\sigma_k:n\in\mathbb{Z}\}=\mathbb{Z}$.
+Also $\partial_k(n\sigma_k)=\sum_{i=0}^k(-1)^i n\sigma_{k-1}$ which is zero if $k$ is odd and $n\sigma_{k-1}$ if $k$ is even. Thus the induced map on the coefficients of the boundary is $0$ if $k$ is odd and id if $k$ is even. The Homology groups will then be $\frac{\mathbb{Z}}{\mathbb{Z}}=0$ or $\frac{\{0\}}{\{0\}}=0$, except for $H_0$ which is $\mathbb{Z}$ since $\{\text{pt}\}$ is path-connected.
+\end{proof}
 
 \section{Proof of the Borsuk-Ulam theorem with cohomology}
 
