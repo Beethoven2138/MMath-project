@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{report}
 \usepackage{graphicx} % Required for inserting images
 \usepackage[english]{babel}
 \usepackage{amsthm}
@@ -26,7 +26,7 @@ A \textbf{k-simplex} is the convex hull\\
 $[v_0,...,v_k]:=\{\sum_{i=0}^k\lambda_iv_i:\lambda_i\in [0,1],\sum_{i=0}^k\lambda_i=1\}$\\
 of $k+1$ linearly independent vectors $v_0,...,v_k\in\mathbb{R}^n$.\\
 The \textbf{standard k-simplex} is\\$\Delta^k=[e_0,...,e_k]=\{(t_0,...,t_k)\in\mathbb{R}^k:t_i\geq 0, \sum_{i=0}^kt_i=1\}$\\
-The vectors $v_0,...,v_k$ define a \textbf{framing} $F_{v_0,...,v_k}:\Delta^k\rightarrow [v_0,...,v_k],(t_i)\mapsto \sum_{i=0}^kt_iv_i$.
+The vectors $v_0,...,v_k$ define a \textbf{framing} $F_{v_0,...,v_k}\colon\Delta^k\rightarrow [v_0,...,v_k],(t_i)\mapsto \sum_{i=0}^kt_iv_i$.
 \end{definition}
 
 
@@ -37,12 +37,12 @@ The \textbf{faces} of $[v_0,...,v_k]$ are the (k-1)-simplices $[v_0,...,\overset
 \end{definition}
 
 \begin{definition}
-Let $X$ be a topological space. A \textbf{singular k-simplex} in X is a continuous map $\sigma:\Delta^k\rightarrow X$. The \textbf{k-th chain group} of $X$ is the abelian group\\
-$C_k(X):=\{\sum_{i=1}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in\mathbb{Z},\sigma_i \text{ is a k-simplex}\}$
+Let $X$ be a topological space. A \textbf{singular k-simplex} in X is a continuous map $\sigma\colon\Delta^k\to X$. The \textbf{k-th chain group} of $X$ is the abelian group\\
+$C_k(X):=\{\sum_{i=1}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in\mathbb{Z},\sigma_i \text{ is a k-simplex}\}$ where the elements are called \textbf{k-chains}.
 \end{definition}
 
 \begin{definition}
-The \textbf{boundary map} $\partial=\partial_k:C_k(X)\rightarrow C_{k-1}$ is given by\\
+The \textbf{boundary map} $\partial=\partial_k\colon C_k(X)\to C_{k-1}$ is given by\\
 $\partial\sigma=\sum_{i=0}^k(-1)^i\sigma\circ F_{e_0,...,\overset{\wedge}{e_i},...,e_k}\in C_{k-1}(X)$\\
 on single simplices and extended linearly to all of $C_k(X)$.
 \end{definition}
@@ -50,7 +50,7 @@ on single simplices and extended linearly to all of $C_k(X)$.
 
 
 \begin{lemma}
-$\partial\circ\partial:C_k(X)\rightarrow C_{k-2}(x)$ is zero.
+$\partial\circ\partial\colon C_k(X)\to C_{k-2}(x)$ is zero.
 \end{lemma}
 \begin{proof}
 Let $\sigma\in C_k(X)$.\\
@@ -71,8 +71,11 @@ $H_k(X)=\frac{\text{ker}(\partial:C_{k}(x)\rightarrow C_{k-1}(X))}{\text{im}(\pa
 \end{definition}
 
 \begin{lemma}
-If $X$ is path-connected then $H_0(X)=\mathbb{Z}$
+If $X$ is path-connected then $H_0(X)=\mathbb{Z}$.
 \end{lemma}
+\begin{proof}
+A singular 0-simplex is a map from a point to a point $x\in X$. let $c=\sum n_i\sigma_i$ be a 0-chain. $\partial c=0$ so $\text{ker}(\partial:C_{0}(x)\rightarrow C_{-1}(X))=C_0(X)$ giving $H_0(X)=\frac{C_0(X)}{\partial C_1(X)}$. Let $x,y\in X$ and let $\sigma_x$ and $\sigma_y$ be their corresponding 0-simplices. $X$ is path-connected so there exists a 1-simplex $\sigma$ with $\partial\sigma=\sigma_x-\sigma_y$. Define $f\colon C_0(X)\to\mathbb{Z},\sum n_ix_i\mapsto\sum n_i$. Clearly $\partial C_1(X)\in \text{ker}f$. Let $z=\sum_{i=0}^ka_i\sigma_i\in\text{ker}f$. Express $a_i\sigma_i$ as $\sum_{j=1}^{|a_i|}a_{ij}\sigma_i$ where $a_{ij}$ is either all $1$ or all $-1$. Thus $z=\sum_{j=1}^rb_j\tau_j$ where $\tau_j\in\{\sigma_0,...,\sigma_k\}$ and $b_j=\pm1$. $|\{j:b_j=1\}|=|\{j:b_j=-1\}|$ so $r$ is even and we can express $z$ as a sum of terms of the form $(\sigma_\alpha - \sigma_\beta)\in\partial C_1(X)$ giving $\text{ker}f\in\partial C_1(X)$. Thus $\text{ker}f\in\partial C_1(X)$. $f$ is surjective so the result follows by the first isomorphism theorem.
+\end{proof}
 
 \begin{lemma}
 $H_k(\{\text{pt}\})=\begin{cases}
@@ -81,7 +84,7 @@ $H_k(\{\text{pt}\})=\begin{cases}
      \end{cases}$
 \end{lemma}
 \begin{proof}
-There is only one k-simplex $\sigma_k:\Delta^k\rightarrow \{\text{pt}\}$, the constant map. Thus $C_k(\{\text{pt}\})=\{n\sigma_k:n\in\mathbb{Z}\}=\mathbb{Z}$.
+There is only one k-simplex $\sigma_k\colon\Delta^k\rightarrow \{\text{pt}\}$, the constant map. Thus $C_k(\{\text{pt}\})=\{n\sigma_k:n\in\mathbb{Z}\}=\mathbb{Z}$.
 Also $\partial_k(n\sigma_k)=\sum_{i=0}^k(-1)^i n\sigma_{k-1}$ which is zero if $k$ is odd and $n\sigma_{k-1}$ if $k$ is even. Thus the induced map on the coefficients of the boundary is $0$ if $k$ is odd and id if $k$ is even. The Homology groups will then be $\frac{\mathbb{Z}}{\mathbb{Z}}=0$ or $\frac{\{0\}}{\{0\}}=0$, except for $H_0$ which is $\mathbb{Z}$ since $\{\text{pt}\}$ is path-connected.
 \end{proof}
 
@@ -99,24 +102,24 @@ Let $x_n$ and $x_m$ be the generators of $H^1(\mathbb{R} P^n;\mathbb{Z}_2)$ and 
 \[H^1(\mathbb{R} P^n;\mathbb{Z}_2)\cong \mathbb{Z}_2\] 
 \[H^*(\mathbb{R} P^n;\mathbb{Z}_2)\cong \mathbb{Z}_2[x]/<x^{n+1}>\] 
 
-\noindent Let $f:\mathbb{R} P^n\rightarrow\mathbb{R} P^m $ be such a map so that $f^*(x_m)=x_n$.
+\noindent Let $f\colon\mathbb{R} P^n\to\mathbb{R} P^m $ be such a map so that $f^*(x_m)=x_n$.
 Then since $f^*$ is a homomorphism on the cup product structure, $f^*(0)=f^*(x_m^{m+1})=f^*(x_m)^{m+1}=x_n^{m+1}=0$, requiring $m \geq n$. The result follows by contraposition.
 \end{proof}
 
 \begin{lemma}
-Given any continuous map $f:\mathbb{R}P^n\rightarrow \mathbb{R}P^m$ with $n>m\geq 0$, $f_*:\pi_1(\mathbb{R}P^n)\rightarrow \pi_1(\mathbb{R}P^m)$ is trivial.
+Given any continuous map $f\colon\mathbb{R}P^n\to \mathbb{R}P^m$ with $n>m\geq 0$, $f_*\colon\pi_1(\mathbb{R}P^n)\to \pi_1(\mathbb{R}P^m)$ is trivial.
 \end{lemma}
 \begin{proof}
- $f^*:H^1(\mathbb{R}P^m;\mathbb{Z}_2)\rightarrow H^1(\mathbb{R}P^n;\mathbb{Z}_2)$ is dual to $f_*:H_1(\mathbb{R}P^n;\mathbb{Z}_2)\rightarrow H_1(\mathbb{R}P^m;\mathbb{Z}_2)$ which is equal to $f_*:\pi_1(\mathbb{R}P^n)\rightarrow \pi_1(\mathbb{R}P^m)$ by the Hurewicz theorem and the fact that $\pi_1(\mathbb{R}P^k)$ is abelian. Thus $f_*$ is trivial by the above result.
+ $f^*\colon H^1(\mathbb{R}P^m;\mathbb{Z}_2)\rightarrow H^1(\mathbb{R}P^n;\mathbb{Z}_2)$ is dual to $f_*\colon H_1(\mathbb{R}P^n;\mathbb{Z}_2)\rightarrow H_1(\mathbb{R}P^m;\mathbb{Z}_2)$ which is equal to $f_*\colon \pi_1(\mathbb{R}P^n)\rightarrow \pi_1(\mathbb{R}P^m)$ by the Hurewicz theorem and the fact that $\pi_1(\mathbb{R}P^k)$ is abelian. Thus $f_*$ is trivial by the above result.
 \end{proof}
 
-We are now able to prove the main theorem.
+\noindent We are now able to prove the main theorem.
 \begin{theorem}
-\textbf{Borsuk-Ulam theorem:} For integers $n>m\geq 0$ there is no continuous map $\phi:S^n\rightarrow S^m$ which is antipode preserving, meaning $\phi(-x)=-\phi(x)$ for all $x$.
+\textbf{Borsuk-Ulam theorem:} For integers $n>m\geq 0$ there is no continuous map $\phi\colon S^n\to S^m$ which is antipode preserving, meaning $\phi(-x)=-\phi(x)$ for all $x$.
 \end{theorem}
 \begin{proof}
-Suppose that there exists a continuous antipode preserving map $\phi:S^n\rightarrow S^m$. Define $\psi:\mathbb{R}P^n\rightarrow \mathbb{R}P^m$ by $\psi([x])=[\phi(x)]$. $\psi$ is well-defined since $x\sim y \implies x=\pm y \implies \phi(x)=\pm\phi(y) \implies \phi(x)\sim\phi(y)$. $\psi$ is also continuous by the universal property of quotients for the quotient map $p:S^k\rightarrow \mathbb{R}P^k$.
-Fix $x\in S^n$ and let $y=\phi(x)$. $\psi_*:\pi_1(\mathbb{R}P^n,[x])\rightarrow \pi_1(\mathbb{R}P^m,[y])$ is trivial by the above lemma, so has a unique lift $\psi':(\mathbb{R}P^n,[x])\rightarrow (S^m,y)$ under the covering map $p$ by the ultimate lifting theorem. This gives a commutative diagram
+Suppose that there exists a continuous antipode preserving map $\phi:S^n\rightarrow S^m$. Define $\psi\colon\mathbb{R}P^n\to \mathbb{R}P^m$ by $\psi([x])=[\phi(x)]$. $\psi$ is well-defined since $x\sim y \implies x=\pm y \implies \phi(x)=\pm\phi(y) \implies \phi(x)\sim\phi(y)$. $\psi$ is also continuous by the universal property of quotients for the quotient map $p:S^k\rightarrow \mathbb{R}P^k$.
+Fix $x\in S^n$ and let $y=\phi(x)$. $\psi_*\colon\pi_1(\mathbb{R}P^n,[x])\to \pi_1(\mathbb{R}P^m,[y])$ is trivial by the above lemma, so has a unique lift $\psi'\colon(\mathbb{R}P^n,[x])\to (S^m,y)$ under the covering map $p$ by the ultimate lifting theorem. This gives a commutative diagram
 
 \begin{tikzpicture}
   \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
