@@ -17,6 +17,7 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
 
 \begin{document}
 
@@ -146,11 +147,24 @@ $=(g^{-1}ag)(g^{-1}bg)(g^{-1}ag)^{-1}(g^{-1}bg)^{-1}\in[G,G]$
 \begin{definition}
 The \textbf{abelianization} $G^{\text{ab}}$ of a group $G$ is $G/[G,G]$.
 \end{definition}
-\noindent As the name suggests, $G^{\text{ab}}$ is abelian since we quotiented out by the relation that $ab=ba$ for all $a,b\in G$. If $G$ is already abelian, then $[G,G]$ is trivial so $G^{\text{ab}}=G$.
+\noindent As the name suggests, $G^{\text{ab}}$ is abelian since we quotiented out by the relation that $ab=ba$ for all $a,b\in G$. If $G$ is already abelian then $[G,G]$ is trivial so $G^{\text{ab}}=G$.
 
 \begin{theorem}
 (Hurewicz). If $X$ is path-connected, then $H_1(X)\cong\pi_1(X)^{\text{ab}}$.
 \end{theorem}
+
+\begin{corollary}
+$H_1(S^n)=$$\begin{cases}
+       \mathbb{Z} &\quad\text{if }n=1 \\
+       0 &\quad\text{otherwise} \\ 
+     \end{cases}$\\
+$H_1(T^2)=\mathbb{Z}^2$\\
+$H_1(\mathbb{R}P^n)=$$\begin{cases}
+       \mathbb{Z} &\quad\text{if }n=1 \\
+       \mathbb{Z}_2 &\quad\text{otherwise} \\ 
+     \end{cases}$\\
+$H_1(K)=\mathbb{Z}\bigoplus\mathbb{Z}_2$
+\end{corollary}
 
 \section{Proof of the Borsuk-Ulam theorem with cohomology}
 
