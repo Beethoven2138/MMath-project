@@ -7,6 +7,7 @@
 \usepackage{tikz}
 \usetikzlibrary{matrix}
 \usepackage[english]{babel}
+\usepackage{mathtools}
 
 \title{MMath project}
 \author{Saxon Supple }
@@ -15,6 +16,7 @@
 \newtheorem{definition}{Definition}
 \newtheorem{lemma}{Lemma}
 \newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
 
 \begin{document}
 
@@ -42,7 +44,7 @@ $C_k(X):=\{\sum_{i=1}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in\mathbb{Z},\sigma_i \t
 \end{definition}
 
 \begin{definition}
-The \textbf{boundary map} $\partial=\partial_k\colon C_k(X)\to C_{k-1}$ is given by\\
+The \textbf{boundary map} $\partial=\partial_k\colon C_k(X)\to C_{k-1}(X)$ is given by\\
 $\partial\sigma=\sum_{i=0}^k(-1)^i\sigma\circ F_{e_0,...,\overset{\wedge}{e_i},...,e_k}\in C_{k-1}(X)$\\
 on single simplices and extended linearly to all of $C_k(X)$.
 \end{definition}
@@ -70,11 +72,50 @@ The \textbf{singular homology} of $X$ is the collection of abelian groups
 $H_k(X)=\frac{\text{ker}(\partial:C_{k}(x)\rightarrow C_{k-1}(X))}{\text{im}(\partial:C_{k+1}(x)\rightarrow C_k(X))}$
 \end{definition}
 
+\noindent The utility of the homology groups are that homotopy-equivalent spaces have isomorphic homology groups, thereby giving a way to prove that two topological spaces aren't homotopy-equivalent. To prove this, we must first construct a functor sending a continuous map between topological spaces to a homomorphism between their homology groups.\\
+
+\noindent To give a more general result we shall allow the chain groups to have coefficients in any abelian group $G$ as opposed to merely $\mathbb{Z}$.
+\begin{definition}
+The k-th singular chain group with coefficients in an abelian group $G$ is $C_k(X;G):=\{\sum_{i=1}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in G,\sigma_i \text{ is a k-simplex}\}$ The boundary map $\partial\colon C_k(X;G)\to C_{k-1}(X;G)$ and k-th homology group with coefficients in $G$, $H_k(X;G)$, are then defined as above while replacing $\mathbb{Z}$ with $G$.
+\end{definition}
+
+\noindent Let $f\colon X\to Y$ be a continuous map between topological spaces. Given a k-simplex $\sigma\colon\Delta^k\to X$ in $X$, $f\circ\sigma$ is a k-simplex in $Y$. This gives rise to a homomorphism $f_*\colon C_k(X;G)\to C_k(Y;G):\sum_{i=0}^kn_i\sigma_i\mapsto\sum_{i=0}^kn_if\circ\sigma_i$.
+\begin{definition}
+This induces a \textbf{push-forward homomorphism} $f_*\colon H_k(X;G)\to H_k(Y;G)$ sending $[c]$ to $[f_*(c)]$.
+\end{definition}
+\noindent To show that this is well-defined, note that $\partial f_*=f_*\partial$ (in other words $f_*$ is a chain map) and so $f_*$ maps closed chains to closed chains. Furthermore suppose $[a-b]=[0]$. Then there exists a $\sigma\in C_{k+1}(X;G)$ such that $a-b=\partial\sigma\implies f_*(a-b)=f_*\partial\sigma=\partial f_*\sigma\implies [f_*(a)-f_*(b)]=[0]$ as required.
+
+\begin{proposition}
+The push-forward is a functor.
+\end{proposition}
+\begin{proof}
+Let $X$, $Y$ and $Z$ be topological spaces.
+Clearly $\text{id}_{X*}=\text{id}_{H_k(X;G)}$.\\
+Now let $f\colon Y\to Z$ and $g\colon X\to X$ be continuous maps. Given $[c]=[\sum_{i=0}^kn_i\sigma_i]\in H_k(X;G)$, $(f\circ g)_*([c])=[\sum_{i=0}^kn_if\circ g(\sigma_i)]=f_*([\sum_{i=0}^kn_ig(\sigma_i)])=f_*\circ g_*([c])$ so $(f\circ g)_*=f_*\circ g_*$.
+\end{proof}
+
+\noindent This then implies the standard results from category theory such as the push-forward sending commutative diagrams to commutative diagrams and homeomorphisms to group isomorphisms.
+
+\begin{proposition}
+Let $f\simeq g\colon X\to Y$ be homotopic continuous maps. Then $f_*=g_*\colon H_k(X;G)\to H_k(Y;G)$.
+\end{proposition}
+\begin{proof}
+See Hatcher.
+\end{proof}
+
+\noindent We are now ready to prove that homology is a topological invariant.
+\begin{proposition}
+If $X$ and $Y$ are homotopy-equivalent then $H_k(X;G)\cong H_k(Y;G)$
+\end{proposition}
+\begin{proof}
+We have continuous maps $\phi\colon X\to Y$ and $\psi\colon Y\to X$ such that $\psi\circ\phi\simeq\text{id}_X$ and $\phi\circ\psi\simeq\text{id}_Y$ giving $\psi_*\circ\phi_*=\text{id}_{H_k(X;G)}$ and $\phi_*\circ\psi_*=\text{id}_{H_k(Y;G)}$. Thus $\phi_*$ has a left and right inverse so is a bijection so a group isomorphism.
+\end{proof}
+
 \begin{lemma}
 If $X$ is path-connected then $H_0(X)=\mathbb{Z}$.
 \end{lemma}
 \begin{proof}
-A singular 0-simplex is a map from a point to a point $x\in X$. let $c=\sum n_i\sigma_i$ be a 0-chain. $\partial c=0$ so $\text{ker}(\partial:C_{0}(x)\rightarrow C_{-1}(X))=C_0(X)$ giving $H_0(X)=\frac{C_0(X)}{\partial C_1(X)}$. Let $x,y\in X$ and let $\sigma_x$ and $\sigma_y$ be their corresponding 0-simplices. $X$ is path-connected so there exists a 1-simplex $\sigma$ with $\partial\sigma=\sigma_x-\sigma_y$. Define $f\colon C_0(X)\to\mathbb{Z},\sum n_ix_i\mapsto\sum n_i$. Clearly $\partial C_1(X)\in \text{ker}f$. Let $z=\sum_{i=0}^ka_i\sigma_i\in\text{ker}f$. Express $a_i\sigma_i$ as $\sum_{j=1}^{|a_i|}a_{ij}\sigma_i$ where $a_{ij}$ is either all $1$ or all $-1$. Thus $z=\sum_{j=1}^rb_j\tau_j$ where $\tau_j\in\{\sigma_0,...,\sigma_k\}$ and $b_j=\pm1$. $|\{j:b_j=1\}|=|\{j:b_j=-1\}|$ so $r$ is even and we can express $z$ as a sum of terms of the form $(\sigma_\alpha - \sigma_\beta)\in\partial C_1(X)$ giving $\text{ker}f\in\partial C_1(X)$. Thus $\text{ker}f\in\partial C_1(X)$. $f$ is surjective so the result follows by the first isomorphism theorem.
+A singular 0-simplex is a map from a point to a point $x\in X$. let $c=\sum n_i\sigma_i$ be a 0-chain. $\partial c=0$ so $\text{ker}(\partial:C_{0}(x)\rightarrow C_{-1}(X))=C_0(X)$ giving $H_0(X)=\frac{C_0(X)}{\partial C_1(X)}$. Let $x,y\in X$ and let $\sigma_x$ and $\sigma_y$ be their corresponding 0-simplices. $X$ is path-connected so there exists a 1-simplex $\sigma$ with $\partial\sigma=\sigma_x-\sigma_y$. Define $f\colon C_0(X)\to\mathbb{Z},\sum n_ix_i\mapsto\sum n_i$. Clearly $\partial C_1(X)\in \text{ker}f$. Let $z=\sum_{i=0}^ka_i\sigma_i\in\text{ker}f$. Express $a_i\sigma_i$ as $\sum_{j=1}^{|a_i|}a_{ij}\sigma_i$ where $a_{ij}$ is either all $1$ or all $-1$. Thus $z=\sum_{j=1}^rb_j\tau_j$ where $\tau_j\in\{\sigma_0,...,\sigma_k\}$ and $b_j=\pm1$. $|\{j:b_j=1\}|=|\{j:b_j=-1\}|$ so $r$ is even and we can express $z$ as a sum of terms of the form $(\sigma_\alpha - \sigma_\beta)\in\partial C_1(X)$, giving $\text{ker}f\in\partial C_1(X)$. Thus $\text{ker}f\in\partial C_1(X)$. $f$ is surjective so the result follows by the first isomorphism theorem.
 \end{proof}
 
 \begin{lemma}
