@@ -161,7 +161,9 @@ Then $h'([x])=h(yaba^{-1}b^{-1})=h(y)h(a)h(b)h(a)^{-1}h(b)^{-1}=h(y)=h'([y])$ si
 (Hurewicz). If $X$ is path-connected then $H_1(X)\cong\pi_1(X)^{\text{ab}}$.
 \end{theorem}
 \begin{proof}
-Define $h\colon\pi_1(X,x_0)\to H_1(X)$ sending an element $[g]\in\pi_1(X,x_0)$ to $[g]\in H_1(X)$.
+First note that an element of $\pi_1(X,x_0)$ is of the form $[\gamma]$ for $\gamma\colon [0,1]\to X$ a loop based at $x_0$. $[0,1]=\Delta^1$ so $\gamma$ is a 1-simplex and $\partial(\gamma)=x_0-x_0$ making $\gamma$ closed.
+We can then define $h\colon\pi_1(X,x_0)\to H_1(X)$ sending an element $[\gamma]\in\pi_1(X,x_0)$ to $[c_\gamma]\in H_1(X)$ where $c_\gamma$ is $\gamma$ as an element of $C_1(X)$. To show that $h$ is well-defined let $[a]=[b]\in\pi_1(X,x_0)$ and let $F\colon [0,1]^2\to X$ be a based-homotopy from $a$ to $b$. Dividing $[0,1]^2$ into two triangles and parametrising each by $\Delta^2$ allows F to be expressed as $c_F\in C_2(X)$ with $\partial c_F=c_a-c_b\implies [c_a]=[c_b]$ as required.
+
 \end{proof}
 
 \begin{corollary}
