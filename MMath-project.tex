@@ -157,6 +157,14 @@ Let $[x]=[y]\in G^{\text{ab}}$ so that $x=yaba^{-1}b^{-1}$ for some $a,b\in [G,G
 Then $h'([x])=h(yaba^{-1}b^{-1})=h(y)h(a)h(b)h(a)^{-1}h(b)^{-1}=h(y)=h'([y])$ since $H$ is abelian.
 \end{proof}
 
+\begin{lemma}
+Let $G$ be a group. If $w$ is a word in $G$ such that for any $g\in G$ the exponents of $g$ in $w$ sum to zero then $w\in[G,G]$ 
+\end{lemma}
+\begin{proof}
+Consider the quotient map $\pi\colon G\to G/[G,G]:g\mapsto[g]$.
+$G/[G,G]$ is abelian so the letters in $[w]$ can be reordered such that $[w]=\sum n_i[a_i]=0$ implying $w\in\text{ker }\pi=[G,G]$. 
+\end{proof}
+
 \begin{theorem}
 (Hurewicz). If $X$ is path-connected then $H_1(X)\cong\pi_1(X)^{\text{ab}}$.
 \end{theorem}
@@ -164,6 +172,18 @@ Then $h'([x])=h(yaba^{-1}b^{-1})=h(y)h(a)h(b)h(a)^{-1}h(b)^{-1}=h(y)=h'([y])$ si
 First note that an element of $\pi_1(X,x_0)$ is of the form $[\gamma]$ for $\gamma\colon [0,1]\to X$ a loop based at $x_0$. $[0,1]=\Delta^1$ so $\gamma$ is a 1-simplex and $\partial(\gamma)=x_0-x_0$ making $\gamma$ closed.
 We can then define $h\colon\pi_1(X,x_0)\to H_1(X)$ sending an element $[\gamma]\in\pi_1(X,x_0)$ to $[c_\gamma]\in H_1(X)$ where $c_\gamma$ is $\gamma$ as an element of $C_1(X)$. To show that $h$ is well-defined let $[a]=[b]\in\pi_1(X,x_0)$ and let $F\colon [0,1]^2\to X$ be a based-homotopy from $a$ to $b$. Dividing $[0,1]^2$ into two triangles and parametrising each by $\Delta^2$ allows F to be expressed as $c_F\in C_2(X)$ with $\partial c_F=c_a-c_b\implies [c_a]=[c_b]$ as required.
 
+\noindent \textbf{Next we show that $h$ is a homomorphism.}\\
+Let $[f],[g]\in\pi_1(X,x_0)$ and Define a 2-simplex $\sigma\colon\Delta^2\to X$ where $\sigma_{|[e_0,e_1]}=f$, $\sigma_{|[e_1,e_2]}=g$ and $\sigma_{|[e_0,e_2]}=f\cdot g$. Then $\partial(\sigma)=g-f\cdot g+f$ so $h([f][g])=h([f])+h([g])$ making $h$ a homomorphism.
+
+\noindent \textbf{We now show that $h$ is surjective.}\\
+For the sake of lucidity we will write $[\gamma]$ for $h([\gamma])$ instead of $[c_\gamma]$\\
+Let $[\lambda]\in H_1(X)$ where $\lambda=\sum_{i=0}^k n_i\sigma_i$.
+$\partial (\lambda)=0=\sum_{i=0}^k n_i(\sigma_i(1)-\sigma_i(0))$.\\
+Let $\Lambda=\{\sigma_i(0)\}\cup\{\sigma_i(1)\}$ be the collection of end-points of the $\sigma_i$s.
+For each $p\in\Lambda$ pick a path $\beta_p\colon [0,1]\to X$ from $x_0$ to $p$ (which is possible because $X$ is path-connected). Then $\sum_{i=0}^k n_i(\sigma_i(1)-\sigma_i(0))=\sum m_pp=0$ where $m_p$ is the sum of the coefficients of $p$ in the sum. This implies that $m_p=0 \forall p$. Now consider the loop $\eta_i=\beta_{\sigma_i(0)}\cdot\sigma_i\cdot\beta_{\sigma_i(1)}^{-1}$ based at $x_0$. Then $h([\eta_0^{n_0}\cdot\eta_1^{n_1}...\cdot\eta_k^{n_k}])=[n_0\eta_0+...+n_k\eta_k]=[\sum_{i=0}^kn_i(\beta_{\sigma_i(0)}+\sigma_i-\beta_{\sigma_i(1)})]=[\sum_{i=0}^kn_i\sigma_i+\sum_{i=0}^kn_i(\beta_{\sigma_i(0)}-\beta_{\sigma_i(1)})]=[\sum_{i=0}^kn_i\sigma_i-\sum m_p\beta_p]=[\sum_{i=0}^kn_i\sigma_i]=[\lambda]$ since $m_p=0$.\\
+\noindent\textbf{We now find the kernel}\\
+Let $[\gamma]\in\pi_1(X,x_0)$ such that $h([\gamma])=[0]$.
+Then $\gamma$ is exact so there exists a finite sum of 2-simplices $\sum_{i=0}^kn_i\sigma_i$ such that $\gamma=\partial(\sum_{i=0}^kn_i\sigma_i)=\sum_{i=0}^kn_i\partial(\sigma_i)=\sum_{i=0}^kn_i(\lambda_i+\mu_i+\nu_i)$. Let $\Lambda=\{\lambda_i\}\cup\{\mu_i\}\cup\{\nu_i\}$ and for each end-point $p$ of a 1-simplex in $\Lambda$ let $\beta_p$ be a path from $x_0$ to $p$. For each $\theta\in\Lambda$ let $m_\theta$ be the sum of coefficients of $\theta$ in $\sum_{i=0}^kn_i(\lambda_i+\mu_i+\nu_i)$. This sum is equal to $\gamma$ thus $m_\theta$ is $1$ if $\theta=\gamma$ and $0$ otherwise. For each 2-simplex $\sigma_i$ the loops $\beta_{\lambda_i(0)}\cdot\lambda_i\cdot\beta_{\lambda_i(1)}^{-1}$, $\beta_{\mu_i(0)}\cdot\mu_i\cdot\beta_{\mu_i(1)}^{-1}$ and $\beta_{\nu_i(0)}\cdot\nu_i\cdot\beta_{\nu_i(1)}^{-1}$ have null-homotopic concatenations. Let $\eta_i=\beta_{\partial\sigma_i(0)}\cdot\partial\sigma_i\cdot\beta_{\partial\sigma_i(1)}^{-1}$. Then $h([\eta_0^{n_0}\cdot...\cdot\eta_k^{n_k}\cdot\gamma^{-1}])=h([\gamma])h([\gamma^{-1}])=[\gamma^{-1}]$. Now write each $[\eta_i]$ as $[\beta_{\lambda_i(0)}\cdot\lambda_i\cdot\beta_{\lambda_i(1)}^{-1}][\beta_{\mu_i(0)}\cdot\mu_i\cdot\beta_{\mu_i(1)}^{-1}][\beta_{\nu_i(0)}\cdot\nu_i\cdot\beta_{\nu_i(1)}^{-1}]$. Then for each $\theta\in\Lambda$ we have that the sum of exponents of $[\beta_{\theta(0)}\cdot\theta\cdot\beta_{\theta(1)}^{-1}]$ is $m_\theta$ The exponents of each $[\beta_{\theta(0)}\cdot\theta\cdot\beta_{\theta(1)}^{-1}]$ in $[\eta_0^{n_0}\cdot...\cdot\eta_k^{n_k}\cdot\gamma^{-1}]$ is then 0 so by the above lemma $[\gamma^{-1}]\in[\pi_1(X,x_0),\pi_1(X,x_0)]$ meaning $[\gamma]$ is as well. Thus $\text{ker }h\subseteq [\pi_1(X,x_0),\pi_1(X,x_0)]$. We also have that $[\pi_1(X,x_0),\pi_1(X,x_0)]\subseteq \text{ker }h$ since $H_1(X)$ is abelian so $\text{ker }h=[\pi_1(X,x_0),\pi_1(X,x_0)]$. The result then follows by the first isomorphism theorem.
 \end{proof}
 
 \begin{corollary}
