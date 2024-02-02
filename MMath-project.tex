@@ -105,24 +105,15 @@ If $f,g\colon X\to Y$ are homotopic continuous maps between topological spaces t
 \end{lemma}
 \begin{proof}
 Let $F\colon X\times I\to Y$ be a homotopy from $f$ to $g$. Given a singular n-simplex $\sigma\colon\Delta^n\to X$ we can define $\sigma\times\text{id}\colon\Delta^n\times I\to X\times I$ and $F_\#(\sigma\times\text{id})\colon\Delta^n\times I\to Y$. We now decompose $\Delta^n\times I$ as the union of $n+1$-simplices. To do this write $\Delta^n\times I$ as $[a_0,...,a_n,b_0,...,b_n]$ where $a_i=(e_i,0)$ and $b_i=(e_i,1)$. Then $\Delta^n\times I$ is the union of the $n+1$-simplices $\alpha_i=[a_0,...,a_i,b_i,...,b_n]$. Now define the "prism map" $P\colon C_n(X)\to C_{n+1}(Y)$ by $P(\sigma)=\sum_i(-1)^iF\circ(\sigma\times\text{id})|_{\alpha_i}$. $\partial P(\sigma)=\sum_i(-1)^i[\sum_{j\leq i}(-1)^jF\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_j},...,a_i,b_i,...,b_n]}+\sum_{j> i}(-1)^{(j+1)}F\circ(\sigma\times\text{id})|_{[a_0,...,a_i,b_i,...,\overset{\wedge}{b_j},...,b_n]}]$. The sum of terms with $i=j$ is $F\circ(\sigma\times\text{id})|_{[\overset{\wedge}{a_0},b_0,...,b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,\overset{\wedge}{b_0},b_1,...,b_n]}+F\circ(\sigma\times\text{id})|_{[a_0,\overset{\wedge}{a_1},b_1,...,b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,a_1,\overset{\wedge}{b_1},...,b_n]}+...+F\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_n},b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,...,a_n,\overset{\wedge}{b_n}]}=F\circ(\sigma\times\text{id})|_{[\overset{\wedge}{a_0},b_0,...,b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,...,a_n,\overset{\wedge}{b_n}]}=F\circ(\sigma\times\text{id})|_{[b_0,...,b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,...,a_n]}$ as a telescoping sum which is then $=g\circ\sigma-f\circ\sigma=(g_\#-f_\#)(\sigma)$. The terms with $i\neq j$ can be identified with $-P(\partial\sigma)$ so that $\partial P\sigma=-P(\partial\sigma)+g_\#(\sigma)-f_\#(\sigma)\implies\partial P + P\partial=g_\#-f_\#$. $\partial(\partial P + P\partial)=\partial P\partial=(\partial P + P\partial)\partial$ so $(\partial P + P\partial)$ is a chain map inducing a homomorphism on homology groups. Furthermore given a cycle $\sigma$ we have $(\partial P + P\partial)(\sigma)=\partial P(\sigma) + P\partial(\sigma)=\partial P(\sigma)$ so $\partial P(\sigma)$ sends cycles to boundaries thereby inducing the zero map on homology groups. Thus $g_*-f_*=0$ or $f_*=g_*$.
-
-
-
 \end{proof}
 
-\begin{proposition}
-Let $f\simeq g\colon X\to Y$ be homotopic continuous maps. Then $f_*=g_*\colon H_k(X;G)\to H_k(Y;G)$.
-\end{proposition}
-\begin{proof}
-See Hatcher.
-\end{proof}
 
 \noindent We are now ready to prove that homology is a topological invariant.
 \begin{proposition}
 If $X$ and $Y$ are homotopy-equivalent then $H_k(X;G)\cong H_k(Y;G)$
 \end{proposition}
 \begin{proof}
-We have continuous maps $\phi\colon X\to Y$ and $\psi\colon Y\to X$ such that $\psi\circ\phi\simeq\text{id}_X$ and $\phi\circ\psi\simeq\text{id}_Y$ giving $\psi_*\circ\phi_*=\text{id}_{H_k(X;G)}$ and $\phi_*\circ\psi_*=\text{id}_{H_k(Y;G)}$. Thus $\phi_*$ has a left and right inverse so is a bijection so a group isomorphism.
+We have continuous maps $f\colon X\to Y$ and $g\colon Y\to X$ such that $g\circ f\simeq\text{id}_X$ and $f\circ g\simeq\text{id}_Y$ giving $g_*\circ f_*=\text{id}_{H_k(X;G)}$ and $f_*\circ g_*=\text{id}_{H_k(Y;G)}$. Thus $f_*$ has a left and right inverse so is a bijection so a group isomorphism.
 \end{proof}
 
 \begin{lemma}
