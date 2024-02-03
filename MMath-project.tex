@@ -256,10 +256,14 @@ Let $M$ and $N$ be modules. Let $I$ denote the submodule of $M\times N$ generate
 
 \noindent This gives rise to the relations\\ $(m_1+m_2)\otimes n=m_1\otimes n+m_2\otimes n$,\\
 $m\otimes(n_1+n_2)=m\otimes n_1+m\otimes n_2$ and\\
-$rm\otimes n=m\otimes rn=r(m\otimes n)$ for $r\in R$.
+$(rm)\otimes n=m\otimes (rn)=r(m\otimes n)$ for $r\in R$.
 
-
-
+\begin{example}
+If $p$ and $q$ are coprime then $\mathbb{Z}_p\bigotimes_\mathbb{Z}\mathbb{Z}_q=0$ since there exist $m,n\in\mathbb{Z}$ such that $mp+nq=1$ (Bezout's lemma) so $a\otimes b=(mp+nq)a\otimes b=(mpa)\otimes b + a\otimes(nqb)=0\forall a\otimes b\in\mathbb{Z}_p\bigotimes_\mathbb{Z}\mathbb{Z}_q$.
+\end{example}
+\begin{example}
+$C_k(X;G)=C_k(X)\bigotimes_\mathbb{Z}G$.
+\end{example}
 
 
 
