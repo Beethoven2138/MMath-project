@@ -18,6 +18,8 @@
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
 \newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
 
 \begin{document}
 
@@ -43,6 +45,10 @@ The \textbf{faces} of $[v_0,...,v_k]$ are the (k-1)-simplices $[v_0,...,\overset
 Let $X$ be a topological space. A \textbf{singular k-simplex} in X is a continuous map $\sigma\colon\Delta^k\to X$. The \textbf{k-th chain group} of $X$ is the abelian group\\
 $C_k(X):=\{\sum_{i=1}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in\mathbb{Z},\sigma_i \text{ is a k-simplex}\}$ where the elements are called \textbf{k-chains}.
 \end{definition}
+\begin{remark}
+$C_k(X)$ is an example of a \textbf{free abelian group}; that is, an abelian group whose elements are of the form $\sum_in_is_i$ where each $s_i$ belongs to some set $S$.
+\end{remark}
+
 
 \begin{definition}
 The \textbf{boundary map} $\partial=\partial_k\colon C_k(X)\to C_{k-1}(X)$ is given by\\
@@ -203,6 +209,44 @@ $H_1(\mathbb{R}P^n)=$$\begin{cases}
 $H_1(K)=\mathbb{Z}\bigoplus\mathbb{Z}_2$
 \end{corollary}
 
+\section{Cohomology}
+
+\begin{definition}
+Let $R$ be a commutative ring with a unit. An \textbf{R-module} $M$ is an abelian group with a map $f\colon R\times M\to M$ such that if $f(r.m)$ is denoted by $rm$ then $(r_1r_2)m=r_1(r_2m)$ and $1m=m$. We usually abbreviate R-modules to modules.
+\end{definition}
+
+\begin{definition}
+Let $M$ and $N$ be R-modules. An \textbf{R-module homomorphism} $f\colon M\to N$ is a homomorphism of abelian groups such that $f(rm)=rf(m)$ 
+\end{definition}
+
+\begin{example}
+An abelian group $G$ is a $\mathbb{Z}$-module given by $ng=$$\begin{cases}
+       \sum_{i=1}^ng &\quad\text{if }n>0 \\
+       0 &\quad\text{if }n=0 \\
+       -\sum_{i=1}^{-n}g &\quad\text{if }n<0 \\
+     \end{cases}$\\
+\end{example}
+
+\begin{definition}
+Let $A$ and $B$ be R-modules. Their \textbf{direct sum} $A\bigoplus B$ is the module $A\times B$ under component-wise operations i.e. $(a_1,b_1)+(a_2,b_2)=(a_1+a_2,b_1+b_2)$ and $r(a,b)=(ra,rb)$. This can be extended to any finite collection of R-modules.
+\end{definition}
+
+\begin{definition}
+A bilinear map $h\colon M\times N\to P$ is a map such that $h(m_1+m_2,n)=h(m_1,n)+h(m_2,n)$, $h(m,n_1+n_2)=h(m,n_1)+h(m,n_2)$ and $h(rm,n)=h(m,rn)$ for $r\in R$.
+\end{definition}
+
+\begin{definition}
+The \textbf{tensor product} $M\bigotimes N$ is an R-module $\{m\otimes n:m\in M,n\in N\}$ with the relations
+$(m_1+m_2)\otimes n=m_1\otimes n+m_2\otimes n$,
+$m\otimes(n_1+n_2)=m\otimes n_1+m\otimes n_2$ and
+$rm\otimes n=m\otimes rn=r(m\otimes n)$ for $r\in R$.
+\end{definition}
+
+
+
+
+
+
 \section{Proof of the Borsuk-Ulam theorem with cohomology}
 
 \textrm{(Hatcher section 3.2 exercise 3) \\}
@@ -249,6 +293,19 @@ Fix $x\in S^n$ and let $y=\phi(x)$. $\psi_*\colon\pi_1(\mathbb{R}P^n,[x])\to \pi
 \end{tikzpicture}
 \\
 $\psi' \circ p$ and $\phi$ are both lifts of $\psi \circ p$ and both map $x\mapsto y$ so $\phi = \psi'\circ p$ by uniqueness. But then $\psi'(p(-x))=\psi'([x])=y=\phi(x)$, contradicting $\phi(-x)=-y$.
+\end{proof}
+
+\begin{definition}
+Let $M^n$ be a closed oriented manifold with fundamental class $[M]\in H_n(M;\mathbb{Z})$. Let $[\alpha]\in H^a(M;\mathbb{Z})$ and $[\beta]\in H^{n-a+1}(M;\mathbb{Z})$ be torsion classes, i.e. $k[\alpha]=0,m[\beta]=0$ for some $k,m\in\mathbb{N}$. Then we can write $k\alpha=d\gamma$ for some $\gamma\in C^{a-1}(M,\mathbb{Z})$. We define $[\alpha]\vee[\beta]=\frac{1}{k}(\gamma\cup\beta)[M]\in\mathbb{Q}/\mathbb{Z}$.
+\end{definition}
+\begin{lemma}
+$[\alpha]\vee[\beta]$ is well-defined and $[\beta]\vee[\alpha]=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]$
+\end{lemma}
+\begin{proof}
+Let $\gamma,\epsilon\in C^{a-1}(M,\mathbb{Z})$ such that $d\gamma=d\epsilon=k\alpha$.
+$\frac{1}{k}(\gamma\cup\beta)[M]=\gamma(M\circ F_{e_0,...,e_a})$
+
+$(k\alpha)\cup\beta=d(\alpha\cup\beta)+(-1)^{i+1}\alpha\cup d\beta=d\gamma\cup\beta=d\epsilon\cup\beta$
 \end{proof}
 
 \end{document}
