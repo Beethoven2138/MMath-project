@@ -297,15 +297,31 @@ Let $f\colon X\to Y$ be a continuous map between topological spaces and $G$ be a
 \end{definition}
 \noindent $df^\# A(c)=f^\# A(\partial c)=f^\# dA(c)$ so $df^\#=f^\# d$. Thus $f^\#$ is a chain map so $f^*$ is well-defined.
 
+\begin{lemma}
+There is a well-defined mapping $H^k(X;G)\times H_k(X)\to G$ given by $([\phi],[c])=\phi(c)$.
+\end{lemma}
+\begin{proof}
+Let $[\phi]=[\psi]$ so that $\phi-\psi=d\rho$ for some $\rho\in C^{k-1}(X;G)$. Then $(\phi-\psi)(c)=d\rho(c)=\rho(\partial c)=0$ since $c\in\text{ker }\partial$. Thus $\phi(c)=\psi(c)$.
+Now let $[a]=[b]$ so that $a=b+\partial e$ for some $e\in C_{k+1}(X)$. $\phi(a)=\phi(b+\partial e)=\phi(b)+\phi(\partial e)=\phi(b)+d\phi(e)=\phi(b)$ since $\phi\in\text{ker }d$.
+\end{proof}
+
+\noindent This then give that $f^*$ is dual to $f_*$ in the sense that $f^*[A]([c])=[A](f_*([c]))$ for $[A]\in H^k(Y;G)$ and $[c]\in H_k(X)$.
+
 \begin{proposition}
 Pullback is a contravariant functor.
 \end{proposition}
 \begin{proof}
 Let $X$, $Y$ and $Z$ be topological spaces and let $G$ be an abelian group. 
 Clearly $\text{id}_X^*=\text{id}_{H^k(X;G)}$.
-Now let $f\colon X\to Y$ and $g\colon Y\to Z$ be continuous maps. $(g\circ f)^*[A]=[]$
+Now let $f\colon X\to Y$ and $g\colon Y\to Z$ be continuous maps. $(g\circ f)^*[A](c)=A((g\circ f)_\#(c))=A(g_\#\circ f_\#(c))=(A\circ g_\#)(f_\#(c))=f^\#(A\circ g_\#)(c)=f^\#\circ g^\#A(c)=[f^\#\circ g^\# A](c)=f^*[g^\#A](c)=(f^*\circ g^*)[A](c)\forall c\in C_k(X)$ so $(g\circ f)^*=f^*\circ g^*$.
 \end{proof}
 
+\begin{proposition}
+Let $X$ and $Y$ be homotopy equivalent topological spaces. Then $H^k(X;G)\cong H^k(Y;G)$.
+\end{proposition}
+\begin{proof}
+We have continuous maps $f\colon X\to Y$ and $g\colon Y\to X$ such that $g\circ f\simeq\text{id}_X$ and $f\circ g\simeq\text{id}_Y$. $(g\circ f)_*=\text{id}_{H_k(X)}$ so $f^*\circ g^*=(g\circ f)^*=\text{id}_{H^k(X;G)}$ by duality. Similarly $g^*\circ f^*=\text{id}_{H^k(Y;G)}$. Thus $f^*$ is a bijective module homomorphism so an isomorphism.
+\end{proof}
 
 \section{Proof of the Borsuk-Ulam theorem with cohomology}
 
