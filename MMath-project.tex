@@ -73,7 +73,7 @@ $=\sum_{i=0}^k(\sum_{j<i}((-1)^{i+j}+(-1)^{1+j-1})\sigma\circ F_{e_0,...,\overse
 \end{proof}
 
 \noindent A simple example of this fact is that the boundary of a ball is a sphere, which in turn has no boundary.\\
-It also implies that $\text{im}(\partial:C_{k+1}(x)\rightarrow C_k(X))\in\text{ker}(\partial:C_{k}(x)\rightarrow C_{k-1}(X))$,
+It also implies that $\text{im}(\partial:C_{k+1}(X)\rightarrow C_k(X))\in\text{ker}(\partial:C_{k}(X)\rightarrow C_{k-1}(X))$,
 allowing the following to be well-defined.
 \begin{definition}
 The \textbf{singular homology} of $X$ is the collection of abelian groups
@@ -265,7 +265,46 @@ If $p$ and $q$ are coprime then $\mathbb{Z}_p\bigotimes_\mathbb{Z}\mathbb{Z}_q=0
 $C_k(X;G)=C_k(X)\bigotimes_\mathbb{Z}G$.
 \end{example}
 
+\begin{example}
+$\mathbb{Z}_m\bigotimes\mathbb{Z}_n=\mathbb{Z}_{gcd(m,n)}$.
+\end{example}
+\begin{proof}
+We have the first isomorphism for modules that given a module homomorphism $f:M\to N$, $M/\text{ker }f\cong\text{im }f$ (the proof is analogous to the cases for groups, rings and vector spaces).
+So, define a module homomorphism $g\colon\mathbb{Z}\to\mathbb{Z}_m\bigotimes\mathbb{Z}_n:z\mapsto z(1\otimes 1)$. $g$ is surjective so $\text{im }g=\mathbb{Z}_m\bigotimes\mathbb{Z}_n$. Clearly $<\text{gcd}(m,n)>\subseteq\text{ker }g$. Now let $x\notin <\text{gcd}(m,n)>$. Then $x=s\text{gcd}(m,n)+k$ with $0<k<\text{gcd}(m,n)$ by division with remainder. $g(x)=s\text{gcd}(m,n)(1\otimes 1)+g(k)=k(1\otimes 1)\neq 0\implies x\notin\text{ker }g$ so $x\in\text{ker }g\implies x\in<\text{gcd}(m,n)>$ giving $<\text{gcd}(m,n)>=\text{ker }g$.
+\end{proof}
 
+
+\begin{definition}
+Let M and N be modules over a ring R. The set of all module homomorphisms from M to N is denoted by $\text{Hom}_R(M,N)$. It is an abelian group under pointwise addition and a module if R is commutative.
+\end{definition}
+
+\begin{definition}
+Let $X$ be a topological space and let $G$ be an abelian group. The \textbf{kth cochain group with coefficients in G} is $C^k(X;G)=Hom(C_k(X),G)$. 
+\end{definition}
+
+\begin{definition}
+We define $d\colon C^k(X;G)\to C^{k+1}(X;G)$ to be the dual of $\partial$ in the sense that if $\phi\in C^k(X;G)$ and $c\in C_{k+1}(X)$ then $(d\phi)(c)=\phi(\partial c)\in G$
+\end{definition}
+
+\noindent In particular, $(d\circ d\phi)(c)=(d\phi)(\partial c)=\phi(\partial\circ\partial c)=\phi(0)=0$ so $d^2=0$.
+
+\begin{definition}
+The \textbf{kth cohomology group with coefficients in $G$} is $H^k(X;G)=\frac{\text{ker}(d\colon C^k(X;G)\to C^{k+1}(X;G))}{\text{im}(d\colon C^{k-1}(X;G)\to C^k(X;G))}$. When G is $\mathbb{Z}$ we abbreviate it to $H^k(X)$ and call it simply the \textbf{kth cohomology group}.
+\end{definition}
+
+\begin{definition}
+Let $f\colon X\to Y$ be a continuous map between topological spaces and $G$ be an abelian group. We have a homomorphism $f^\#\colon C^k(Y;G)\to C^k(X;G):A\mapsto f^\# A$ given by $f^\# A(c)=A(f_\#(c))$. This in turn induces the \textbf{pullback homomorphism} $f^*\colon H^k(Y;G)\to H^k(X;G):[A]\mapsto [f^\# A]$.
+\end{definition}
+\noindent $df^\# A(c)=f^\# A(\partial c)=f^\# dA(c)$ so $df^\#=f^\# d$. Thus $f^\#$ is a chain map so $f^*$ is well-defined.
+
+\begin{proposition}
+Pullback is a contravariant functor.
+\end{proposition}
+\begin{proof}
+Let $X$, $Y$ and $Z$ be topological spaces and let $G$ be an abelian group. 
+Clearly $\text{id}_X^*=\text{id}_{H^k(X;G)}$.
+Now let $f\colon X\to Y$ and $g\colon Y\to Z$ be continuous maps. $(g\circ f)^*[A]=[]$
+\end{proof}
 
 
 \section{Proof of the Borsuk-Ulam theorem with cohomology}
