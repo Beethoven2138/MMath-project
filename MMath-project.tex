@@ -313,7 +313,7 @@ Pullback is a contravariant functor.
 \begin{proof}
 Let $X$, $Y$ and $Z$ be topological spaces and let $G$ be an abelian group. 
 Clearly $\text{id}_X^*=\text{id}_{H^k(X;G)}$.
-Now let $f\colon X\to Y$ and $g\colon Y\to Z$ be continuous maps. $(g\circ f)^*[A](c)=A((g\circ f)_\#(c))=A(g_\#\circ f_\#(c))=(A\circ g_\#)(f_\#(c))=f^\#(A\circ g_\#)(c)=f^\#\circ g^\#A(c)=[f^\#\circ g^\# A](c)=f^*[g^\#A](c)=(f^*\circ g^*)[A](c)\forall c\in C_k(X)$ so $(g\circ f)^*=f^*\circ g^*$.
+Now let $f\colon X\to Y$ and $g\colon Y\to Z$ be continuous maps. $(g\circ f)^*[A](c)=A((g\circ f)_\#(c))=A(g_\#\circ f_\#(c))=(A\circ g_\#)(f_\#(c))=f^\#(A\circ g_\#)(c)=f^\#\circ g^\#A(c)=[f^\#\circ g^\# A](c)=f^*[g^\#A](c)=(f^*\circ g^*)[A](c)\forall [c]\in H_k(X)$ so $(g\circ f)^*=f^*\circ g^*$.
 \end{proof}
 
 \begin{proposition}
@@ -321,6 +321,31 @@ Let $X$ and $Y$ be homotopy equivalent topological spaces. Then $H^k(X;G)\cong H
 \end{proposition}
 \begin{proof}
 We have continuous maps $f\colon X\to Y$ and $g\colon Y\to X$ such that $g\circ f\simeq\text{id}_X$ and $f\circ g\simeq\text{id}_Y$. $(g\circ f)_*=\text{id}_{H_k(X)}$ so $f^*\circ g^*=(g\circ f)^*=\text{id}_{H^k(X;G)}$ by duality. Similarly $g^*\circ f^*=\text{id}_{H^k(Y;G)}$. Thus $f^*$ is a bijective module homomorphism so an isomorphism.
+\end{proof}
+
+
+\section{Cup product and ring structure of cohomology}
+\begin{definition}
+Let $R$ be a ring and $X$ be a topological space. The \textbf{cup product} is the product on cochains $C^i(X;R)\times C^j(X;R)\to C^{i+j}(X;R):(\psi,\phi)\mapsto\psi\cup\phi$ where $(\psi\cup\phi)\sigma=\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_{i+1},...,e_{i+j}]})$ for a singular $i+j$-simplex $\sigma\colon\Delta^{i+j}\to X$ and is extended linearly to $C_{i+j}(X)$.
+\end{definition}
+
+\begin{lemma}
+$d(\psi\cup\phi)=(d\psi)\cup\phi+(-1)^i\psi\cup d\phi$.
+\end{lemma}
+\begin{proof}
+Let $\sigma\colon\Delta^{i+j+1}\to X$ be a singular simplex.
+$d(\psi\cup\phi)\sigma=(\psi\cup\phi)(\partial\sigma)=\psi(\partial\sigma\circ F_{[e_0,...,e_i]})\phi(\partial\sigma\circ F_{[e_{i+1},...,e_{i+j+1}]})=\psi(\sum_{t=0}^i(-1)^t\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_i]})\phi(\sum_{t=i+1}^{i+j+1}(-1)^t\sigma\circ F_{[e_{i+1},...,\overset{\wedge}{e_t},...,e_{i+j+1}]})=(\sum_{t=0}^i(-1)^t\psi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_i]}))(\sum_{t=i+1}^{i+j+1}(-1)^t\phi(\sigma\circ F_{[e_{i+1},...,\overset{\wedge}{e_t},...,e_{i+j+1}]}))$
+
+\noindent We have $(d\psi\cup\phi)(\sigma)=\sum_{t=0}^{i+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+1}]})\phi(\sigma\circ F_{[e_{i+1},...,e_{i+j+1}]})$
+and $(-1)^i(\psi\cup d\phi)(\sigma)=\sum_{t=i}^{i+j+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_i,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})$. When these expressions are added, the last term of the first sum cancels with the first term of the second sum leaving $d(\psi\cup\phi)(\sigma)$.
+\end{proof}
+
+\begin{proposition}
+There is a well-defined map $H^i(X;R)\times H^j(X;R)\to H^{i+j}(X;R)$ given by $([\psi],[\phi])\mapsto [\psi]\cup [\phi]=[\psi\cup\phi]$.
+\end{proposition}
+\begin{proof}
+$d(\psi\cup\phi)=0\cup\phi+(-1)^i\psi\cup 0=0$ so $\psi\cup\phi \in \text{ker }d$.
+Let $[\omega]=[\psi]$ so that $\omega=\psi+d\theta$ for some $\theta\in C^{k-1}(X;R)$. Then 
 \end{proof}
 
 \section{Proof of the Borsuk-Ulam theorem with cohomology}
