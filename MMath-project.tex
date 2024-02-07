@@ -163,8 +163,8 @@ The \textbf{abelianization} $G^{\text{ab}}$ of a group $G$ is $G/[G,G]$.
 Given groups $G$ and $H$, where $H$ is abelian, and a group homomorphism $h\colon G\to H$, the induced homomorphism $h'\colon G^{\text{ab}}\to H:[x]\mapsto h(x)$ is well-defined.
 \end{lemma}
 \begin{proof}
-Let $[x]=[y]\in G^{\text{ab}}$ so that $x=yaba^{-1}b^{-1}$ for some $a,b\in [G,G]$.
-Then $h'([x])=h(yaba^{-1}b^{-1})=h(y)h(a)h(b)h(a)^{-1}h(b)^{-1}=h(y)=h'([y])$ since $H$ is abelian.
+Let $[x]=[y]\in G^{\text{ab}}$ so that $x=y\prod_ia_ib_ia_i^{-1}b_i^{-1}$ for $a_i,b_i\in G$.
+Then $h'([x])=h(y\prod_ia_ib_ia_i^{-1}b_i^{-1})=h(y)\prod_ih(a_i)h(b_i)h(a_i)^{-1}h(b_i)^{-1}=h(y)=h'([y])$ since $H$ is abelian.
 \end{proof}
 
 \begin{lemma}
