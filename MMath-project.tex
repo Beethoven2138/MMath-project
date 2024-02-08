@@ -239,7 +239,7 @@ A bilinear map $h\colon M\times N\to P$ is a map such that $h(m_1+m_2,n)=h(m_1,n
 \end{definition}
 
 \begin{definition}
-Given modules M and N, we define the module $R^{M\times N}$ to be $\{\sum_{i=0}^kn_i(m_i,n_i):n_i\in R,(m_i,n_i)\in M\times N\}$.
+Given modules M and N, we define the module $R^{M\times N}$ to be $\{\sum_{i=0}^kr_i(m_i,n_i):r_i\in R,(m_i,n_i)\in M\times N\}$.
 \end{definition}
 
 \begin{definition}
@@ -326,7 +326,7 @@ We have continuous maps $f\colon X\to Y$ and $g\colon Y\to X$ such that $g\circ 
 
 \section{Cup product and ring structure of cohomology}
 \begin{definition}
-Let $R$ be a ring and $X$ be a topological space. The \textbf{cup product} is the product on cochains $C^i(X;R)\times C^j(X;R)\to C^{i+j}(X;R):(\psi,\phi)\mapsto\psi\cup\phi$ where $(\psi\cup\phi)\sigma=\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_{i+1},...,e_{i+j}]})$ for a singular $i+j$-simplex $\sigma\colon\Delta^{i+j}\to X$ and is extended linearly to $C_{i+j}(X)$.
+Let $R$ be a ring and $X$ be a topological space. The \textbf{cup product} is the product on cochains $C^i(X;R)\times C^j(X;R)\to C^{i+j}(X;R):(\psi,\phi)\mapsto\psi\cup\phi$ where $(\psi\cup\phi)\sigma=\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_i,...,e_{i+j}]})$ for a singular $i+j$-simplex $\sigma\colon\Delta^{i+j}\to X$ and is extended linearly to $C_{i+j}(X)$.
 \end{definition}
 
 \begin{lemma}
@@ -334,7 +334,7 @@ $d(\psi\cup\phi)=(d\psi)\cup\phi+(-1)^i\psi\cup d\phi$.
 \end{lemma}
 \begin{proof}
 Let $\sigma\colon\Delta^{i+j+1}\to X$ be a singular simplex.
-$d(\psi\cup\phi)\sigma=(\psi\cup\phi)(\partial\sigma)=\psi(\partial\sigma\circ F_{[e_0,...,e_i]})\phi(\partial\sigma\circ F_{[e_{i+1},...,e_{i+j+1}]})=\psi(\sum_{t=0}^i(-1)^t\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_i]})\phi(\sum_{t=i+1}^{i+j+1}(-1)^t\sigma\circ F_{[e_{i+1},...,\overset{\wedge}{e_t},...,e_{i+j+1}]})=(\sum_{t=0}^i(-1)^t\psi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_i]}))(\sum_{t=i+1}^{i+j+1}(-1)^t\phi(\sigma\circ F_{[e_{i+1},...,\overset{\wedge}{e_t},...,e_{i+j+1}]}))$
+$d(\psi\cup\phi)(\sigma)=\psi\cup\phi(\partial\sigma)=\psi\cup\phi(\sum_{t=0}^{j+k+1}(-1)^t\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})=\sum_{t=0}^{i+j+1}(-1)^t\psi\cup\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})=\sum_{t=0}^{i}(-1)^t\psi\cup\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})+\sum_{t=i+1}^{i+j+1}(-1)^t\psi\cup\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})=\sum_{t=0}^i(-1)^t\psi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+1}]})\phi(\sigma\circ F_{[e_{i+1},...,e_{i+j+1}]})+\sum_{t=i+1}^{i+j+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,e_{i}]})\phi(\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j+1}]})=\sum_{t=0}^{i+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+1}]})\phi(\sigma\circ F_{[e_{i+1},...,e_{i+j+1}]})+\sum_{t=i}^{i+j+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,e_{i}]})\phi(\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j+1}]})$.
 
 \noindent We have $(d\psi\cup\phi)(\sigma)=\sum_{t=0}^{i+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+1}]})\phi(\sigma\circ F_{[e_{i+1},...,e_{i+j+1}]})$
 and $(-1)^i(\psi\cup d\phi)(\sigma)=\sum_{t=i}^{i+j+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_i,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})$. When these expressions are added, the last term of the first sum cancels with the first term of the second sum leaving $d(\psi\cup\phi)(\sigma)$.
