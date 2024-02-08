@@ -317,7 +317,7 @@ Now let $f\colon X\to Y$ and $g\colon Y\to Z$ be continuous maps. $(g\circ f)^*[
 \end{proof}
 
 \begin{proposition}
-Let $X$ and $Y$ be homotopy equivalent topological spaces. Then $H^k(X;G)\cong H^k(Y;G)$.
+Let $X$ and $Y$ be homotopy-equivalent topological spaces. Then $H^k(X;G)\cong H^k(Y;G)$.
 \end{proposition}
 \begin{proof}
 We have continuous maps $f\colon X\to Y$ and $g\colon Y\to X$ such that $g\circ f\simeq\text{id}_X$ and $f\circ g\simeq\text{id}_Y$. $(g\circ f)_*=\text{id}_{H_k(X)}$ so $f^*\circ g^*=(g\circ f)^*=\text{id}_{H^k(X;G)}$ by duality. Similarly $g^*\circ f^*=\text{id}_{H^k(Y;G)}$. Thus $f^*$ is a bijective module homomorphism so an isomorphism.
@@ -347,6 +347,42 @@ There is a well-defined map $H^i(X;R)\times H^j(X;R)\to H^{i+j}(X;R)$ given by $
 $d(\psi\cup\phi)=0\cup\phi+(-1)^i\psi\cup 0=0$ so $\psi\cup\phi \in \text{ker }d$.
 Now let $\psi=df$. Then $d(f\cup\phi)=(df)\cup\phi\pm f\cup d\phi=\psi\cup\phi+f\cup0=\psi\cup\phi$. Similarly if $\phi=dg$ then $d((-1)^i\psi\cup g)=\psi\cup\phi$ so adding an element in the image of $d$ keeps $\psi\cup\phi$ in the same equivalence class.
 \end{proof}
+
+\begin{definition}
+We call the induced map $\cup:H^k(X;R)\times H^l(X;R)\to H^{k+l}(X;R)$ the \textbf{cup product} on cohomology.
+\end{definition}
+
+\begin{definition}
+A \textbf{graded ring} is a ring such that its additive group is a direct sum of abelian groups.
+\end{definition}
+
+\begin{proposition}
+$H^*(X;R)=\bigoplus_{n=0}^\infty H^n(X;R)$ is a graded ring with multiplication given by the cup product.
+\end{proposition}
+\begin{proof}
+The direct sum of abelian groups is abelian so $H^*(X;R)$ is abelian as an additive group.
+To show that the product is associative and distributive it suffices to show that it is for cochains.\\
+For associativity:
+$(\psi\cup\phi)\cup\theta(\sigma)=(\psi(\sigma\circ F_{[e_0,...,e_k]})\phi(\sigma\circ F_{e_k,...,e_{k+l}}))\theta(\sigma\circ F_{[e_{k+l},...,e_{k+l+m}]})=\psi(\sigma\circ F_{[e_0,...,e_k]})(\phi(\sigma\circ F_{[e_k,...,e_{k+l}]})\theta(\sigma\circ F_{[e_{k+l},...,e_{k+l+m}]}))=(\psi\cup\phi)\cup\theta(\sigma)$.\\
+For distributivity:
+$\psi\cup(\phi+\theta)(\sigma)=\psi(\sigma\circ F_{[e_0,...,e_i]})(\phi(\sigma\circ F_{[e_i,...,e_{i+j}]})+\theta(\sigma\circ F_{[e_i,...,e_{i+j}]}))=\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_i,...,e_{i+j}]})+\psi(\sigma\circ F_{[e_0,...,e_i]})\theta(\sigma\circ F_{[e_i,...,e_{i+j}]})=\psi\cup\phi(\sigma)+\psi\cup\theta(\sigma)$.
+
+
+\noindent If $R$ has an identity element then there is also an identity element given by $[1]\in H^0(X;R)$ which sends each singular 0-simplex to 1.
+\end{proof}
+
+\begin{proposition}
+Let $R$ be a commutative ring, $\psi\in H^k(X;R)$ and $\phi\in H^l(X;R)$. Then $\psi\cup\phi=(-1)^{kl}\phi\cup\psi$.
+\end{proposition}
+
+\begin{proposition}
+Let $f\colon X\to Y$ be a continuous map. Then $f^*(\psi\cup\phi)=f^*(\psi)\cup f^*(\phi)$.
+\end{proposition}
+\begin{proof}
+As before it suffices to check this for cochains. Let $\sigma\colon\Delta^{p+q}\to X$ be a singular simplex. Then $(f^*\psi\cup f^*\phi)(\sigma)=f^*\psi(\sigma\circ F_{[e_0,...,e_p]})f^*\phi(\sigma\circ F_{[e_p,...,e_{p+q}]})=\psi(f\circ\sigma\circ F_{[e_0,...,e_p]})\phi(f\circ\sigma\circ F_{[e_p,...,e_{p+q}]})=(\psi\cup\phi)(f\circ\sigma)=f^*(\psi\cup\phi)(\sigma)$.
+\end{proof}
+
+\noindent This makes $f^*$ a ring homomorphism.
 
 \section{Proof of the Borsuk-Ulam theorem with cohomology}
 
