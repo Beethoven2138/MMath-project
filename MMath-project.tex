@@ -425,8 +425,24 @@ A topological space $M$ is an \textbf{n-dimensional manifold} if for every $p\in
 \end{definition}
 
 \begin{definition}
-An n-dimensional manifold $M$ is orientable if $H_n(M)\cong \mathbb{Z}$.
+An n-dimensional manifold $M$ is \textbf{orientable} if $H_n(M)\cong \mathbb{Z}$.
 \end{definition}
+
+\begin{definition}
+Let $M$ be an n-dimensional manifold and $R$ a commutative ring with an identity. $M$ is \textbf{R-orientable} if $H_n(M;R)\cong R$. The image of a unit in $R$ is called a \textbf{fundamental class}. An \textbf{orientation} of $M$ is a choice of fundamental class $[M]\in H_n(M)$.
+\end{definition}
+
+\begin{definition}
+The \textbf{boundary} of an n-dimensional manifold $M$ is $\partial M=\{p\in M:p\in\phi(\partial\overset{\sim}{U})\text{ for some homeomorphism of open subsets }\phi:\overset{\sim}{U}\subseteq\partial H^n\to U\subseteq \mathbb{R}^n\}$ where $\partial\overset{\sim}{U}=\overset{\sim}{U}\cap\partial H^n$ and $\partial H^n=\{0\}\times\mathbb{R}^{n-1}$.
+\end{definition}
+
+\begin{definition}
+A manifold is \textbf{closed} if it has no boundary.
+\end{definition}
+
+\begin{theorem}
+(Poincare Duality). If $M$ is a closed $R$-orientable $n$-manifold with fundamental class $[M]\in H_n(M;R)$, then the map $D\colon H^k(M;R)\to H_{n-k}(M;R)$ defined by $D(\alpha)=[M]\cap\alpha$ is an isomorphism for all $k$.
+\end{theorem}
 
 \section{Proof of the Borsuk-Ulam theorem with cohomology}
 
