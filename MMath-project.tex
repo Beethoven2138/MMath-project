@@ -215,7 +215,7 @@ $H_1(K)=\mathbb{Z}\bigoplus\mathbb{Z}_2$
 Let $R$ be a commutative ring with a unit. An \textbf{R-module} $M$ is an abelian group with a map $f\colon R\times M\to M$ such that if $f(r,m)$ is denoted by $rm$ then $(r_1r_2)m=r_1(r_2m)$ and $1m=m$. We usually abbreviate R-modules to modules.
 \end{definition}
 \begin{remark}
-More specifically we defined a \textbf{left R-module}. If $f$ instead had domain $M\times R$ then $M$ would be a \textbf{right R-module}.
+More specifically we defined a \textbf{left R-module}. If instead multiplication were defined as $r_1(r_2m)=(r_2r_1)m$ then $M$ would be a \textbf{right R-module}.
 \end{remark}
 
 \begin{definition}
@@ -239,8 +239,9 @@ A bilinear map $h\colon M\times N\to P$ is a map such that $h(m_1+m_2,n)=h(m_1,n
 \end{definition}
 
 \begin{definition}
-Given modules M and N, we define the module $R^{M\times N}$ to be $\{\sum_{i=0}^kr_i(m_i,n_i):r_i\in R,(m_i,n_i)\in M\times N\}$.
+Given a ring $R$ and set $S$, we define the module $R^S$ to be $\{\sum_{i=0}^kr_is_i:r_i\in R,s_i\in S,k\in\mathbb{N}_0\}$ with multiplication given by $r_1(r_2s)=(r_1r_2)s$. Given R-modules $M$ and $N$, addition in $R^{M\times N}$ is given by $(m_1,n_1)+(m_2,n_2)=(m_1+m_2,n_1+n_2)$ and multiplication by $r(m,n)=(rm,rn)$.
 \end{definition}
+
 
 \begin{definition}
 Given a module M, we say that $H\subseteq M$ is a \textbf{submodule} if $rh\in H\forall r\in R,h\in H$ and $H$ is itself a module after inheriting the addition and multiplication maps of $M$.
@@ -287,6 +288,11 @@ We define $d\colon C^k(X;G)\to C^{k+1}(X;G)$ to be the dual of $\partial$ in the
 \end{definition}
 
 \noindent In particular, $(d\circ d\phi)(c)=(d\phi)(\partial c)=\phi(\partial\circ\partial c)=\phi(0)=0$ so $d^2=0$.
+
+\begin{definition}
+$c\in C_k(X)$ is a cycle if $\partial c=0 and a boundary if c\in\text{im }\partial$.
+$\phi\in C^k(X;G)$ is a cocycle if $d\phi=0$ and a coboundary if $\phi\in\text{im }d$.
+\end{definition}
 
 \begin{definition}
 The \textbf{kth cohomology group with coefficients in $G$} is $H^k(X;G)=\frac{\text{ker}(d\colon C^k(X;G)\to C^{k+1}(X;G))}{\text{im}(d\colon C^{k-1}(X;G)\to C^k(X;G))}$. When G is $\mathbb{Z}$ we abbreviate it to $H^k(X)$ and call it simply the \textbf{kth cohomology group}.
@@ -383,6 +389,44 @@ As before it suffices to check this for cochains. Let $\sigma\colon\Delta^{p+q}\
 \end{proof}
 
 \noindent This makes $f^*$ a ring homomorphism.
+
+\section{Cap product and Poincare duality}
+
+\begin{definition}
+Let $X$ be a topological space and $R$ a commutative ring with an identity element. The \textbf{cap product} $C_{i+j}(X;R)\times C^i(X;R)\to C_j(X;R):(c,\phi)\mapsto c\cap\phi$ given by $\sigma\cap\phi=\phi(\sigma\circ F_{[e_0,...,e_i]})\sigma\circ F_{[e_i,...,e_{i+j}]}$ for $\sigma\colon\Delta^j\to X$ a singular simplex and $\phi\in C^{i+j}(X;R)$ and extended linearly.
+\end{definition}
+
+\begin{lemma}
+$\partial(\sigma\cap\phi)=(-1)^i(\partial\sigma\cap\phi-\sigma\cap d\phi)$.
+\end{lemma}
+\begin{proof}
+$\partial\sigma\cap\phi=\sum_{t=0}^i(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}+\sum_{t=i+1}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}$.
+$\sigma\cap d\phi=\sum_{t=0}^{i+1}(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}$.
+$\partial(\sigma\cap\phi)=\sum_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}$.
+\end{proof}
+
+\begin{proposition}
+There is an induced cap product $H_{i+j}(X;R)\times H^i(X;R)\to H_j(X;R)$ which is $R$-linear in each variable.
+\end{proposition}
+\begin{proof}
+The cap product of a cycle and a cocycle is a cycle. $\partial\sigma=0\implies\partial(\sigma\cap\phi)=\pm(\sigma\cap d\phi)$ so the cap product of a cycle and a coboundary is a boundary. $d\phi=0\implies\partial(\sigma\cap\phi)=\pm(\partial\sigma\cap\phi)$ so the cap product of a boundary and a cocycle is a boundary.
+\end{proof}
+
+\begin{proposition}
+Let $f\colon X\to Y$ be continuous, $c\in C_{i+j}(X;R)$ and $\phi\in C^i(X;R)$. Then $f_*(c)\cap\phi=f_*(c\cap f^*(\phi))$.
+\end{proposition}
+\begin{proof}
+Let $\sigma\colon\Delta^{i+j}\to X$ be a singular simplex. Then $f\sigma\cap\phi=\phi(f\sigma\circ F_{[e_0,...,e_j]})f\sigma\circ F_{[e_j,...,e_{i+j}]}$.
+The result follows by linearity.
+\end{proof}
+
+\begin{definition}
+A topological space $M$ is an \textbf{n-dimensional manifold} if for every $p\in M$ there is a neighbourhood $U\subseteq\M$ containing $p$ and a homeomorphism $f\colon U\to V$ where $V\subseteq\mathbb{R}^n$ is open.
+\end{definition}
+
+\begin{definition}
+An n-dimensional manifold $M$ is orientable if $H_n(M)\cong \mathbb{Z}$.
+\end{definition}
 
 \section{Proof of the Borsuk-Ulam theorem with cohomology}
 
