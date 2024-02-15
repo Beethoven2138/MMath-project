@@ -319,7 +319,7 @@ Pullback is a contravariant functor.
 \begin{proof}
 Let $X$, $Y$ and $Z$ be topological spaces and let $G$ be an abelian group. 
 Clearly $\text{id}_X^*=\text{id}_{H^k(X;G)}$.
-Now let $f\colon X\to Y$ and $g\colon Y\to Z$ be continuous maps. $(g\circ f)^*[A](c)=A((g\circ f)_\#(c))=A(g_\#\circ f_\#(c))=(A\circ g_\#)(f_\#(c))=f^\#(A\circ g_\#)(c)=f^\#\circ g^\#A(c)=[f^\#\circ g^\# A](c)=f^*[g^\#A](c)=(f^*\circ g^*)[A](c)\forall [c]\in H_k(X)$ so $(g\circ f)^*=f^*\circ g^*$.
+Now let $f\colon X\to Y$ and $g\colon Y\to Z$ be continuous maps. $(g\circ f)^*([A])=[(g\circ f)^\#(A)]=[f^\#\circ g^\#(A)]=f^*([g^\#(A)])=f^*\circ g^*([A])\forall [A]\in H^k(Z;G)$. Thus $(g\circ f)^*=f^*\circ g^*$.
 \end{proof}
 
 \begin{proposition}
@@ -505,28 +505,7 @@ Given any continuous map $f\colon\mathbb{R}P^n\to \mathbb{R}P^m$ with $n>m\geq 0
  $f^*\colon H^1(\mathbb{R}P^m;\mathbb{Z}_2)\rightarrow H^1(\mathbb{R}P^n;\mathbb{Z}_2)$ is dual to $f_*\colon H_1(\mathbb{R}P^n;\mathbb{Z}_2)\rightarrow H_1(\mathbb{R}P^m;\mathbb{Z}_2)$ which is equal to $f_*\colon \pi_1(\mathbb{R}P^n)\rightarrow \pi_1(\mathbb{R}P^m)$ by the Hurewicz theorem and the fact that $\pi_1(\mathbb{R}P^k)$ is abelian. Thus $f_*$ is trivial.
 \end{proof}
 
-\noindent We are now able to prove the main theorem.
-\begin{theorem}
-\textbf{Borsuk-Ulam theorem:} For integers $n>m\geq 0$ there is no continuous map $\phi\colon S^n\to S^m$ which is antipode preserving, meaning $\phi(-x)=-\phi(x)$ for all $x$.
-\end{theorem}
-\begin{proof}
-Suppose that there exists a continuous antipode preserving map $\phi:S^n\rightarrow S^m$. Define $\psi\colon\mathbb{R}P^n\to \mathbb{R}P^m$ by $\psi([x])=[\phi(x)]$. $\psi$ is well-defined since $x\sim y \implies x=\pm y \implies \phi(x)=\pm\phi(y) \implies \phi(x)\sim\phi(y)$. $\psi$ is also continuous by the universal property of quotients for the quotient map $p:S^k\rightarrow \mathbb{R}P^k$.
-Fix $x\in S^n$ and let $y=\phi(x)$. $\psi_*\colon\pi_1(\mathbb{R}P^n,[x])\to \pi_1(\mathbb{R}P^m,[y])$ is trivial by the above lemma, so has a unique lift $\psi'\colon(\mathbb{R}P^n,[x])\to (S^m,y)$ under the covering map $p$ by the ultimate lifting theorem. This gives a commutative diagram
-
-\begin{tikzpicture}
-  \matrix (m) [matrix of math nodes,row sep=3em,column sep=4em,minimum width=2em] {
-     S^n & S^m \\
-     \mathbb{R}P^n & \mathbb{R}P^m \\};
-  \path[-stealth]
-    (m-1-1) edge node [right] {$p$} (m-2-1)
-            edge  node [above] {$\phi$} (m-1-2)
-    (m-2-1.east|-m-2-2) edge  node [above] {$\psi$} (m-2-2)
-    (m-1-2) edge node [right] {$p$} (m-2-2)
-            (m-2-1) edge  node [above]{$\psi'$} (m-1-2);
-\end{tikzpicture}
-\\
-$\psi' \circ p$ and $\phi$ are both lifts of $\psi \circ p$ and both map $x\mapsto y$ so $\phi = \psi'\circ p$ by uniqueness. But then $\psi'(p(-x))=\psi'([x])=y=\phi(x)$, contradicting $\phi(-x)=-y$.
-\end{proof}
+\noindent This then entails a proof of the Borsuk-Ulam theorem by applying the ultimate lifting theorem to derive a contradiction.
 
 
 \section{Lens spaces}
