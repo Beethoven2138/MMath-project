@@ -421,7 +421,7 @@ The result follows by linearity.
 \end{proof}
 
 \begin{definition}
-A topological space $M$ is an \textbf{n-dimensional manifold} if for every $p\in M$ there is a neighbourhood $U\subseteq\M$ containing $p$ and a homeomorphism $f\colon U\to V$ where $V\subseteq\mathbb{R}^n$ is open.
+A topological space $M$ is an \textbf{n-dimensional manifold} if for every $p\in M$ there is an open neighbourhood $U\subseteq M$ containing $p$ and a homeomorphism $f\colon U\to V$ where $V\subseteq\mathbb{R}^n$ is open.
 \end{definition}
 
 \begin{definition}
@@ -452,7 +452,7 @@ The \textbf{boundary} of an n-dimensional manifold $M$ is $\partial M=\{p\in M:p
 \end{definition}
 
 \begin{definition}
-A manifold is \textbf{closed} if it has no boundary.
+A manifold is \textbf{closed} if it is compact and has no boundary.
 \end{definition}
 
 \begin{theorem}
@@ -460,7 +460,7 @@ A manifold is \textbf{closed} if it has no boundary.
 \end{theorem}
 
 \begin{proposition}
-Let $\psi\in C^l(X;R)$, $\alpha\in C_{k+l}(X;R)$ and $\psi\in C^k(X;R)$. Then $\psi(\alpha\cap\phi)=(\phi\cap\phi)(\alpha)$
+Let $\psi\in C^l(X;R)$, $\alpha\in C_{k+l}(X;R)$ and $\psi\in C^k(X;R)$. Then $\psi(\alpha\cap\phi)=(\phi\cap\psi)(\alpha)$
 \end{proposition}
 \begin{proof}
 Let $\sigma\colon\Delta^{k+l}\to X$ be a singular simplex. Then $\psi(\sigma\cap\phi)=\psi(\phi(\sigma\circ F_{[e_0,...,e_k]})\sigma\circ F_{[e_k,...,e_{k+l}]})=\phi(\sigma\circ F_{[e_0,...,e_k]})\psi(\sigma\circ F_{[e_k,...,e_{k+l}]})$.
@@ -532,10 +532,7 @@ Let $M^n$ be a closed oriented manifold with fundamental class $[M]\in H_n(M;\ma
 $[\alpha]\vee[\beta]$ is well-defined and $[\beta]\vee[\alpha]=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]$
 \end{lemma}
 \begin{proof}
-Let $\gamma,\epsilon\in C^{a-1}(M,\mathbb{Z})$ such that $d\gamma=d\epsilon=k\alpha$.
-$\frac{1}{k}(\gamma\cup\beta)[M]=\gamma(M\circ F_{e_0,...,e_a})$
-
-$(k\alpha)\cup\beta=d(\alpha\cup\beta)+(-1)^{i+1}\alpha\cup d\beta=d\gamma\cup\beta=d\epsilon\cup\beta$
+Let $d\gamma=d\eta=k\alpha$ for $\eta\in C^{a-1}(M;\mathbb{Z})$. Then $d(\frac{1}{k}\gamma-\frac{1}{k}\eta)=0$ so $\frac{1}{k}\gamma-\frac{1}{k}\eta$ is a representative of an equivalence class in $H^{a-1}(M;\mathbb{Z})$. This gives $([\frac{1}{k}\gamma-\frac{1}{k}\eta]\cup[\beta])=[(\frac{1}{k}\gamma-\frac{1}{k}\eta)\cup\beta]\in H^{n}(M;\mathbb{Z})$ so $[(\frac{1}{k}\gamma-\frac{1}{k}\eta)\cup\beta][M]$ is well-defined and an integer by the pairing of cohomology and homology groups. This then gives $(\gamma\cup\beta)[M]-(\eta\cup\beta)[M]\in k\mathbb{Z}$ as required.
 \end{proof}
 
 
