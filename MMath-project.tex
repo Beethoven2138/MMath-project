@@ -525,6 +525,8 @@ The multiplication map induced by the group action is clearly continuous for all
 Now let $(a,b)\in S^3$. If $S=(B_{|a|\text{sin}(\frac{\pi}{p})}(a)\cap |a|S^1,B_{|b|\text{sin}(\frac{\pi}{p})}(b)\cap |b|S^1)$ then $gS\cap S=\emptyset$ for all non-trivial $g\in \mathbb{Z}_p$ so the action is a covering space action giving $\pi_1(L(p;q))\cong \mathbb{Z}_p$. $H_1(L(p;q))\cong \mathbb{Z}_p$ by the Hurewicz theorem.
 \end{proof}
 
+\noindent Then $H^2(L(p;q);\mathbb{Z})\cong\mathbb{Z}_p$ by Poincare duality. $H_3((L(p;q))\cong\mathbb{Z}\cong H^0(L(p;q);\mathbb{Z})$ since $L(p;q)$ is an orientable 3-manifold. $H_0(L(p;q))\cong\mathbb{Z}\cong H^3(L(p;q);\mathbb{Z})$ since $L(p;q)$ is path-connected. $T(H_2(L(p;q)))\cong T(H^3(L(p;q));\mathbb{Z})=0$ and $F(H_2(L(p;q)))\cong F(H^2(L(p;q);\mathbb{Z}))=0$ by the universal coefficients theorem so $H_2(L(p;q))=0=H^1(L(p;q);\mathbb{Z})$. $H_i(L(p;q))=H^i(L(p;q);\mathbb{Z})=0\forall i>3$ since $L(p;q)$ is a 3-manifold. Thus the homology and cohomology groups depend only on $p$ so are insufficient for a homotopy-equivalence classification.
+
 \begin{definition}
 Let $M^n$ be a closed oriented manifold with fundamental class $[M]\in H_n(M;\mathbb{Z})$. Let $[\alpha]\in H^a(M;\mathbb{Z})$ and $[\beta]\in H^{n-a+1}(M;\mathbb{Z})$ be torsion classes, i.e. $k[\alpha]=0,m[\beta]=0$ for some $k,m\in\mathbb{N}$. Then we can write $k\alpha=d\gamma$ for some $\gamma\in C^{a-1}(M,\mathbb{Z})$. We define $[\alpha]\vee[\beta]=\frac{1}{k}(\gamma\cup\beta)[M]\in\mathbb{Q}/\mathbb{Z}$. The \textbf{torsion linking pairing} is then $T(H^a(M;\mathbb{Z}))\times T(H^{n-a+1}(M;\mathbb{Z}))\to\mathbb{Q}/\mathbb{Z}:([\alpha],[\beta])\mapsto[\alpha]\vee[\beta]$.
 \end{definition}
@@ -552,9 +554,9 @@ The torsion linking pairing is a non-degenerate bilinear form.
 \begin{proof}
 Bilinearity follows from the bilinearity of the cup product.
 
-\noindent By the universal coefficients theorem $T(H^{a}(M;\mathbb{Z}))\to\text{Hom}(T(H_{a-1}(M;\mathbb{Z}),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto\gamma_{[\alpha]}$ is an isomorphism where $\gamma_{[\alpha]}([l])=\frac{1}{k}\gamma(l)$. By Poincare Duality we have an isomorphism $D\colon T(H^{n-a+1}(M;\mathbb{Z}))\to T(H_{a-1}(M;\mathbb{Z})):[\beta]\mapsto[\beta]\cap[M]$ and so $[\alpha]\mapsto\gamma_{[\alpha]}\circ D$ is also an isomorphism where $\gamma_{[\alpha]}\circ D([\beta])=\frac{1}{k}\gamma(\beta\cap M)=\frac{1}{k}(\gamma\cup\beta)[M]$.
+\noindent By the universal coefficients theorem $T(H^{a}(M;\mathbb{Z}))\to\text{Hom}(T(H_{a-1}(M;\mathbb{Z}),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto\gamma_{[\alpha]}$ is an isomorphism where $\gamma_{[\alpha]}([l])=\frac{1}{k}\gamma(l)$. By Poincare Duality we have an isomorphism $D\colon T(H^{n-a+1}(M;\mathbb{Z}))\to T(H_{a-1}(M;\mathbb{Z})):[\beta]\mapsto[\beta]\cap[M]$ and so $[\alpha]\mapsto\gamma_{[\alpha]}\circ D$ is also an isomorphism where $\gamma_{[\alpha]}\circ D([\beta])=\frac{1}{k}\gamma(\beta\cap M)=\frac{1}{k}(\gamma\cup\beta)[M]=[\alpha]\vee[\beta]$.
 Thus the bilinear form is non-degenerate.
 \end{proof}
-\noindent So in the case of 3-manifolds like lens spaces, the torsion linking pairing is a symmetric, non-degenerate bilinear form on $T(H^2(M;\mathbb{Z}))$.
+\noindent So in the case of 3-manifolds like lens spaces, the torsion linking pairing is a symmetric, non-degenerate bilinear form on $T(H^2(M;\mathbb{Z}))$. Also, since the cup product is invariant under homotopy-equivalence, the torsion linking pairing is as well.
 
 \end{document}
