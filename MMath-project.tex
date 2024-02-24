@@ -692,5 +692,20 @@ $r\alpha((\sum_{i=0}^{q-1}[Nx_ix_{i+1}])+[Nx_qS])=q\gamma([x_0x_1])-\gamma([NS])
 $r\alpha([Nx_ix_{i+1}])=-ri=\frac{r(1-p)}{2}-\gamma([Nx_{i+1}])+\gamma([Nx_i])$ has solution $\gamma([Nx_i])=\frac{ir(i-p)}{2}$.\\
 $r\alpha([Nx_iS])=riq=\gamma([Nx_i])-\gamma([Nx_{i-q}])+rq(\frac{p+q}{2})$\\
 
+\section{Reidemeister torsion}
+\begin{definition}
+Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix. We then define The \textbf{Reidemeister torsion} $\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}$.
+\end{definition}
+
+\begin{lemma}
+$\Delta(C_.,c_.)$ is independent of choice of auxiliary bases.
+\end{lemma}
+\begin{proof}
+Let $b_i'\cup\overset{\sim}{b}_{i-1}'$ be another choice of auxiliary bases. Then 
+\end{proof}
+
+\begin{definition}
+Let $X=\cup_{k=0}^n\cup_je_j^k$ be a finite cell complex and $(A,\rho)$ a representation of $\pi_1(X)$ in a ring $A$. Let $\overset{\sim}{X}$ be a universal cover. And $\overset{\sim}{e}_j^k$ be a lift of $e_j^k$. Then every other lift of $e_j^k$ is obtained by composition of $\overset{\sim}{e}_j^k$ with a deck transformation (since given $f'$ and $g'$ lifts of $f$ there exists a $\phi\in\text{Aut}(p)$ such that $\phi\circ f'(1)=g'(1)$ which implies $\phi\circ f=g$ by uniqueness (lemma 6.9)???).
+\end{definition}
 
 \end{document}
