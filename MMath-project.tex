@@ -694,7 +694,7 @@ $r\alpha([Nx_iS])=riq=\gamma([Nx_i])-\gamma([Nx_{i-q}])+rq(\frac{p+q}{2})$\\
 
 \section{Reidemeister torsion}
 \begin{definition}
-Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix. We then define The \textbf{Reidemeister torsion} $\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}$.
+Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with no homology and bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix. We then define The \textbf{Reidemeister torsion} $\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}$.
 \end{definition}
 
 \begin{lemma}
@@ -721,5 +721,7 @@ $\partial(\overset{\sim}{e}_0^1\otimes\text{id})=(\omega^l-1)(\overset{\sim}{e}_
 $0\to\mathbb{C}^*\overset{\omega-1}{\to}\mathbb{C}^*\overset{0}{\to}\mathbb{C}^*\overset{\omega^l-1}{\to}\mathbb{C}^*\to0$ whenever $\omega\neq 1$.\\
 These maps are isomorphisms and so the complex has no homology. Hence for $\omega\neq 1$ we have $\Delta(L(p;q);\beta_\omega)=(\omega^l-1)(\omega-1)\in\mathbb{C}^*/\pm\omega^k$ for $k\in\mathbb{Z}$.
 
-\noindent $(\omega^l-1)(\omega-1)=\omega^l(1-\omega^{-l})(\omega-1)=(\omega^{-l}-1)(\omega-1)=\omega(\omega^{-l}-1)(1-\omega^{-1})=(\omega^{-l}-1)(\omega^{-1}-1)$ So $\Delta(L(p;q);\beta_\omega)=\Delta(L(p;-q);\beta_\omega)$.
+\noindent $(\omega^l-1)(\omega-1)=\omega^l(1-\omega^{-l})(\omega-1)=(\omega^{-l}-1)(\omega-1)=\omega(\omega^{-l}-1)(1-\omega^{-1})=(\omega^{-l}-1)(\omega^{-1}-1)$ So $\Delta(L(p;q);\beta_\omega)=\Delta(L(p;-q);\beta_\omega)$.\\
+$(\omega^l-1)(\omega-1)=(\omega^q-1)(\omega-1)$ so $\Delta(L(p;q);\beta_\omega)=\Delta(L(p;q^{-1});\beta_\omega)$.\\
+Thus two lens spaces $L(p;q_1)$ and $L(p;q_2)$ can only be homeomorphic if $q_1\equiv \pm q_2^{\pm 1}\text{mod }p$.
 \end{document}
