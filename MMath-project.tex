@@ -683,7 +683,21 @@ Let $c_i=[NSx_i]$.\\
 Let $d=[x_0x_1]$.\\
 Let $e=[NS]$.\\
 Let $f_i=[Nx_i]$.\\
-
+$\partial((\sum_{i=0}^{p-2}a_i)-a_{p-1})=\sum_i([Nx_{i-q}x_{i-q+1}]-[Nx_ix_{i+1}]+[NSx_{i+1}]-[NSx_i])=0$ so $(\sum_{i=0}^{p-2}a_i)-a_{p-1}$ is a representative of an element of $H_3(L(p;q);\mathbb{Z})$. In fact, it is a fundamental class. Call the equivalence class it represents $[M]$.\\
+We also have $\partial b_i=d-f_{i+1}+f_i$ and $\partial c_i=e-f_i+f_{i-q}$ for $i\neq p-1$ and $\partial b_{p-1}=-d+f_{0}-f_{p-1}$, $\partial c_{p-1}=-e+f_{p-1}-f_{p-1-q}$ indexed modulo $p$.\\
+If we define $B_i$ by $B_{p-1}=-b_{p-1}$ and $B_i=b_i$ otherwise and $C_i$ by $C_{p-1}=-c_{p-1}$ and $C_i=c_i$ otherwise, then we have $\partial B_i=d-f_{i+1}+f_i$ and $\partial C_i=e-f_i+f_{i-q}$.\\
+This gives:\\
+$d\delta_d=\sum_iB_i$,\\
+$d\delta_e=\sum_iC_i$,\\
+$d\delta_{f_i}=\delta_{B_i}-\delta_{B_{i-1}}-\delta_{C_i}+\delta_{C_{i+q}}$.\\
+Then define $\gamma=\delta_d + (\sum_{i=0}^{p-1}i\delta_{f_i})+q\delta_e\in C^1(L(p;q);\mathbb{Z})$.\\
+$d\gamma=\sum_{i=0}^{p-1}\delta_{B_i}+(\sum_{i=0}^{p-1}i(\delta_{B_i}-\delta_{B_{i-1}}-\delta_{C_i}+\delta_{C_{i+q}}))+\sum_{i=0}^{p-1}q\delta_{C_i}$\\
+$=\sum_{i=0}^{p-1}((i+1)\delta_{B_i}-i\delta_{B_{i-1}}-(i-q)\delta_{C_i}+i\delta_{C_{i+q}})\equiv 0\text{ mod }p$.\\
+Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $p\alpha$ is a representative of an element in $H^2(L(p;q);\mathbb{Z})$.\\
+$\gamma(e)=q$.\\
+$p\alpha([Sx_{p-1}x_0])=-p\alpha(b_{p-1})=-((p-1+1)\delta_{B_{p-1}}(-B_{p-1})-(-1)\delta_{B_{p-1}}(-B_{p-1}))=-(-p-1)=p+1$.\\
+Otherwise, $p\alpha([Sx_ix_{i+1}])=p\alpha(b_i)=(i+1)\delta_{B_{i}}-(i+1)\delta_{B_{i}}=0$.\\
+Thus $[\alpha]\vee[\alpha]=\frac{q(p+1)}{p}=\frac{q}{p}$.\\
 a\\
 a\\
 a\\
