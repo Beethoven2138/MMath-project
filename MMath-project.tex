@@ -239,7 +239,7 @@ A bilinear map $h\colon M\times N\to P$ is a map such that $h(m_1+m_2,n)=h(m_1,n
 \end{definition}
 
 \begin{definition}
-Given a ring $R$ and set $S$, we define the module $R^S$ to be $\{\sum_{i=0}^kr_is_i:r_i\in R,s_i\in S,k\in\mathbb{N}_0\}$ with multiplication given by $r_1(r_2s)=(r_1r_2)s$. Given R-modules $M$ and $N$, addition in $R^{M\times N}$ is given by $(m_1,n_1)+(m_2,n_2)=(m_1+m_2,n_1+n_2)$ and multiplication by $r(m,n)=(rm,rn)$.
+Given a ring $R$ and set $S$, we define the module $R^S$ to be functions from $S$ to $R$, with addition and multiplication defined piecewise.
 \end{definition}
 
 
@@ -664,7 +664,7 @@ $p\alpha([Sx_{p-1}x_0])=-p\alpha(b_{p-1})=-((p-1+1)\delta_{B_{p-1}}(-B_{p-1})-(0
 Otherwise, $p\alpha([Sx_ix_{i+1}])=p\alpha(b_i)=(i+1)\delta_{B_{i}}-(i+1)\delta_{B_{i}}=0$.\\
 Thus $[\alpha]\vee[\alpha]=\frac{1}{p}\gamma([NS])\alpha([Sx_{p-1}x_0])=\frac{q}{p}$.\\
 
-\noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, since they can differ by a multiple of a generator of $H^2(L(p;q);\mathbb{Z})$. This is equivalent to $q_1\equiv\pm q_2m^2\text{ mod }p\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\iff q_2q_2\equiv\pm n^2\text{ mod } p$, where $n=mq_2$.
+\noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, taking into account choice of fundamental class and choice of generator of $H^2(L(p;q);\mathbb{Z})$. This is equivalent to $q_1\equiv\pm q_2m^2\text{ mod }p\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\iff q_2q_2\equiv\pm n^2\text{ mod } p$, where $n=mq_2$.
 
 \begin{definition}
 Let $X$ be a topological space and $G$ a group acting on it. A \textbf{fundamental domain} is a subset of $X$ which contains precisely one point from each orbit.
