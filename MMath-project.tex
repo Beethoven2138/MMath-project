@@ -8,6 +8,7 @@
 \usetikzlibrary{matrix}
 \usepackage[english]{babel}
 \usepackage{mathtools}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
 
 \title{MMath project}
 \author{Saxon Supple\\Supervisor: Johannes Nordstrom}
@@ -522,6 +523,56 @@ $H_k(CC_k(X;G),\partial)\cong H_k(X;G)$ and\\
 $H^k(CC^k(X;G),d)\cong H^k(X;G)$ for all $k\in\mathbb{N}$.
 \end{proposition}
 
+\section{Universal coefficient theorem}
+\begin{proposition}
+If $G$ is a free abelian group or $G\cong\mathbb{Q}$, then $H_k(X)\otimes_\mathbb{Z}G\cong H_k(X;G)$.\\
+If $G=\mathbb{Z}_p$, then $\frac{H_k(X;\mathbb{Z}_p)}{H_k(X)\otimes_\mathbb{Z}\mathbb{Z}_p}\cong T_p(H_{k-1}(X))$.
+\end{proposition}
+
+\begin{proposition}
+Let $R$ be a commutative ring and let $A$ be an $R$-module.There is a natural inclusion $H_*(X;R)\otimes_RA\xhookrightarrow{}H_*(X;A)$\\
+which is an isomorphism if $A$ is free.
+\end{proposition}
+
+In particular, $H_*(X;\mathbb{R})\cong H_*(X;\mathbb{Q})\otimes_\mathbb{Q}\mathbb{R}\cong H_*(X)\otimes_\mathbb{Z}\mathbb{R}$. If $H_k(X)$ is finitely generated, then $\text{rk }H_k(X)=\text{dim }H_k(X;\mathbb{R})$
+
+Let $G$ be an abelian group
+Recall the natural pairing $H^k(X;G)\times H_k(X)\to G$ given by $([\psi],[c])\mapsto\psi(c)$.
+
+\begin{proposition}
+The induced homomorphism $H^k(X;G)\to\text{Hom}(H_k(X);G)$\\
+is surjective.
+\end{proposition}
+
+Now consider the case $G=\mathbb{Z}$ and set\\
+$K=\text{ker}(H^k(X;\mathbb{Z})\to\text{Hom}(H_k(X),\mathbb{Z}))$.
+\begin{lemma}
+Let $[\psi]\in K$ and $[c]\in H_{k-1}(X)$ such that $n[c]=0$ for some $n\in\mathbb{N}$. Pick $b\in C_k(X)$ such that $nc=\partial b$. Then $\psi(b)\text{ mod }n$ depends only on $[\psi]$ and $[c]$.
+In particular, there is a well-defined pairing $K\times T(H_{k-1}(X))\to\mathbb{Q}/\mathbb{Z}$ given by $([\psi],[c])\mapsto\frac{1}{n}\psi(b)$.
+\end{lemma}
+
+\begin{proposition}
+If $H_*(X)$ is finitely generated, then $K\to\text{Hom}(T(H_{k-1}(X)),\mathbb{Q}/\mathbb{Z})$ is an isomorphism.
+\end{proposition}
+
+\begin{remark}
+An isomorphism can also be induced by $([\psi],[c])\mapsto\frac{1}{k}\gamma(c)$, where $\gamma\in C^{k-1}(X;\mathbb{Z})$ such that $d\gamma=k\phi$ for some $k\in\mathbb{N}$.
+\end{remark}
+
+\begin{corollary}
+$K=T(H^k(X;\mathbb{Z}))$.
+\end{corollary}
+\begin{corollary}
+If $H_*(X)$ is finitely generated, then the free part of $H^k(X;\mathbb{Z})$ is naturally dual to the free part of $H_k(X;\mathbb{Z})$ and the torsion part of $H^k(X;\mathbb{Z})$ is naturally dual to the torsion part of $H_{k-1}(X)$.
+\end{corollary}
+
+\begin{proposition}
+If $A$ is an $R$-module, then the natural homomorphism\\
+$H^k(X;A)\to\text{Hom}_R(H_k(X;R),A)$\\
+is surjective. If $R$ is a field, then it is an isomorphism.\\
+So for a field $\mathbb{F}$, we have $H_k(X;\mathbb{F})\cong H_k(X;\mathbb{F})^*$.
+\end{proposition}
+
 \section{Proof of the Borsuk-Ulam theorem with cohomology}
 
 \textrm{(Hatcher section 3.2 exercise 3) \\}
@@ -656,11 +707,11 @@ $d\gamma=\sum_{i=0}^{p-1}\delta_{b_i}+(\sum_{i=0}^{p-1}i(\delta_{b_i}-\delta_{b_
 $=\sum_{i=0}^{p-1}((i+1)\delta_{b_i}-i\delta_{b_{i-1}}-(i-q)\delta_{c_i}+i\delta_{c_{i+q}})\equiv 0\text{ mod }p$.\\
 Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $p\alpha$ is a representative of an element in $H^2(L(p;q);\mathbb{Z})$.\\
 $\gamma(e)=q$.\\
-$p\alpha([Sx_{q-1}x_q])=p\alpha([Nx_{p-1}x_0])=p\alpha(b_{p-1})=(p-1+1)\delta_{b_{p-1}}(b_{p-1})-(0)\delta_{b_{p-1}}(b_{p-1})=p\implies \alpha([Sx_{q-1}x_q])=1$.\\
-Otherwise, $p\alpha([Sx_ix_{i+1}])=\pm p\alpha([Nx_{i-q}x_{i+1-q}])=\pm p\alpha(b_{i-q})=\pm((kp+i-q+1)\delta_{b_{{i-q}}}-(kp+i-q+1)\delta_{b_{{i-q}}})=0$, where $k\in\mathbb{Z}$ puts $kp+i-q+1$ in the compatible range for the sum of $[0,p-1]$.\\
+$p\alpha([Sx_{q-1}x_q])=p\alpha([Nx_{p-1}x_0])=p\alpha(b_{p-1})=(p-1+1)\delta_{b_{p-1}}(b_{p-1})-0\times\delta_{b_{p-1}}(b_{p-1})=p\implies \alpha([Sx_{q-1}x_q])=1$.\\
+Otherwise, $p\alpha([Sx_ix_{i+1}])=p\alpha([Nx_{i-q}x_{i+1-q}])=p\alpha(b_{i-q})=(kp+i-q+1)\delta_{b_{{i-q}}}-(kp+i-q+1)\delta_{b_{{i-q}}}=0$, where $k\in\mathbb{Z}$ puts $kp+i-q+1$ in the compatible range for the sum of $[0,p-1]$.\\
 Thus $[\alpha]\vee[\alpha]=\frac{1}{p}\gamma([NS])\alpha([Sx_{q-1}x_q])=\frac{q}{p}$.\\
 
-\noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, taking into account choice of fundamental class and choice of generator of $H^2(L(p;q);\mathbb{Z})$. This is equivalent to $q_1\equiv\pm q_2m^2\text{ mod }p\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\iff q_2q_2\equiv\pm n^2\text{ mod } p$, where $n=mq_2$.
+\noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, taking into account choice of fundamental class and choice of element of $H^2(L(p;q);\mathbb{Z})$. This is equivalent to $q_1\equiv\pm q_2m^2\text{ mod }p\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\iff q_2q_2\equiv\pm n^2\text{ mod } p$, where $n=mq_2$.
 
 \begin{definition}
 Let $X$ be a topological space and $G$ a group acting on it. A \textbf{fundamental domain} is a subset of $X$ which contains precisely one point from each orbit.
