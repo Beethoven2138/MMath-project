@@ -26,6 +26,88 @@
 
 \maketitle
 
+\section{Recap of MA40040}
+
+\begin{definition}
+A \textbf{topological space} $(X,\mathcal{T})$ is a set $X$ together with a family of subsets $\mathcal{T}\subset\mathcal{P}(X)$ of $X$ such that\\
+$\emptyset,X\in\mathcal{T}$,\\
+If $\{U_\alpha\}_{\alpha\in I}\subset \mathcal{T}$ then $\bigcup_{\alpha\in I}U_\alpha\in\mathcal{T}$,\\
+If $U_1,U_2\in\mathcal{T}$ then $U_1\cap U_2\in\mathcal{T}$.\\
+$\mathcal{T}$ is said to be a \textbf{topology} on $X$. The elements $U_\alpha\in\mathcal{T}$ are called the \textbf{open subsets} of X.
+\end{definition}
+
+\begin{definition}
+Let $(X,\mathcal{T})$ and $(Y,\mathcal{T}')$ be topological spaces. A map $f\colon X\to Y$ is \textbf{continuous} if\\
+$f^{-1}(U)\in\mathcal{T}$, $\forall U\in\mathcal{T}'$.
+\end{definition}
+
+\begin{definition}
+Let $X$ and $Y$ be topological spaces. A continuous map $\phi\colon X\to Y$ is a homeomorphism if it has a continuous inverse $\phi^{-1}\colon Y\to X$.
+\end{definition}
+
+\begin{definition}
+Let $X$ be a topological space. A \textbf{path} is a continuous map $\gamma$ from $[0,1]$ to $X$. If $\gamma(0)=\gamma(1)$, then $\gamma$ is a \textbf{loop}.
+\end{definition}
+
+\begin{definition}
+Let $X$ be a topological space and $\gamma_0,\gamma_1\colon[0,1]\to X$ be paths with the same end points. $\gamma_0$ is \textbf{based homotopic to} $\gamma_1$ if there is a continuous map $F\colon[0,1]\times[0,1]\to X$ such that\\
+$F(t,0)=\gamma_0(t),t\in[0,1]$\\
+$F(t,1)=\gamma_1(t),t\in[0,1]$\\
+$F(0,s)=\gamma_0(0),s\in[0,1]$\\
+$F(1,s)=\gamma_0(1),s\in[0,1]$\\
+We say that $F$ is a \textbf{based homotopy from} $\gamma_0$ \textbf{to} $\gamma_1$ and write $\gamma_0\sim\gamma_1$.
+\end{definition}
+\begin{lemma}
+The based homotopy relation $\sim$ is an equivalence relation.
+\end{lemma}
+
+\begin{definition}
+Let $\alpha,\beta\colon[0,1]\to X$ be paths in $X$ such that $\alpha(1)=\beta(0)$. The product $\alpha\cdot\beta\colon[0,1]\to X$ is defined as:\\
+$(\alpha\cdot\beta)(t)=\alpha(2t)$ for $t\in[0,\frac{1}{2}]$ and $\beta(2t-1)$ otherwise.
+\end{definition}
+
+\begin{theorem}
+Let $\alpha_0,\alpha_1\colon[0,1]\to X$ be paths from $x_0$ to $y_0$ in $X$ and let $\beta_0,\beta_1\colon[0,1]\to X$ be paths from $y_0$ to $z_0$ in $X$. If $\alpha_0\sim\alpha_1$ and $\beta_0\sim\beta_1$, then $\alpha_0\cdot\beta_0\sim\alpha_1\cdot\beta_1$.
+\end{theorem}
+
+This gives a well-defined multiplication of based homotopy classes of loops where if $\alpha$ and $\beta$ are loops based at $x_0$, then we set $[\alpha]\cdot[\beta]=[\alpha\cdot\beta]$.
+
+\begin{definition}
+Let $X$ be a topological space and $x_0\in X$. The \textbf{fundamental group} is $\pi_1(X,x_0)=\{[\gamma]:\gamma\text{ is a loop based at }x_0\}$.
+\end{definition}
+This is a group with identity represented by the constant loop and $[\alpha]$ having inverse $[\bar \alpha]$, where $\bar \alpha(t)=\alpha(1-t)$.
+
+\begin{theorem}
+If $X$ is path-connected and $x_0,y_0\in X$, then $\pi_1(X,x_0)\cong\pi_1(X,y_0)$.
+\end{theorem}
+We can then refer to the fundamental group merely as $\pi_1(X)$.
+
+\begin{definition}
+Two continuous maps $\phi_0,\phi_1\colon X\to Y$ of topological spaces are \textbf{homotopic} if there exists a continuous map $F\colon X\times I\to Y$ such that\\
+$F(x,0)=\phi_0(X)$, $F(x,1)=\phi_1(x)$, $\forall x\in X$.\\
+In this case, we write: $\phi_0\simeq\phi_1$ and say that $F$ is a \textbf{homotopy from} $\phi_0$ \textbf{to} $\phi_1$.
+\end{definition}
+
+
+
+\begin{definition}
+Let $X$ and $Y$ be topological spaces. If there exist continuous maps $\phi\colon X\to Y$ and $\psi\colon Y\to X$ such that $\phi\circ\psi\simeq\text{id}_Y$ and $\psi\circ\phi\simeq\text{id}_X$, then $X$ and $Y$ are said to be \textbf{homotopy-equivalent}. In this case, we write $X\simeq Y$.
+\end{definition}
+
+\begin{theorem}
+Homotopy-equivalent path-connected topological spaces have isomorphic fundamental groups.
+\end{theorem}
+
+\begin{definition}
+Let $G\times E\to E,(g,e)\mapsto g\cdot e$ be a left action of a group $G$ on a topological space $E$.\\
+We say that the action is \textbf{continuous} if the left multiplication map $L_g\colon E\to E,e\mapsto g\cdot e$ is continuous for all $g\in G$.\\
+We say that the action is a \textbf{covering space action} if it is continuous and every $e\in E$ has an open neighbourhood $e\in S\subset E$ such that $gS\cap S=\emptyset$ for all non-trivial elements $g\in G$.
+\end{definition}
+
+\begin{theorem}
+Let $G$ be a group acting via a covering space action on a simply connected topological space $E$. Then $\pi_1(E/G,[e])\cong G$ for any $[e]\in E/G$.
+\end{theorem}
+
 \section{Singular homology}
 \begin{definition}
 A \textbf{k-simplex} is the convex hull\\
@@ -708,7 +790,7 @@ $=\sum_{i=0}^{p-1}((i+1)\delta_{b_i}-i\delta_{b_{i-1}}-(i-q)\delta_{c_i}+i\delta
 Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $p\alpha$ is a representative of an element in $H^2(L(p;q);\mathbb{Z})$.\\
 $\gamma(e)=q$.\\
 $p\alpha([Sx_{q-1}x_q])=p\alpha([Nx_{p-1}x_0])=p\alpha(b_{p-1})=(p-1+1)\delta_{b_{p-1}}(b_{p-1})-0\times\delta_{b_{p-1}}(b_{p-1})=p\implies \alpha([Sx_{q-1}x_q])=1$.\\
-Otherwise, $p\alpha([Sx_ix_{i+1}])=p\alpha([Nx_{i-q}x_{i+1-q}])=p\alpha(b_{i-q})=(kp+i-q+1)\delta_{b_{{i-q}}}-(kp+i-q+1)\delta_{b_{{i-q}}}=0$, where $k\in\mathbb{Z}$ puts $kp+i-q+1$ in the compatible range for the sum of $[0,p-1]$.\\
+Otherwise, $p\alpha([Sx_ix_{i+1}])=p\alpha([Nx_{i-q}x_{i+1-q}])=p\alpha(b_{i-q})=(kp+i-q+1)\delta_{b_{{i-q}}}-(kp+i-q+1)\delta_{b_{{i-q}}}=0$, where $k\in\mathbb{Z}$ puts $kp+i-q+1$ in the compatible range for the sum of $[1,p-1]$.\\
 Thus $[\alpha]\vee[\alpha]=\frac{1}{p}\gamma([NS])\alpha([Sx_{q-1}x_q])=\frac{q}{p}$.\\
 
 \noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, taking into account choice of fundamental class and choice of element of $H^2(L(p;q);\mathbb{Z})$. This is equivalent to $q_1\equiv\pm q_2m^2\text{ mod }p\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\iff q_2q_2\equiv\pm n^2\text{ mod } p$, where $n=mq_2$.
