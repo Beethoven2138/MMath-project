@@ -787,10 +787,10 @@ $d\delta_{f_i}=\delta_{b_i}-\delta_{b_{i-1}}-\delta_{c_i}+\delta_{c_{i+q}}$.\\
 Then define $\gamma=\delta_d + (\sum_{i=0}^{p-1}i\delta_{f_i})+q\delta_e\in C^1(L(p;q);\mathbb{Z})$.\\
 $d\gamma=\sum_{i=0}^{p-1}\delta_{b_i}+(\sum_{i=0}^{p-1}i(\delta_{b_i}-\delta_{b_{i-1}}-\delta_{c_i}+\delta_{c_{i+q}}))+\sum_{i=0}^{p-1}q\delta_{c_i}$\\
 $=\sum_{i=0}^{p-1}((i+1)\delta_{b_i}-i\delta_{b_{i-1}}-(i-q)\delta_{c_i}+i\delta_{c_{i+q}})\equiv 0\text{ mod }p$.\\
-Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $p\alpha$ is a representative of an element in $H^2(L(p;q);\mathbb{Z})$.\\
+Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $\alpha$ is a representative of an element in $H^2(L(p;q);\mathbb{Z})$ with $p[\alpha]=[0]$.\\
 $\gamma(e)=q$.\\
-$p\alpha([Sx_{q-1}x_q])=p\alpha([Nx_{p-1}x_0])=p\alpha(b_{p-1})=(p-1+1)\delta_{b_{p-1}}(b_{p-1})-0\times\delta_{b_{p-1}}(b_{p-1})=p\implies \alpha([Sx_{q-1}x_q])=1$.\\
-Otherwise, $p\alpha([Sx_ix_{i+1}])=p\alpha([Nx_{i-q}x_{i+1-q}])=p\alpha(b_{i-q})=(kp+i-q+1)\delta_{b_{{i-q}}}-(kp+i-q+1)\delta_{b_{{i-q}}}=0$, where $k\in\mathbb{Z}$ puts $kp+i-q+1$ in the compatible range for the sum of $[1,p-1]$.\\
+$p\alpha([Sx_{q-1}x_q])=p\alpha([Nx_{p-1}x_0])=p\alpha(b_{p-1})=(p-1+1)\delta_{b_{p-1}}(b_{p-1})-0\times\delta_{b_{-1}}(b_{-1})=p\implies \alpha([Sx_{q-1}x_q])=1$.\\
+Otherwise, $p\alpha([Sx_ix_{i+1}])=p\alpha([Nx_{i-q}x_{i+1-q}])=p\alpha(b_{i-q})=(kp+i-q+1)\delta_{b_{{i-q}}}-(kp+i-q+1)\delta_{b_{{i-q}}}=0$, where $k\in\mathbb{Z}$ puts $kp+i-q+1$ in the compatible range for the sum of $[1,p-1]$ (The fact that it can't wrap around to $0$ is why cancellation occurs).\\
 Thus $[\alpha]\vee[\alpha]=\frac{1}{p}\gamma([NS])\alpha([Sx_{q-1}x_q])=\frac{q}{p}$.\\
 
 \noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, taking into account choice of fundamental class and choice of element of $H^2(L(p;q);\mathbb{Z})$. This is equivalent to $q_1\equiv\pm q_2m^2\text{ mod }p\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\iff q_2q_2\equiv\pm n^2\text{ mod } p$, where $n=mq_2$.
