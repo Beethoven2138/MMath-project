@@ -28,15 +28,7 @@
 
 \maketitle
 
-\section{Recap of MA40040}
-
-\begin{definition}
-A \textbf{topological space} $(X,\mathcal{T})$ is a set $X$ together with a family of subsets $\mathcal{T}\subset\mathcal{P}(X)$ of $X$ such that\\
-$\emptyset,X\in\mathcal{T}$,\\
-If $\{U_\alpha\}_{\alpha\in I}\subset \mathcal{T}$ then $\bigcup_{\alpha\in I}U_\alpha\in\mathcal{T}$,\\
-If $U_1,U_2\in\mathcal{T}$ then $U_1\cap U_2\in\mathcal{T}$.\\
-$\mathcal{T}$ is said to be a \textbf{topology} on $X$. The elements $U_\alpha\in\mathcal{T}$ are called the \textbf{open subsets} of X.
-\end{definition}
+\section{Background}
 
 \begin{definition}
 Let $(X,\mathcal{T})$ and $(Y,\mathcal{T}')$ be topological spaces. A map $f\colon X\to Y$ is \textbf{continuous} if\\
@@ -52,32 +44,9 @@ Let $X$ be a topological space. A \textbf{path} is a continuous map $\gamma$ fro
 \end{definition}
 
 \begin{definition}
-Let $X$ be a topological space and $\gamma_0,\gamma_1\colon[0,1]\to X$ be paths with the same end points. $\gamma_0$ is \textbf{based homotopic to} $\gamma_1$ if there is a continuous map $F\colon[0,1]\times[0,1]\to X$ such that\\
-$F(t,0)=\gamma_0(t),t\in[0,1]$\\
-$F(t,1)=\gamma_1(t),t\in[0,1]$\\
-$F(0,s)=\gamma_0(0),s\in[0,1]$\\
-$F(1,s)=\gamma_0(1),s\in[0,1]$\\
-We say that $F$ is a \textbf{based homotopy from} $\gamma_0$ \textbf{to} $\gamma_1$ and write $\gamma_0\sim\gamma_1$.
-\end{definition}
-\begin{lemma}
-The based homotopy relation $\sim$ is an equivalence relation.
-\end{lemma}
-
-\begin{definition}
-Let $\alpha,\beta\colon[0,1]\to X$ be paths in $X$ such that $\alpha(1)=\beta(0)$. The product $\alpha\cdot\beta\colon[0,1]\to X$ is defined as:\\
-$(\alpha\cdot\beta)(t)=\alpha(2t)$ for $t\in[0,\frac{1}{2}]$ and $\beta(2t-1)$ otherwise.
-\end{definition}
-
-\begin{theorem}
-Let $\alpha_0,\alpha_1\colon[0,1]\to X$ be paths from $x_0$ to $y_0$ in $X$ and let $\beta_0,\beta_1\colon[0,1]\to X$ be paths from $y_0$ to $z_0$ in $X$. If $\alpha_0\sim\alpha_1$ and $\beta_0\sim\beta_1$, then $\alpha_0\cdot\beta_0\sim\alpha_1\cdot\beta_1$.
-\end{theorem}
-
-This gives a well-defined multiplication of based homotopy classes of loops where if $\alpha$ and $\beta$ are loops based at $x_0$, then we set $[\alpha]\cdot[\beta]=[\alpha\cdot\beta]$.
-
-\begin{definition}
 Let $X$ be a topological space and $x_0\in X$. The \textbf{fundamental group} is $\pi_1(X,x_0)=\{[\gamma]:\gamma\text{ is a loop based at }x_0\}$.
 \end{definition}
-This is a group with identity represented by the constant loop and $[\alpha]$ having inverse $[\bar \alpha]$, where $\bar \alpha(t)=\alpha(1-t)$.
+This is a group with identity represented by the constant loop, multiplication given by concatenation of loops and $[\alpha]$ having inverse $[\bar \alpha]$, where $\bar \alpha(t)=\alpha(1-t)$.
 
 \begin{theorem}
 If $X$ is path-connected and $x_0,y_0\in X$, then $\pi_1(X,x_0)\cong\pi_1(X,y_0)$.
@@ -161,8 +130,8 @@ $=\sum_{i=0}^k(\sum_{j<i}((-1)^{i+j}+(-1)^{1+j-1})\sigma\circ F_{e_0,...,\overse
 It also implies that $\text{im}(\partial:C_{k+1}(X)\rightarrow C_k(X))\in\text{ker}(\partial:C_{k}(X)\rightarrow C_{k-1}(X))$,
 allowing the following to be well-defined.
 \begin{definition}
-The \textbf{singular homology} of $X$ is the collection of abelian groups
-$H_k(X)=\frac{\text{ker}(\partial:C_{k}(x)\rightarrow C_{k-1}(X))}{\text{im}(\partial:C_{k+1}(x)\rightarrow C_k(X))}$
+The \textbf{degree k singular homology} of $X$ is the abelian group
+\[H_k(X)=\frac{\text{ker}(\partial:C_{k}(x)\rightarrow C_{k-1}(X))}{\text{im}(\partial:C_{k+1}(x)\rightarrow C_k(X))}\]
 \end{definition}
 
 \noindent The utility of the homology groups are that homotopy-equivalent spaces have isomorphic homology groups, thereby giving a way to prove that two topological spaces aren't homotopy-equivalent. To prove this, we must first construct a functor sending a continuous map between topological spaces to a homomorphism between their homology groups.\\
@@ -172,16 +141,16 @@ $H_k(X)=\frac{\text{ker}(\partial:C_{k}(x)\rightarrow C_{k-1}(X))}{\text{im}(\pa
 The k-th singular chain group with coefficients in an abelian group $G$ is $C_k(X;G):=\{\sum_{i=1}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in G,\sigma_i \text{ is a k-simplex}\}$ The boundary map $\partial\colon C_k(X;G)\to C_{k-1}(X;G)$ and k-th homology group with coefficients in $G$, $H_k(X;G)$, are then defined as above while replacing $\mathbb{Z}$ with $G$.
 \end{definition}
 
-\noindent Let $f\colon X\to Y$ be a continuous map between topological spaces. Given a k-simplex $\sigma\colon\Delta^k\to X$ in $X$, $f\circ\sigma$ is a k-simplex in $Y$. This gives rise to a homomorphism $f_\#\colon C_k(X;G)\to C_k(Y;G):\sum_{i=0}^kn_i\sigma_i\mapsto\sum_{i=0}^kn_if\circ\sigma_i$.
+\noindent Let $f\colon X\to Y$ be a continuous map between topological spaces. Given a k--simplex $\sigma\colon\Delta^k\to X$ in $X$, $f\circ\sigma$ is a k--simplex in $Y$. This gives rise to a homomorphism $f_\#\colon C_k(X;G)\to C_k(Y;G):\sum_{i=0}^kn_i\sigma_i\mapsto\sum_{i=0}^kn_if\circ\sigma_i$.
 \begin{definition}
 This induces a \textbf{push-forward homomorphism} $f_*\colon H_k(X;G)\to H_k(Y;G)$ sending $[c]$ to $[f_\#(c)]$.
 \end{definition}
-\noindent To show that this is well-defined, note that $\partial f_\#=f_\#\partial$ (in other words $f_\#$ is a chain map) and so $f_\#$ maps closed chains to closed chains. Furthermore suppose $[a-b]=[0]$. Then there exists a $\sigma\in C_{k+1}(X;G)$ such that $a-b=\partial\sigma\implies f_\#(a-b)=f_\#\partial\sigma=\partial f_\#\sigma\implies [f_\#(a)-f_\#(b)]=[0]=f_*([a])-f_*([b])$ as required.
+\noindent To show that this is well-defined, note that $\partial f_\#=f_\#\partial$ and so $f_\#$ maps closed chains to closed chains. Furthermore suppose $[a-b]=[0]$. Then there exists a $\sigma\in C_{k+1}(X;G)$ such that $a-b=\partial\sigma\implies f_\#(a-b)=f_\#\partial\sigma=\partial f_\#\sigma\implies [f_\#(a)-f_\#(b)]=[0]=f_*([a])-f_*([b])$ as required.\\
 
-\noindent This argument applies more generally to show that all chain maps induce a well-defined map on homology groups.
+\noindent The condition $\partial f_\#=f_\#\partial$ makes $f_\#$ a \textbf{chain map}. This argument applies more generally to show that all chain maps induce a well-defined map on homology groups.
 
 \begin{proposition}
-The push-forward is a functor.
+The push-forward is functorial.
 \end{proposition}
 \begin{proof}
 Let $X$, $Y$ and $Z$ be topological spaces.
@@ -195,7 +164,7 @@ Now let $f\colon Y\to Z$ and $g\colon X\to X$ be continuous maps. Given $[c]=[\s
 If $f,g\colon X\to Y$ are homotopic continuous maps between topological spaces then $f_*=g_*\colon H_k(X)\to H_k(Y)$
 \end{lemma}
 \begin{proof}
-Let $F\colon X\times I\to Y$ be a homotopy from $f$ to $g$. Given a singular n-simplex $\sigma\colon\Delta^n\to X$ we can define $\sigma\times\text{id}\colon\Delta^n\times I\to X\times I$ and $F_\#(\sigma\times\text{id})\colon\Delta^n\times I\to Y$. We now decompose $\Delta^n\times I$ as the union of $n+1$-simplices. To do this write $\Delta^n\times I$ as $[a_0,...,a_n,b_0,...,b_n]$ where $a_i=(e_i,0)$ and $b_i=(e_i,1)$. Then $\Delta^n\times I$ is the union of the $n+1$-simplices $\alpha_i=[a_0,...,a_i,b_i,...,b_n]$. Now define the "prism map" $P\colon C_n(X)\to C_{n+1}(Y)$ by $P(\sigma)=\sum_i(-1)^iF\circ(\sigma\times\text{id})|_{\alpha_i}$. $\partial P(\sigma)=\sum_i(-1)^i[\sum_{j\leq i}(-1)^jF\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_j},...,a_i,b_i,...,b_n]}+\sum_{j> i}(-1)^{(j+1)}F\circ(\sigma\times\text{id})|_{[a_0,...,a_i,b_i,...,\overset{\wedge}{b_j},...,b_n]}]$. The sum of terms with $i=j$ is $F\circ(\sigma\times\text{id})|_{[\overset{\wedge}{a_0},b_0,...,b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,\overset{\wedge}{b_0},b_1,...,b_n]}+F\circ(\sigma\times\text{id})|_{[a_0,\overset{\wedge}{a_1},b_1,...,b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,a_1,\overset{\wedge}{b_1},...,b_n]}+...+F\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_n},b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,...,a_n,\overset{\wedge}{b_n}]}=F\circ(\sigma\times\text{id})|_{[\overset{\wedge}{a_0},b_0,...,b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,...,a_n,\overset{\wedge}{b_n}]}=F\circ(\sigma\times\text{id})|_{[b_0,...,b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,...,a_n]}$ as a telescoping sum which is then $=g\circ\sigma-f\circ\sigma=(g_\#-f_\#)(\sigma)$. The terms with $i\neq j$ can be identified with $-P(\partial\sigma)$ so that $\partial P\sigma=-P(\partial\sigma)+g_\#(\sigma)-f_\#(\sigma)\implies\partial P + P\partial=g_\#-f_\#$. $\partial(\partial P + P\partial)=\partial P\partial=(\partial P + P\partial)\partial$ so $(\partial P + P\partial)$ is a chain map inducing a homomorphism on homology groups. Furthermore given a cycle $\sigma$ we have $(\partial P + P\partial)(\sigma)=\partial P(\sigma) + P\partial(\sigma)=\partial P(\sigma)$ so $\partial P(\sigma)$ sends cycles to boundaries thereby inducing the zero map on homology groups. Thus $g_*-f_*=0$ or $f_*=g_*$.
+Let $F\colon X\times I\to Y$ be a homotopy from $f$ to $g$. Given a singular n--simplex $\sigma\colon\Delta^n\to X$ we can define $\sigma\times\text{id}\colon\Delta^n\times I\to X\times I$ and $F_\#(\sigma\times\text{id})\colon\Delta^n\times I\to Y$. We now decompose $\Delta^n\times I$ as the union of $n+1$-simplices. To do this write $\Delta^n\times I$ as $[a_0,...,a_n,b_0,...,b_n]$ where $a_i=(e_i,0)$ and $b_i=(e_i,1)$. Then $\Delta^n\times I$ is the union of the $n+1$-simplices $\alpha_i=[a_0,...,a_i,b_i,...,b_n]$. Now define the "prism map" $P\colon C_n(X)\to C_{n+1}(Y)$ by $P(\sigma)=\sum_i(-1)^iF\circ(\sigma\times\text{id})|_{\alpha_i}$. $\partial P(\sigma)=\sum_i(-1)^i[\sum_{j\leq i}(-1)^jF\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_j},...,a_i,b_i,...,b_n]}+\sum_{j> i}(-1)^{(j+1)}F\circ(\sigma\times\text{id})|_{[a_0,...,a_i,b_i,...,\overset{\wedge}{b_j},...,b_n]}]$. The sum of terms with $i=j$ is $F\circ(\sigma\times\text{id})|_{[\overset{\wedge}{a_0},b_0,...,b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,\overset{\wedge}{b_0},b_1,...,b_n]}+F\circ(\sigma\times\text{id})|_{[a_0,\overset{\wedge}{a_1},b_1,...,b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,a_1,\overset{\wedge}{b_1},...,b_n]}+...+F\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_n},b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,...,a_n,\overset{\wedge}{b_n}]}=F\circ(\sigma\times\text{id})|_{[\overset{\wedge}{a_0},b_0,...,b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,...,a_n,\overset{\wedge}{b_n}]}=F\circ(\sigma\times\text{id})|_{[b_0,...,b_n]}-F\circ(\sigma\times\text{id})|_{[a_0,...,a_n]}$ as a telescoping sum which is then $=g\circ\sigma-f\circ\sigma=(g_\#-f_\#)(\sigma)$. The terms with $i\neq j$ can be identified with $-P(\partial\sigma)$ so that $\partial P\sigma=-P(\partial\sigma)+g_\#(\sigma)-f_\#(\sigma)\implies\partial P + P\partial=g_\#-f_\#$. $\partial(\partial P + P\partial)=\partial P\partial=(\partial P + P\partial)\partial$ so $(\partial P + P\partial)$ is a chain map inducing a homomorphism on homology groups. Furthermore given a cycle $\sigma$ we have $(\partial P + P\partial)(\sigma)=\partial P(\sigma) + P\partial(\sigma)=\partial P(\sigma)$ so $\partial P(\sigma)$ sends cycles to boundaries thereby inducing the zero map on homology groups. Thus $g_*-f_*=0$ or $f_*=g_*$.
 \end{proof}
 
 
@@ -300,7 +269,7 @@ $H_1(K)=\mathbb{Z}\bigoplus\mathbb{Z}_2$
 Let $R$ be a commutative ring with a unit. An \textbf{R-module} $M$ is an abelian group with a map $f\colon R\times M\to M$ such that if $f(r,m)$ is denoted by $rm$ then $(r_1r_2)m=r_1(r_2m)$ and $1m=m$. We usually abbreviate R-modules to modules.
 \end{definition}
 \begin{remark}
-More specifically we defined a \textbf{left R-module}. If instead multiplication were defined as $r_1(r_2m)=(r_2r_1)m$ then $M$ would be a \textbf{right R-module}.
+More specifically we defined a \textbf{left R-module}. If instead multiplication were defined to satisfy $r_1(r_2m)=(r_2r_1)m$ then $M$ would be a \textbf{right R-module}.
 \end{remark}
 
 \begin{definition}
@@ -382,12 +351,12 @@ We define $d\colon C^k(X;G)\to C^{k+1}(X;G)$ to be the dual of $\partial$ in the
 \noindent In particular, $(d\circ d\phi)(c)=(d\phi)(\partial c)=\phi(\partial\circ\partial c)=\phi(0)=0$ so $d^2=0$.
 
 \begin{definition}
-$c\in C_k(X)$ is a cycle if $\partial c=0 and a boundary if c\in\text{im }\partial$.
+$c\in C_k(X)$ is a cycle if $\partial c=0$ and a boundary if $c\in\text{im }\partial$.
 $\phi\in C^k(X;G)$ is a cocycle if $d\phi=0$ and a coboundary if $\phi\in\text{im }d$.
 \end{definition}
 
 \begin{definition}
-The \textbf{kth cohomology group with coefficients in $G$} is $H^k(X;G)=\frac{\text{ker}(d\colon C^k(X;G)\to C^{k+1}(X;G))}{\text{im}(d\colon C^{k-1}(X;G)\to C^k(X;G))}$. When G is $\mathbb{Z}$ we abbreviate it to $H^k(X)$ and call it simply the \textbf{kth cohomology group}.
+The \textbf{kth cohomology group with coefficients in $G$} is \[H^k(X;G)=\frac{\text{ker}(d\colon C^k(X;G)\to C^{k+1}(X;G))}{\text{im}(d\colon C^{k-1}(X;G)\to C^k(X;G))}\] When G is $\mathbb{Z}$ we abbreviate it to $H^k(X)$ and call it simply the \textbf{kth cohomology group}.
 \end{definition}
 
 \begin{definition}
@@ -396,7 +365,7 @@ Let $f\colon X\to Y$ be a continuous map between topological spaces and $G$ be a
 \noindent $df^\# A(c)=f^\# A(\partial c)=f^\# dA(c)$ so $df^\#=f^\# d$. Thus $f^\#$ is a chain map so $f^*$ is well-defined.
 
 \begin{lemma}
-There is a well-defined mapping $H^k(X;G)\times H_k(X)\to G$ given by $([\phi],[c])=\phi(c)$.
+There is a well-defined pairing $H^k(X;G)\times H_k(X)\to G$ given by $([\phi],[c])=\phi(c)$.
 \end{lemma}
 \begin{proof}
 Let $[\phi]=[\psi]$ so that $\phi-\psi=d\rho$ for some $\rho\in C^{k-1}(X;G)$. Then $(\phi-\psi)(c)=d\rho(c)=\rho(\partial c)=0$ since $c\in\text{ker }\partial$. Thus $\phi(c)=\psi(c)$.
@@ -406,7 +375,7 @@ Now let $[a]=[b]$ so that $a=b+\partial e$ for some $e\in C_{k+1}(X)$. $\phi(a)=
 \noindent This then give that $f^*$ is dual to $f_*$ in the sense that $f^*[A]([c])=[A](f_*([c]))$ for $[A]\in H^k(Y;G)$ and $[c]\in H_k(X)$.
 
 \begin{proposition}
-Pullback is a contravariant functor.
+Pullback is functorial.
 \end{proposition}
 \begin{proof}
 Let $X$, $Y$ and $Z$ be topological spaces and let $G$ be an abelian group. 
@@ -472,6 +441,8 @@ $\psi\cup(\phi+\theta)(\sigma)=\psi(\sigma\circ F_{[e_0,...,e_i]})(\phi(\sigma\c
 \begin{proposition}
 Let $R$ be a commutative ring, $\psi\in H^k(X;R)$ and $\phi\in H^l(X;R)$. Then $\psi\cup\phi=(-1)^{kl}\phi\cup\psi$.
 \end{proposition}
+
+Thus $H^*$ is graded commutative.
 
 \begin{proposition}
 Let $f\colon X\to Y$ be a continuous map. Then $f^*(\psi\cup\phi)=f^*(\psi)\cup f^*(\phi)$.
@@ -722,7 +693,7 @@ The multiplication map induced by the group action is clearly continuous for all
 Now let $(a,b)\in S^3$. If $S=(B_{|a|\text{sin}(\frac{\pi}{100p})}(a)\cap |a|S^1,B_{|b|\text{sin}(\frac{\pi}{100p})}(b)\cap |b|S^1)$ then $gS\cap S=\emptyset$ for all non-trivial $g\in \mathbb{Z}_p$ so the action is a covering space action giving $\pi_1(L(p;q))\cong \mathbb{Z}_p$. $H_1(L(p;q))\cong \mathbb{Z}_p$ by the Hurewicz theorem.
 \end{proof}
 
-\noindent Then $H^2(L(p;q);\mathbb{Z})\cong\mathbb{Z}_p$ by Poincare duality. $H_3((L(p;q))\cong\mathbb{Z}\cong H^0(L(p;q);\mathbb{Z})$ since $L(p;q)$ is an orientable 3-manifold. $H_0(L(p;q))\cong\mathbb{Z}\cong H^3(L(p;q);\mathbb{Z})$ since $L(p;q)$ is path-connected. $T(H_2(L(p;q)))\cong T(H^3(L(p;q));\mathbb{Z})=0$ and $F(H_2(L(p;q)))\cong F(H^2(L(p;q);\mathbb{Z}))=0$ by the universal coefficient theorem so $H_2(L(p;q))=0=H^1(L(p;q);\mathbb{Z})$. $H_i(L(p;q))=H^i(L(p;q);\mathbb{Z})=0\forall i>3$ since $L(p;q)$ is a 3-manifold. Thus the homology and cohomology groups depend only on $p$ so are insufficient for a homotopy-equivalence classification.
+\noindent Then $H^2(L(p;q);\mathbb{Z})\cong\mathbb{Z}_p$ by Poincare duality. $H_3((L(p;q))\cong\mathbb{Z}\cong H^0(L(p;q);\mathbb{Z})$ since $L(p;q)$ is an orientable 3-manifold. $H_0(L(p;q))\cong\mathbb{Z}\cong H^3(L(p;q);\mathbb{Z})$ since $L(p;q)$ is path-connected. $T(H_2(L(p;q)))\cong T(H^3(L(p;q));\mathbb{Z})=0$ and $F(H_2(L(p;q)))\cong F(H^2(L(p;q);\mathbb{Z}))=0$ by the universal coefficient theorem so $H_2(L(p;q))=0=H^1(L(p;q);\mathbb{Z})$. $H_i(L(p;q))=H^i(L(p;q);\mathbb{Z})=0\forall i>3$ since $L(p;q)$ is a 3-manifold. The homology and cohomology groups depend only on $p$ and are insufficient for a homotopy-equivalence classification.
 
 \begin{definition}
 Let $M^n$ be a closed oriented manifold with fundamental class $[M]\in H_n(M;\mathbb{Z})$. Let $[\alpha]\in H^a(M;\mathbb{Z})$ and $[\beta]\in H^{n-a+1}(M;\mathbb{Z})$ be torsion classes, i.e. $k[\alpha]=0,m[\beta]=0$ for some $k,m\in\mathbb{N}$. Then we can write $k\alpha=d\gamma$ for some $\gamma\in C^{a-1}(M,\mathbb{Z})$. We define $[\alpha]\vee[\beta]=\frac{1}{k}(\gamma\cup\beta)M\in\mathbb{Q}/\mathbb{Z}$. The \textbf{torsion linking pairing} is then $T(H^a(M;\mathbb{Z}))\times T(H^{n-a+1}(M;\mathbb{Z}))\to\mathbb{Q}/\mathbb{Z}:([\alpha],[\beta])\mapsto[\alpha]\vee[\beta]$.
@@ -746,7 +717,7 @@ let $m\beta=d\tau$ for some $\tau\in C^{n-a}(M,\mathbb{Z})$. Then $[\beta]\vee[\
 \end{proof}
 
 \begin{lemma}
-The torsion linking pairing is a non-degenerate bilinear form.
+The torsion linking pairing is a non-degenerate bilinear form, where non-degeneracy means that $T(H^a(M,\mathbb{Z}))\to \text{Hom}(T(H^{n-a+1}(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto ([\beta]\mapsto [\alpha]\vee[\beta])$ is an isomorphism.
 \end{lemma}
 \begin{proof}
 Bilinearity follows from the bilinearity of the cup product.
@@ -839,7 +810,7 @@ Let $b_i'\cup\overset{\sim}{b}_{i-1}'$ be another choice of auxiliary bases. The
 \end{proof}
 
 
-\noindent Let $X=\cup_{k=0}^n\cup_je_j^k$ be a finite cell complex and $(A,\beta)$ a representation of $\pi_1(X)$ in a ring $A$. Let $\overset{\sim}{X}$ be a universal cover. And $\overset{\sim}{e}_j^k$ be a lift of $e_j^k$. Then every other lift of $e_j^k$ is obtained by composition of $\overset{\sim}{e}_j^k$ with a deck transformation (since given $f'$ and $g'$ lifts of $f$ there exists a $\phi\in\text{Aut}(p)$ such that $\phi\circ f'(0)=g'(0)$ which implies $\phi\circ f=g$ by uniqueness (lemma 6.9)???). $\text{Aut}(p)=\pi_1(X)$ so we can write $\overset{\sim}{X}=\cup_{k=0}^n\cup_{g\in\pi_1(X)}\cup_jg\overset{\sim}{e}_j^k$. Thus multiplication by an element of $\pi_1(x)$ permutes the cells, thereby giving $C_.^\text{cw}(\overset{\sim}{X})$ a $\pi_1(X)$-action. $A$ also has a $\pi_1(X)$ action so we can define $C_k(X;\beta)=C_k^\text{cw}(\overset{\sim}{X})\otimes_{\mathbb{Z}\pi_1(X)} A$. We have an induced boundary map $\partial\colon C_k(X;\beta)\to C_{k-1}(X;\beta)$ which makes $C_k(X;\beta)$ a chain complex with basis $\{\overset{\sim}{e}_j^k\}\otimes\text{id}_A$.
+\noindent Let $X=\cup_{k=0}^n\cup_je_j^k$ be a finite cell complex and $(A,\beta)$ a representation of $\pi_1(X)$ in a ring $A$. Let $\overset{\sim}{X}$ be a universal cover. And $\overset{\sim}{e}_j^k$ be a lift of $e_j^k$. Then every other lift of $e_j^k$ is obtained by composition of $\overset{\sim}{e}_j^k$ with a deck transformation (since given $f'$ and $g'$ lifts of $f$ there exists a $\phi\in\text{Aut}(p)$ such that $\phi\circ f'(0)=g'(0)$ which implies $\phi\circ f=g$ by uniqueness. $\text{Aut}(p)=\pi_1(X)$ so we can write $\overset{\sim}{X}=\cup_{k=0}^n\cup_{g\in\pi_1(X)}\cup_jg\overset{\sim}{e}_j^k$. Thus multiplication by an element of $\pi_1(x)$ permutes the cells, thereby giving $C_.^\text{cw}(\overset{\sim}{X})$ a $\pi_1(X)$-action. $A$ also has a $\pi_1(X)$ action so we can define $C_k(X;\beta)=C_k^\text{cw}(\overset{\sim}{X})\otimes_{\mathbb{Z}\pi_1(X)} A$. We have an induced boundary map $\partial\colon C_k(X;\beta)\to C_{k-1}(X;\beta)$ which makes $C_k(X;\beta)$ a chain complex with basis $\{\overset{\sim}{e}_j^k\}\otimes\text{id}_A$.
 
 \begin{definition}
 The \textbf{Reidemeister torsion of $X$ with respect to $\beta$} to be $\Delta(X;\beta)=\Delta(C_.(X;\beta)\otimes_{\mathbb{Z}\pi_1(X)}A)$ if $C_.(X;\beta)\otimes_{\mathbb{Z}\pi_1(X)}A$ has no homology. This is a well-defined element of $A^*/\{\pm\beta(\pi_1(X))\}$.
