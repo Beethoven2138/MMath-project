@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
 \usepackage[english]{babel}
+\usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -465,7 +466,7 @@ $\partial(\sigma\cap\phi)=(-1)^i(\partial\sigma\cap\phi-\sigma\cap d\phi)$.
 \begin{proof}
 \[\partial\sigma\cap\phi=\sum_{t=0}^i(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}+\sum_{t=i+1}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}\]
 \[\sigma\cap d\phi=\sum_{t=0}^{i+1}(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}\]
-\[\partial(\sigma\cap\phi)=\sum_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}\]
+\[\partial(\sigma\cap\phi)=\sum_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}\qedhere\]
 \end{proof}
 
 \begin{proposition}
@@ -500,7 +501,7 @@ Let $M$ be an n-dimensional manifold and $R$ a commutative ring with an identity
 \end{proposition}
 
 \begin{definition}
-Let $M$ and $N$ be closed connected orientable $n$-dimensional manifolds, let $f\colon M\to N$ be continuous and let $[M]$ and $[N]$ be fundamental classes of $X$ and $Y$. Then the \textbf{degree} of $f$ is the image of $f_*([M])$. Or in other words, $f_*([M])=\text{deg}(f)[N]$.
+Let $M$ and $N$ be closed connected orientable $n$-dimensional manifolds, let $f\colon M\to N$ be continuous and let $[M]$ and $[N]$ be fundamental classes of $X$ and $Y$. Then the \textbf{degree} of $f$ is the integer $\text{deg}(f)$ such that $f_*([M])=\text{deg}(f)[N]$.
 \end{definition}
 
 \begin{proposition}
@@ -574,6 +575,18 @@ Let $G$ be an abelian group. Then\\
 $H_k(CC_k(X;G),\partial)\cong H_k(X;G)$ and\\
 $H^k(CC^k(X;G),d)\cong H^k(X;G)$ for all $k\in\mathbb{N}$.
 \end{proposition}
+
+\section{Delta complexes}
+\begin{definition}
+A $\Delta$--complex structure on a space $X$ is a collection of maps $\sigma_\alpha\colon\Delta^n\to X$, with $n$ depending on the index $\alpha$, such that:
+\begin{enumerate}
+    \item The restriction of $\sigma_\alpha$ to the interior of $\Delta^n$ is injective, and each point of $X$ is in the image of exactly one such restriction.
+    \item Each restriction of $\sigma_\alpha$ to a face of $\Delta^n$ is one of the maps $\sigma_\beta\colon\Delta^{n-1}\to X$.
+    \item A set $A\subset X$ is open iff $\sigma_\alpha^{-1}$ is open in $\Delta^n$ for each $\sigma_\alpha$.
+\end{enumerate}
+\end{definition}
+
+The homology and cohomology groups arising from a delta-complex structure of a topological space are isomorphic to those arising from a singular structure. The chain complexes of delta-complexes are usually simpler than those in the singular case. This will be seen in the computation of the torsion linking form of Lens spaces, since finite bases for the chain groups can be found, thereby making it easy to characterize cochains by their actions on said basis.
 
 \section{Universal coefficient theorem}
 \begin{proposition}
@@ -750,7 +763,8 @@ So $\partial b_i=D-F_{i+1}+F_i$\\
 $\partial c_i=\partial[NSx_i]=[Sx_i]-[Nx_i]+[NS]=[NS]-[Nx_i]+[Nx_{i-q}].$\\
 So $\partial c_i=E-F_i+F_{i-q}$.\\
 $\partial(\sum_{i=0}^{p-1}a_i)=\sum_i([Nx_{i-q}x_{i-q+1}]-[Nx_ix_{i+1}]+[NSx_{i+1}]-[NSx_i])=0$ so $\sum_{i=0}^{p-1}a_i$ is a representative of an element of $H_3(L(p;q);\mathbb{Z})$. In fact, it is a representative of a fundamental class. Call the equivalence class it represents $[M]$.\\
-Let $\hat X$ be linear map given by $\hat X(nX)=n$ and $\hat X(Y)=0$ otherwise. We then have\\
+$C_1(L(p;q),\mathbb{Z})$ has basis $D,E,F_i$ and $C_2(L(p;q),\mathbb{Z})$ has basis $b_i,c_i$\\
+Let $\hat X$ be linear map which sends $X$ to $1$ and all other elements of the basis to $0$. We then have\\
 $d\hat D=\sum_{i=0}^{p-1}\hat b_i$\\
 $d\hat E=\sum_{i=0}^{p-1}\hat c_i$\\
 $d\hat F_i=\hat b_i-\hat b_{i-1}-\hat c_i+\hat c_{i+q}$.\\
