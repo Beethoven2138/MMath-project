@@ -740,9 +740,20 @@ Bilinearity follows from the bilinearity of the cup product.
 \noindent So in the case of 3-manifolds like lens spaces, the torsion linking pairing is a symmetric non-degenerate bilinear form on $T(H^2(M;\mathbb{Z}))$. Also, since the cup product is invariant under homotopy-equivalence, the torsion linking pairing is as well.
 
 
+To compute the torsion linking form of a lens space, we first need to give a lens space a $\Delta$--complex structure. To begin with, we need an easily-visualised model of $S^3$.
 
+$S^3$ is the set of pairs of complex numbers $(z_0,z_1)$ such that their norms sum to $1$. Representing them in polar coordinates then gives $z_0=r_0e^{i\theta_0}$ and $z_1=r_1e^{i\theta_1}$, with $r_0^2+r_1^2=1$. $r_1$ determines $r_0=\sqrt{1-r_1^2}$ so $(z_0,z_1)$ can be associated with a real triple $(r_1,\theta_0,\theta_1)$, where $0\leq r_1\leq 1$ and $0\leq\theta_0,\theta_1<2\pi$.
+For there to be a bijection between pairs $(z_0,z_1)$ and triples $(r_1,\theta_0,theta_1)$, we require the following identifications:
+\begin{enumerate}
+\item $(0,\theta_0,\theta_1)\sim(0,\theta_0,\theta_1^{'})$ for all $0\leq\theta_1,\theta_1^{'}<2\pi$, since $r_1=0\implies (z_0,z_1)=(e^{i\theta_0},0)$ is independent of $\theta_1$.
+\item $(1,\theta_0,\theta_1)=(1,\theta_0^{'}m,\theta_1)$ for all $0\leq\theta_0,\theta_0^{'}<2\pi$, since $r_1=0\implies (z_0,z_1)=(0,e^{i\theta_1})$ is independent of $\theta_0$.
+\end{enumerate}
 
+If we represent points of a solid torus $T$ with meridianal radius 1, where $\theta_0$ gives the longitudinal position and $theta_1,r_1$ give the position of the point within the cross-section determined by $\theta_0$, then condition $1$ is satisfied, since all angles are identified on a circle with no radius.
 
+The case where $r_1=1$ corresponds to the boundary of $T$. Varying $\theta_0$ then traces out a latitude, so condition $2$ corresponds to identifying each latitude of $\partial T$ with a single point.
+
+T is homeomorphic to a solid cylinder with the ends identified, and identifying each vertical line on the boundary then gives $S^3$ due to satisfying condition $2$. Collapsing the vertical lines to points midway along the cylinder then shows that $S^3$ is homeomorphic to a solid ball with upper and lower hemisphered identified via orthogonal projection, where the lines collapsed to points on the equator.
 
 
 
