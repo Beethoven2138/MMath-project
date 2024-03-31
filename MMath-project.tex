@@ -144,7 +144,7 @@ The k-th singular chain group with coefficients in an abelian group $G$ is \[C_k
 \begin{definition}
 This induces a \textbf{push-forward homomorphism} $f_*\colon H_k(X;G)\to H_k(Y;G)$ sending $[c]$ to $[f_\#(c)]$.
 \end{definition}
-\noindent To show that this is well-defined, note that $\partial f_\#=f_\#\partial$ and so $f_\#$ maps closed chains to closed chains. Furthermore suppose $[a-b]=[0]$. Then there exists a $\sigma\in C_{k+1}(X;G)$ such that $a-b=\partial\sigma\implies f_\#(a-b)=f_\#\partial\sigma=\partial f_\#\sigma\implies [f_\#(a)-f_\#(b)]=[0]=f_*([a])-f_*([b])$ as required.\\
+\noindent To show that this is well-defined, note that $\partial f_\#=f_\#\partial$ and so $f_\#$ maps closed chains to closed chains. Furthermore suppose $[a-b]=[0]$. Then there exists a $\sigma\in C_{k+1}(X;G)$ such that \[a-b=\partial\sigma\implies f_\#(a-b)=f_\#\partial\sigma=\partial f_\#\sigma\implies [f_\#(a)-f_\#(b)]=[0]=f_*([a])-f_*([b])\] as required.\\
 
 \noindent The condition $\partial f_\#=f_\#\partial$ makes $f_\#$ a \textbf{chain map}. This argument applies more generally to show that all chain maps induce a well-defined map on homology groups.
 
@@ -165,7 +165,7 @@ If $f,g\colon X\to Y$ are homotopic continuous maps between topological spaces t
 \begin{proof}
 Let $F\colon X\times I\to Y$ be a homotopy from $f$ to $g$. Given a singular n--simplex $\sigma\colon\Delta^n\to X$ we can define $\sigma\times\text{id}\colon\Delta^n\times I\to X\times I$ and $F_\#(\sigma\times\text{id})\colon\Delta^n\times I\to Y$. We now decompose $\Delta^n\times I$ as the union of $n+1$-simplices. To do this write $\Delta^n\times I$ as $[a_0,...,a_n,b_0,...,b_n]$ where $a_i=(e_i,0)$ and $b_i=(e_i,1)$. Then $\Delta^n\times I$ is the union of the $n+1$-simplices $\alpha_i=[a_0,...,a_i,b_i,...,b_n]$. Now define the "prism map" $P\colon C_n(X)\to C_{n+1}(Y)$ by $P(\sigma)=\sum_i(-1)^iF\circ(\sigma\times\text{id})|_{\alpha_i}$. 
 \begin{align*}
-\partial P(\sigma)&=\sum_i(-1)^i[\sum_{j\leq i}(-1)^jF\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_j},...,a_i,b_i,...,b_n]}\\&+\sum_{j> i}(-1)^{(j+1)}F\circ(\sigma\times\text{id})|_{[a_0,...,a_i,b_i,...,\overset{\wedge}{b_j},...,b_n]}]
+\partial P(\sigma)&=\sum_i(-1)^i[\sum_{j\leq i}(-1)^jF\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_j},...,a_i,b_i,...,b_n]}\\&+\sum_{j> i}(-1)^{(j+1)}F\circ(\sigma\times\text{id})|_{[a_0,...,a_i,b_i,...,\overset{\wedge}{b_j},...,b_n]}].
 \end{align*}
 The sum of terms with $i=j$ is 
 \begin{multline*}
@@ -371,7 +371,7 @@ The \textbf{kth cohomology group with coefficients in $G$} is \[H^k(X;G)=\frac{\
 \end{definition}
 
 \begin{definition}
-Let $f\colon X\to Y$ be a continuous map between topological spaces and $G$ be an abelian group. We have a homomorphism $f^\#\colon C^k(Y;G)\to C^k(X;G):A\mapsto f^\# A$ given by $f^\# A(c)=A(f_\#(c))$. This in turn induces the \textbf{pullback homomorphism} $f^*\colon H^k(Y;G)\to H^k(X;G):[A]\mapsto [f^\# A]$.
+Let $f\colon X\to Y$ be a continuous map between topological spaces and $G$ be an abelian group. We have a homomorphism $f^\#\colon C^k(Y;G)\to C^k(X;G):A\mapsto f^\# A$ given by $f^\# A(c)=A(f_\#(c))$. This in turn induces the \textbf{pullback homomorphism} \[f^*\colon H^k(Y;G)\to H^k(X;G):[A]\mapsto [f^\# A].\]
 \end{definition}
 \noindent $df^\# A(c)=f^\# A(\partial c)=f^\# dA(c)$ so $df^\#=f^\# d$. Thus $f^\#$ is a chain map so $f^*$ is well-defined.
 
@@ -391,11 +391,11 @@ Pullback is covariantly functorial.
 \begin{proof}
 Let $X$, $Y$ and $Z$ be topological spaces and let $G$ be an abelian group. 
 Clearly $\text{id}_X^*=\text{id}_{H^k(X;G)}$.
-Now let $f\colon X\to Y$ and $g\colon Y\to Z$ be continuous maps. $(g\circ f)^*([A])=[(g\circ f)^\#(A)]=[f^\#\circ g^\#(A)]=f^*([g^\#(A)])=f^*\circ g^*([A])\forall [A]\in H^k(Z;G)$. Thus $(g\circ f)^*=f^*\circ g^*$.
+Now let $f\colon X\to Y$ and $g\colon Y\to Z$ be continuous maps. \[(g\circ f)^*([A])=[(g\circ f)^\#(A)]=[f^\#\circ g^\#(A)]=f^*([g^\#(A)])=f^*\circ g^*([A])\forall [A]\in H^k(Z;G).\] Thus $(g\circ f)^*=f^*\circ g^*$.
 \end{proof}
 
 \begin{proposition}
-Let $X$ and $Y$ be homotopy-equivalent topological spaces. Then $H^k(X;G)\cong H^k(Y;G)$.
+Let $X$ and $Y$ be homotopy-equivalent topological spaces. Then \[H^k(X;G)\cong H^k(Y;G).\]
 \end{proposition}
 \begin{proof}
 We have continuous maps $f\colon X\to Y$ and $g\colon Y\to X$ such that $g\circ f\simeq\text{id}_X$ and $f\circ g\simeq\text{id}_Y$. $(g\circ f)_*=\text{id}_{H_k(X)}$ so $f^*\circ g^*=(g\circ f)^*=\text{id}_{H^k(X;G)}$ by duality. Similarly $g^*\circ f^*=\text{id}_{H^k(Y;G)}$. Thus $f^*$ is a bijective module homomorphism so an isomorphism.
@@ -423,7 +423,7 @@ and \[(-1)^i(\psi\cup d\phi)(\sigma)=\sum_{t=i}^{i+j+1}(-1)^t\psi(\sigma\circ F_
 \end{proof}
 
 \begin{proposition}
-There is a well-defined map $H^i(X;R)\times H^j(X;R)\to H^{i+j}(X;R)$ given by $([\psi],[\phi])\mapsto [\psi]\cup [\phi]=[\psi\cup\phi]$.
+There is a well-defined pairing $H^i(X;R)\times H^j(X;R)\to H^{i+j}(X;R)$ given by $([\psi],[\phi])\mapsto [\psi]\cup [\phi]=[\psi\cup\phi]$.
 \end{proposition}
 \begin{proof}
 $d(\psi\cup\phi)=0\cup\phi+(-1)^i\psi\cup 0=0$ so $\psi\cup\phi \in \text{ker }d$.
@@ -435,7 +435,7 @@ We call the induced map $\cup:H^k(X;R)\times H^l(X;R)\to H^{k+l}(X;R)$ the \text
 \end{definition}
 
 \begin{definition}
-A \textbf{graded ring} is a ring such that its additive group is a direct sum of abelian groups.
+A \textbf{graded ring} is a ring such that its additive group is a direct sum of abelian groups $\bigoplus_{n=0}^\infty R_n$ such that $R_mR_n\subseteq R_{m+n}\forall m,n\in\mathbb{N}_0$. An element of $R_n$ is said to have \textbf{degree} $n$. A graded ring is \textbf{Graded-commutative} if we have $xy=(-1)^{|x||y|}yx$, where $|x|$ and $|y|$ denote the degrees of $x$ and $y$.
 \end{definition}
 
 \begin{proposition}
@@ -458,13 +458,11 @@ For distributivity:
 \end{proof}
 
 \begin{proposition}
-Let $R$ be a commutative ring, $\psi\in H^k(X;R)$ and $\phi\in H^l(X;R)$. Then \[\psi\cup\phi=(-1)^{kl}\phi\cup\psi.\]
+Let $R$ be a commutative ring, $\psi\in H^k(X;R)$ and $\phi\in H^l(X;R)$. Then \[\psi\cup\phi=(-1)^{kl}\phi\cup\psi.\] Thus $H^*(X;R)$ is graded-commutative.
 \end{proposition}
 \begin{proof}
 Long and tedious. See Hatcher.
 \end{proof}
-
-Thus $H^*$ is graded commutative.
 
 \begin{proposition}
 Let $f\colon X\to Y$ be a continuous map. Then $f^*(\psi\cup\phi)=f^*(\psi)\cup f^*(\phi)$.
@@ -487,9 +485,10 @@ Let $X$ be a topological space and $R$ a commutative ring with an identity eleme
 $\partial(\sigma\cap\phi)=(-1)^i(\partial\sigma\cap\phi-\sigma\cap d\phi)$.
 \end{lemma}
 \begin{proof}
-\[\partial\sigma\cap\phi=\sum_{t=0}^i(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}+\sum_{t=i+1}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}\]
-\[\sigma\cap d\phi=\sum_{t=0}^{i+1}(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}\]
-\[\partial(\sigma\cap\phi)=\sum_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}\qedhere\]
+We have
+\[\partial\sigma\cap\phi=\sum_{t=0}^i(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}+\sum_{t=i+1}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]},\]
+\[\sigma\cap d\phi=\sum_{t=0}^{i+1}(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]},\]
+\[\partial(\sigma\cap\phi)=\sum_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}.\] Thus \begin{align*}\text{RHS}&=(-1)^i((-1)^{i+1+1}\phi(\sigma\circ F_{[e_0,...,e_i]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}+\sum_{t=i+1}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]})\\&=(-1)^i(\sum_{t=i}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]})\\&=\sum_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}=\partial(\sigma\cap\phi).\qedhere\end{align*}
 \end{proof}
 
 \begin{proposition}
@@ -711,7 +710,7 @@ $L(2;1)\cong\mathbb{R}P^3$.
 The group action is generated by $(v,w)\mapsto(e^{\pi i}v,e^{\pi i}w)$ and so $(v,w)\sim(-v,-w)=-(v,w)$ which is the identification which gives $\mathbb{R}P^3$.
 \end{proof}
 
-\noindent Thus lens spaces can be considered generalisations of real projective spaces.
+\noindent Thus lens spaces can be considered generalisations of real projective space.
 
 \begin{proposition}
 $H_1(L(p;q))\cong\pi_1(L(p;q))\cong \mathbb{Z}_p$.
@@ -724,7 +723,7 @@ Now let $(a,b)\in S^3$. If $S=(B_{|a|\text{sin}(\frac{\pi}{100p})}(a)\cap |a|S^1
 \noindent Then $H^2(L(p;q);\mathbb{Z})\cong\mathbb{Z}_p$ by Poincare duality. $H_3((L(p;q))\cong\mathbb{Z}\cong H^0(L(p;q);\mathbb{Z})$ since $L(p;q)$ is an orientable 3-manifold. $H_0(L(p;q))\cong\mathbb{Z}\cong H^3(L(p;q);\mathbb{Z})$ since $L(p;q)$ is path-connected. $T(H_2(L(p;q)))\cong T(H^3(L(p;q));\mathbb{Z})=0$ and $F(H_2(L(p;q)))\cong F(H^2(L(p;q);\mathbb{Z}))=0$ by the universal coefficient theorem so $H_2(L(p;q))=0=H^1(L(p;q);\mathbb{Z})$. $H_i(L(p;q))=H^i(L(p;q);\mathbb{Z})=0\forall i>3$ since $L(p;q)$ is a 3-manifold. The homology and cohomology groups depend only on $p$ and are insufficient for a homotopy-equivalence classification.
 
 \begin{definition}
-Let $M^n$ be a closed oriented manifold with fundamental class $[M]\in H_n(M;\mathbb{Z})$. Let $[\alpha]\in H^a(M;\mathbb{Z})$ and $[\beta]\in H^{n-a+1}(M;\mathbb{Z})$ be torsion classes, i.e. $k[\alpha]=0,m[\beta]=0$ for some $k,m\in\mathbb{N}$. Then we can write $k\alpha=d\gamma$ for some $\gamma\in C^{a-1}(M,\mathbb{Z})$. We define $[\alpha]\vee[\beta]=\frac{1}{k}(\gamma\cup\beta)M\in\mathbb{Q}/\mathbb{Z}$. The \textbf{torsion linking pairing} is then $T(H^a(M;\mathbb{Z}))\times T(H^{n-a+1}(M;\mathbb{Z}))\to\mathbb{Q}/\mathbb{Z}:([\alpha],[\beta])\mapsto[\alpha]\vee[\beta]$.
+Let $M^n$ be a closed oriented manifold with fundamental class $[M]\in H_n(M;\mathbb{Z})$. Let $[\alpha]\in H^a(M;\mathbb{Z})$ and $[\beta]\in H^{n-a+1}(M;\mathbb{Z})$ be torsion classes, i.e. $k[\alpha]=0,m[\beta]=0$ for some $k,m\in\mathbb{N}$. Then we can write $k\alpha=d\gamma$ for some $\gamma\in C^{a-1}(M,\mathbb{Z})$. We define $[\alpha]\vee[\beta]=\frac{1}{k}(\gamma\cup\beta)M\in\mathbb{Q}/\mathbb{Z}$. The \textbf{torsion linking pairing} is then \[T(H^a(M;\mathbb{Z}))\times T(H^{n-a+1}(M;\mathbb{Z}))\to\mathbb{Q}/\mathbb{Z}:([\alpha],[\beta])\mapsto[\alpha]\vee[\beta].\]
 \end{definition}
 \begin{lemma}
 $[\alpha]\vee[\beta]$ is well-defined.
@@ -806,7 +805,7 @@ Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $\alpha$ is a re
 Otherwise, \[p\alpha([Sx_ix_{i+1}])=p\alpha([Nx_{i-q}x_{i+1-q}])=p\alpha(b_{i-q})=(kp+i-q+1)\hat b_{{i-q}}(b_{{i-q}})-(kp+i-q+1)\hat b_{{i-q}}(b_{{i-q}})=0\]where $k\in\mathbb{Z}$ puts $kp+i-q+1$ in the compatible range for the sum of $[1,p-1]$ (The fact that it can't wrap around to $0$ is why cancellation occurs).\\
 Thus, \[[\alpha]\vee[\alpha]=\frac{1}{p}\gamma([NS])\alpha([Sx_{q-1}x_q])=\frac{q}{p}.\]
 
-\noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, taking into account choice of fundamental class and choice of element of $H^2(L(p;q);\mathbb{Z})$. This is equivalent to $q_1\equiv\pm q_2m^2\text{ mod }p\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\iff q_2q_2\equiv\pm n^2\text{ mod } p$, where $n=mq_2$.
+\noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, taking into account whether or not the homotopy-equivalence is orientation-reversing and choice of element of $H^2(L(p;q);\mathbb{Z})$. This is equivalent to $q_1\equiv\pm q_2m^2\text{ mod }p\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\iff q_2q_2\equiv\pm n^2\text{ mod } p$, where $n=mq_2$.
 
 If we were only interested in orientation-preserving homotopy-equivalence, then the condition would be $q_2q_2\equiv n^2\text{ mod } p$; and if we were only interested in orientation-reversing homotopy-equivalence, then the condition would be $q_2q_2\equiv- n^2\text{ mod } p$.
 Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$ is a square mod $p$ $\iff -1$ is a square mod $p\iff p\equiv 1$ mod $4$ for $p$ a prime.
