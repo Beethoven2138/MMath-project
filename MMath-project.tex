@@ -45,7 +45,7 @@ Let $X$ be a topological space. A \textbf{path} is a continuous map $\gamma$ fro
 \end{definition}
 
 \begin{definition}
-Let $X$ be a topological space and $x_0\in X$. The \textbf{fundamental group} is $\pi_1(X,x_0)=\{[\gamma]:\gamma\text{ is a loop based at }x_0\}$.
+Let $X$ be a topological space and $x_0\in X$. The \textbf{fundamental group} is \[\pi_1(X,x_0)=\{[\gamma]:\gamma\text{ is a loop based at }x_0\}.\]
 \end{definition}
 This is a group with identity represented by the constant loop, multiplication given by concatenation of loops and $[\alpha]$ having inverse $[\bar \alpha]$, where $\bar \alpha(t)=\alpha(1-t)$.
 
@@ -55,8 +55,7 @@ If $X$ is path-connected and $x_0,y_0\in X$, then $\pi_1(X,x_0)\cong\pi_1(X,y_0)
 We can then refer to the fundamental group merely as $\pi_1(X)$.
 
 \begin{definition}
-Two continuous maps $\phi_0,\phi_1\colon X\to Y$ of topological spaces are \textbf{homotopic} if there exists a continuous map $F\colon X\times I\to Y$ such that\\
-$F(x,0)=\phi_0(X)$, $F(x,1)=\phi_1(x)$, $\forall x\in X$.\\
+Two continuous maps $\phi_0,\phi_1\colon X\to Y$ of topological spaces are \textbf{homotopic} if there exists a continuous map $F\colon X\times I\to Y$ such that\[F(x,0)=\phi_0(X), F(x,1)=\phi_1(x),\forall x\in X.\]
 In this case, we write: $\phi_0\simeq\phi_1$ and say that $F$ is a \textbf{homotopy from} $\phi_0$ \textbf{to} $\phi_1$.
 \end{definition}
 
@@ -255,7 +254,7 @@ For each $p\in\Lambda$ pick a path $\beta_p\colon [0,1]\to X$ from $x_0$ to $p$ 
 \begin{align*}
 h([\eta_0^{n_0}\cdot\eta_1^{n_1}...\cdot\eta_k^{n_k}])&=[n_0\eta_0+...+n_k\eta_k]\\&=[\sum_{i=0}^kn_i(\beta_{\sigma_i(0)}+\sigma_i-\beta_{\sigma_i(1)})]\\&=[\sum_{i=0}^kn_i\sigma_i+\sum_{i=0}^kn_i(\beta_{\sigma_i(0)}-\beta_{\sigma_i(1)})]\\&=[\sum_{i=0}^kn_i\sigma_i-\sum m_p\beta_p]\\&=[\sum_{i=0}^kn_i\sigma_i]=[\lambda]
 \end{align*}since $m_p=0$.\\
-\noindent\textbf{We now find the kernel}\\
+\noindent\textbf{We now find the kernel.}\\
 Let $[\gamma]\in\pi_1(X,x_0)$ such that $h([\gamma])=[0]$.
 Then $\gamma$ is exact so there exists a finite sum of singular 2-simplices $\sum_{i=0}^kn_i\sigma_i$ such that \[\gamma=\partial(\sum_{i=0}^kn_i\sigma_i)=\sum_{i=0}^kn_i\partial(\sigma_i)=\sum_{i=0}^kn_i(\lambda_i+\mu_i+\nu_i)\] Let $\Lambda=\{\lambda_i\}\cup\{\mu_i\}\cup\{\nu_i\}$ and for each end-point $p$ of a singular 1-simplex in $\Lambda$ let $\beta_p$ be a path from $x_0$ to $p$. For each $\theta\in\Lambda$ let $m_\theta$ be the sum of coefficients of $\theta$ in $\sum_{i=0}^kn_i(\lambda_i+\mu_i+\nu_i)$. This sum is equal to $\gamma$ thus $m_\theta$ is $1$ if $\theta=\gamma$ and $0$ otherwise. For each singular 2-simplex $\sigma_i$ the loops $\beta_{\lambda_i(0)}\cdot\lambda_i\cdot\beta_{\lambda_i(1)}^{-1}$, $\beta_{\mu_i(0)}\cdot\mu_i\cdot\beta_{\mu_i(1)}^{-1}$ and $\beta_{\nu_i(0)}\cdot\nu_i\cdot\beta_{\nu_i(1)}^{-1}$ have null-homotopic concatenations. Let $\eta_i=\beta_{\partial\sigma_i(0)}\cdot\partial\sigma_i\cdot\beta_{\partial\sigma_i(1)}^{-1}$. Then $h([\eta_0^{n_0}\cdot...\cdot\eta_k^{n_k}\cdot\gamma^{-1}])=h([\gamma])h([\gamma^{-1}])=[\gamma^{-1}]$. Now write each $[\eta_i]$ as $[\beta_{\lambda_i(0)}\cdot\lambda_i\cdot\beta_{\lambda_i(1)}^{-1}][\beta_{\mu_i(0)}\cdot\mu_i\cdot\beta_{\mu_i(1)}^{-1}][\beta_{\nu_i(0)}\cdot\nu_i\cdot\beta_{\nu_i(1)}^{-1}]$. Then for each $\theta\in\Lambda$ we have that the sum of exponents of $[\beta_{\theta(0)}\cdot\theta\cdot\beta_{\theta(1)}^{-1}]$ is $m_\theta$ The exponents of each $[\beta_{\theta(0)}\cdot\theta\cdot\beta_{\theta(1)}^{-1}]$ in $[\eta_0^{n_0}\cdot...\cdot\eta_k^{n_k}\cdot\gamma^{-1}]$ is then 0 so by the above lemma $[\gamma^{-1}]\in[\pi_1(X,x_0),\pi_1(X,x_0)]$ meaning $[\gamma]$ is as well. Thus $\text{ker }h\subseteq [\pi_1(X,x_0),\pi_1(X,x_0)]$. We also have that $[\pi_1(X,x_0),\pi_1(X,x_0)]\subseteq \text{ker }h$ since $H_1(X)$ is abelian so $\text{ker }h=[\pi_1(X,x_0),\pi_1(X,x_0)]$. The result then follows by the first isomorphism theorem.
 \end{proof}
@@ -665,9 +664,8 @@ There is no map $\mathbb{R} P^n$$\rightarrow$$\mathbb{R} P^m$ inducing a nontriv
 \end{lemma}
 \begin{proof}
 Let $x_n$ and $x_m$ be the generators of $H^1(\mathbb{R} P^n;\mathbb{Z}_2)$ and $H^1(\mathbb{R} P^m;\mathbb{Z}_2)$ respectively.
-
-\[H^1(\mathbb{R} P^n;\mathbb{Z}_2)\cong \mathbb{Z}_2\] 
-\[H^*(\mathbb{R} P^n;\mathbb{Z}_2)\cong \mathbb{Z}_2[x]/<x^{n+1}>\] 
+We have
+\[H^1(\mathbb{R} P^n;\mathbb{Z}_2)\cong \mathbb{Z}_2\] and\[H^*(\mathbb{R} P^n;\mathbb{Z}_2)\cong \mathbb{Z}_2[x]/\langle x^{n+1}\rangle.\] 
 
 \noindent Let $f\colon\mathbb{R} P^n\to\mathbb{R} P^m $ be such a map so that $f^*(x_m)=x_n$.
 Then since $f^*$ is a homomorphism on the cup product structure, $f^*(0)=f^*(x_m^{m+1})=f^*(x_m)^{m+1}=x_n^{m+1}=0$, requiring $m \geq n$. The result follows by contraposition.
