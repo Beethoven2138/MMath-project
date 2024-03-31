@@ -511,15 +511,19 @@ A topological space $M$ is an \textbf{n-dimensional manifold} if for every $p\in
 \end{definition}
 
 \begin{definition}
+A manifold is \textbf{closed} if it is compact and has no boundary.
+\end{definition}
+
+\begin{definition}
 An n-dimensional closed manifold $M$ is \textbf{orientable} if $H_n(M)\cong \mathbb{Z}$.
 \end{definition}
 
 \begin{definition}
-Let $M$ be an n-dimensional manifold and $R$ a commutative ring with an identity. $M$ is \textbf{R-orientable} if $H_n(M;R)\cong R$. The image of a unit in $R$ is called a \textbf{fundamental class}. An \textbf{orientation} of $M$ is a choice of fundamental class $[M]\in H_n(M)$.
+Let $M$ be a closed n-dimensional manifold and $R$ a commutative ring with an identity. $M$ is \textbf{R-orientable} if $H_n(M;R)\cong R$. The image of a unit in $R$ is called a \textbf{fundamental class}. An \textbf{orientation} of $M$ is a choice of fundamental class $[M]\in H_n(M)$.
 \end{definition}
 
 \begin{proposition}
-Let $M$ be an n-dimensional manifold and $R$ a commutative ring with an identity. Then $H_n(M;R)\cong R$ if $M$ is orientable and $T_2R$ otherwise. Furthermore, $H_i(M;R)=0$ for $i>n$.
+Let $M$ be a closed n-dimensional manifold and $R$ a commutative ring with an identity. Then $H_n(M;R)\cong R$ if $M$ is orientable and $T_2R$ otherwise. Furthermore, $H_i(M;R)=0$ for $i>n$.
 \end{proposition}
 
 \begin{definition}
@@ -527,10 +531,10 @@ Let $M$ and $N$ be closed connected orientable $n$-dimensional manifolds, let $f
 \end{definition}
 
 \begin{proposition}
-Let $M$ and $N$ be R-orientable n-dimensional manifolds and $f\colon M\to N$ a homeomorphism. Then $f_*$ sends a fundamental class of $M$ to a fundamental class of $N$.
+Let $M$ and $N$ be closed R-orientable n-dimensional manifolds and $f\colon M\to N$ a homeomorphism. Then $f_*$ sends a fundamental class of $M$ to a fundamental class of $N$.
 \end{proposition}
 \begin{proof}
-Let $[M]\in H_n(M;R)$ be a fundamental class of $M$ and let $\phi\colon H_n(M;R)\to R$ and $\psi\colon H_n(N;R)\to R$ be the module isomorphisms. $\phi([M])$ is a unit so there exists an inverse $\phi([M])^{-1}=\phi([A])$ so that $\psi(f_*([M]))\psi(f_*([A]))=(\psi\circ f_*\circ \phi^{-1})(\phi([M]))(\psi\circ f_*\circ \phi^{-1})(\phi([A]))=(\psi\circ f_*\circ \phi^{-1})(\phi([M])\phi([A]))=(\psi\circ f_*\circ \phi^{-1})(1)=1$. Thus $\psi(f_*([M]))$ is a unit so $f_*([M])$ is a fundamental class.
+$f_*$ is an isomorphism, and isomorphisms map units to units.
 \end{proof}
 
 \begin{corollary}
@@ -542,9 +546,7 @@ Let $M$ be an orientable n-dimensional manifold, let $[M]\in H_n(X)$ be a fundam
 \end{definition}
 
 
-\begin{definition}
-A manifold is \textbf{closed} if it is compact and has no boundary.
-\end{definition}
+
 
 \begin{theorem}
 (Poincare Duality). If $M$ is a closed $R$-orientable $n$-manifold with fundamental class $[M]\in H_n(M;R)$, then the map $D\colon H^k(M;R)\to H_{n-k}(M;R)$ defined by $D([\alpha])=[M]\cap[\alpha]$ is an isomorphism for all $k$.
@@ -621,8 +623,7 @@ which is an isomorphism if $A$ is free.
 
 In particular, $H_*(X;\mathbb{R})\cong H_*(X;\mathbb{Q})\otimes_\mathbb{Q}\mathbb{R}\cong H_*(X)\otimes_\mathbb{Z}\mathbb{R}$. If $H_k(X)$ is finitely generated, then \[\text{rk }H_k(X)=\text{dim }H_k(X;\mathbb{R}).\]
 
-Let $G$ be an abelian group
-Recall the natural pairing $H^k(X;G)\times H_k(X)\to G$ given by \[([\psi],[c])\mapsto\psi(c).\]
+Let $G$ be an abelian group. Recall the natural pairing $H^k(X;G)\times H_k(X)\to G$ given by \[([\psi],[c])\mapsto\psi(c).\]
 
 \begin{proposition}
 The induced homomorphism \[H^k(X;G)\to\text{Hom}(H_k(X);G)\]is surjective.
@@ -731,7 +732,7 @@ $[\alpha]\vee[\beta]$ is well-defined.
 \begin{proof}
 Let $d\gamma=d\eta=k\alpha$ for $\eta\in C^{a-1}(M,\mathbb{Z})$. Then $d(\gamma-\eta)=0$ so $\gamma-\eta$ is a representative of an element of $H^{a-1}(M;\mathbb{Z})$. \[((\gamma-\eta)\cup\beta)M=([\gamma-\eta]\cup[\beta])M\] so \[m((\gamma-\eta)\cup\beta)M=([\gamma-\eta]\cup[m\beta])M=0.\] Thus $m(\gamma\cup\beta)M=m(\eta\cup\beta)M$ so $(\gamma\cup\beta)M=(\eta\cup\beta)M$, implying independence of $\gamma$.
 
-\noindent Now let $[\alpha]=[\alpha']\in H^a(M;\mathbb{Z})$. Then $\alpha'=\alpha+de$ for some $e\in C^{a-1}(M,\mathbb{Z})$, so \[k\alpha'=d\gamma+dke=d(\gamma+ke).\] \[\frac{1}{k}((\gamma+ke)\cup\beta)M=\frac{1}{k}(\gamma\cup\beta)M+\frac{1}{k}k(e\cup\beta)M=\frac{1}{k}(\gamma\cup\beta)M \in \mathbb{Q}/\mathbb{Z},\] implying independence of $\alpha$.
+\noindent Now let $[\alpha]=[\alpha']\in H^a(M;\mathbb{Z})$. Then $\alpha'=\alpha+de$ for some $e\in C^{a-1}(M,\mathbb{Z})$, so \[k\alpha'=d\gamma+dke=d(\gamma+ke).\] \[\frac{1}{k}((\gamma+ke)\cup\beta)M=\frac{1}{k}(\gamma\cup\beta)M+\frac{1}{k}k(e\cup\beta)M=\frac{1}{k}(\gamma\cup\beta)M \in \mathbb{Q}/\mathbb{Z}\] implying independence of $\alpha$.
 
 \noindent Finally, let $[\beta]=[\beta']\in H^{n-a+1}(M;\mathbb{Z})$. Then $\beta'=\beta+df$ for some $f\in C^{n-a}(M,\mathbb{Z})$. \[d(\gamma\cup f)=k(\alpha\cup f)+(-1)^{a-1}(\gamma\cup df)\] so \[\frac{1}{k}(\gamma\cup df)M=\frac{(-1)^{1-a}}{k}d(\gamma\cup f)M=\frac{(-1)^{1-a}}{k}([0],[M])=0.\] Thus \[\frac{1}{k}(\gamma\cup\beta')M=\frac{1}{k}(\gamma\cup(\beta+df))M=\frac{1}{k}(\gamma\cup\beta)M+\frac{1}{k}(\gamma\cup df)M=\frac{1}{k}(\gamma\cup\beta)M,\] implying independence of $\beta$. Thus the pairing is well-defined.
 \end{proof}
