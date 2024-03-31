@@ -338,7 +338,7 @@ $\mathbb{Z}_m\bigotimes\mathbb{Z}_n=\mathbb{Z}_{gcd(m,n)}$.
 \end{example}
 \begin{proof}
 We have the first isomorphism for modules that given a module homomorphism $f:M\to N$, $M/\text{ker }f\cong\text{im }f$ (the proof is analogous to the cases for groups, rings and vector spaces).
-So, define a module homomorphism $g\colon\mathbb{Z}\to\mathbb{Z}_m\bigotimes\mathbb{Z}_n:z\mapsto z(1\otimes 1)$. $g$ is surjective so $\text{im }g=\mathbb{Z}_m\bigotimes\mathbb{Z}_n$. Clearly $<\text{gcd}(m,n)>\subseteq\text{ker }g$. Now let $x\notin <\text{gcd}(m,n)>$. Then $x=s\text{gcd}(m,n)+k$ with $0<k<\text{gcd}(m,n)$ by division with remainder. $g(x)=s\text{gcd}(m,n)(1\otimes 1)+g(k)=k(1\otimes 1)\neq 0\implies x\notin\text{ker }g$ so $x\in\text{ker }g\implies x\in<\text{gcd}(m,n)>$ giving $<\text{gcd}(m,n)>=\text{ker }g$.
+So, define a module homomorphism $g\colon\mathbb{Z}\to\mathbb{Z}_m\bigotimes\mathbb{Z}_n:z\mapsto z(1\otimes 1)$. $g$ is surjective so $\text{im }g=\mathbb{Z}_m\bigotimes\mathbb{Z}_n$. Clearly $\langle\text{gcd}(m,n)\rangle\subseteq\text{ker }g$. Now let $x\notin \langle\text{gcd}(m,n)\rangle$. Then $x=s\text{gcd}(m,n)+k$ with $0<k<\text{gcd}(m,n)$ by division with remainder. $g(x)=s\text{gcd}(m,n)(1\otimes 1)+g(k)=k(1\otimes 1)\neq 0\implies x\notin\text{ker }g$ so $x\in\text{ker }g\implies x\in\langle\text{gcd}(m,n)\rangle$ giving $\langle\text{gcd}(m,n)\rangle=\text{ker }g$.
 \end{proof}
 
 
@@ -388,7 +388,7 @@ Now let $[a]=[b]$ so that $a=b+\partial e$ for some $e\in C_{k+1}(X)$. $\phi(a)=
 \noindent This then give that $f^*$ is dual to $f_*$ in the sense that $f^*[A]([c])=[A](f_*([c]))$ for $[A]\in H^k(Y;G)$ and $[c]\in H_k(X)$.
 
 \begin{proposition}
-Pullback is functorial.
+Pullback is covariantly functorial.
 \end{proposition}
 \begin{proof}
 Let $X$, $Y$ and $Z$ be topological spaces and let $G$ be an abelian group. 
@@ -726,11 +726,11 @@ Let $M^n$ be a closed oriented manifold with fundamental class $[M]\in H_n(M;\ma
 $[\alpha]\vee[\beta]$ is well-defined.
 \end{lemma}
 \begin{proof}
-Let $d\gamma=d\eta=k\alpha$ for $\eta\in C^{a-1}(M,\mathbb{Z})$. Then $d(\gamma-\eta)=0$ so $\gamma-\eta$ is a representative of an element of $H^{a-1}(M;\mathbb{Z})$. $((\gamma-\eta)\cup\beta)M=([\gamma-\eta]\cup[\beta])M$ so $m((\gamma-\eta)\cup\beta)M=([\gamma-\eta]\cup[m\beta])M=0$. Thus $m(\gamma\cup\beta)M=m(\eta\cup\beta)M$ so $(\gamma\cup\beta)M=(\eta\cup\beta)M$, implying independence of $\gamma$.
+Let $d\gamma=d\eta=k\alpha$ for $\eta\in C^{a-1}(M,\mathbb{Z})$. Then $d(\gamma-\eta)=0$ so $\gamma-\eta$ is a representative of an element of $H^{a-1}(M;\mathbb{Z})$. \[((\gamma-\eta)\cup\beta)M=([\gamma-\eta]\cup[\beta])M\] so \[m((\gamma-\eta)\cup\beta)M=([\gamma-\eta]\cup[m\beta])M=0.\] Thus $m(\gamma\cup\beta)M=m(\eta\cup\beta)M$ so $(\gamma\cup\beta)M=(\eta\cup\beta)M$, implying independence of $\gamma$.
 
-\noindent Now let $[\alpha]=[\alpha']\in H^a(M;\mathbb{Z})$. Then $\alpha'=\alpha+de$ for some $e\in C^{a-1}(M,\mathbb{Z})$, so $k\alpha'=d\gamma+dke=d(\gamma+ke)$. $\frac{1}{k}((\gamma+ke)\cup\beta)M=\frac{1}{k}(\gamma\cup\beta)M+\frac{1}{k}k(e\cup\beta)M=\frac{1}{k}(\gamma\cup\beta)M \in \mathbb{Q}/\mathbb{Z}$, implying independence of $\alpha$.
+\noindent Now let $[\alpha]=[\alpha']\in H^a(M;\mathbb{Z})$. Then $\alpha'=\alpha+de$ for some $e\in C^{a-1}(M,\mathbb{Z})$, so \[k\alpha'=d\gamma+dke=d(\gamma+ke).\] \[\frac{1}{k}((\gamma+ke)\cup\beta)M=\frac{1}{k}(\gamma\cup\beta)M+\frac{1}{k}k(e\cup\beta)M=\frac{1}{k}(\gamma\cup\beta)M \in \mathbb{Q}/\mathbb{Z},\] implying independence of $\alpha$.
 
-\noindent Finally, let $[\beta]=[\beta']\in H^{n-a+1}(M;\mathbb{Z})$. Then $\beta'=\beta+df$ for some $f\in C^{n-a}(M,\mathbb{Z})$. $d(\gamma\cup f)=k(\alpha\cup f)+(-1)^{a-1}(\gamma\cup df)$ so $\frac{1}{k}(\gamma\cup df)M=\frac{(-1)^{1-a}}{k}d(\gamma\cup f)M=\frac{(-1)^{1-a}}{k}([0],[M])=0$. Thus $\frac{1}{k}(\gamma\cup\beta')M=\frac{1}{k}(\gamma\cup(\beta+df))M=\frac{1}{k}(\gamma\cup\beta)M+\frac{1}{k}(\gamma\cup df)M=\frac{1}{k}(\gamma\cup\beta)M$, implying independence of $\beta$. Thus the pairing is well-defined.
+\noindent Finally, let $[\beta]=[\beta']\in H^{n-a+1}(M;\mathbb{Z})$. Then $\beta'=\beta+df$ for some $f\in C^{n-a}(M,\mathbb{Z})$. \[d(\gamma\cup f)=k(\alpha\cup f)+(-1)^{a-1}(\gamma\cup df)\] so \[\frac{1}{k}(\gamma\cup df)M=\frac{(-1)^{1-a}}{k}d(\gamma\cup f)M=\frac{(-1)^{1-a}}{k}([0],[M])=0.\] Thus \[\frac{1}{k}(\gamma\cup\beta')M=\frac{1}{k}(\gamma\cup(\beta+df))M=\frac{1}{k}(\gamma\cup\beta)M+\frac{1}{k}(\gamma\cup df)M=\frac{1}{k}(\gamma\cup\beta)M,\] implying independence of $\beta$. Thus the pairing is well-defined.
 \end{proof}
 
 \begin{lemma}
@@ -739,7 +739,7 @@ $[\beta]\vee[\alpha]=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]$.
 \begin{proof}
 let $m\beta=d\tau$ for some $\tau\in C^{n-a}(M,\mathbb{Z})$. Then 
 \begin{align*}
-[\beta]\vee[\alpha]&=\frac{1}{m}(\tau\cup\alpha)M\\&=(-1)^{a(n-a)}\frac{1}{m}(\alpha\cup\tau)M\\&=\frac{(-1)^{a(n-a)}}{km}(k\alpha\cup\tau)M\\&=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)M\end{align*} \[d(\gamma\cup\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup d\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup m\beta)\] so \begin{align*}[\beta]\vee[\alpha]=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)M&=\frac{(-1)^{a(n-a)}}{km}(d(\gamma\cup\tau)M-(-1)^{a-1}(\gamma\cup m\beta)M)\\&=\frac{(-1)^{a(n-a)}}{km}(-1)^a(\gamma\cup m\beta)M\\&=\frac{(-1)^{a(n-a+1)}}{k}(\gamma\cup\beta)M\\&=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]\end{align*}
+[\beta]\vee[\alpha]&=\frac{1}{m}(\tau\cup\alpha)M\\&=(-1)^{a(n-a)}\frac{1}{m}(\alpha\cup\tau)M\\&=\frac{(-1)^{a(n-a)}}{km}(k\alpha\cup\tau)M\\&=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)M.\end{align*} \[d(\gamma\cup\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup d\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup m\beta)\] so \begin{align*}[\beta]\vee[\alpha]=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)M&=\frac{(-1)^{a(n-a)}}{km}(d(\gamma\cup\tau)M-(-1)^{a-1}(\gamma\cup m\beta)M)\\&=\frac{(-1)^{a(n-a)}}{km}(-1)^a(\gamma\cup m\beta)M\\&=\frac{(-1)^{a(n-a+1)}}{k}(\gamma\cup\beta)M\\&=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]\qedhere\end{align*}
 \end{proof}
 
 \begin{lemma}
@@ -748,7 +748,7 @@ The torsion linking pairing is a non-degenerate bilinear form, where non-degener
 \begin{proof}
 Bilinearity follows from the bilinearity of the cup product.
 
-\noindent By the universal coefficient theorem, $T(H^{a}(M;\mathbb{Z}))\to\text{Hom}(T(H_{a-1}(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto\gamma_{[\alpha]}$ is an isomorphism where $\gamma_{[\alpha]}([l])=\frac{1}{k}\gamma(l)$. By Poincare duality we have an isomorphism \[D\colon T(H^{n-a+1}(M;\mathbb{Z}))\to T(H_{a-1}(M;\mathbb{Z})):[\beta]\mapsto[\beta]\cap[M]\] and so \[T(H^a(M,\mathbb{Z}))\to \text{Hom}(T(H^{n-a+1}(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto\gamma_{[\alpha]}\circ D\] is also an isomorphism where \[\gamma_{[\alpha]}\circ D([\beta])=\frac{1}{k}\gamma(\beta\cap M)=\frac{1}{k}(\gamma\cup\beta)M=[\alpha]\vee[\beta]\] Thus \[T(H^a(M,\mathbb{Z}))\to \text{Hom}(T(H^{n-a+1}(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto ([\beta]\mapsto [\alpha]\vee[\beta])\] is an isomorphism so the bilinear form is non-degenerate.
+\noindent By the universal coefficient theorem, $T(H^{a}(M;\mathbb{Z}))\to\text{Hom}(T(H_{a-1}(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto\gamma_{[\alpha]}$ is an isomorphism where $\gamma_{[\alpha]}([l])=\frac{1}{k}\gamma(l)$. By Poincare duality we have an isomorphism \[D\colon T(H^{n-a+1}(M;\mathbb{Z}))\to T(H_{a-1}(M;\mathbb{Z})):[\beta]\mapsto[\beta]\cap[M]\] and so \[T(H^a(M,\mathbb{Z}))\to \text{Hom}(T(H^{n-a+1}(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto\gamma_{[\alpha]}\circ D\] is also an isomorphism where \[\gamma_{[\alpha]}\circ D([\beta])=\frac{1}{k}\gamma(\beta\cap M)=\frac{1}{k}(\gamma\cup\beta)M=[\alpha]\vee[\beta].\] Thus \[T(H^a(M,\mathbb{Z}))\to \text{Hom}(T(H^{n-a+1}(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto ([\beta]\mapsto [\alpha]\vee[\beta])\] is an isomorphism so the bilinear form is non-degenerate.
 \end{proof}
 \noindent So in the case of 3-manifolds like lens spaces, the torsion linking pairing is a symmetric non-degenerate bilinear form on $T(H^2(M;\mathbb{Z}))$. Also, since the cup product is invariant under homotopy-equivalence, the torsion linking pairing is as well.
 
@@ -762,7 +762,7 @@ For there to be a bijection between pairs $(z_0,z_1)$ and triples $(r_1,\theta_0
 \item $(1,\theta_0,\theta_1)=(1,\theta_0^{'}m,\theta_1)$ for all $0\leq\theta_0,\theta_0^{'}<2\pi$, since $r_1=0\implies (z_0,z_1)=(0,e^{i\theta_1})$ is independent of $\theta_0$.
 \end{enumerate}
 
-If we represent points of a solid torus $T$ with meridianal radius 1, where $\theta_0$ gives the longitudinal position and $theta_1,r_1$ give the position of the point within the cross-section determined by $\theta_0$, then condition $1$ is satisfied, since all angles are identified on a circle with no radius.
+If we represent points of a solid torus $T$ with meridianal radius 1, where $\theta_0$ gives the longitudinal position and $\theta_1,r_1$ give the position of the point within the cross-section determined by $\theta_0$, then condition $1$ is satisfied, since all angles are identified on a circle with no radius.
 
 The case where $r_1=1$ corresponds to the boundary of $T$. Varying $\theta_0$ then traces out a latitude, so condition $2$ corresponds to identifying each latitude of $\partial T$ with a single point.
 
@@ -777,10 +777,10 @@ Faces: $[Nx_0x_1],...,[Nx_{p-2}x_{p-1}],[Nx_0x_{p-1}]$ and $[NSx_0],...,[NSx_{p-
 Slices: $[NSx_0x_1],...,[NSx_{p-2}x_{p-1}],[NSx_0x_{p-1}]$\\
 \[\text{Let }a_{p-1}=-[NSx_0x_{p-1}]\text{ and }a_i=[NSx_ix_{i+1}]\text{ otherwise.}\]
 \[\text{Let }b_{p-1}=-[Nx_0x_{p-1}]\text{ and }b_i=[Nx_ix_{i+1}]\text{ otherwise.}\]
-\[\text{Let }c_i=[NSx_i]\]
-\[\text{Let }D=[x_0x_1]\]
-\[\text{Let }E=[NS]\]
-\[\text{Let }F_i=[Nx_i]\]
+\[\text{Let }c_i=[NSx_i].\]
+\[\text{Let }D=[x_0x_1].\]
+\[\text{Let }E=[NS].\]
+\[\text{Let }F_i=[Nx_i].\]
 \[-\partial b_{p-1}=\partial[Nx_0x_{p-1}]=[x_0x_{p-1}]-[Nx_{p-1}]+[Nx_0]=[Nx_0]-[Nx_{p-1}]-[x_0x_1]\]
 Otherwise, \[\partial b_i=\partial[Nx_ix_{i+1}]=[x_0x_1]-[Nx_{i+1}]+[Nx_i]\]
 so \[\partial b_i=D-F_{i+1}+F_i.\]
@@ -797,7 +797,7 @@ Then define \[\gamma=\hat D + (\sum_{i=0}^{p-1}i\hat F_i)+q\hat E\in C^1(L(p;q);
 d\gamma&=\sum_{i=0}^{p-1}\hat b_i+(\sum_{i=0}^{p-1}i(\hat b_i-\hat b_{i-1}-\hat c_i+\hat c_{i+q}))+\sum_{i=0}^{p-1}q\hat c_i\\
 &=\sum_{i=0}^{p-1}((i+1)\hat b_i-i\hat b_{i-1}-(i-q)\hat c_i+i\hat c_{i+q})\equiv 0\text{ mod }p.\\
 \end{align*}
-Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $\alpha$ is a representative of an element in $H^2(L(p;q);\mathbb{Z})$ with $p[\alpha]=[0]$. Also note $\gamma(E)=q$.
+Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $\alpha$ is a representative of an element in $H^2(L(p;q);\mathbb{Z})$ with $p[\alpha]=[0]$. Also note that $\gamma(E)=q$.
 \[p\alpha([Sx_{q-1}x_q])=p\alpha([Nx_{p-1}x_0])=p\alpha(b_{p-1})=(p-1+1)\hat b_{p-1}(b_{p-1})-0\times\hat b_{-1}(b_{p-1})=p\]\[\implies \alpha([Sx_{q-1}x_q])=1.\]
 Otherwise, \[p\alpha([Sx_ix_{i+1}])=p\alpha([Nx_{i-q}x_{i+1-q}])=p\alpha(b_{i-q})=(kp+i-q+1)\hat b_{{i-q}}(b_{{i-q}})-(kp+i-q+1)\hat b_{{i-q}}(b_{{i-q}})=0\]where $k\in\mathbb{Z}$ puts $kp+i-q+1$ in the compatible range for the sum of $[1,p-1]$ (The fact that it can't wrap around to $0$ is why cancellation occurs).\\
 Thus, \[[\alpha]\vee[\alpha]=\frac{1}{p}\gamma([NS])\alpha([Sx_{q-1}x_q])=\frac{q}{p}.\]
