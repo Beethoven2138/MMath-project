@@ -82,11 +82,10 @@ Let $G$ be a group acting via a covering space action on a simply connected topo
 
 \section{Singular homology}
 \begin{definition}
-A \textbf{k-simplex} is the convex hull\\
-$[v_0,...,v_k]:=\{\sum_{i=0}^k\lambda_iv_i:\lambda_i\in [0,1],\sum_{i=0}^k\lambda_i=1\}$\\
+A \textbf{k-simplex} is the convex hull\[[v_0,...,v_k]:=\{\sum_{i=0}^k\lambda_iv_i:\lambda_i\in [0,1],\sum_{i=0}^k\lambda_i=1\}\]
 of $k+1$ linearly independent vectors $v_0,...,v_k\in\mathbb{R}^n$.\\
-The \textbf{standard k-simplex} is\\$\Delta^k=[e_0,...,e_k]=\{(t_0,...,t_k)\in\mathbb{R}^k:t_i\geq 0, \sum_{i=0}^kt_i=1\}$\\
-The vectors $v_0,...,v_k$ define a \textbf{framing} $F_{v_0,...,v_k}\colon\Delta^k\rightarrow [v_0,...,v_k],(t_i)\mapsto \sum_{i=0}^kt_iv_i$.
+The \textbf{standard k-simplex} is\[\Delta^k=[e_0,...,e_k]=\{(t_0,...,t_k)\in\mathbb{R}^k:t_i\geq 0, \sum_{i=0}^kt_i=1\}.\]
+The vectors $v_0,...,v_k$ define a \textbf{framing} \[F_{v_0,...,v_k}\colon\Delta^k\rightarrow [v_0,...,v_k],(t_i)\mapsto \sum_{i=0}^kt_iv_i.\]
 \end{definition}
 
 
@@ -97,8 +96,7 @@ The \textbf{faces} of $[v_0,...,v_k]$ are the (k-1)-simplices $[v_0,...,\overset
 \end{definition}
 
 \begin{definition}
-Let $X$ be a topological space. A \textbf{singular k-simplex} in X is a continuous map $\sigma\colon\Delta^k\to X$. The \textbf{k-th chain group} of $X$ is the abelian group\\
-$C_k(X):=\{\sum_{i=0}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in\mathbb{Z},\sigma_i \text{ is a k-simplex}\}$ where the elements are called \textbf{k-chains}.
+Let $X$ be a topological space. A \textbf{singular k-simplex} in X is a continuous map $\sigma\colon\Delta^k\to X$. The \textbf{k-th chain group} of $X$ is the abelian group\[C_k(X):=\{\sum_{i=0}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in\mathbb{Z},\sigma_i \text{ is a k-simplex}\}\] where the elements are called \textbf{k-chains}.
 \end{definition}
 \begin{remark}
 $C_k(X)$ is an example of a \textbf{free abelian group}; that is, an abelian group whose elements are of the form $\sum_in_is_i$ where each $s_i$ belongs to some set $S$.
@@ -106,19 +104,18 @@ $C_k(X)$ is an example of a \textbf{free abelian group}; that is, an abelian gro
 
 
 \begin{definition}
-The \textbf{boundary map} $\partial=\partial_k\colon C_k(X)\to C_{k-1}(X)$ is given by\\
-$\partial\sigma=\sum_{i=0}^k(-1)^i\sigma\circ F_{e_0,...,\overset{\wedge}{e_i},...,e_k}\in C_{k-1}(X)$\\
+The \textbf{boundary map} $\partial=\partial_k\colon C_k(X)\to C_{k-1}(X)$ is given by\[\partial\sigma=\sum_{i=0}^k(-1)^i\sigma\circ F_{e_0,...,\overset{\wedge}{e_i},...,e_k}\in C_{k-1}(X)\]
 on single simplices and extended linearly to all of $C_k(X)$.\\
 A k-chain $c\in C_k(X)$ is a \textbf{k-cycle} if $\partial(c)=0$.
 \end{definition}
-\noindent Intuitively this definition means that the boundary map decomposes $\sigma$ into a sum of maps to its faces--or rather the images of faces of $\Delta^k$--taking into account orientation.
+\noindent Intuitively, this definition means that the boundary map decomposes $\sigma$ into a sum of maps to its faces--or rather the images of faces of $\Delta^k$--taking into account orientation.
 
 
 \begin{lemma}
 $\partial\circ\partial\colon C_k(X)\to C_{k-2}(x)$ is zero.
 \end{lemma}
 \begin{proof}
-Let $\sigma\in C_k(X)$.\\
+Let $\sigma\in C_k(X)$.
 \begin{align*}
 \partial\circ\partial (\sigma)&=\partial(\sum_{i=0}^k(-1)^i\sigma\circ F_{e_0,...,\overset{\wedge}{e_i},...,e_k})\\
 &=\sum_{i=0}^k(-1)^i\partial\circ\sigma\circ F_{e_0,...,\overset{\wedge}{e_i},...,e_k} \\&\text{by linearity}\\
@@ -141,10 +138,10 @@ The \textbf{degree k singular homology} of $X$ is the abelian group
 
 \noindent To give a more general result we shall allow the chain groups to have coefficients in any abelian group $G$ as opposed to merely $\mathbb{Z}$.
 \begin{definition}
-The k-th singular chain group with coefficients in an abelian group $G$ is $C_k(X;G):=\{\sum_{i=1}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in G,\sigma_i \text{ is a k-simplex}\}$ The boundary map $\partial\colon C_k(X;G)\to C_{k-1}(X;G)$ and k-th homology group with coefficients in $G$, $H_k(X;G)$, are then defined as above while replacing $\mathbb{Z}$ with $G$.
+The k-th singular chain group with coefficients in an abelian group $G$ is \[C_k(X;G):=\{\sum_{i=1}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in G,\sigma_i \text{ is a k-simplex}\}.\] The boundary map $\partial\colon C_k(X;G)\to C_{k-1}(X;G)$ and k-th homology group with coefficients in $G$, $H_k(X;G)$, are then defined as above while replacing $\mathbb{Z}$ with $G$.
 \end{definition}
 
-\noindent Let $f\colon X\to Y$ be a continuous map between topological spaces. Given a k--simplex $\sigma\colon\Delta^k\to X$ in $X$, $f\circ\sigma$ is a k--simplex in $Y$. This gives rise to a homomorphism $f_\#\colon C_k(X;G)\to C_k(Y;G):\sum_{i=0}^kn_i\sigma_i\mapsto\sum_{i=0}^kn_if\circ\sigma_i$.
+\noindent Let $f\colon X\to Y$ be a continuous map between topological spaces. Given a k--simplex $\sigma\colon\Delta^k\to X$ in $X$, $f\circ\sigma$ is a k--simplex in $Y$. This gives rise to a homomorphism \[f_\#\colon C_k(X;G)\to C_k(Y;G):\sum_{i=0}^kn_i\sigma_i\mapsto\sum_{i=0}^kn_if\circ\sigma_i.\]
 \begin{definition}
 This induces a \textbf{push-forward homomorphism} $f_*\colon H_k(X;G)\to H_k(Y;G)$ sending $[c]$ to $[f_\#(c)]$.
 \end{definition}
@@ -158,7 +155,7 @@ The push-forward is functorial.
 \begin{proof}
 Let $X$, $Y$ and $Z$ be topological spaces.
 Clearly $\text{id}_{X*}=\text{id}_{H_k(X;G)}$.\\
-Now let $f\colon Y\to Z$ and $g\colon X\to X$ be continuous maps. Given $[c]=[\sum_{i=0}^kn_i\sigma_i]\in H_k(X;G)$, $(f\circ g)_*([c])=[\sum_{i=0}^kn_if\circ g(\sigma_i)]=f_*([\sum_{i=0}^kn_ig(\sigma_i)])=f_*\circ g_*([c])$ so $(f\circ g)_*=f_*\circ g_*$.
+Now let $f\colon Y\to Z$ and $g\colon X\to X$ be continuous maps. Given $[c]=[\sum_{i=0}^kn_i\sigma_i]\in H_k(X;G)$, \[(f\circ g)_*([c])=[\sum_{i=0}^kn_if\circ g(\sigma_i)]=f_*([\sum_{i=0}^kn_ig(\sigma_i)])=f_*\circ g_*([c])\] so $(f\circ g)_*=f_*\circ g_*$.
 \end{proof}
 
 \noindent This then implies the standard results from category theory such as the push-forward sending commutative diagrams to commutative diagrams and homeomorphisms to group isomorphisms.
@@ -214,9 +211,9 @@ $[G,G]$ is a normal subgroup.
 \end{lemma}
 \begin{proof}
 Let $g\in G,aba^{-1}b^{-1}\in [G,G]$.\\
-$g^{-1}(aba^{-1}b^{-1})g=g^{-1}agg^{-1}bgg^{-1}a^{-1}gg^{-1}b^{-1}g$\\
-$=(g^{-1}ag)(g^{-1}bg)(g^{-1}a^{-1}g)(g^{-1}b^{-1}g)$\\
-$=(g^{-1}ag)(g^{-1}bg)(g^{-1}ag)^{-1}(g^{-1}bg)^{-1}\in[G,G]$.
+\begin{align*}
+g^{-1}(aba^{-1}b^{-1})g&=g^{-1}agg^{-1}bgg^{-1}a^{-1}gg^{-1}b^{-1}g\\&=(g^{-1}ag)(g^{-1}bg)(g^{-1}a^{-1}g)(g^{-1}b^{-1}g)\\&=(g^{-1}ag)(g^{-1}bg)(g^{-1}ag)^{-1}(g^{-1}bg)^{-1}\in[G,G].\qedhere
+\end{align*}
 \end{proof}
 \begin{definition}
 The \textbf{abelianization} $G^{\text{ab}}$ of a group $G$ is $G/[G,G]$.
@@ -228,7 +225,7 @@ Given groups $G$ and $H$, where $H$ is abelian, and a group homomorphism $h\colo
 \end{lemma}
 \begin{proof}
 Let $[x]=[y]\in G^{\text{ab}}$ so that $x=y\prod_ia_ib_ia_i^{-1}b_i^{-1}$ for $a_i,b_i\in G$.
-Then $h'([x])=h(y\prod_ia_ib_ia_i^{-1}b_i^{-1})=h(y)\prod_ih(a_i)h(b_i)h(a_i)^{-1}h(b_i)^{-1}=h(y)=h'([y])$ since $H$ is abelian.
+Then \[h'([x])=h(y\prod_ia_ib_ia_i^{-1}b_i^{-1})=h(y)\prod_ih(a_i)h(b_i)h(a_i)^{-1}h(b_i)^{-1}=h(y)=h'([y])\] since $H$ is abelian.
 \end{proof}
 
 \begin{lemma}
@@ -406,7 +403,7 @@ We have continuous maps $f\colon X\to Y$ and $g\colon Y\to X$ such that $g\circ 
 
 \section{Cup product and ring structure of cohomology}
 \begin{definition}
-Let $R$ be a ring and $X$ be a topological space. The \textbf{cup product} is the product on cochains $C^i(X;R)\times C^j(X;R)\to C^{i+j}(X;R):(\psi,\phi)\mapsto\psi\cup\phi$ where $(\psi\cup\phi)\sigma=\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_i,...,e_{i+j}]})$ for a singular $i+j$-simplex $\sigma\colon\Delta^{i+j}\to X$ and is extended linearly to $C_{i+j}(X)$.
+Let $R$ be a ring and $X$ be a topological space. The \textbf{cup product} is the product on cochains\[C^i(X;R)\times C^j(X;R)\to C^{i+j}(X;R):(\psi,\phi)\mapsto\psi\cup\phi\] where \[(\psi\cup\phi)\sigma=\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_i,...,e_{i+j}]})\] for a singular $i+j$-simplex $\sigma\colon\Delta^{i+j}\to X$ and is extended linearly to $C_{i+j}(X)$.
 \end{definition}
 
 \begin{lemma}
@@ -429,7 +426,7 @@ There is a well-defined map $H^i(X;R)\times H^j(X;R)\to H^{i+j}(X;R)$ given by $
 \end{proposition}
 \begin{proof}
 $d(\psi\cup\phi)=0\cup\phi+(-1)^i\psi\cup 0=0$ so $\psi\cup\phi \in \text{ker }d$.
-Now let $\psi=df$. Then $d(f\cup\phi)=(df)\cup\phi\pm f\cup d\phi=\psi\cup\phi+f\cup0=\psi\cup\phi$. Similarly if $\phi=dg$ then $d((-1)^i\psi\cup g)=\psi\cup\phi$ so adding an element in the image of $d$ keeps $\psi\cup\phi$ in the same equivalence class.
+Now let $\psi=df$. Then \[d(f\cup\phi)=(df)\cup\phi\pm f\cup d\phi=\psi\cup\phi+f\cup0=\psi\cup\phi.\] Similarly if $\phi=dg$ then $d((-1)^i\psi\cup g)=\psi\cup\phi$ so adding an element in the image of $d$ keeps $\psi\cup\phi$ in the same equivalence class.
 \end{proof}
 
 \begin{definition}
@@ -447,17 +444,24 @@ $H^*(X;R)=\bigoplus_{n=0}^\infty H^n(X;R)$ is a graded ring with multiplication 
 The direct sum of abelian groups is abelian so $H^*(X;R)$ is abelian as an additive group.
 To show that the product is associative and distributive it suffices to show that it is for cochains.\\
 For associativity:
-$(\psi\cup\phi)\cup\theta(\sigma)=(\psi(\sigma\circ F_{[e_0,...,e_k]})\phi(\sigma\circ F_{e_k,...,e_{k+l}}))\theta(\sigma\circ F_{[e_{k+l},...,e_{k+l+m}]})=\psi(\sigma\circ F_{[e_0,...,e_k]})(\phi(\sigma\circ F_{[e_k,...,e_{k+l}]})\theta(\sigma\circ F_{[e_{k+l},...,e_{k+l+m}]}))=(\psi\cup\phi)\cup\theta(\sigma)$.\\
+\begin{align*}
+(\psi\cup\phi)\cup\theta(\sigma)&=(\psi(\sigma\circ F_{[e_0,...,e_k]})\phi(\sigma\circ F_{e_k,...,e_{k+l}}))\theta(\sigma\circ F_{[e_{k+l},...,e_{k+l+m}]})\\&=\psi(\sigma\circ F_{[e_0,...,e_k]})(\phi(\sigma\circ F_{[e_k,...,e_{k+l}]})\theta(\sigma\circ F_{[e_{k+l},...,e_{k+l+m}]}))\\&=(\psi\cup\phi)\cup\theta(\sigma).
+\end{align*}
 For distributivity:
-$\psi\cup(\phi+\theta)(\sigma)=\psi(\sigma\circ F_{[e_0,...,e_i]})(\phi(\sigma\circ F_{[e_i,...,e_{i+j}]})+\theta(\sigma\circ F_{[e_i,...,e_{i+j}]}))=\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_i,...,e_{i+j}]})+\psi(\sigma\circ F_{[e_0,...,e_i]})\theta(\sigma\circ F_{[e_i,...,e_{i+j}]})=\psi\cup\phi(\sigma)+\psi\cup\theta(\sigma)$.
+\begin{align*}
+\psi\cup(\phi+\theta)(\sigma)&=\psi(\sigma\circ F_{[e_0,...,e_i]})(\phi(\sigma\circ F_{[e_i,...,e_{i+j}]})+\theta(\sigma\circ F_{[e_i,...,e_{i+j}]}))\\&=\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_i,...,e_{i+j}]})+\psi(\sigma\circ F_{[e_0,...,e_i]})\theta(\sigma\circ F_{[e_i,...,e_{i+j}]})\\&=\psi\cup\phi(\sigma)+\psi\cup\theta(\sigma).
+\end{align*}
 
 
 \noindent If $R$ has an identity element then there is also an identity element given by $[1]\in H^0(X;R)$ which sends each singular 0-simplex to 1.
 \end{proof}
 
 \begin{proposition}
-Let $R$ be a commutative ring, $\psi\in H^k(X;R)$ and $\phi\in H^l(X;R)$. Then $\psi\cup\phi=(-1)^{kl}\phi\cup\psi$.
+Let $R$ be a commutative ring, $\psi\in H^k(X;R)$ and $\phi\in H^l(X;R)$. Then \[\psi\cup\phi=(-1)^{kl}\phi\cup\psi.\]
 \end{proposition}
+\begin{proof}
+Long and tedious. See Hatcher.
+\end{proof}
 
 Thus $H^*$ is graded commutative.
 
@@ -465,7 +469,9 @@ Thus $H^*$ is graded commutative.
 Let $f\colon X\to Y$ be a continuous map. Then $f^*(\psi\cup\phi)=f^*(\psi)\cup f^*(\phi)$.
 \end{proposition}
 \begin{proof}
-As before it suffices to check this for cochains. Let $\sigma\colon\Delta^{p+q}\to X$ be a singular simplex. Then $(f^*\psi\cup f^*\phi)(\sigma)=f^*\psi(\sigma\circ F_{[e_0,...,e_p]})f^*\phi(\sigma\circ F_{[e_p,...,e_{p+q}]})=\psi(f\circ\sigma\circ F_{[e_0,...,e_p]})\phi(f\circ\sigma\circ F_{[e_p,...,e_{p+q}]})=(\psi\cup\phi)(f\circ\sigma)=f^*(\psi\cup\phi)(\sigma)$.
+As before, it suffices to check this for cochains. Let $\sigma\colon\Delta^{p+q}\to X$ be a singular simplex. Then 
+\begin{align*}(f^*\psi\cup f^*\phi)(\sigma)&=f^*\psi(\sigma\circ F_{[e_0,...,e_p]})f^*\phi(\sigma\circ F_{[e_p,...,e_{p+q}]})\\&=\psi(f\circ\sigma\circ F_{[e_0,...,e_p]})\phi(f\circ\sigma\circ F_{[e_p,...,e_{p+q}]})\\&=(\psi\cup\phi)(f\circ\sigma)\\&=f^*(\psi\cup\phi)(\sigma).\qedhere
+\end{align*}
 \end{proof}
 
 \noindent This makes $f^*$ a ring homomorphism.
