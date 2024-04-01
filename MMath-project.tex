@@ -818,7 +818,7 @@ If we represent points of a solid torus $T$ with meridianal radius 1, where $\th
 
 The case where $r_1=1$ corresponds to the boundary of $T$. Varying $\theta_0$ then traces out a latitude, so condition $2$ corresponds to identifying each latitude of $\partial T$ with a single point.
 
-T is homeomorphic to a solid cylinder with the ends identified, and identifying each vertical line on the boundary then gives $S^3$ due to satisfying condition $2$. Collapsing the vertical lines to points midway along the cylinder then shows that $S^3$ is homeomorphic to a solid ball with upper and lower hemisphered identified via orthogonal projection, where the lines collapsed to points on the equator.
+T is homeomorphic to a solid cylinder with the ends identified, and identifying each vertical line on the boundary then gives $S^3$ due to satisfying condition $2$. Collapsing the vertical lines to points midway along the cylinder then shows that $S^3$ is homeomorphic to a solid ball with upper and lower hemisphered identified via orthogonal projection, where the lines collapsed to points on the equator.\\
 
 
 
@@ -847,7 +847,7 @@ Let $\hat X$ be linear map which sends $X$ to $1$ and all other elements of the 
 Then define \[\gamma=\hat D + (\sum_{i=0}^{p-1}i\hat F_i)+q\hat E\in C^1(L(p;q);\mathbb{Z}).\]
 \begin{align*}
 d\gamma&=\sum_{i=0}^{p-1}\hat b_i+(\sum_{i=0}^{p-1}i(\hat b_i-\hat b_{i-1}-\hat c_i+\hat c_{i+q}))+\sum_{i=0}^{p-1}q\hat c_i\\
-&=\sum_{i=0}^{p-1}((i+1)\hat b_i-i\hat b_{i-1}-(i-q)\hat c_i+i\hat c_{i+q})\equiv 0\text{ mod }p.\\
+&=\sum_{i=0}^{p-1}((i+1)\hat b_i-i\hat b_{i-1}-(i-q)\hat c_i+i\hat c_{i+q})\equiv 0\text{ mod }p.
 \end{align*}
 Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $\alpha$ is a representative of an element in $H^2(L(p;q);\mathbb{Z})$ with $p[\alpha]=[0]$. Also note that $\gamma(E)=q$.
 \[p\alpha([Sx_{q-1}x_q])=p\alpha([Nx_{p-1}x_0])=p\alpha(b_{p-1})=(p-1+1)\hat b_{p-1}(b_{p-1})-0\times\hat b_{-1}(b_{p-1})=p\]\[\implies \alpha([Sx_{q-1}x_q])=1.\]
@@ -898,7 +898,7 @@ $\Delta(C_.,c_.)$ is independent of choice of auxiliary bases.
 \end{lemma}
 
 
-\noindent Let $X=\cup_{k=0}^n\cup_je_j^k$ be a finite cell complex and $(A,\beta)$ a representation of $\pi_1(X)$ in a ring $A$. Let $\overset{\sim}{X}$ be a universal cover. And $\overset{\sim}{e}_j^k$ be a lift of $e_j^k$. Then every other lift of $e_j^k$ is obtained by composition of $\overset{\sim}{e}_j^k$ with a deck transformation (since given $f'$ and $g'$ lifts of $f$ there exists a $\phi\in\text{Aut}(p)$ such that $\phi\circ f'(0)=g'(0)$ which implies $\phi\circ f=g$ by uniqueness. $\text{Aut}(p)=\pi_1(X)$ so we can write $\overset{\sim}{X}=\cup_{k=0}^n\cup_{g\in\pi_1(X)}\cup_jg\overset{\sim}{e}_j^k$. Thus multiplication by an element of $\pi_1(x)$ permutes the cells, thereby giving $C_.^\text{cw}(\overset{\sim}{X})$ a $\pi_1(X)$-action. $A$ also has a $\pi_1(X)$ action so we can define $C_k(X;\beta)=C_k^\text{cw}(\overset{\sim}{X})\otimes_{\mathbb{Z}\pi_1(X)} A$. We have an induced boundary map $\partial\colon C_k(X;\beta)\to C_{k-1}(X;\beta)$ which makes $C_k(X;\beta)$ a chain complex with basis $\{\overset{\sim}{e}_j^k\}\otimes\text{id}_A$.
+\noindent Let \[X=\bigcup_{k=0}^n\bigcup_je_j^k\] be a finite cell complex and $(A,\beta)$ a representation of $\pi_1(X)$ in a ring $A$. Let $\overset{\sim}{X}$ be a universal cover. And $\overset{\sim}{e}_j^k$ be a lift of $e_j^k$. Then every other lift of $e_j^k$ is obtained by composition of $\overset{\sim}{e}_j^k$ with a deck transformation (since given $f'$ and $g'$ lifts of $f$ there exists a $\phi\in\text{Aut}(p)$ such that $\phi\circ f'(0)=g'(0)$ which implies $\phi\circ f=g$ by uniqueness. $\text{Aut}(p)=\pi_1(X)$ so we can write \[\overset{\sim}{X}=\bigcup_{k=0}^n\bigcup_{g\in\pi_1(X)}\bigcup_jg\overset{\sim}{e}_j^k.\] Thus multiplication by an element of $\pi_1(x)$ permutes the cells, thereby giving $C_.^\text{cw}(\overset{\sim}{X})$ a $\pi_1(X)$-action. $A$ also has a $\pi_1(X)$ action so we can define $C_k(X;\beta)=C_k^\text{cw}(\overset{\sim}{X})\otimes_{\mathbb{Z}\pi_1(X)} A$. We have an induced boundary map $\partial\colon C_k(X;\beta)\to C_{k-1}(X;\beta)$ which makes $C_k(X;\beta)$ a chain complex with basis $\{\overset{\sim}{e}_j^k\}\otimes\text{id}_A$.
 
 \begin{definition}
 The \textbf{Reidemeister torsion of $X$ with respect to $\beta$} to be $\Delta(X;\beta)=\Delta(C_.(X;\beta)\otimes_{\mathbb{Z}\pi_1(X)}A)$ if $C_.(X;\beta)\otimes_{\mathbb{Z}\pi_1(X)}A$ has no homology. This is a well-defined element of $A^*/\{\pm\beta(\pi_1(X))\}$.
@@ -918,6 +918,8 @@ These maps are isomorphisms and so the complex has no homology. Hence for $\omeg
 \[(\omega^l-1)(\omega-1)=\omega^l(1-\omega^{-l})(\omega-1)=(\omega^{-l}-1)(\omega-1)=\omega(\omega^{-l}-1)(1-\omega^{-1})=(\omega^{-l}-1)(\omega^{-1}-1)\] so \[\Delta(L(p;q);\beta_\omega)=\Delta(L(p;-q);\beta_\omega).\]
 It can also be shown that \[(\omega^l-1)(\omega-1)=(\omega^q-1)(\omega-1)\] so \[\Delta(L(p;q);\beta_\omega)=\Delta(L(p;q^{-1});\beta_\omega).\]
 Thus two lens spaces $L(p;q_1)$ and $L(p;q_2)$ can only be homeomorphic if $q_1\equiv \pm q_2^{\pm 1}\text{mod }p$.
+
+To give the complete homeomorphism classification, we require the following lemma.
 
 \begin{lemma}
 Let X be a topological space. Let $G_1$ and $G_2$ be conjugate subgroups of Homeo$(X)$ defining covering space actions of $X$. Then $X/G_1\cong X/G_2$.
@@ -939,6 +941,8 @@ If $q_1\equiv q_2^{-1}\text{ mod }p$ then $L(p;q_1)\cong L(p;q_2)$.
 We have that $q_1q_2\equiv 1\text{ mod }p$.
 \[{(e^{2i\pi/p})}^{q_1}=e^{2i\pi q_1/p},{(e^{2i\pi/p})}^{q_2}=e^{2i\pi q_2/p}\] and \[{(e^{2i\pi q_1/p})}^{q_2}=e^{2i\pi /p}={(e^{2i\pi q_2/p})}^{q_1}.\] Thus the subgroup generated by \[(v,w)\mapsto(e^{2i\pi /p}v,e^{2i\pi q_1/p}w)\] is the same as the subgroup generated by \[(v,w)\mapsto(e^{2i\pi q_2/p}v,e^{2i\pi/p}w).\] Furthermore, \[(v,w)\mapsto(e^{2i\pi q_2/p}v,e^{2i\pi/p}w)\] is conjugate to \[(v,w)\mapsto(e^{2i\pi/p}w,e^{2i\pi q_2/p}v)\] by the homeomorphism $(v,w)\mapsto(w,v)$. Thus the subgroups generated by \[(v,w)\mapsto(e^{2i\pi /p}v,e^{2i\pi q_1/p}w)\] and \[(v,w)\mapsto(e^{2i\pi /p}v,e^{2i\pi q_2/p}w)\] are conjugate so $L(p;q_1)\cong L(p;q_2)$.
 \end{proof}
+
+\noindent This completes the homeomorphism classification.
 
 \begin{theorem}
 Let $L(p;q_1)$ and $L(p;q_2)$ be lens spaces.\\
