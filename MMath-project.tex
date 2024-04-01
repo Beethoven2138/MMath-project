@@ -11,7 +11,7 @@
 \usepackage{mathtools}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
 
-\title{MMath project}
+\title{The topology of lens spaces}
 \author{Saxon Supple\\Supervisor: Johannes Nordstrom}
 \date{January 2024}
 \AddToHook{cmd/section/before}{\clearpage}
@@ -28,7 +28,7 @@
 \begin{document}
 
 \maketitle
-
+\tableofcontents
 \section{Introduction}
 Lens spaces are quotient spaces of the $3$-sphere by cyclic groups and are the simplest examples of manifolds (topological spaces which locally look like Euclidean space) which are homotopy-equivalent but not homeomorphic. This project will study the conditions under which lens spaces are homotopy-equivalent and homeomorphic. To this end we shall introduce the homology and cohomology groups. Being invariants of homotopy-equivalent spaces, it is expected that they would be insufficient for a classification of manifolds which can be homotopy-equivalent but not homeomorphic. However, the homology and cohomology groups are also insufficient for a homotopy-equivalence classification. The torsion linking form will be introduced for the homotopy-equivalence classification, and Reidemeister torsion for the homeomorphism classification.
 \section{Homology}
@@ -200,7 +200,7 @@ $H_k(\{\text{pt}\})=\begin{cases}
 \end{lemma}
 \begin{proof}
 There is only one k-simplex $\sigma_k\colon\Delta^k\rightarrow \{\text{pt}\}$, the constant map. Thus $C_k(\{\text{pt}\})=\{n\sigma_k:n\in\mathbb{Z}\}=\mathbb{Z}$.
-Also $\partial_k(n\sigma_k)=\sum_{i=0}^k(-1)^i n\sigma_{k-1}$ which is zero if $k$ is odd and $n\sigma_{k-1}$ if $k$ is even. Thus the induced map on the coefficients of the boundary is $0$ if $k$ is odd and id if $k$ is even. The Homology groups will then be $\frac{\mathbb{Z}}{\mathbb{Z}}=0$ or $\frac{\{0\}}{\{0\}}=0$, except for $H_0$ which is $\mathbb{Z}$ since $\{\text{pt}\}$ is path-connected.
+Also $\partial_k(n\sigma_k)=\sum_{i=0}^k(-1)^i n\sigma_{k-1}$ which is zero if $k$ is odd and $n\sigma_{k-1}$ if $k$ is even. Thus the induced map on the coefficients of the boundary is $0$ if $k$ is odd and id if $k$ is even. The homology groups will then be $\frac{\mathbb{Z}}{\mathbb{Z}}=0$ or $\frac{\{0\}}{\{0\}}=0$, except for $H_0$ which is $\mathbb{Z}$ since $\{\text{pt}\}$ is path-connected.
 \end{proof}
 
 \noindent We shall now see a connection between the fundamental group and the first homology group by the Hurewicz theorem. Before stating and proving it, however, we first require some tools from group theory.
@@ -213,7 +213,7 @@ The \textbf{commutator subgroup} of a group $G$, denoted $[G,G]$, is the subgrou
 $[G,G]$ is a normal subgroup.
 \end{lemma}
 \begin{proof}
-Let $g\in G,aba^{-1}b^{-1}\in [G,G]$.\\
+Let $g\in G,aba^{-1}b^{-1}\in [G,G]$.
 \begin{align*}
 g^{-1}(aba^{-1}b^{-1})g&=g^{-1}agg^{-1}bgg^{-1}a^{-1}gg^{-1}b^{-1}g\\&=(g^{-1}ag)(g^{-1}bg)(g^{-1}a^{-1}g)(g^{-1}b^{-1}g)\\&=(g^{-1}ag)(g^{-1}bg)(g^{-1}ag)^{-1}(g^{-1}bg)^{-1}\in[G,G].\qedhere
 \end{align*}
@@ -281,7 +281,7 @@ H_1(K)&=\mathbb{Z}\bigoplus\mathbb{Z}_2
 \section{Cohomology}
 Cohomology is the dual notion of homology - instead of chains, we have cochains (homomorphisms of chains); and instead of boundaries, we have coboundaries. We shall see that the cohomology groups admit a ring structure, making them more amenable to computation. We shall also study Poincare duality and the universal coefficient theorem, which give relationships between the homology and cohomology groups.
 
-The context in which the homomorphisms hitherto mentioned arise is that of modules, which are generalisations of vector spaces, where the field is replaced by a ring. Free abelian groups like the homology groups are examples of modules. We shall now develop the basic theory of modules to allow for the definition of the cohomology groups.
+The context in which the homomorphisms hitherto mentioned arise is that of modules, which are generalisations of vector spaces, where the field is replaced by a ring. Free abelian groups, like the homology groups, are examples of modules. We shall now develop the basic theory of modules to allow for the definition of the cohomology groups.
 \subsection{Modules}
 \begin{definition}
 Let $R$ be a commutative ring with a unit. An \textbf{R-module} $M$ is an abelian group with a map $f\colon R\times M\to M$ such that if $f(r,m)$ is denoted by $rm$ then $(r_1r_2)m=r_1(r_2m)$ and $1m=m$. We usually abbreviate R-modules to modules.
@@ -517,7 +517,7 @@ The result follows by linearity.
 \end{proof}
 
 \begin{proposition}
-Let $\psi\in C^l(X;R)$, $\alpha\in C_{k+l}(X;R)$ and $\psi\in C^k(X;R)$. Then \[\psi(\alpha\cap\phi)=(\phi\cap\psi)(\alpha).\]
+Let $\psi\in C^l(X;R)$, $\alpha\in C_{k+l}(X;R)$ and $\psi\in C^k(X;R)$. Then \[\psi(\alpha\cap\phi)=(\phi\cup\psi)(\alpha).\]
 \end{proposition}
 \begin{proof}
 Let $\sigma\colon\Delta^{k+l}\to X$ be a singular simplex. Then \[\psi(\sigma\cap\phi)=\psi(\phi(\sigma\circ F_{[e_0,...,e_k]})\sigma\circ F_{[e_k,...,e_{k+l}]})=\phi(\sigma\circ F_{[e_0,...,e_k]})\psi(\sigma\circ F_{[e_k,...,e_{k+l}]}).\]
@@ -588,12 +588,12 @@ which is an isomorphism if $A$ is free.
 
 In particular, $H_*(X;\mathbb{R})\cong H_*(X;\mathbb{Q})\otimes_\mathbb{Q}\mathbb{R}\cong H_*(X)\otimes_\mathbb{Z}\mathbb{R}$. If $H_k(X)$ is finitely generated, then \[\text{rk }H_k(X)=\text{dim }H_k(X;\mathbb{R}).\]
 
-Let $G$ be an abelian group. Recall the natural pairing $H^k(X;G)\times H_k(X)\to G$ given by \[([\psi],[c])\mapsto\psi(c).\]
+\noindent Let $G$ be an abelian group. Recall the natural pairing $H^k(X;G)\times H_k(X)\to G$ given by \[([\psi],[c])\mapsto\psi(c).\]
 
 \begin{proposition}
 The induced homomorphism \[H^k(X;G)\to\text{Hom}(H_k(X);G)\]is surjective.
 \end{proposition}
-Now consider the case $G=\mathbb{Z}$ and set\[K=\text{ker}(H^k(X;\mathbb{Z})\to\text{Hom}(H_k(X),\mathbb{Z}))\]
+\noindent Now consider the case $G=\mathbb{Z}$ and set\[K=\text{ker}(H^k(X;\mathbb{Z})\to\text{Hom}(H_k(X),\mathbb{Z}))\]
 \begin{lemma}
 Let $[\psi]\in K$ and $[c]\in H_{k-1}(X)$ such that $n[c]=0$ for some $n\in\mathbb{N}$. Pick $b\in C_k(X)$ such that $nc=\partial b$. Then $\psi(b)\text{ mod }n$ depends only on $[\psi]$ and $[c]$.
 In particular, there is a well-defined pairing $K\times T(H_{k-1}(X))\to\mathbb{Q}/\mathbb{Z}$ given by $([\psi],[c])\mapsto\frac{1}{n}\psi(b)$.
