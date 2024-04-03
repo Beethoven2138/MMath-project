@@ -13,7 +13,7 @@
 
 \title{The topology of lens spaces}
 \author{Saxon Supple\\Supervisor: Johannes Nordstrom}
-\date{January 2024}
+\date{April 2024}
 \AddToHook{cmd/section/before}{\clearpage}
 
 
@@ -28,9 +28,11 @@
 \begin{document}
 
 \maketitle
+\begin{abstract}
+\noindent Lens spaces are quotient spaces of the $3$-sphere by cyclic groups and are the simplest examples of manifolds (topological spaces which locally look like Euclidean space) which are homotopy-equivalent but not homeomorphic. This project will study the conditions under which lens spaces are homotopy-equivalent and homeomorphic. To this end we shall introduce the homology and cohomology groups. Being invariants of homotopy-equivalent spaces, it is expected that they would be insufficient for a classification of manifolds which can be homotopy-equivalent but not homeomorphic. However, the homology and cohomology groups are also insufficient for a homotopy-equivalence classification. The torsion linking form will be introduced for the homotopy-equivalence classification, and Reidemeister torsion for the homeomorphism classification. The classifications will then give us examples of manifolds which are homotopy-equivalent but not homeomorphic.
+\end{abstract}
 \tableofcontents
-\section{Introduction}
-Lens spaces are quotient spaces of the $3$-sphere by cyclic groups and are the simplest examples of manifolds (topological spaces which locally look like Euclidean space) which are homotopy-equivalent but not homeomorphic. This project will study the conditions under which lens spaces are homotopy-equivalent and homeomorphic. To this end we shall introduce the homology and cohomology groups. Being invariants of homotopy-equivalent spaces, it is expected that they would be insufficient for a classification of manifolds which can be homotopy-equivalent but not homeomorphic. However, the homology and cohomology groups are also insufficient for a homotopy-equivalence classification. The torsion linking form will be introduced for the homotopy-equivalence classification, and Reidemeister torsion for the homeomorphism classification. The classifications will then give us examples of manifolds which are homotopy-equivalent but not homeomorphic.
+
 \section{Homology}
 \subsection{Background}
 We begin by recalling some definitions and results from MA40040.
@@ -94,6 +96,10 @@ If $E$ is a universal cover of $p$ then $\text{Aut}(p)$ is isomorphic to $\pi_1(
 
 \begin{definition}
 $E$ is a \textbf{universal cover} of $X$ if $E$ is simply connected and there is a covering map $p:E\to X$.
+\end{definition}
+
+\begin{definition}
+Let $X$ be a topological space. We denote the group of homeomorphisms from $X$ to $X$ by \textbf{Homeo$(X)$}.
 \end{definition}
 
 \begin{definition}
@@ -1067,7 +1073,7 @@ We have that $G_2=hG_1h^{-1}$ for some $h\in\text{Homeo}(X)$. The map $f:X\to X/
 \end{proof}
 
 \begin{lemma}
-$L(p;q)\cong L(p;-q)$
+$L(p;q)\cong L(p;-q)$.
 \end{lemma}
 \begin{proof}
 $(v,w)\mapsto(e^{2\pi i/p}v,e^{2\pi iq/p}w)$ and $(v,w)\mapsto(e^{2\pi i/p}v,e^{-2\pi iq/p}w)$ are conjugate by the homeomorphism $(v,w)\mapsto(v,\bar w)$. The result follows by the above lemma.
