@@ -897,7 +897,7 @@ Bilinearity follows from the bilinearity of the cup product.
 \noindent So in the case of 3-manifolds like lens spaces, the torsion linking pairing is a symmetric non-degenerate bilinear form on $T(H^2(M;\mathbb{Z}))$. Also, since the cup product is invariant under homotopy-equivalence, the torsion linking pairing is as well.
 
 
-\noindent To compute the torsion linking form of a lens space, we first need to give a lens space a $\Delta$--complex structure. To begin with, we need an easily-visualised model of $S^3$.
+\noindent To compute the torsion linking form of a lens space, we first need to give a lens space a $\Delta$--complex structure. To begin with, we need an easily-visualised model of $S^3$.\\
 
 \noindent$S^3$ is the set of pairs of complex numbers $(z_0,z_1)$ such that their norms sum to $1$. Representing them in polar coordinates then gives $z_0=r_0e^{i\theta_0}$ and $z_1=r_1e^{i\theta_1}$, with $r_0^2+r_1^2=1$. $r_1$ determines $r_0=\sqrt{1-r_1^2}$ so $(z_0,z_1)$ can be associated with a real triple $(r_1,\theta_0,\theta_1)$, where $0\leq r_1\leq 1$ and $0\leq\theta_0,\theta_1<2\pi$.
 For there to be a bijection between pairs $(z_0,z_1)$ and triples $(r_1,\theta_0,\theta_1)$, we require the following identifications:
@@ -912,17 +912,17 @@ For there to be a bijection between pairs $(z_0,z_1)$ and triples $(r_1,\theta_0
     \includegraphics[width=0.5\linewidth]{2.png}
 \end{figure}
 
-If we represent points of a solid torus $T$ with meridianal radius 1, where $\theta_0$ gives the longitudinal position and $\theta_1,r_1$ give the position of the point within the cross-section determined by $\theta_0$, as shown above, then condition $1$ is satisfied, since all angles are identified on a circle with no radius.
+\noindent If we represent points of a solid torus $T$ with meridianal radius 1, where $\theta_0$ gives the longitudinal position and $\theta_1,r_1$ give the position of the point within the cross-section determined by $\theta_0$, as shown above, then condition $1$ is satisfied, since all angles are identified on a circle with no radius.\\
 
-The case where $r_1=1$ corresponds to the boundary of $T$. Varying $\theta_0$ then traces out a latitude, so condition $2$ corresponds to identifying each latitude of $\partial T$ with a single point.
+\noindent The case where $r_1=1$ corresponds to the boundary of $T$. Varying $\theta_0$ then traces out a latitude, so condition $2$ corresponds to identifying each latitude of $\partial T$ with a single point.\\
 
-T is homeomorphic to a solid cylinder with the ends identified, and identifying each vertical line on the boundary then gives $S^3$ due to satisfying condition $2$. Collapsing the vertical lines to points midway along the cylinder then shows that $S^3$ is homeomorphic to a solid ball with upper and lower hemisphered identified via orthogonal projection, where the lines collapsed to points on the equator, as shown below.\\
+\noindent T is homeomorphic to a solid cylinder with the ends identified, and identifying each vertical line on the boundary then gives $S^3$ due to satisfying condition $2$. Collapsing the vertical lines to points midway along the cylinder then shows that $S^3$ is homeomorphic to a solid ball with upper and lower hemisphered identified via orthogonal projection, where the lines collapsed to points on the equator, as shown below.\\
 \begin{figure} [hbt!]
     \centering
     \includegraphics[width=0.5\linewidth]{3.png}
 \end{figure}
 
-To find a delta-complex construction of $L(p;q)$ we much first determine the equivalence classes of the action on $T$. We have that the action of $[m]\in\mathbb{Z}_p$ is given by \[m\cdot(z_0,z_1)=(z_0e^{\frac{2\pi im}{p}},z_1e^{\frac{2\pi iqm}{p}})=(r_0e^{i(\theta_0+\frac{2\pi m}{p})},r_1e^{i(\theta_1+\frac{2\pi qm}{p})}).\] In terms of the coordinates given to $T$, we have\[m\cdot(r,\theta_0,\theta_1)=(r,\theta_0+\frac{2\pi m}{p},\theta_1+\frac{2\pi qm}{p}).\] Note that $r$ is unaffected by the action, meaning that $\mathbb{Z}_p$ maps an individual torus to itself. We can thus express $T$ as\[\bigcup_{0\leq c\leq 1}T_c,\] where $T_c$ is a torus of radius $r$, and study the action on $T$ in terms of the actions on indivudual $T_c$'s.
+\noindent To find a delta-complex construction of $L(p;q)$ we much first determine the equivalence classes of the action on $T$. We have that the action of $[m]\in\mathbb{Z}_p$ is given by \[m\cdot(z_0,z_1)=(z_0e^{\frac{2\pi im}{p}},z_1e^{\frac{2\pi iqm}{p}})=(r_0e^{i(\theta_0+\frac{2\pi m}{p})},r_1e^{i(\theta_1+\frac{2\pi qm}{p})}).\] In terms of the coordinates given to $T$, we have\[m\cdot(r,\theta_0,\theta_1)=(r,\theta_0+\frac{2\pi m}{p},\theta_1+\frac{2\pi qm}{p}).\] Note that $r$ is unaffected by the action, meaning that $\mathbb{Z}_p$ maps an individual torus to itself. We can thus express $T$ as\[\bigcup_{0\leq c\leq 1}T_c,\] where $T_c$ is a torus of radius $r$, and study the action on $T$ in terms of the actions on indivudual $T_c$'s.
 For the case $0<c<1$, $T_c$ can be pictured as a square with identified edges, with the horizontal axis acting as the $\theta_1$--axis and the vertical axis as the $\theta_0$--axis, both ranging from $0$ to $2\pi$, as shown below:
 \begin{figure}[hbt!]
     \centering
@@ -930,7 +930,7 @@ For the case $0<c<1$, $T_c$ can be pictured as a square with identified edges, w
 \end{figure}
 
 
-The action of $[m]$ on a point $(\theta_0,\theta_1$ results in the point $(\theta_0+\frac{2\pi m}{p},\theta_1+\frac{2\pi qm}{p})$, so all actions of $\mathbb{Z}_p$ are translations along lines with gradient $\frac{2\pi m}{p}/\frac{2\pi qm}{p}=\frac{1}{q}$. If we divide the square into $p$ horizontal bands, each of height $\frac{2\pi}{p}$, we see that an equivalence class of the action on $T_c$ contains exactly one point in each horizontal band. We can thus define the orbit space as \[T_c/\mathbb{Z}_p=\{(r,\theta_0,\theta_1):r=c,0\leq\theta_0<\frac{2\pi}{p},0\leq\theta_1<2\pi\}.\] This is a short tube with ends identified by a $\frac{2\pi q}{p}$ twist:
+\noindent The action of $[m]$ on a point $(\theta_0,\theta_1$ results in the point $(\theta_0+\frac{2\pi m}{p},\theta_1+\frac{2\pi qm}{p})$, so all actions of $\mathbb{Z}_p$ are translations along lines with gradient $\frac{2\pi m}{p}/\frac{2\pi qm}{p}=\frac{1}{q}$. If we divide the square into $p$ horizontal bands, each of height $\frac{2\pi}{p}$, we see that an equivalence class of the action on $T_c$ contains exactly one point in each horizontal band. We can thus define the orbit space as \[T_c/\mathbb{Z}_p=\{(r,\theta_0,\theta_1):r=c,0\leq\theta_0<\frac{2\pi}{p},0\leq\theta_1<2\pi\}.\] This is a short tube with ends identified by a $\frac{2\pi q}{p}$ twist:
 
 \begin{figure} [hbt!]
     \centering
@@ -938,15 +938,15 @@ The action of $[m]$ on a point $(\theta_0,\theta_1$ results in the point $(\thet
 \end{figure}
 
 
-We now consider the case $T_0$ - the action on the central circle:
-The action of $[m]$ on a point in $T_0$ maps $\theta_0$ to $\theta_0+\frac{2\pi m}{p}$, and so $m$ acts by a $\frac{2\pi m}{p}$ rotation. Each equivalence class of the action on $T_0$ thus contains exactly one point in each $\frac{2\pi}{p}$ arc. $0\leq\theta_0<\frac{2\pi}{p}$ thus has exactly one point from each equivalence class, so $T_0/\mathbb{Z}_p$ can be viewed as an arc with identified endpoints:
+\noindent We now consider the case $T_0$ - the action on the central circle:
+The action of $[m]$ on a point in $T_0$ maps $\theta_0$ to $\theta_0+\frac{2\pi m}{p}$, and so $m$ acts by a $\frac{2\pi m}{p}$ rotation. Each equivalence class of the action on $T_0$ thus contains exactly one point in each $\frac{2\pi}{p}$ arc. $0\leq\theta_0<\frac{2\pi}{p}$ thus has exactly one point from each equivalence class, so $T_0/\mathbb{Z}_p$ can be viewed as an arc with identified endpoints.
 
-Finally we consider the case $T_1$ - the boundary of $T$ with each latitude identified to a point:
+\noindent Finally we consider the case $T_1$ - the boundary of $T$ with each latitude identified to a point:
 Since $T_1$ is represented by a single meridian of $\partial T$, we can identify $T_1$ with a circle $S^1$. The action of $[m]$ on a point of $T_1$ sends $\theta_1$ to $\theta_1+\frac{2\pi qm}{p}$, and so acts by inducing a $\frac{2\pi qm}{p}$ rotation. Since, $\text{gcd}(p,q)=1$, if we partition $S^1$ into $p$ equal arcs $0\leq\theta_1<\frac{2\pi}{p},...,\frac{2(p-1)\pi}{p}\leq\theta_1<2\pi$, then they all get identified.
 
-We have \[S^3/\mathbb{Z}_p=\bigcup_{0\leq c\leq 1}T_c/\mathbb{Z}_p.\] This is a collection of nested tubes with radii $0\leq r<1$ whose ends are twist-identified by a $\frac{2\pi q}{p}$--radian twist, and a boundary of latitude-segments which are identified to single points, and then identified from $p$ arcs to one.
+\noindent We have \[S^3/\mathbb{Z}_p=\bigcup_{0\leq c\leq 1}T_c/\mathbb{Z}_p.\] This is a collection of nested tubes with radii $0\leq r<1$ whose ends are twist-identified by a $\frac{2\pi q}{p}$--radian twist, and a boundary of latitude-segments which are identified to single points, and then identified from $p$ arcs to one.\\
 
-Collapsing the latitude segments to points then gives a ball whose equator is divided into $p$ equal arcs, all identified together. The upper and lower hemispheres then correspond to the ends of the solid cylinder and so are twist-identified by a $\frac{2\pi q}{p}$ twist.
+\noindent Collapsing the latitude segments to points then gives a ball whose equator is divided into $p$ equal arcs, all identified together. The upper and lower hemispheres then correspond to the ends of the solid cylinder and so are twist-identified by a $\frac{2\pi q}{p}$ twist.
 
 \begin{figure} [hbt!]
     \centering
@@ -965,7 +965,7 @@ This then gives a model of $L(p;q)$, which we shall now use to obtain a delta co
 Points: $[N]$ and $[x_0]$ (since $\{x_0,x_q,x_{2q},...\}$ are identified and $q$ is coprime to $p$)\\
 Lines: $[NS]$, $[x_0x_1]$ and $[Nx_0],...,[Nx_{p-1}]$\\
 Faces: $[Nx_0x_1],...,[Nx_{p-2}x_{p-1}],[Nx_0x_{p-1}]$ and $[NSx_0],...,[NSx_{p-1}]$\\
-Slices: $[NSx_0x_1],...,[NSx_{p-2}x_{p-1}],[NSx_0x_{p-1}]$\\
+Slices: $[NSx_0x_1],...,[NSx_{p-2}x_{p-1}],[NSx_0x_{p-1}]$.\\
 Having obtained a delta-complex structure, we are now able to compute the torsion linking form of a lens space:
 \[\text{Let }a_{p-1}=-[NSx_0x_{p-1}]\text{ and }a_i=[NSx_ix_{i+1}]\text{ otherwise.}\]
 \[\text{Let }b_{p-1}=-[Nx_0x_{p-1}]\text{ and }b_i=[Nx_ix_{i+1}]\text{ otherwise.}\]
