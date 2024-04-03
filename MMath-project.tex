@@ -72,6 +72,8 @@ Let $X$ and $Y$ be topological spaces. If there exist continuous maps $\phi\colo
 Homotopy-equivalent path-connected topological spaces have isomorphic fundamental groups.
 \end{theorem}
 
+
+
 \begin{definition}
 Let $G\times E\to E,(g,e)\mapsto g\cdot e$ be a left action of a group $G$ on a topological space $E$.\\
 We say that the action is \textbf{continuous} if the left multiplication map $L_g\colon E\to E,e\mapsto g\cdot e$ is continuous for all $g\in G$.\\
@@ -296,7 +298,7 @@ Let $X$ be a topological space and let $A$ be a subspace of $X$. The \textbf{$n$
 If $U\subseteq A\subseteq X$ are topological spaces, then $U$ can be \textbf{excised} if the inclusion map of $(X\backslash U,A\backslash U)$ into $(X,A)$ induces an isomorphism on the relative homologies:\[H_n(X\backslash U,A\backslash U)\cong H_n(X,A),\]
 \end{definition}
 
-As before, continuous maps induce homomorphisms on relative homology groups and homotopy-equivalences induce isomorphisms.
+\noindent As before, continuous maps induce homomorphisms on relative homology groups and homotopy-equivalences induce isomorphisms.
 
 \begin{lemma}
 Let $X$ and $A$ be topological spaces with $A$ a subspace of $X$. Then we have a long exact sequence \[...\to H_n(X)\to H_n(X,A)\to H_{n-1}(A)\to H_{n-1}(X)\to...\]
@@ -314,10 +316,10 @@ Let $X$ be a topological space and let $x_0\in X$. The \textbf{$n$th local homol
 Let $M$ be an $n$--manifold, let $x\in M$ and let $U$ be a neighbourhood of $x$ homeomorphic to $\mathbb{R}^n$. Then \[H_n(M,M-x)\cong\mathbb{Z}.\]
 \end{lemma}
 \begin{proof}
-We have \[M-U\subseteq M-x\subseteq M\] and \[\overline{M-U}\subset(M-x)^{\mathrm{o}}\] so by the excision theorem we have \[H_n(M,M-x)\cong H_n(U,U-x)\cong H_n(\mathbb{R}^n,\mathbb{R}^n-x).\] $\mathbb{R}^n\cong D^n$and $S^{n-1}$ is a deformation retract of $\mathbb{R}^n-x$ so \[H_n(M,M-x)\cong H_n(D^n,S^{n-1}).\] The long exact sequence stated earlier then gives the long exact sequence \[...\to H_n(D^n)\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to H_{n-1}(D^n)\to...\] The disk is contractible so $H_k(S^n)\forall k$. We thus have the short exact sequence \[0\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to 0.\] Thus \[H_n(M,M-x)\cong H_{n-1}(S^{n-1})\cong\mathbb{Z}.\]
+We have \[M-U\subseteq M-x\subseteq M\] and \[\overline{M-U}\subset(M-x)^{\mathrm{o}}\] so by the excision theorem we have \[H_n(M,M-x)\cong H_n(U,U-x)\cong H_n(\mathbb{R}^n,\mathbb{R}^n-x).\] $\mathbb{R}^n\cong D^n$ and $S^{n-1}$ is a deformation retract of $\mathbb{R}^n-x$ so \[H_n(M,M-x)\cong H_n(D^n,S^{n-1}).\] The long exact sequence stated earlier then gives the long exact sequence \[...\to H_n(D^n)\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to H_{n-1}(D^n)\to...\] The disk is contractible so $H_k(S^n)\forall k$. We thus have the short exact sequence \[0\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to 0.\] Thus \[H_n(M,M-x)\cong H_{n-1}(S^{n-1})\cong\mathbb{Z}.\]
 \end{proof}
 
-\subsection{Orientation}
+\subsection{Orientation of manifolds}
 \begin{definition}
 A topological space $M$ is an \textbf{n-dimensional manifold} if it is Hausdorff and for every $p\in M$ there is an open neighbourhood $U\subseteq M$ containing $p$ and a homeomorphism $f\colon U\to \mathbb{R}^n$.
 \end{definition}
@@ -327,8 +329,16 @@ Let $M$ be an $n$--manifold. A \textbf{local orientation} of $M$ is a choice of 
 \end{definition}
 
 \begin{definition}
-Let $M$ and $N$ be orientable $n$--manifolds with orientations $[M]_x$ and $[N]_y$. Then a homeomorphism $f:M\to N$ is \textbf{orientation preserving} if the induced isomorphism \[f_*:H_n(M,M-x)\to H_n(N,N-f(x))\] sends $[M]_x$ to $[N]_{f(x)}$ for all $x\in M$. If instead $f_*$ sends $[M]_x$ to $-[N]_{f(x)}$ for all $x\in M$, then $f$ is \textbf{orientation reversing}.
+Let $M$ and $N$ be orientable $n$--manifolds with orientations $[M]_x$ and $[N]_y$. Then a homeomorphism $f:M\to N$ is \textbf{orientation-preserving} if the induced isomorphism \[f_*:H_n(M,M-x)\to H_n(N,N-f(x))\] sends $[M]_x$ to $[N]_{f(x)}$ for all $x\in M$. If instead $f_*$ sends $[M]_x$ to $-[N]_{f(x)}$ for all $x\in M$, then $f$ is \textbf{orientation-reversing}.
 \end{definition}
+
+\begin{remark}
+Note that a homeomorphism between oriented manifolds will always be either orientation-preserving or orientation-reversing, since the induced map on relative homology groups will be an isomorphism, and isomorphisms map units to units.
+\end{remark}
+
+\begin{remark}
+The homological definitions of orientation and orientation-preserving/reversing homeomorphisms are consistent with those from MA40254 for submanifolds in terms of differential forms.
+\end{remark}
 
 \begin{theorem}
 If we have a covering space action of a group $G$ on a connected orientable manifold $M$ by orientation-preserving homeomorphisms, then $M/G$ is also orientable.
@@ -588,35 +598,29 @@ Having studied the cap product, we are now ready to state Poincare duality. Howe
 A manifold is \textbf{closed} if it is compact and has no boundary.
 \end{definition}
 
-\begin{definition}
-An n-dimensional closed manifold $M$ is \textbf{orientable} if $H_n(M)\cong \mathbb{Z}$.
-\end{definition}
+\noindent Closed manifolds admit a simpler definition of orientation to the more general one discussed earlier. However, both formulations are equivalent.
 
 \begin{definition}
-Let $M$ be a closed n-dimensional manifold and $R$ a commutative ring with an identity. $M$ is \textbf{R-orientable} if $H_n(M;R)\cong R$. The image of a unit in $R$ is called a \textbf{fundamental class}. An \textbf{orientation} of $M$ is a choice of fundamental class $[M]\in H_n(M)$.
+An n-dimensional closed manifold $M$ is \textbf{orientable} if $H_n(M)\cong \mathbb{Z}$. The image of a unit is called a \textbf{fundamental class}. An \textbf{orientation} of $M$ is a choice of fundamental class $[M]\in H_n(M)$.
 \end{definition}
+
 
 \begin{proposition}
-Let $M$ be a closed n-dimensional manifold and $R$ a commutative ring with an identity. Then $H_n(M;R)\cong R$ if $M$ is orientable. Furthermore, $H_i(M;R)=0$ for $i>n$.
+Let $M$ be a closed n-dimensional manifold. Then $H_n(M)\cong \mathbb{Z}$ if $M$ is orientable. Furthermore, $H_i(M)=0$ for $i>n$.
 \end{proposition}
 
 \begin{definition}
 Let $M$ and $N$ be closed connected orientable $n$-dimensional manifolds, let $f\colon M\to N$ be continuous and let $[M]$ and $[N]$ be fundamental classes of $X$ and $Y$. Then the \textbf{degree} of $f$ is the integer $\text{deg}(f)$ such that $f_*([M])=\text{deg}(f)[N]$.
 \end{definition}
 
-\begin{proposition}
-Let $M$ and $N$ be closed R-orientable n-dimensional manifolds and $f\colon M\to N$ a homeomorphism. Then $f_*$ sends a fundamental class of $M$ to a fundamental class of $N$.
-\end{proposition}
-\begin{proof}
-$f_*$ is an isomorphism, and isomorphisms map units to units.
-\end{proof}
+\noindent As before, homeomorphisms between closed oriented manifolds send fundamental classes to fundamental classes.
 
 \begin{corollary}
 The degree of a homeomorphism between closed connected orientable $n$-manifolds is $\pm 1$.
 \end{corollary}
 
 \begin{definition}
-Let $M$ be an orientable n-dimensional manifold, let $[M]\in H_n(X)$ be a fundamental class and let $f\colon M\to M$ be a homeomorphism. We say that $f$ is \textbf{orientation-preserving} if $f_*([M])=[M]$ and that $f$ is \textbf{orientation-reversing} if $f_*([M])=-[M]$.
+Let $M$ be a closed orientable $n$--dimensional manifold, let $[M]\in H_n(X)$ be a fundamental class and let $f\colon M\to M$ be a homeomorphism. We say that $f$ is \textbf{orientation-preserving} if $f_*([M])=[M]$ and that $f$ is \textbf{orientation-reversing} if $f_*([M])=-[M]$.
 \end{definition}
 
 
@@ -682,36 +686,7 @@ If $A$ is an $R$-module, then the natural homomorphism\[H^k(X;A)\to\text{Hom}_R(
 So for a field $\mathbb{F}$, we have $H_k(X;\mathbb{F})\cong H_k(X;\mathbb{F})^*$.
 \end{proposition}
 
-\subsection{Proof of the Borsuk-Ulam theorem with cohomology}
-An interesting application of the cup product and the universal coefficient theorem can be seen in the proof of the Borsuk-Ulam theorem, which shows the utility of using coefficients other than $\mathbb{Z}$.
 
-\begin{lemma}
-There is no map $\mathbb{R} P^n$$\rightarrow$$\mathbb{R} P^m$ inducing a nontrivial map $H^1(\mathbb{R} P^m;\mathbb{Z}_2)\rightarrow H^1(\mathbb{R} P^n;\mathbb{Z}_2)$ if $n>m$.
-\end{lemma}
-\begin{proof}
-Let $x_n$ and $x_m$ be the generators of $H^1(\mathbb{R} P^n;\mathbb{Z}_2)$ and $H^1(\mathbb{R} P^m;\mathbb{Z}_2)$ respectively.
-We have
-\[H^1(\mathbb{R} P^n;\mathbb{Z}_2)\cong \mathbb{Z}_2\] and\[H^*(\mathbb{R} P^n;\mathbb{Z}_2)\cong \mathbb{Z}_2[x]/\langle x^{n+1}\rangle.\] 
-
-\noindent Let $f\colon\mathbb{R} P^n\to\mathbb{R} P^m $ be such a map so that $f^*(x_m)=x_n$.
-Then since $f^*$ is a homomorphism on the cup product structure, $f^*(0)=f^*(x_m^{m+1})=f^*(x_m)^{m+1}=x_n^{m+1}=0$, requiring $m \geq n$. The result follows by contraposition.
-\end{proof}
-
-\begin{lemma}
-If $X$ is a path-connected topological space then $H_1(X;\mathbb{Z}_2)$ is the two-elementary part of $\pi_1(X)^{\text{ab}}$, i.e. the quotient by the subgroup generated by all squares.
-\end{lemma}
-\begin{proof}
-We have that $H_0(X)\cong\mathbb{Z}$ so by the universal coefficient theorem \[\frac{H_1(X;\mathbb{Z}_2)}{H_1(X)\bigotimes_\mathbb{Z}\mathbb{Z}_2}\cong T_2(H_0(X))=0\] The correspondence theorem then gives $H_1(X;\mathbb{Z}_2)=H_1(X)\bigotimes_\mathbb{Z}\mathbb{Z}_2\cong\pi_1(X)^{\text{ab}}\bigotimes_\mathbb{Z}\mathbb{Z}_2$.
-\end{proof}
-
-\begin{lemma}
-Given any continuous map $f\colon\mathbb{R}P^n\to \mathbb{R}P^m$ with $n>m\geq 0$, $f_*\colon\pi_1(\mathbb{R}P^n)\to \pi_1(\mathbb{R}P^m)$ is trivial.
-\end{lemma}
-\begin{proof}
- $f^*\colon H^1(\mathbb{R}P^m;\mathbb{Z}_2)\rightarrow H^1(\mathbb{R}P^n;\mathbb{Z}_2)$ is dual to $f_*\colon H_1(\mathbb{R}P^n;\mathbb{Z}_2)\rightarrow H_1(\mathbb{R}P^m;\mathbb{Z}_2)$ which is equal to $f_*\colon \pi_1(\mathbb{R}P^n)\rightarrow \pi_1(\mathbb{R}P^m)$ by the Hurewicz theorem and the fact that $\pi_1(\mathbb{R}P^k)$ is abelian. Thus $f_*$ is trivial.
-\end{proof}
-
-\noindent This then entails a proof of the Borsuk-Ulam theorem by applying the ultimate lifting theorem to derive a contradiction.
 
 \section{Lens spaces}
 
@@ -782,9 +757,9 @@ Since $S^3$ is orientable and the action yielding $L(p;q)$ is a covering space a
     0       & 0 & \text{cos}(2\pi q/p) & -\text{sin}(2\pi q/p) \\
     0       &0 & \text{sin}(2\pi q/p)  & \text{cos}(2\pi q/p)
 \end{bmatrix}\]
-This is a block matrix so the determinant is the product of the two blocks, giving \[\text{det}(\Phi)=(\text{cos}^2(2\pi/p)+\text{sin}^2(2\pi/p))(\text{cos}^2(2\pi q/p)+\text{sin}^2(2\pi q/p))=1*1=1.\] Thus $(\phi^*\omega)_p=\omega_p$ and so $\phi$ is orientation-preserving. $\phi$ is the action of a generator of $\mathbb{Z}_p$ and the composition of orientation-preserving homeomorphisms is orientation preserving, hence every element of $\mathbb{Z}_p$ acts by an orientation-preserving homeomorphism.
+This is a block matrix so the determinant is the product of the determinants of the two blocks, giving \[\text{det}(\Phi)=(\text{cos}^2(2\pi/p)+\text{sin}^2(2\pi/p))(\text{cos}^2(2\pi q/p)+\text{sin}^2(2\pi q/p))=1\cdot 1=1.\] Thus $(\phi^*\omega)_p=\omega_p$ and so $\phi$ is orientation-preserving. $\phi$ is the action of a generator of $\mathbb{Z}_p$ and the composition of orientation-preserving homeomorphisms is orientation preserving, hence every element of $\mathbb{Z}_p$ acts by an orientation-preserving homeomorphism.
 \end{proof}
-\noindent Now that we have shown that $L(p;q)$ is a closed orientable $3$--manifold, we are able to compute all the homology and cohomology groups of $L(p;q)$:\\
+\noindent Now that we have shown that $L(p;q)$ is a closed orientable $3$--manifold, we are able to compute all the homology and cohomology groups of $L(p;q)$ just from the first homology group:\\
 
 \noindent $H^2(L(p;q);\mathbb{Z})\cong\mathbb{Z}_p$ by Poincare duality. $H_3((L(p;q))\cong\mathbb{Z}\cong H^0(L(p;q);\mathbb{Z})$ since $L(p;q)$ is an orientable 3-manifold. $H_0(L(p;q))\cong\mathbb{Z}\cong H^3(L(p;q);\mathbb{Z})$ since $L(p;q)$ is path-connected. $T(H_2(L(p;q)))\cong T(H^3(L(p;q));\mathbb{Z})=0$ and $F(H_2(L(p;q)))\cong F(H^2(L(p;q);\mathbb{Z}))=0$ by the universal coefficient theorem so $H_2(L(p;q))=0=H^1(L(p;q);\mathbb{Z})$. $H_i(L(p;q))=H^i(L(p;q);\mathbb{Z})=0\forall i>3$ since $L(p;q)$ is a 3-manifold.\\
 
