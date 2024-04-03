@@ -879,16 +879,37 @@ For there to be a bijection between pairs $(z_0,z_1)$ and triples $(r_1,\theta_0
 \item $(1,\theta_0,\theta_1)=(1,\theta_0^{'}m,\theta_1)$ for all $0\leq\theta_0,\theta_0^{'}<2\pi$, since $r_1=0\implies (z_0,z_1)=(0,e^{i\theta_1})$ is independent of $\theta_0$.
 \end{enumerate}
 
-If we represent points of a solid torus $T$ with meridianal radius 1, where $\theta_0$ gives the longitudinal position and $\theta_1,r_1$ give the position of the point within the cross-section determined by $\theta_0$, then condition $1$ is satisfied, since all angles are identified on a circle with no radius.
+
+\begin{figure} [hbt!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{2.png}
+\end{figure}
+
+If we represent points of a solid torus $T$ with meridianal radius 1, where $\theta_0$ gives the longitudinal position and $\theta_1,r_1$ give the position of the point within the cross-section determined by $\theta_0$, as shown above, then condition $1$ is satisfied, since all angles are identified on a circle with no radius.
 
 The case where $r_1=1$ corresponds to the boundary of $T$. Varying $\theta_0$ then traces out a latitude, so condition $2$ corresponds to identifying each latitude of $\partial T$ with a single point.
 
-T is homeomorphic to a solid cylinder with the ends identified, and identifying each vertical line on the boundary then gives $S^3$ due to satisfying condition $2$. Collapsing the vertical lines to points midway along the cylinder then shows that $S^3$ is homeomorphic to a solid ball with upper and lower hemisphered identified via orthogonal projection, where the lines collapsed to points on the equator.\\
+T is homeomorphic to a solid cylinder with the ends identified, and identifying each vertical line on the boundary then gives $S^3$ due to satisfying condition $2$. Collapsing the vertical lines to points midway along the cylinder then shows that $S^3$ is homeomorphic to a solid ball with upper and lower hemisphered identified via orthogonal projection, where the lines collapsed to points on the equator, as shown below.\\
+\begin{figure} [hbt!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{3.png}
+\end{figure}
 
 To find a delta-complex construction of $L(p;q)$ we much first determine the equivalence classes of the action on $T$. We have that the action of $[m]\in\mathbb{Z}_p$ is given by \[m\cdot(z_0,z_1)=(z_0e^{\frac{2\pi im}{p}},z_1e^{\frac{2\pi iqm}{p}})=(r_0e^{i(\theta_0+\frac{2\pi m}{p})},r_1e^{i(\theta_1+\frac{2\pi qm}{p})}).\] In terms of the coordinates given to $T$, we have\[m\cdot(r,\theta_0,\theta_1)=(r,\theta_0+\frac{2\pi m}{p},\theta_1+\frac{2\pi qm}{p}).\] Note that $r$ is unaffected by the action, meaning that $\mathbb{Z}_p$ maps an individual torus to itself. We can thus express $T$ as\[\bigcup_{0\leq c\leq 1}T_c,\] where $T_c$ is a torus of radius $r$, and study the action on $T$ in terms of the actions on indivudual $T_c$'s.
 For the case $0<c<1$, $T_c$ can be pictured as a square with identified edges, with the horizontal axis acting as the $\theta_1$--axis and the vertical axis as the $\theta_0$--axis, both ranging from $0$ to $2\pi$, as shown below:
+\begin{figure}[hbt!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{4.png}
+\end{figure}
+
 
 The action of $[m]$ on a point $(\theta_0,\theta_1$ results in the point $(\theta_0+\frac{2\pi m}{p},\theta_1+\frac{2\pi qm}{p})$, so all actions of $\mathbb{Z}_p$ are translations along lines with gradient $\frac{2\pi m}{p}/\frac{2\pi qm}{p}=\frac{1}{q}$. If we divide the square into $p$ horizontal bands, each of height $\frac{2\pi}{p}$, we see that an equivalence class of the action on $T_c$ contains exactly one point in each horizontal band. We can thus define the orbit space as \[T_c/\mathbb{Z}_p=\{(r,\theta_0,\theta_1):r=c,0\leq\theta_0<\frac{2\pi}{p},0\leq\theta_1<2\pi\}.\] This is a short tube with ends identified by a $\frac{2\pi q}{p}$ twist:
+
+\begin{figure} [hbt!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{6.png}
+\end{figure}
+
 
 We now consider the case $T_0$ - the action on the central circle:
 The action of $[m]$ on a point in $T_0$ maps $\theta_0$ to $\theta_0+\frac{2\pi m}{p}$, and so $m$ acts by a $\frac{2\pi m}{p}$ rotation. Each equivalence class of the action on $T_0$ thus contains exactly one point in each $\frac{2\pi}{p}$ arc. $0\leq\theta_0<\frac{2\pi}{p}$ thus has exactly one point from each equivalence class, so $T_0/\mathbb{Z}_p$ can be viewed as an arc with identified endpoints:
@@ -898,9 +919,20 @@ Since $T_1$ is represented by a single meridian of $\partial T$, we can identify
 
 We have \[S^3/\mathbb{Z}_p=\bigcup_{0\leq c\leq 1}T_c/\mathbb{Z}_p.\] This is a collection of nested tubes with radii $0\leq r<1$ whose ends are twist-identified by a $\frac{2\pi q}{p}$--radian twist, and a boundary of latitude-segments which are identified to single points, and then identified from $p$ arcs to one.
 
-Collapsing the latitude segments to points then gives a ball whose equator is divided into $p$ equal arcs, all identified together. The upper and lower hemispheres then correspond to the ends of the solid cylinder and so are twist-identified by a $\frac{2\pi q}{p}$ twist. This then gives a model of $L(p;q)$, which we shall now use to obtain a delta complex.
+Collapsing the latitude segments to points then gives a ball whose equator is divided into $p$ equal arcs, all identified together. The upper and lower hemispheres then correspond to the ends of the solid cylinder and so are twist-identified by a $\frac{2\pi q}{p}$ twist.
+
+\begin{figure} [hbt!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{7.png}
+\end{figure}
 
 
+This then gives a model of $L(p;q)$, which we shall now use to obtain a delta complex.
+
+\begin{figure} [hbt!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{8.png}
+\end{figure}
 
 \noindent Consider a filled-in ball with points N and S corresponding to the north and south poles and points $x_0,...,x_{p-1}$ being evenly-spaced points along the equator. Then draw a line through the ball from N to S, lines connecting $x_i$ to $x_{i+1}$, lines connecting $x_i$ to N and lines connecting $x_i$ to S (all geodesic). We then identify the faces on the surface by twisting the top hemisphere by $\frac{2\pi q}{p}$ radians and projecting downwards. This leaves us, after identification, with:\\
 Points: $[N]$ and $[x_0]$ (since $\{x_0,x_q,x_{2q},...\}$ are identified and $q$ is coprime to $p$)\\
