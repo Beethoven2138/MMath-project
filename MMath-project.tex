@@ -335,7 +335,7 @@ This then gives a chain complex \[...\to C_n(X,A)\overset{\partial'}{\to}C_{n-1}
 \noindent This then allows for the following definition.
 
 \begin{definition}
-Let $X$ be a topological space and let $A$ be a subspace of $X$. The \textbf{$n$th relative homology group} is \[H_n(X,A):=\frac{\text{ker }\partial'}{\text{Im }\partial'}.\]
+Let $X$ be a topological space and let $A$ be a subspace of $X$. The \textbf{$n$th relative homology group} is \[H_n(X,A):=\frac{\text{ker }\partial':C_n(X,A)\to C_{n-1}(X,A)}{\text{Im }\partial':C_{n+1}(X,A)\to C_n(X,A)}.\]
 \end{definition}
 
 \begin{definition}
@@ -363,7 +363,7 @@ A topological space $M$ is an \textbf{n-dimensional manifold} if it is Hausdorff
 Let $M$ be an $n$--manifold, let $x\in M$ and let $U$ be a neighbourhood of $x$ homeomorphic to $\mathbb{R}^n$. Then \[H_n(M,M-x)\cong\mathbb{Z}.\]
 \end{lemma}
 \begin{proof}
-We have \[M-U\subseteq M-x\subseteq M\] and \[\overline{M-U}\subset(M-x)^{\mathrm{o}}\] so by the excision theorem we have \[H_n(M,M-x)\cong H_n(U,U-x)\cong H_n(\mathbb{R}^n,\mathbb{R}^n-x).\] $\mathbb{R}^n\cong D^n$ and $S^{n-1}$ is a deformation retract of $\mathbb{R}^n-x$ so \[H_n(M,M-x)\cong H_n(D^n,S^{n-1}).\] The long exact sequence stated earlier then gives the long exact sequence \[...\to H_n(D^n)\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to H_{n-1}(D^n)\to...\] The disk is contractible so $H_k(S^n)\forall k$. We thus have the short exact sequence \[0\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to 0.\] Thus \[H_n(M,M-x)\cong H_{n-1}(S^{n-1})\cong\mathbb{Z}.\]
+We have \[M-U\subseteq M-x\subseteq M\] and \[\overline{M-U}\subset(M-x)^{\mathrm{o}}\] so by the excision theorem we have \[H_n(M,M-x)\cong H_n(U,U-x)\cong H_n(\mathbb{R}^n,\mathbb{R}^n-x).\] $\mathbb{R}^n\cong D^n$ and $S^{n-1}$ is a deformation retract of $\mathbb{R}^n-x$ so \[H_n(M,M-x)\cong H_n(D^n,S^{n-1}).\] The long exact sequence stated earlier then gives the long exact sequence \[...\to H_n(D^n)\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to H_{n-1}(D^n)\to...\] The disk is contractible so $H_k(D^n)=0\forall k$. We thus have the short exact sequence \[0\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to 0.\] Thus \[H_n(M,M-x)\cong H_{n-1}(S^{n-1})\cong\mathbb{Z}.\]
 \end{proof}
 
 \begin{definition}
