@@ -898,7 +898,7 @@ The torsion linking pairing is a non-degenerate bilinear form, where non-degener
 \begin{proof}
 Bilinearity follows from the bilinearity of the cup product.
 
-\noindent By the universal coefficient theorem, \[G:T(H_{a-1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[x]\mapsto([\alpha]\mapsto\frac{1}{k}\gamma_{[\alpha]}(x))\] where $d\gamma=k[\alpha]$. By Poincare duality we have an isomorphism \[D\colon T(H^{n-a+1}(M;\mathbb{Z}))\to T(H_{a-1}(M;\mathbb{Z})):[\beta]\mapsto(-1)^{(n-a+1)(a-1)}[M]\cap[\beta]\] and so \[G\circ D:T(H^{n-a+1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z})\colon [\beta]\mapsto([\alpha]\mapsto \frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(M\cap\beta)\] is also an isomorphism where \[\frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(M\cap\beta)=\frac{(-1)^{(n-a+1)(a-1)}}{k}(\beta\cup\gamma_{[\alpha]})M=\frac{(-1)^{2(n-a+1)(a-1)}}{k}(\gamma_{[\alpha]}\cup\beta)M=[\alpha]\wedge[\beta].\]
+\noindent By the universal coefficient theorem, \[G:T(H_{a-1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[x]\mapsto([\alpha]\mapsto\frac{1}{k}\gamma_{[\alpha]}(x))\] where $d\gamma=k[\alpha]$. By Poincare duality we have an isomorphism \[D\colon T(H^{n-a+1}(M;\mathbb{Z}))\to T(H_{a-1}(M;\mathbb{Z})):[\beta]\mapsto(-1)^{(n-a+1)(a-1)}[M]\cap[\beta]\] and so \[G\circ D:T(H^{n-a+1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z})\colon [\beta]\mapsto([\alpha]\mapsto \frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(M\cap\beta)\] is also an isomorphism where \[\frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(M\cap\beta)=\frac{(-1)^{(n-a+1)(a-1)}}{k}(\beta\cup\gamma_{[\alpha]})M=\frac{(-1)^{2(n-a+1)(a-1)}}{k}(\gamma_{[\alpha]}\cup\beta)M=[\alpha]\vee[\beta].\]
 \end{proof}
 \noindent So in the case of 3-manifolds like lens spaces, the torsion linking pairing is a symmetric non-degenerate bilinear form on $T(H^2(M;\mathbb{Z}))$. Also, since the cup product is invariant under homotopy-equivalence, the torsion linking pairing is as well.
 
@@ -1003,7 +1003,9 @@ Thus, \[[\alpha]\vee[\alpha]=\frac{1}{p}\gamma([NS])\alpha([Sx_{q-1}x_q])=\frac{
 \noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, taking into account whether or not the homotopy-equivalence is orientation-reversing and choice of element of $H^2(L(p;q);\mathbb{Z})$. This is equivalent to $q_1\equiv\pm q_2m^2\text{ mod }p\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\iff q_2q_2\equiv\pm n^2\text{ mod } p$, where $n=mq_2$.\\
 
 \noindent If we were only interested in orientation-preserving homotopy-equivalence, then the condition would be $q_2q_2\equiv n^2\text{ mod } p$; and if we were only interested in orientation-reversing homotopy-equivalence, then the condition would be $q_2q_2\equiv- n^2\text{ mod } p$.
-Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$ is a square mod $p$ $\iff -1$ is a square mod $p\iff p\equiv 1$ mod $4$ for $p$ a prime. This in contrast to compact $2$--manifolds, which always admit orientation-reversing homeomorphisms.\\
+Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$ is a square mod $p$ $\iff -1$ is a square mod $p\iff p\equiv 1$ mod $4$ for $p$ a prime. This in contrast to compact $2$--manifolds, which always admit orientation-reversing homeomorphisms.
+
+
 
 \subsection{Homeomorphism classification}
 
@@ -1038,10 +1040,9 @@ Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$
 Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with no homology and bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix from $b_i\cup\overset{\sim}{b}_{i-1}$ to $c_i$. We then define The \textbf{Reidemeister torsion} \[\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}.\]
 \end{definition}
 
-\begin{lemma}
-$\Delta(C_.,c_.)$ is independent of choice of auxiliary bases.
-\end{lemma}
-
+\begin{remark}
+The Reidemeister torsion is independent of choice of auxiliary bases but not of choice of $c_i$.
+\end{remark}
 
 \noindent Let \[X=\bigcup_{k=0}^n\bigcup_je_j^k\] be a finite cell complex and $(A,\beta)$ a representation of $\pi_1(X)$ in a ring $A$. Let $\overset{\sim}{X}$ be a universal cover. And $\overset{\sim}{e}_j^k$ be a lift of $e_j^k$. Then every other lift of $e_j^k$ is obtained by composition of $\overset{\sim}{e}_j^k$ with a deck transformation (since given $f'$ and $g'$ lifts of $f$ there exists a $\phi\in\text{Aut}(p)$ such that $\phi\circ f'(0)=g'(0)$ which implies $\phi\circ f=g$ by uniqueness). $\text{Aut}(p)=\pi_1(X)$ so we can write \[\overset{\sim}{X}=\bigcup_{k=0}^n\bigcup_{g\in\pi_1(X)}\bigcup_jg\overset{\sim}{e}_j^k.\] Thus multiplication by an element of $\pi_1(x)$ permutes the cells, thereby giving $CC_.(\overset{\sim}{X})$ a $\pi_1(X)$-action. $A$ also has a $\pi_1(X)$ action so we can define $C_k(X;\beta)=CC_k(\overset{\sim}{X})\otimes_{\mathbb{Z}\pi_1(X)} A$. We have an induced boundary map $\partial\colon C_k(X;\beta)\to C_{k-1}(X;\beta)$ which makes $C_k(X;\beta)$ a chain complex with basis $\{\overset{\sim}{e}_j^k\}\otimes\text{id}_A$.
 
