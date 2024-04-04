@@ -57,7 +57,7 @@ Let $X$ be a topological space and $x_0\in X$. The \textbf{fundamental group} is
 \begin{theorem}
 If $X$ is path-connected and $x_0,y_0\in X$, then $\pi_1(X,x_0)\cong\pi_1(X,y_0)$.
 \end{theorem}
-We can then refer to the fundamental group merely as $\pi_1(X)$.
+\noindent We can then refer to the fundamental group merely as $\pi_1(X)$.
 
 \begin{definition}
 Two continuous maps $\phi_0,\phi_1\colon X\to Y$ of topological spaces are \textbf{homotopic} if there exists a continuous map $F\colon X\times I\to Y$ such that\[F(x,0)=\phi_0(X), F(x,1)=\phi_1(x),\forall x\in X.\]
@@ -554,7 +554,7 @@ We call the induced pairing $\cup:H^k(X;R)\times H^l(X;R)\to H^{k+l}(X;R)$ the \
 \end{definition}
 \noindent We shall now see that the cup product gives cohomology a ring structure.
 \begin{definition}
-A \textbf{graded ring} is a ring such that its additive group is a direct sum of abelian groups $\bigoplus_{n=0}^\infty R_n$ such that $R_mR_n\subseteq R_{m+n}\forall m,n\in\mathbb{N}_0$. An element of $R_n$ is said to have \textbf{degree} $n$. A graded ring is \textbf{Graded-commutative} if we have $xy=(-1)^{|x||y|}yx$, where $|x|$ and $|y|$ denote the degrees of $x$ and $y$.
+A \textbf{graded ring} is a ring such that its additive group is a direct sum of abelian groups $\bigoplus_{n=0}^\infty R_n$ such that $R_mR_n\subseteq R_{m+n}\forall m,n\in\mathbb{N}_0$. An element of $R_n$ is said to have \textbf{degree} $n$. A graded ring is \textbf{graded-commutative} if we have $xy=(-1)^{|x||y|}yx$, where $|x|$ and $|y|$ denote the degrees of $x$ and $y$.
 \end{definition}
 
 \begin{proposition}
@@ -986,14 +986,14 @@ so \[\partial b_i=D-F_{i+1}+F_i.\]
 so \[\partial c_i=E-F_i+F_{i-q}.\]
 \[\partial(\sum_{i=0}^{p-1}a_i)=\sum_i([Nx_{i-q}x_{i-q+1}]-[Nx_ix_{i+1}]+[NSx_{i+1}]-[NSx_i])=0\] so $\sum_{i=0}^{p-1}a_i$ is a representative of an element of $H_3(L(p;q);\mathbb{Z})$. In fact, it is a representative of a fundamental class. Call the equivalence class it represents $[M]$.\\
 $C_1(L(p;q),\mathbb{Z})$ has basis $D,E,F_i$ and $C_2(L(p;q),\mathbb{Z})$ has basis $b_i,c_i$.\\
-Let $\hat X$ be linear map which sends $X$ to $1$ and all other elements of the basis to $0$. We then have:\\
-\[d\hat D=\sum_{i=0}^{p-1}\hat b_i.\]
-\[d\hat E=\sum_{i=0}^{p-1}\hat c_i.\]
-\[d\hat F_i=\hat b_i-\hat b_{i-1}-\hat c_i+\hat c_{i+q}.\]
-Then define \[\gamma=\hat D + (\sum_{i=0}^{p-1}i\hat F_i)+q\hat E\in C^1(L(p;q);\mathbb{Z}).\]
+Let $\widehat X$ be linear map which sends $X$ to $1$ and all other elements of the basis to $0$. We then have:\\
+\[d\widehat D=\sum_{i=0}^{p-1}\widehat b_i.\]
+\[d\widehat E=\sum_{i=0}^{p-1}\widehat c_i.\]
+\[d\widehat F_i=\widehat b_i-\widehat b_{i-1}-\widehat c_i+\widehat c_{i+q}.\]
+Then define \[\gamma=\widehat D + (\sum_{i=0}^{p-1}i\widehat F_i)+q\widehat E\in C^1(L(p;q);\mathbb{Z}).\]
 \begin{align*}
-d\gamma&=\sum_{i=0}^{p-1}\hat b_i+(\sum_{i=0}^{p-1}i(\hat b_i-\hat b_{i-1}-\hat c_i+\hat c_{i+q}))+\sum_{i=0}^{p-1}q\hat c_i\\
-&=\sum_{i=0}^{p-1}((i+1)\hat b_i-i\hat b_{i-1}-(i-q)\hat c_i+i\hat c_{i+q})\equiv 0\text{ mod }p.
+d\gamma&=\sum_{i=0}^{p-1}\widehat b_i+(\sum_{i=0}^{p-1}i(\widehat b_i-\widehat b_{i-1}-\widehat c_i+\widehat c_{i+q}))+\sum_{i=0}^{p-1}q\hat c_i\\
+&=\sum_{i=0}^{p-1}((i+1)\widehat b_i-i\widehat b_{i-1}-(i-q)\widehat c_i+i\widehat c_{i+q})\equiv 0\text{ mod }p.
 \end{align*}
 Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $\alpha$ is a representative of an element in $H^2(L(p;q);\mathbb{Z})$ with $p[\alpha]=[0]$. Also note that $\gamma(E)=q$.
 \[p\alpha([Sx_{q-1}x_q])=p\alpha([Nx_{p-1}x_0])=p\alpha(b_{p-1})=(p-1+1)\hat b_{p-1}(b_{p-1})-0\times\hat b_{-1}(b_{p-1})=p\]\[\implies \alpha([Sx_{q-1}x_q])=1.\]
@@ -1035,7 +1035,7 @@ Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$
 \noindent Armed with this construction, we shall now define and compute the Reidemeister torsion.
 
 \begin{definition}
-Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with no homology and bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix. We then define The \textbf{Reidemeister torsion} \[\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}.\]
+Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with no homology and bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix from $b_i\cup\overset{\sim}{b}_{i-1}$ to $c_i$. We then define The \textbf{Reidemeister torsion} \[\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}.\]
 \end{definition}
 
 \begin{lemma}
