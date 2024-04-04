@@ -580,7 +580,7 @@ For distributivity:
 Let $R$ be a commutative ring, $\psi\in H^k(X;R)$ and $\phi\in H^l(X;R)$. Then \[\psi\cup\phi=(-1)^{kl}\phi\cup\psi.\] Thus $H^*(X;R)$ is graded-commutative.
 \end{proposition}
 \begin{proof}
-Long and tedious. See Hatcher.
+See Hatcher.
 \end{proof}
 
 \begin{proposition}
@@ -893,12 +893,12 @@ let $m\beta=d\tau$ for some $\tau\in C^{n-a}(M,\mathbb{Z})$. Then
 \end{proof}
 
 \begin{lemma}
-The torsion linking pairing is a non-degenerate bilinear form, where non-degeneracy means that $T(H^a(M,\mathbb{Z}))\to \text{Hom}(T(H^{n-a+1}(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto ([\beta]\mapsto [\alpha]\vee[\beta])$ is an isomorphism.
+The torsion linking pairing is a non-degenerate bilinear form, where non-degeneracy means that $T(H^{n-a+1}(M,\mathbb{Z}))\to \text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\beta]\mapsto ([\alpha]\mapsto [\alpha]\vee[\beta])$ is an isomorphism.
 \end{lemma}
 \begin{proof}
 Bilinearity follows from the bilinearity of the cup product.
 
-\noindent By the universal coefficient theorem, $T(H^{a}(M;\mathbb{Z}))\to\text{Hom}(T(H_{a-1}(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto\gamma_{[\alpha]}$ is an isomorphism where $\gamma_{[\alpha]}([l])=\frac{1}{k}\gamma(l)$. By Poincare duality we have an isomorphism \[D\colon T(H^{n-a+1}(M;\mathbb{Z}))\to T(H_{a-1}(M;\mathbb{Z})):[\beta]\mapsto[\beta]\cap[M]\] and so \[T(H^a(M,\mathbb{Z}))\to \text{Hom}(T(H^{n-a+1}(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto\gamma_{[\alpha]}\circ D\] is also an isomorphism where \[\gamma_{[\alpha]}\circ D([\beta])=\frac{1}{k}\gamma(\beta\cap M)=\frac{1}{k}(\gamma\cup\beta)M=[\alpha]\vee[\beta].\] Thus \[T(H^a(M,\mathbb{Z}))\to \text{Hom}(T(H^{n-a+1}(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\alpha]\mapsto ([\beta]\mapsto [\alpha]\vee[\beta])\] is an isomorphism so the bilinear form is non-degenerate.
+\noindent By the universal coefficient theorem, \[G:T(H_{a-1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[x]\mapsto([\alpha]\mapsto\frac{1}{k}\gamma_{[\alpha]}(x))\] where $d\gamma=k[\alpha]$. By Poincare duality we have an isomorphism \[D\colon T(H^{n-a+1}(M;\mathbb{Z}))\to T(H_{a-1}(M;\mathbb{Z})):[\beta]\mapsto(-1)^{(n-a+1)(a-1)}[M]\cap[\beta]\] and so \[G\circ D:T(H^{n-a+1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z})\colon [\beta]\mapsto([\alpha]\mapsto \frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(M\cap\beta)\] is also an isomorphism where \[\frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(M\cap\beta)=\frac{(-1)^{(n-a+1)(a-1)}}{k}(\beta\cup\gamma_{[\alpha]})M=\frac{(-1)^{2(n-a+1)(a-1)}}{k}(\gamma_{[\alpha]}\cup\beta)M=[\alpha]\wedge[\beta].\]
 \end{proof}
 \noindent So in the case of 3-manifolds like lens spaces, the torsion linking pairing is a symmetric non-degenerate bilinear form on $T(H^2(M;\mathbb{Z}))$. Also, since the cup product is invariant under homotopy-equivalence, the torsion linking pairing is as well.
 
