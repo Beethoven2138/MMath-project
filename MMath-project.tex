@@ -866,7 +866,7 @@ A $\Delta$--complex structure on a space $X$ is a collection of maps $\sigma_\al
 
 
 
-\subsection{Classification of lens spaces}
+\subsection{Homotopy classification}
 We begin by introducing the homotopy invariant which will be used for the homotopy classification.
 
 \begin{definition}
@@ -944,10 +944,10 @@ For the case $0<c<1$, $T_c$ can be pictured as a square with identified edges, w
 \end{figure}
 
 
-\noindent We now consider the case $T_0$ - the action on the central circle:
-The action of $[m]$ on a point in $T_0$ maps $\theta_0$ to $\theta_0+\frac{2\pi m}{p}$, and so $m$ acts by a $\frac{2\pi m}{p}$ rotation. Each equivalence class of the action on $T_0$ thus contains exactly one point in each $\frac{2\pi}{p}$ arc. $0\leq\theta_0<\frac{2\pi}{p}$ thus has exactly one point from each equivalence class, so $T_0/\mathbb{Z}_p$ can be viewed as an arc with identified endpoints.
+\noindent We now consider the case $T_0$ - the action on the central circle:\\
+The action of $[m]$ on a point in $T_0$ maps $\theta_0$ to $\theta_0+\frac{2\pi m}{p}$, and so $m$ acts by a $\frac{2\pi m}{p}$ rotation. Each equivalence class of the action on $T_0$ thus contains exactly one point in each $\frac{2\pi}{p}$ arc. $0\leq\theta_0<\frac{2\pi}{p}$ thus has exactly one point from each equivalence class, so $T_0/\mathbb{Z}_p$ can be viewed as an arc with identified endpoints.\\
 
-\noindent Finally we consider the case $T_1$ - the boundary of $T$ with each latitude identified to a point:
+\noindent Finally we consider the case $T_1$ - the boundary of $T$ with each latitude identified to a point:\\
 Since $T_1$ is represented by a single meridian of $\partial T$, we can identify $T_1$ with a circle $S^1$. The action of $[m]$ on a point of $T_1$ sends $\theta_1$ to $\theta_1+\frac{2\pi qm}{p}$, and so acts by inducing a $\frac{2\pi qm}{p}$ rotation. Since, $\text{gcd}(p,q)=1$, if we partition $S^1$ into $p$ equal arcs $0\leq\theta_1<\frac{2\pi}{p},...,\frac{2(p-1)\pi}{p}\leq\theta_1<2\pi$, then they all get identified.
 
 \noindent We have \[S^3/\mathbb{Z}_p=\bigcup_{0\leq c\leq 1}T_c/\mathbb{Z}_p.\] This is a collection of nested tubes with radii $0\leq r<1$ whose ends are twist-identified by a $\frac{2\pi q}{p}$--radian twist, and a boundary of latitude-segments which are identified to single points, and then identified from $p$ arcs to one.\\
@@ -1005,6 +1005,8 @@ Thus, \[[\alpha]\vee[\alpha]=\frac{1}{p}\gamma([NS])\alpha([Sx_{q-1}x_q])=\frac{
 \noindent If we were only interested in orientation-preserving homotopy-equivalence, then the condition would be $q_2q_2\equiv n^2\text{ mod } p$; and if we were only interested in orientation-reversing homotopy-equivalence, then the condition would be $q_2q_2\equiv- n^2\text{ mod } p$.
 Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$ is a square mod $p$ $\iff -1$ is a square mod $p\iff p\equiv 1$ mod $4$ for $p$ a prime. This in contrast to compact $2$--manifolds, which always admit orientation-reversing homeomorphisms.\\
 
+\subsection{Homeomorphism classification}
+
 \noindent We shall now realise lens spaces as cell complexes, in preparation for computing the Reidemeister torsion to give a stronger homeomorphism invariant than the fundamental group.\\
 
 \noindent We have
@@ -1032,7 +1034,6 @@ Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$
 
 \noindent Armed with this construction, we shall now define and compute the Reidemeister torsion.
 
-\subsection{Reidemeister torsion}
 \begin{definition}
 Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with no homology and bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix. We then define The \textbf{Reidemeister torsion} \[\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}.\]
 \end{definition}
@@ -1045,10 +1046,13 @@ $\Delta(C_.,c_.)$ is independent of choice of auxiliary bases.
 \noindent Let \[X=\bigcup_{k=0}^n\bigcup_je_j^k\] be a finite cell complex and $(A,\beta)$ a representation of $\pi_1(X)$ in a ring $A$. Let $\overset{\sim}{X}$ be a universal cover. And $\overset{\sim}{e}_j^k$ be a lift of $e_j^k$. Then every other lift of $e_j^k$ is obtained by composition of $\overset{\sim}{e}_j^k$ with a deck transformation (since given $f'$ and $g'$ lifts of $f$ there exists a $\phi\in\text{Aut}(p)$ such that $\phi\circ f'(0)=g'(0)$ which implies $\phi\circ f=g$ by uniqueness). $\text{Aut}(p)=\pi_1(X)$ so we can write \[\overset{\sim}{X}=\bigcup_{k=0}^n\bigcup_{g\in\pi_1(X)}\bigcup_jg\overset{\sim}{e}_j^k.\] Thus multiplication by an element of $\pi_1(x)$ permutes the cells, thereby giving $CC_.(\overset{\sim}{X})$ a $\pi_1(X)$-action. $A$ also has a $\pi_1(X)$ action so we can define $C_k(X;\beta)=CC_k(\overset{\sim}{X})\otimes_{\mathbb{Z}\pi_1(X)} A$. We have an induced boundary map $\partial\colon C_k(X;\beta)\to C_{k-1}(X;\beta)$ which makes $C_k(X;\beta)$ a chain complex with basis $\{\overset{\sim}{e}_j^k\}\otimes\text{id}_A$.
 
 \begin{definition}
-The \textbf{Reidemeister torsion of $X$ with respect to $\beta$} to be $\Delta(X;\beta)=\Delta(C_.(X;\beta)\otimes_{\mathbb{Z}\pi_1(X)}A)$ if $C_.(X;\beta)\otimes_{\mathbb{Z}\pi_1(X)}A$ has no homology. This is a well-defined element of $A^*/\{\pm\beta(\pi_1(X))\}$.
+If $C_.(X;\beta)\otimes_{\mathbb{Z}\pi_1(X)}A$ has no homology, then the \textbf{Reidemeister torsion of $X$ with respect to $\beta$} is \[\Delta(X;\beta):=\Delta(C_.(X;\beta)\otimes_{\mathbb{Z}\pi_1(X)}A).\] This is a well-defined element of $A^*/\{\pm\beta(\pi_1(X))\}$.
 \end{definition}
+\begin{remark}
+The ambiguity which required modding out by $\{\pm\beta(\pi_1(X))\}$ to solve arose out of the choice of lifts which form the bases $c_i$ -- the choice of which, unlike that of auxiliary bases, $\Delta(C_.,c_.)$ is not independent.
+\end{remark}
 
-\noindent This is invariant under homeomorphism but not homotopy-equivalence.
+\noindent This is invariant under homeomorphism but not homotopy-equivalence. We shall now compute the Reidemeister torsion of a lens space.\\
 
 
 
