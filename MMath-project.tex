@@ -928,7 +928,7 @@ For there to be a bijection between pairs $(z_0,z_1)$ and triples $(r_1,\theta_0
     \includegraphics[width=0.5\linewidth]{3.png}
 \end{figure}
 
-\noindent To find a delta-complex construction of $L(p;q)$ we much first determine the equivalence classes of the action on $T$. We have that the action of $[m]\in\mathbb{Z}_p$ is given by \[m\cdot(z_0,z_1)=(z_0e^{\frac{2\pi im}{p}},z_1e^{\frac{2\pi iqm}{p}})=(r_0e^{i(\theta_0+\frac{2\pi m}{p})},r_1e^{i(\theta_1+\frac{2\pi qm}{p})}).\] In terms of the coordinates given to $T$, we have\[m\cdot(r,\theta_0,\theta_1)=(r,\theta_0+\frac{2\pi m}{p},\theta_1+\frac{2\pi qm}{p}).\] Note that $r$ is unaffected by the action, meaning that $\mathbb{Z}_p$ maps an individual torus to itself. We can thus express $T$ as\[\bigcup_{0\leq c\leq 1}T_c,\] where $T_c$ is a torus of radius $r$, and study the action on $T$ in terms of the actions on indivudual $T_c$'s.
+\noindent To find a geometric model of $L(p;q)$ via identifications on $T$, we much first determine the equivalence classes of the action on $T$. We have that the action of $[m]\in\mathbb{Z}_p$ is given by \[m\cdot(z_0,z_1)=(z_0e^{\frac{2\pi im}{p}},z_1e^{\frac{2\pi iqm}{p}})=(r_0e^{i(\theta_0+\frac{2\pi m}{p})},r_1e^{i(\theta_1+\frac{2\pi qm}{p})}).\] In terms of the coordinates given to $T$, we have\[m\cdot(r,\theta_0,\theta_1)=(r,\theta_0+\frac{2\pi m}{p},\theta_1+\frac{2\pi qm}{p}).\] Note that $r$ is unaffected by the action, meaning that $\mathbb{Z}_p$ maps an individual torus to itself. We can thus express $T$ as\[\bigcup_{0\leq c\leq 1}T_c,\] where $T_c$ is a torus of radius $r$, and study the action on $T$ in terms of the actions on indivudual $T_c$'s.
 For the case $0<c<1$, $T_c$ can be pictured as a square with identified edges, with the horizontal axis acting as the $\theta_1$--axis and the vertical axis as the $\theta_0$--axis, both ranging from $0$ to $2\pi$, as shown below:
 \begin{figure}[hbt!]
     \centering
@@ -936,7 +936,7 @@ For the case $0<c<1$, $T_c$ can be pictured as a square with identified edges, w
 \end{figure}
 
 
-\noindent The action of $[m]$ on a point $(\theta_0,\theta_1$ results in the point $(\theta_0+\frac{2\pi m}{p},\theta_1+\frac{2\pi qm}{p})$, so all actions of $\mathbb{Z}_p$ are translations along lines with gradient $\frac{2\pi m}{p}/\frac{2\pi qm}{p}=\frac{1}{q}$. If we divide the square into $p$ horizontal bands, each of height $\frac{2\pi}{p}$, we see that an equivalence class of the action on $T_c$ contains exactly one point in each horizontal band. We can thus define the orbit space as \[T_c/\mathbb{Z}_p=\{(r,\theta_0,\theta_1):r=c,0\leq\theta_0<\frac{2\pi}{p},0\leq\theta_1<2\pi\}.\] This is a short tube with ends identified by a $\frac{2\pi q}{p}$ twist:
+\noindent The action of $[m]$ on a point $(\theta_0,\theta_1)$ results in the point $(\theta_0+\frac{2\pi m}{p},\theta_1+\frac{2\pi qm}{p})$, so all actions of $\mathbb{Z}_p$ are translations along lines with gradient $\frac{2\pi m}{p}/\frac{2\pi qm}{p}=\frac{1}{q}$. If we divide the square into $p$ horizontal bands, each of height $\frac{2\pi}{p}$, we see that an equivalence class of the action on $T_c$ contains exactly one point in each horizontal band. We can thus define the orbit space as \[T_c/\mathbb{Z}_p=\{(r,\theta_0,\theta_1):r=c,0\leq\theta_0<\frac{2\pi}{p},0\leq\theta_1<2\pi\}.\] This is a short tube with ends identified by a $\frac{2\pi q}{p}$ twist:
 
 \begin{figure} [hbt!]
     \centering
@@ -1005,7 +1005,7 @@ Thus, \[[\alpha]\vee[\alpha]=\frac{1}{p}\gamma([NS])\alpha([Sx_{q-1}x_q])=\frac{
 \noindent If we were only interested in orientation-preserving homotopy-equivalence, then the condition would be $q_2q_2\equiv n^2\text{ mod } p$; and if we were only interested in orientation-reversing homotopy-equivalence, then the condition would be $q_2q_2\equiv- n^2\text{ mod } p$.
 Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$ is a square mod $p$ $\iff -1$ is a square mod $p\iff p\equiv 1$ mod $4$ for $p$ a prime. This in contrast to compact $2$--manifolds, which always admit orientation-reversing homeomorphisms.\\
 
-\noindent We shall now realise lens spaces as cell complexes, in preparation for computing the Reidemeister torsion to give a stronger homeomorphism invariant than the fundamental group.//
+\noindent We shall now realise lens spaces as cell complexes, in preparation for computing the Reidemeister torsion to give a stronger homeomorphism invariant than the fundamental group.\\
 
 \noindent We have
 \[L(p;q)=\{(r_1e^{2\pi i\theta_1},r_2e^{2\pi i\theta_2}):r_1^2+r_2^2=1\}/(\theta_1,\theta_2)\sim(\theta_1+\frac{1}{p},\theta_2+\frac{q}{p}).\]
