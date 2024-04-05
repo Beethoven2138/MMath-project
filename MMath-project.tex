@@ -395,7 +395,7 @@ This theorem will be used later to show that lens spaces are orientable.
 
 
 \section{Cohomology}
-Cohomology is the dual notion of homology - instead of chains, we have cochains (homomorphisms of chains); and instead of boundaries, we have coboundaries. We shall see that the cohomology groups admit a ring structure, making them more amenable to computation. We shall also study Poincare duality and the universal coefficient theorem, which give relationships between the homology and cohomology groups.
+Cohomology is the dual notion to homology -- instead of chains, we have cochains (homomorphisms of chains); and instead of boundaries, we have coboundaries. We shall see that the cohomology groups admit a ring structure, making them more amenable to computation. We shall also study Poincare duality and the universal coefficient theorem, which give relationships between the homology and cohomology groups.
 
 \noindent The context in which the homomorphisms hitherto mentioned arise is that of modules, which are generalisations of vector spaces, where the field is replaced by a ring. Free abelian groups, like the homology groups, are examples of modules. We shall now develop the basic theory of modules to allow for the definition of the cohomology groups.
 \subsection{Modules}
@@ -500,7 +500,7 @@ Let $[\phi]=[\psi]$ so that $\phi-\psi=d\rho$ for some $\rho\in C^{k-1}(X;G)$. T
 Now let $[a]=[b]$ so that $a=b+\partial e$ for some $e\in C_{k+1}(X)$. $\phi(a)=\phi(b+\partial e)=\phi(b)+\phi(\partial e)=\phi(b)+d\phi(e)=\phi(b)$ since $\phi\in\text{ker }d$.
 \end{proof}
 
-\noindent This then give that $f^*$ is dual to $f_*$ in the sense that $f^*[A]([c])=[A](f_*([c]))$ for $[A]\in H^k(Y;G)$ and $[c]\in H_k(X)$.
+\noindent This then gives that $f^*$ is dual to $f_*$ in the sense that $f^*[A]([c])=[A](f_*([c]))$ for $[A]\in H^k(Y;G)$ and $[c]\in H_k(X)$.
 
 \begin{proposition}
 Pullback is covariantly functorial.
@@ -515,7 +515,7 @@ Now let $f\colon X\to Y$ and $g\colon Y\to Z$ be continuous maps. \[(g\circ f)^*
 Let $X$ and $Y$ be homotopy-equivalent topological spaces. Then \[H^k(X;G)\cong H^k(Y;G).\]
 \end{proposition}
 \begin{proof}
-We have continuous maps $f\colon X\to Y$ and $g\colon Y\to X$ such that $g\circ f\simeq\text{id}_X$ and $f\circ g\simeq\text{id}_Y$. $(g\circ f)_*=\text{id}_{H_k(X)}$ so $f^*\circ g^*=(g\circ f)^*=\text{id}_{H^k(X;G)}$ by duality. Similarly $g^*\circ f^*=\text{id}_{H^k(Y;G)}$. Thus $f^*$ is a bijective module homomorphism so an isomorphism.
+Dualise the proof of the homotopy-equivalence of homology.
 \end{proof}
 \noindent Thus the cohomology groups are also invariant under homotopy-equivalence like the homology groups.
 
