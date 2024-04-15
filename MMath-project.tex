@@ -29,9 +29,12 @@
 
 \maketitle
 \begin{abstract}
-\noindent Lens spaces are quotient spaces of the $3$-sphere by cyclic groups and are the simplest examples of manifolds (topological spaces which locally look like Euclidean space) which are homotopy-equivalent but not homeomorphic. This project will study the conditions under which lens spaces are homotopy-equivalent and homeomorphic. To this end we shall introduce the homology and cohomology groups. Being invariants of homotopy-equivalent spaces, it is expected that they would be insufficient for a classification of manifolds which can be homotopy-equivalent but not homeomorphic. However, the homology and cohomology groups are also insufficient for a homotopy-equivalence classification. The torsion linking form will be introduced for the homotopy-equivalence classification, and Reidemeister torsion for the homeomorphism classification.
+\noindent Lens spaces are quotient spaces of the $3$-sphere by cyclic groups and provide the simplest examples of manifolds (topological spaces which locally look like Euclidean space) which are homotopy-equivalent but not homeomorphic. This project will study the conditions under which lens spaces are homotopy-equivalent and homeomorphic. To this end we shall introduce the homology and cohomology groups. Being invariants of homotopy-equivalent spaces, it is expected that they would be insufficient for a classification of manifolds which can be homotopy-equivalent but not homeomorphic. However, the homology and cohomology groups are also insufficient for a homotopy-equivalence classification. The torsion linking form will be introduced for the homotopy-equivalence classification, and Reidemeister torsion for the homeomorphism classification.
 \end{abstract}
 \tableofcontents
+
+\section{Introduction}
+\noindent The utility of the homology groups are that homotopy-equivalent spaces have isomorphic homology groups, thereby giving a way to prove that two topological spaces aren't homotopy-equivalent. To prove this, we must first construct a functor sending a continuous map between topological spaces to a homomorphism between their homology groups.\\
 
 \section{Homology}
 \subsection{Background}
@@ -181,7 +184,7 @@ The \textbf{degree k singular homology} of $X$ is the abelian group
 \[H_k(X)=\frac{\text{ker}(\partial:C_{k}(x)\rightarrow C_{k-1}(X))}{\text{im}(\partial:C_{k+1}(x)\rightarrow C_k(X))}\]
 \end{definition}
 
-\noindent The utility of the homology groups are that homotopy-equivalent spaces have isomorphic homology groups, thereby giving a way to prove that two topological spaces aren't homotopy-equivalent. To prove this, we must first construct a functor sending a continuous map between topological spaces to a homomorphism between their homology groups.\\
+
 
 \noindent To give a more general result we shall allow the chain groups to have coefficients in any abelian group $G$ as opposed to merely $\mathbb{Z}$.
 \begin{definition}
@@ -211,7 +214,7 @@ Now let $f\colon Y\to Z$ and $g\colon X\to X$ be continuous maps. Given $[c]=[\s
 If $f,g\colon X\to Y$ are homotopic continuous maps between topological spaces then $f_*=g_*\colon H_k(X)\to H_k(Y)$
 \end{lemma}
 \begin{proof}
-Let $F\colon X\times I\to Y$ be a homotopy from $f$ to $g$. Given a singular n--simplex $\sigma\colon\Delta^n\to X$ we can define $\sigma\times\text{id}\colon\Delta^n\times I\to X\times I$ and $F_\#(\sigma\times\text{id})\colon\Delta^n\times I\to Y$. We now decompose $\Delta^n\times I$ as the union of $n+1$-simplices. To do this write $\Delta^n\times I$ as $[a_0,...,a_n,b_0,...,b_n]$ where $a_i=(e_i,0)$ and $b_i=(e_i,1)$. Then $\Delta^n\times I$ is the union of the $n+1$-simplices $\alpha_i=[a_0,...,a_i,b_i,...,b_n]$. Now define the "prism map" $P\colon C_n(X)\to C_{n+1}(Y)$ by $P(\sigma)=\sum_i(-1)^iF\circ(\sigma\times\text{id})|_{\alpha_i}$. 
+Let $F\colon X\times I\to Y$ be a homotopy from $f$ to $g$. Given a singular n--simplex $\sigma\colon\Delta^n\to X$ we can define $\sigma\times\text{id}\colon\Delta^n\times I\to X\times I$ and $F_\#(\sigma\times\text{id})\colon\Delta^n\times I\to Y$. We now decompose $\Delta^n\times I$ as the union of $n+1$-simplices. To do this write $\Delta^n\times I$ as the complex hull of $a_0,...,a_n,b_0,...,b_n$ where $a_i=(e_i,0)$ and $b_i=(e_i,1)$. Then $\Delta^n\times I$ is the union of the $n+1$-simplices $\alpha_i=[a_0,...,a_i,b_i,...,b_n]$. Now define the "prism map" $P\colon C_n(X)\to C_{n+1}(Y)$ by $P(\sigma)=\sum_i(-1)^iF\circ(\sigma\times\text{id})|_{\alpha_i}$. 
 \begin{align*}
 \partial P(\sigma)&=\sum_i(-1)^i[\sum_{j\leq i}(-1)^jF\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_j},...,a_i,b_i,...,b_n]}\\&+\sum_{j> i}(-1)^{(j+1)}F\circ(\sigma\times\text{id})|_{[a_0,...,a_i,b_i,...,\overset{\wedge}{b_j},...,b_n]}].
 \end{align*}
@@ -247,6 +250,8 @@ $H_k(\{\text{pt}\})=\begin{cases}
 There is only one k-simplex $\sigma_k\colon\Delta^k\rightarrow \{\text{pt}\}$, the constant map. Thus $C_k(\{\text{pt}\})=\{n\sigma_k:n\in\mathbb{Z}\}=\mathbb{Z}$.
 Also $\partial_k(n\sigma_k)=\sum_{i=0}^k(-1)^i n\sigma_{k-1}$ which is zero if $k$ is odd and $n\sigma_{k-1}$ if $k$ is even. Thus the induced map on the coefficients of the boundary is $0$ if $k$ is odd and id if $k$ is even. The homology groups will then be $\frac{\mathbb{Z}}{\mathbb{Z}}=0$ or $\frac{\{0\}}{\{0\}}=0$, except for $H_0$ which is $\mathbb{Z}$ since $\{\text{pt}\}$ is path-connected.
 \end{proof}
+
+\subsection{Hurewicz theorem}
 
 \noindent We shall now see a connection between the fundamental group and the first homology group by the Hurewicz theorem. Before stating and proving it, however, we first require some tools from group theory.
 
@@ -318,8 +323,7 @@ H_1(T^2)&=\mathbb{Z}^2\\
 H_1(\mathbb{R}P^n)&=\begin{cases}
        \mathbb{Z} &\quad\text{if }n=1 \\
        \mathbb{Z}_2 &\quad\text{otherwise} \\ 
-     \end{cases}\\
-H_1(K)&=\mathbb{Z}\bigoplus\mathbb{Z}_2
+     \end{cases}
 \end{align*}
 \end{corollary}
 
@@ -355,47 +359,11 @@ Let $X$ be a topological space and let $x_0\in X$. The \textbf{$n$th local homol
 \begin{theorem}
 (Excision theorem) Let $U\subseteq A\subseteq X$ be topological spaces. If the closure of $U$ is contained in the interior of $A$, then $U$ can be excised.
 \end{theorem}
-\subsection{Orientation of manifolds}
-\begin{definition}
-A topological space $M$ is an \textbf{n-dimensional manifold} if it is Hausdorff and for every $p\in M$ there is an open neighbourhood $U\subseteq M$ containing $p$ and a homeomorphism $f\colon U\to \mathbb{R}^n$.
-\end{definition}
-\begin{lemma}
-Let $M$ be an $n$--manifold, let $x\in M$ and let $U$ be a neighbourhood of $x$ homeomorphic to $\mathbb{R}^n$. Then \[H_n(M,M-x)\cong\mathbb{Z}.\]
-\end{lemma}
-\begin{proof}
-We have \[M-U\subseteq M-x\subseteq M\] and \[\overline{M-U}\subset(M-x)^{\mathrm{o}}\] so by the excision theorem we have \[H_n(M,M-x)\cong H_n(U,U-x)\cong H_n(\mathbb{R}^n,\mathbb{R}^n-x).\] $\mathbb{R}^n\cong D^n$ and $S^{n-1}$ is a deformation retract of $\mathbb{R}^n-x$ so \[H_n(M,M-x)\cong H_n(D^n,S^{n-1}).\] The long exact sequence stated earlier then gives the long exact sequence \[...\to H_n(D^n)\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to H_{n-1}(D^n)\to...\] The disk is contractible so $H_k(D^n)=0\forall k$. We thus have the short exact sequence \[0\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to 0.\] Thus \[H_n(M,M-x)\cong H_{n-1}(S^{n-1})\cong\mathbb{Z}.\]
-\end{proof}
 
-\begin{definition}
-Let $M$ be an $n$--manifold. A \textbf{local orientation} of $M$ is a choice of generator $[M]_x$ of $H_n(M,M-x)$ for each $x\in M$. A local orientation is called \textbf{continuous} if for each $x\in M$ there is an open neighbourhood $U$ and $\alpha\in H_n(M,M-U)$ such that the map induced by the inclusion $(M,M-U)\to(M,M-y)$ maps $\alpha$ to $[M]_y$ for each $y\in U$. An \textbf{orientation} of $M$ is a continuous choice of local orientations. $M$ is \textbf{orientable} if it has an orientation.
-\end{definition}
-
-\begin{definition}
-Let $M$ and $N$ be orientable $n$--manifolds with orientations $[M]_x$ and $[N]_y$. Then a homeomorphism $f:M\to N$ is \textbf{orientation-preserving} if the induced isomorphism \[f_*:H_n(M,M-x)\to H_n(N,N-f(x))\] sends $[M]_x$ to $[N]_{f(x)}$ for all $x\in M$. If instead $f_*$ sends $[M]_x$ to $-[N]_{f(x)}$ for all $x\in M$, then $f$ is \textbf{orientation-reversing}.
-\end{definition}
-
-\begin{remark}
-Note that a homeomorphism between oriented manifolds will always be either orientation-preserving or orientation-reversing, since the induced map on relative homology groups will be an isomorphism, and isomorphisms map units to units.
-\end{remark}
-
-\begin{remark}
-The homological definitions of orientation and orientation-preserving/reversing homeomorphisms are consistent with those from MA40254 for submanifolds in terms of differential forms.
-\end{remark}
-
-\begin{theorem}
-If we have a covering space action of a group $G$ on an orientable manifold $M$ by orientation-preserving homeomorphisms, then $M/G$ is also orientable.
-\end{theorem}
-\begin{proof}
-Let $p:M\to M/G$ be the quotient map and let $[M]_x$ be an orientation of $M$. $p$ is a covering map so a local homeomorphism. Thus, for every $x\in M$ there exists an open neighbourhood $U_x$ such that $p_{|U_x}\to p(U_x)$ is a homeomorphism, giving an isomorphism \[H_n(U_x,U_x-x)\overset{(p_{|U_x})_*}{\longrightarrow}H_n(p(U_x),p(U_x)-p(x)).\] Excision then gives isomorphisms \[H_n(M,M-x)\cong H_n(U_x,U_x-x)\] and \[H_n(p(U_x),p(U_x)-p(x))\cong H_n(M/G,M/G-p(x)),\] implying \[H_n(M,M-x)\cong H_n(M/G,M/G-p(x)).\] We thus have an orientation on $M/G$ given by $(p_{|U_x})_*([M]_x)$ which is well-defined since $G$ acts by orientation-preserving homeomorphisms.
-\end{proof}
-
-\begin{remark}
-This theorem will be used later to show that lens spaces are orientable.
-\end{remark}
 
 
 \section{Cohomology}
-Cohomology is the dual notion to homology -- instead of chains, we have cochains (homomorphisms of chains); and instead of boundaries, we have coboundaries. We shall see that the cohomology groups admit a ring structure, making them more amenable to computation. We shall also study Poincare duality and the universal coefficient theorem, which give relationships between the homology and cohomology groups.
+Cohomology is the dual notion to homology -- instead of chains, we have cochains (homomorphisms of chains); and instead of boundaries, we have coboundaries. We shall see that the cohomology groups admit a ring structure, providing them with more content. We shall also study Poincare duality and the universal coefficient theorem, which give relationships between the homology and cohomology groups.
 
 \noindent The context in which the homomorphisms hitherto mentioned arise is that of modules, which are generalisations of vector spaces, where the field is replaced by a ring. Free abelian groups, like the homology groups, are examples of modules. We shall now develop the basic theory of modules to allow for the definition of the cohomology groups.
 \subsection{Modules}
@@ -515,7 +483,7 @@ Now let $f\colon X\to Y$ and $g\colon Y\to Z$ be continuous maps. \[(g\circ f)^*
 Let $X$ and $Y$ be homotopy-equivalent topological spaces. Then \[H^k(X;G)\cong H^k(Y;G).\]
 \end{proposition}
 \begin{proof}
-Dualise the proof of the homotopy-equivalence of homology.
+Dualise the proof of the homotopy-invariance of homology.
 \end{proof}
 \noindent Thus the cohomology groups are also invariant under homotopy-equivalence like the homology groups.
 
@@ -525,6 +493,8 @@ Dualise the proof of the homotopy-equivalence of homology.
 \begin{definition}
 Let $R$ be a ring and $X$ be a topological space. The \textbf{cup product} is the product on cochains\[C^i(X;R)\times C^j(X;R)\to C^{i+j}(X;R):(\psi,\phi)\mapsto\psi\cup\phi\] where \[(\psi\cup\phi)\sigma=\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_i,...,e_{i+j}]})\] for a singular $i+j$-simplex $\sigma\colon\Delta^{i+j}\to X$ and is extended linearly to $C_{i+j}(X)$.
 \end{definition}
+
+Intuitively, this means evaluating $\psi$ on the front face of $\sigma$, evaluating $\phi$ on the back face of $\sigma$, and multiplying them together.
 
 \begin{lemma}
 $d(\psi\cup\phi)=(d\psi)\cup\phi+(-1)^i\psi\cup d\phi$.
@@ -542,7 +512,7 @@ and \[(-1)^i(\psi\cup d\phi)(\sigma)=\sum_{t=i}^{i+j+1}(-1)^t\psi(\sigma\circ F_
 \end{proof}
 
 \begin{proposition}
-There is a well-defined pairing $H^i(X;R)\times H^j(X;R)\to H^{i+j}(X;R)$ given by $([\psi],[\phi])\mapsto [\psi]\cup [\phi]=[\psi\cup\phi]$.
+There is a well-defined product $H^i(X;R)\times H^j(X;R)\to H^{i+j}(X;R)$ given by $([\psi],[\phi])\mapsto [\psi]\cup [\phi]=[\psi\cup\phi]$.
 \end{proposition}
 \begin{proof}
 $d(\psi\cup\phi)=0\cup\phi+(-1)^i\psi\cup 0=0$ so $\psi\cup\phi \in \text{ker }d$.
@@ -550,7 +520,7 @@ Now let $\psi=df$. Then \[d(f\cup\phi)=(df)\cup\phi\pm f\cup d\phi=\psi\cup\phi+
 \end{proof}
 
 \begin{definition}
-We call the induced pairing $\cup:H^k(X;R)\times H^l(X;R)\to H^{k+l}(X;R)$ the \textbf{cup product} on cohomology.
+We call the induced product $\cup:H^k(X;R)\times H^l(X;R)\to H^{k+l}(X;R)$ the \textbf{cup product} on cohomology.
 \end{definition}
 \noindent We shall now see that the cup product gives cohomology a ring structure.
 \begin{definition}
@@ -592,10 +562,10 @@ As before, it suffices to check this for cochains. Let $\sigma\colon\Delta^{p+q}
 \end{align*}
 \end{proof}
 
-\noindent This makes $f^*$ a ring homomorphism and also shows the homotopy-invariance of the cup product needed for the torsion linking form to be a homotopy-invariant.
+\noindent This makes $f^*$ a ring homomorphism and also shows the functoriality of the cup product needed for the torsion linking form to be a homotopy-invariant.
 
 
-\subsection{Cap product and Poincare duality}
+\subsection{Cap product}
 Poincare duality gives explicit isomorphisms between the homology and cohomology groups. However, we first need to study the cap product, with which the Poincare duality isomorphism is defined.
 \begin{definition}
 Let $X$ be a topological space and $R$ a commutative ring with an identity element. The \textbf{cap product} $C_{i+j}(X;R)\times C^i(X;R)\to C_j(X;R):(c,\phi)\mapsto c\cap\phi$ given by \[\sigma\cap\phi=\phi(\sigma\circ F_{[e_0,...,e_i]})\sigma\circ F_{[e_i,...,e_{i+j}]}\] for $\sigma\colon\Delta^j\to X$ a singular simplex and $\phi\in C^{i+j}(X;R)$ and extended linearly.
@@ -633,50 +603,6 @@ Let $\psi\in C^l(X;R)$, $\alpha\in C_{k+l}(X;R)$ and $\psi\in C^k(X;R)$. Then \[
 Let $\sigma\colon\Delta^{k+l}\to X$ be a singular simplex. Then \[\psi(\sigma\cap\phi)=\psi(\phi(\sigma\circ F_{[e_0,...,e_k]})\sigma\circ F_{[e_k,...,e_{k+l}]})=\phi(\sigma\circ F_{[e_0,...,e_k]})\psi(\sigma\circ F_{[e_k,...,e_{k+l}]}).\]
 The result then follows by linearity.
 \end{proof}
-
-\noindent Having studied the cap product, we are now ready to state Poincare duality. However, Poincare duality doesn't hold for arbitrary topological spaces, but for closed oriented manifolds. We shall now define and study those terms.
-
-
-
-\begin{definition}
-A manifold is \textbf{closed} if it is compact and has no boundary.
-\end{definition}
-
-\begin{remark}
-For a manifold to have a boundary, we would have to consider homeomorphisms to the half plane $\mathbb{H}^n:=\{(x_1,...,x_n)\in\mathbb{R}^n:x_1\leq0\}$. The boundary would then the union of the images of the boundary of $\mathbb{H}^n$. All manifolds defined in terms of homeomorphisms into $\mathbb{R}^n$ automatically have no boundary, so compact implies closed.
-\end{remark}
-
-\noindent Closed manifolds admit a simpler definition of orientation to the more general one discussed earlier. However, both formulations are equivalent.
-
-\begin{definition}
-An n-dimensional closed manifold $M$ is \textbf{orientable} if $H_n(M)\cong \mathbb{Z}$. The image of a unit is called a \textbf{fundamental class}. An \textbf{orientation} of $M$ is a choice of fundamental class $[M]\in H_n(M)$.
-\end{definition}
-
-
-\begin{proposition}
-Let $M$ be a closed n-dimensional manifold. Then $H_n(M)\cong \mathbb{Z}$ if $M$ is orientable. Furthermore, $H_i(M)=0$ for $i>n$.
-\end{proposition}
-
-\begin{definition}
-Let $M$ and $N$ be closed connected orientable $n$-dimensional manifolds, let $f\colon M\to N$ be continuous and let $[M]$ and $[N]$ be fundamental classes of $X$ and $Y$. Then the \textbf{degree} of $f$ is the integer $\text{deg}(f)$ such that $f_*([M])=\text{deg}(f)[N]$.
-\end{definition}
-
-\noindent As before, homeomorphisms between closed oriented manifolds send fundamental classes to fundamental classes.
-
-\begin{corollary}
-The degree of a homeomorphism between closed connected orientable $n$-manifolds is $\pm 1$.
-\end{corollary}
-
-\begin{definition}
-Let $M$ be a closed orientable $n$--dimensional manifold, let $[M]\in H_n(X)$ be a fundamental class and let $f\colon M\to M$ be a homeomorphism. We say that $f$ is \textbf{orientation-preserving} if $f_*([M])=[M]$ and that $f$ is \textbf{orientation-reversing} if $f_*([M])=-[M]$.
-\end{definition}
-
-
-
-
-\begin{theorem}
-(Poincare Duality). If $M$ is a closed $R$-orientable $n$-manifold with fundamental class $[M]\in H_n(M;R)$, then the map $D\colon H^k(M;R)\to H_{n-k}(M;R)$ defined by $D([\alpha])=[M]\cap[\alpha]$ is an isomorphism for all $k$.
-\end{theorem}
 
 
 
@@ -735,7 +661,133 @@ If $A$ is an $R$-module, then the natural homomorphism\[H^k(X;A)\to\text{Hom}_R(
 So for a field $\mathbb{F}$, we have $H_k(X;\mathbb{F})\cong H_k(X;\mathbb{F})^*$.
 \end{proposition}
 
+\section{Topology of manifolds}
 
+\subsection{Orientation of manifolds}
+\begin{definition}
+A topological space $M$ is an \textbf{n-dimensional manifold} if it is Hausdorff and for every $p\in M$ there is an open neighbourhood $U\subseteq M$ containing $p$ and a homeomorphism $f\colon U\to \mathbb{R}^n$.
+\end{definition}
+\begin{lemma}
+Let $M$ be an $n$--manifold, let $x\in M$ and let $U$ be a neighbourhood of $x$ homeomorphic to $\mathbb{R}^n$. Then \[H_n(M,M-x)\cong\mathbb{Z}.\]
+\end{lemma}
+\begin{proof}
+We have \[M-U\subseteq M-x\subseteq M\] and \[\overline{M-U}\subset(M-x)^{\mathrm{o}}\] so by the excision theorem we have \[H_n(M,M-x)\cong H_n(U,U-x)\cong H_n(\mathbb{R}^n,\mathbb{R}^n-x).\] $\mathbb{R}^n\cong D^n$ and $S^{n-1}$ is a deformation retract of $\mathbb{R}^n-x$ so \[H_n(M,M-x)\cong H_n(D^n,S^{n-1}).\] The long exact sequence stated earlier then gives the long exact sequence \[...\to H_n(D^n)\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to H_{n-1}(D^n)\to...\] The disk is contractible so $H_k(D^n)=0\forall k$. We thus have the short exact sequence \[0\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to 0.\] Thus \[H_n(M,M-x)\cong H_{n-1}(S^{n-1})\cong\mathbb{Z}.\]
+\end{proof}
+
+\begin{definition}
+Let $M$ be an $n$--manifold. A \textbf{local orientation} of $M$ is a choice of generator $[M]_x$ of $H_n(M,M-x)$ for each $x\in M$. A local orientation is called \textbf{continuous} if for each $x\in M$ there is an open neighbourhood $U$ and $\alpha\in H_n(M,M-U)$ such that the map induced by the inclusion $(M,M-U)\to(M,M-y)$ maps $\alpha$ to $[M]_y$ for each $y\in U$. An \textbf{orientation} of $M$ is a continuous choice of local orientations. $M$ is \textbf{orientable} if it has an orientation.
+\end{definition}
+
+\begin{definition}
+Let $M$ and $N$ be orientable $n$--manifolds with orientations $[M]_x$ and $[N]_y$. Then a homeomorphism $f:M\to N$ is \textbf{orientation-preserving} if the induced isomorphism \[f_*:H_n(M,M-x)\to H_n(N,N-f(x))\] sends $[M]_x$ to $[N]_{f(x)}$ for all $x\in M$. If instead $f_*$ sends $[M]_x$ to $-[N]_{f(x)}$ for all $x\in M$, then $f$ is \textbf{orientation-reversing}.
+\end{definition}
+
+\begin{remark}
+Note that a homeomorphism between oriented manifolds will always be either orientation-preserving or orientation-reversing at each point, since the induced map on relative homology groups will be an isomorphism, and isomorphisms map units to units. Continuity then implies that a homeomorphism will be either orientation-preserving or orientation-reversing on each connected component.
+\end{remark}
+
+\begin{remark}
+The homological definitions of orientation and orientation-preserving/reversing homeomorphisms are consistent with those from MA40254 for submanifolds in terms of differential forms.
+\end{remark}
+
+\begin{theorem}
+If we have a covering space action of a group $G$ on a connected orientable manifold $M$ by orientation-preserving homeomorphisms, then $M/G$ is also orientable.
+\end{theorem}
+\begin{proof}
+Let $p:M\to M/G$ be the quotient map and let $[M]_x$ be an orientation of $M$. $p$ is a covering map so a local homeomorphism. Thus, for every $x\in M$ there exists an open neighbourhood $U_x$ such that $p_{|U_x}\to p(U_x)$ is a homeomorphism, giving an isomorphism \[H_n(U_x,U_x-x)\overset{(p_{|U_x})_*}{\longrightarrow}H_n(p(U_x),p(U_x)-p(x)).\] Excision then gives isomorphisms \[H_n(M,M-x)\cong H_n(U_x,U_x-x)\] and \[H_n(p(U_x),p(U_x)-p(x))\cong H_n(M/G,M/G-p(x)),\] implying \[H_n(M,M-x)\cong H_n(M/G,M/G-p(x)).\] We thus have an orientation on $M/G$ given by $(p_{|U_x})_*([M]_x)$ which is well-defined since $G$ acts by orientation-preserving homeomorphisms.
+\end{proof}
+
+\begin{remark}
+This theorem will be used later to show that lens spaces are orientable.
+\end{remark}
+
+\subsection{Poincare duality}
+
+\noindent Having studied the cap product, we are now ready to state Poincare duality. However, Poincare duality doesn't hold for arbitrary topological spaces, but for closed oriented manifolds. We shall now define and study those terms.
+
+
+
+\begin{definition}
+A manifold is \textbf{closed} if it is compact and has no boundary.
+\end{definition}
+
+\begin{remark}
+For a manifold to have a boundary, we would have to consider homeomorphisms to the half plane $\mathbb{H}^n:=\{(x_1,...,x_n)\in\mathbb{R}^n:x_1\leq0\}$. The boundary would then the union of the images of the boundary of $\mathbb{H}^n$. All manifolds defined in terms of homeomorphisms into $\mathbb{R}^n$ automatically have no boundary, so compact implies closed.
+\end{remark}
+
+\noindent Closed manifolds admit a simpler definition of orientation to the more general one discussed earlier. However, both formulations are equivalent.
+
+\begin{definition}
+An n-dimensional closed manifold $M$ is \textbf{orientable} if $H_n(M)\cong \mathbb{Z}$. The image of a unit is called a \textbf{fundamental class}. An \textbf{orientation} of $M$ is a choice of fundamental class $[M]\in H_n(M)$.
+\end{definition}
+
+\begin{remark}
+A fundamental class can also be defined as a homology class whose restriction to each local homology group gives a local orientation.
+\end{remark}
+
+\begin{theorem}
+Any compact manifold has a fundamental class.
+\end{theorem}
+
+\begin{proposition}
+Let $M$ be a closed n-dimensional manifold. Then $H_n(M)\cong \mathbb{Z}$ if $M$ is orientable. Furthermore, $H_i(M)=0$ for $i>n$.
+\end{proposition}
+
+\begin{definition}
+Let $M$ and $N$ be closed connected orientable $n$-dimensional manifolds, let $f\colon M\to N$ be continuous and let $[M]$ and $[N]$ be fundamental classes of $X$ and $Y$. Then the \textbf{degree} of $f$ is the integer $\text{deg}(f)$ such that $f_*([M])=\text{deg}(f)[N]$.
+\end{definition}
+
+\noindent As before, homeomorphisms between closed oriented manifolds send fundamental classes to fundamental classes.
+
+\begin{corollary}
+The degree of a homeomorphism between closed connected orientable $n$-manifolds is $\pm 1$.
+\end{corollary}
+
+\begin{definition}
+Let $M$ be a closed orientable $n$--dimensional manifold, let $[M]\in H_n(X)$ be a fundamental class and let $f\colon M\to M$ be a homeomorphism. We say that $f$ is \textbf{orientation-preserving} if $f_*([M])=[M]$ and that $f$ is \textbf{orientation-reversing} if $f_*([M])=-[M]$.
+\end{definition}
+
+
+
+
+\begin{theorem}
+(Poincare Duality). If $M$ is a closed $R$-orientable $n$-manifold with fundamental class $[M]\in H_n(M;R)$, then the map $D\colon H^k(M;R)\to H_{n-k}(M;R)$ defined by $D([\alpha])=[M]\cap[\alpha]$ is an isomorphism for all $k$.
+\end{theorem}
+
+\subsection{Torsion linking form}
+
+\begin{definition}
+Let $M^n$ be a closed oriented manifold with fundamental class $[A]\in H_n(M;\mathbb{Z})$. Let $[\alpha]\in H^a(M;\mathbb{Z})$ and $[\beta]\in H^{n-a+1}(M;\mathbb{Z})$ be torsion classes, i.e. $k[\alpha]=0,m[\beta]=0$ for some $k,m\in\mathbb{N}$. Then we can write $k\alpha=d\gamma$ for some $\gamma\in C^{a-1}(M,\mathbb{Z})$. We define $[\alpha]\vee[\beta]=\frac{1}{k}(\gamma\cup\beta)A\in\mathbb{Q}/\mathbb{Z}$. The \textbf{torsion linking pairing} is then \[T(H^a(M;\mathbb{Z}))\times T(H^{n-a+1}(M;\mathbb{Z}))\to\mathbb{Q}/\mathbb{Z}:([\alpha],[\beta])\mapsto[\alpha]\vee[\beta].\]
+\end{definition}
+\begin{lemma}
+$[\alpha]\vee[\beta]$ is well-defined.
+\end{lemma}
+\begin{proof}
+Let $d\gamma=d\eta=k\alpha$ for $\eta\in C^{a-1}(M,\mathbb{Z})$. Then $d(\gamma-\eta)=0$ so $\gamma-\eta$ is a representative of an element of $H^{a-1}(M;\mathbb{Z})$. \[((\gamma-\eta)\cup\beta)A=([\gamma-\eta]\cup[\beta])A\] so \[m((\gamma-\eta)\cup\beta)A=([\gamma-\eta]\cup[m\beta])A=0.\] Thus $m(\gamma\cup\beta)A=m(\eta\cup\beta)A$ so $(\gamma\cup\beta)A=(\eta\cup\beta)A$, implying independence of $\gamma$.
+
+\noindent Now let $[\alpha]=[\alpha']\in H^a(M;\mathbb{Z})$. Then $\alpha'=\alpha+de$ for some $e\in C^{a-1}(M,\mathbb{Z})$, so \[k\alpha'=d\gamma+dke=d(\gamma+ke).\] \[\frac{1}{k}((\gamma+ke)\cup\beta)A=\frac{1}{k}(\gamma\cup\beta)A+\frac{1}{k}k(e\cup\beta)A=\frac{1}{k}(\gamma\cup\beta)A \in \mathbb{Q}/\mathbb{Z}\] implying independence of $\alpha$.
+
+\noindent Finally, let $[\beta]=[\beta']\in H^{n-a+1}(M;\mathbb{Z})$. Then $\beta'=\beta+df$ for some $f\in C^{n-a}(M,\mathbb{Z})$. \[d(\gamma\cup f)=k(\alpha\cup f)+(-1)^{a-1}(\gamma\cup df)\] so \[\frac{1}{k}(\gamma\cup df)A=\frac{(-1)^{1-a}}{k}d(\gamma\cup f)A=\frac{(-1)^{1-a}}{k}([0],[A])=0.\] Thus \[\frac{1}{k}(\gamma\cup\beta')A=\frac{1}{k}(\gamma\cup(\beta+df))A=\frac{1}{k}(\gamma\cup\beta)A+\frac{1}{k}(\gamma\cup df)A=\frac{1}{k}(\gamma\cup\beta)A,\] implying independence of $\beta$. Thus the pairing is well-defined.
+\end{proof}
+
+\begin{lemma}
+$[\beta]\vee[\alpha]=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]$.
+\end{lemma}
+\begin{proof}
+let $m\beta=d\tau$ for some $\tau\in C^{n-a}(M,\mathbb{Z})$. If we consider $\tau$ and $\alpha$ to be representatives of equivalence classes of $H^*(M,\mathbb{Z}_m)$, we have graded commutativity when evaluating fundamental classes over $m$ in $\mathbb{Q}/\mathbb{Z}$. Thus 
+\begin{align*}
+[\beta]\vee[\alpha]&=\frac{1}{m}(\tau\cup\alpha)A\\&=(-1)^{a(n-a)}\frac{1}{m}(\alpha\cup\tau)A\\&=\frac{(-1)^{a(n-a)}}{km}(k\alpha\cup\tau)A\\&=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)A.\end{align*} \[d(\gamma\cup\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup d\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup m\beta)\] so \begin{align*}[\beta]\vee[\alpha]=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)A&=\frac{(-1)^{a(n-a)}}{km}(d(\gamma\cup\tau)A-(-1)^{a-1}(\gamma\cup m\beta)A)\\&=\frac{(-1)^{a(n-a)}}{km}(-1)^a(\gamma\cup m\beta)A\\&=\frac{(-1)^{a(n-a+1)}}{k}(\gamma\cup\beta)A\\&=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]\qedhere\end{align*}
+\end{proof}
+
+\begin{lemma}
+The torsion linking pairing is a non-degenerate bilinear form, where non-degeneracy means that $T(H^{n-a+1}(M,\mathbb{Z}))\to \text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\beta]\mapsto ([\alpha]\mapsto [\alpha]\vee[\beta])$ is an isomorphism.
+\end{lemma}
+\begin{proof}
+Bilinearity follows from the bilinearity of the cup product.
+
+\noindent By the universal coefficient theorem, we have an isomorphism \[G:T(H_{a-1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[x]\mapsto([\alpha]\mapsto\frac{1}{k}\gamma_{[\alpha]}(x))\] where $d\gamma_{[\alpha]}=k[\alpha]$. By Poincare duality we have an isomorphism \[D\colon T(H^{n-a+1}(M;\mathbb{Z}))\to T(H_{a-1}(M;\mathbb{Z})):[\beta]\mapsto(-1)^{(n-a+1)(a-1)}[A]\cap[\beta]\] and so \[G\circ D:T(H^{n-a+1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z})\colon [\beta]\mapsto([\alpha]\mapsto \frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(A\cap\beta)\] is also an isomorphism where \[\frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(A\cap\beta)=\frac{(-1)^{(n-a+1)(a-1)}}{k}(\beta\cup\gamma_{[\alpha]})A=\frac{(-1)^{2(n-a+1)(a-1)}}{k}(\gamma_{[\alpha]}\cup\beta)A=[\alpha]\vee[\beta].\]
+\end{proof}
+\noindent So in the case of 3-manifolds like lens spaces, the torsion linking pairing is a symmetric non-degenerate bilinear form on $T(H^2(M;\mathbb{Z}))$. Also, since the cup product is invariant under homotopy-equivalence, the torsion linking pairing is as well.
 
 \section{Lens spaces}
 
@@ -794,14 +846,14 @@ $S^3$ is closed and bounded, and so compact by the Heine-Borel theorem. $S^3$ is
 $L(p;q)$ is orientable.
 \end{proposition}
 \begin{proof}
-Since $S^3$ is orientable and the action yielding $L(p;q)$ is a covering space action, it suffices to show that it acts by orientation-preserving homeomorphisms. To prove this, we note that $S^3$ is a submanifold in $\mathbb{R}^4$ and that the group acts by diffeomorphisms, which allows us to use the theory from MA40254. We have that \[e^{2\pi i/p}=\text{cos}(\frac{2\pi}{p})+i\text{sin}(\frac{2\pi}{p})\]so\[e^{2\pi i/p}(x_1+ix_2)=\text{cos}(2\pi/p)x_1-\text{sin}(2\pi/p)x_2+i\text{cos}(2\pi /p)x_2+i\text{sin}(2\pi/p)x_1.\] Similarly \[e^{2\pi iq/p}(x_3+ix_4)=\text{cos}(2\pi q/p)x_3-\text{sin}(2\pi q/p)x_4+i\text{cos}(2\pi q/p)x_4+i\text{sin}(2\pi q/p)x_3.\] We thus have that the action is generated by the diffeomorphism \[\phi:S^3\to S^3\] which is the restriction of \begin{align*}\Phi:\mathbb{R}^4\to \mathbb{R}^4\colon(x_1,x_2,x_3,x_4)\mapsto &(\text{cos}(2\pi/p)x_1-\text{sin}(2\pi/p)x_2,\\& \text{cos}(2\pi /p)x_2+\text{sin}(2\pi/p)x_1,\\&\text{cos}(2\pi q/p)x_3-\text{sin}(2\pi q/p)x_4, \\&\text{cos}(2\pi q/p)x_4+\text{sin}(2\pi q/p)x_3).\end{align*} We have an orientation form $\omega\in \Omega^3(S^3)$ given by $\omega_p(v_1,v_2,v_3)=\text{det}(p,v_1,v_2,v_3)$. $\phi^*\omega$ is then given by $(\phi^*\omega)_p=(D\phi_p)^*\omega_{\phi(p)}\in\text{Alt}^3(T_p(S^3))$. $\Phi$ is a linear map so $D\Phi_p=\Phi$. We thus have that \begin{align*}(\phi^*\omega)_p(v_1,v_2,v_3)&=\text{det}(\Phi(p),\Phi(v_1),\Phi(v_2),\Phi(v_3))\\&=\Phi^*\text{det}(p,v_1,v_2,v_3)\\&=\text{det}(\Phi)\text{det}(p,v_1,v_2,v_3)\\&=\text{det}(\Phi)\omega_p(v_1,v_2,v_3)\end{align*} for all $v_1,v_2,v_3\in T_p(S^3)$, giving \[(\phi^*\omega)_p=\text{det}(\Phi)\omega_p.\] $\Phi$ is represented by the following matrix with respect to the standard basis:
+Since $S^3$ is orientable and the action yielding $L(p;q)$ is a covering space action, it suffices to show that it acts by orientation-preserving homeomorphisms. To prove this, we note that $S^3$ is a submanifold in $\mathbb{R}^4$ and that the group acts by diffeomorphisms, which allows us to use the theory from MA40254. We have that \[e^{2\pi i/p}=\text{cos}(\frac{2\pi}{p})+i\text{sin}(\frac{2\pi}{p})\]so\[e^{2\pi i/p}(x_1+ix_2)=\text{cos}(2\pi/p)x_1-\text{sin}(2\pi/p)x_2+i\text{cos}(2\pi /p)x_2+i\text{sin}(2\pi/p)x_1.\] Similarly \[e^{2\pi iq/p}(x_3+ix_4)=\text{cos}(2\pi q/p)x_3-\text{sin}(2\pi q/p)x_4+i\text{cos}(2\pi q/p)x_4+i\text{sin}(2\pi q/p)x_3.\] We thus have that the action is generated by the diffeomorphism \[\phi:S^3\to S^3\] which is the restriction of \begin{align*}\Phi:\mathbb{R}^4\to \mathbb{R}^4\colon(x_1,x_2,x_3,x_4)\mapsto &(\text{cos}(2\pi/p)x_1-\text{sin}(2\pi/p)x_2,\\& \text{cos}(2\pi /p)x_2+\text{sin}(2\pi/p)x_1,\\&\text{cos}(2\pi q/p)x_3-\text{sin}(2\pi q/p)x_4, \\&\text{cos}(2\pi q/p)x_4+\text{sin}(2\pi q/p)x_3).\end{align*} We have an orientation form $\omega\in \Omega^3(S^3)$ given by $\omega_r(v_1,v_2,v_3)=\text{det}(r,v_1,v_2,v_3)$. $\phi^*\omega$ is then given by $(\phi^*\omega)_r=(D\phi_r)^*\omega_{\phi(r)}\in\text{Alt}^3(T_r(S^3))$. $\Phi$ is a linear map so $D\Phi_r=\Phi$. We thus have that \begin{align*}(\phi^*\omega)_r(v_1,v_2,v_3)&=\text{det}(\Phi(r),\Phi(v_1),\Phi(v_2),\Phi(v_3))\\&=\Phi^*\text{det}(r,v_1,v_2,v_3)\\&=\text{det}(\Phi)\text{det}(r,v_1,v_2,v_3)\\&=\text{det}(\Phi)\omega_r(v_1,v_2,v_3)\end{align*} for all $v_1,v_2,v_3\in T_r(S^3)$, giving \[(\phi^*\omega)_r=\text{det}(\Phi)\omega_r.\] $\Phi$ is represented by the following matrix with respect to the standard basis:
 \[\begin{bmatrix}
     \text{cos}(2\pi/p)       & -\text{sin}(2\pi/p) & 0  & 0 \\
     \text{sin}(2\pi/p)       & \text{cos}(2\pi/p) & 0 & 0 \\
     0       & 0 & \text{cos}(2\pi q/p) & -\text{sin}(2\pi q/p) \\
     0       &0 & \text{sin}(2\pi q/p)  & \text{cos}(2\pi q/p)
 \end{bmatrix}\]
-This is a block matrix so the determinant is the product of the determinants of the two blocks, giving \[\text{det}(\Phi)=(\text{cos}^2(2\pi/p)+\text{sin}^2(2\pi/p))(\text{cos}^2(2\pi q/p)+\text{sin}^2(2\pi q/p))=1\cdot 1=1.\] Thus $(\phi^*\omega)_p=\omega_p$ and so $\phi$ is orientation-preserving. $\phi$ is the action of a generator of $\mathbb{Z}_p$ and the composition of orientation-preserving homeomorphisms is orientation preserving, hence every element of $\mathbb{Z}_p$ acts by an orientation-preserving homeomorphism.
+This is a block matrix so the determinant is the product of the determinants of the two blocks, giving \[\text{det}(\Phi)=(\text{cos}^2(2\pi/p)+\text{sin}^2(2\pi/p))(\text{cos}^2(2\pi q/p)+\text{sin}^2(2\pi q/p))=1\cdot 1=1.\] Thus $(\phi^*\omega)_r=\omega_r$ and so $\phi$ is orientation-preserving. $\phi$ is the action of a generator of $\mathbb{Z}_p$ and the composition of orientation-preserving homeomorphisms is orientation preserving, hence every element of $\mathbb{Z}_p$ acts by an orientation-preserving homeomorphism.
 \end{proof}
 \noindent Now that we have shown that $L(p;q)$ is a closed orientable $3$--manifold, we are able to compute all the homology and cohomology groups of $L(p;q)$ just from the first homology group:\\
 
@@ -856,12 +908,16 @@ Let $G$ be an abelian group. Then\[H_k(CC_k(X;G),\partial)\cong H_k(X;G)\] and \
 A $\Delta$--complex structure on a space $X$ is a collection of maps $\sigma_\alpha\colon\Delta^n\to X$, with $n$ depending on the index $\alpha$, such that:
 \begin{enumerate}
     \item The restriction of $\sigma_\alpha$ to the interior of $\Delta^n$ is injective, and each point of $X$ is in the image of exactly one such restriction.
-    \item Each restriction of $\sigma_\alpha$ to a face of $\Delta^n$ is one of the maps $\sigma_\beta\colon\Delta^{n-1}\to X$.
+    \item Each composition of $\sigma_\alpha$ with a framing that corresponds to deleting a vertex of $\Delta^n$ is one of the maps $\sigma_\beta\colon\Delta^{n-1}\to X$.
     \item A set $A\subset X$ is open iff $\sigma_\alpha^{-1}$ is open in $\Delta^n$ for each $\sigma_\alpha$.
 \end{enumerate}
 \end{definition}
 
-\noindent The homology and cohomology groups arising from a delta-complex structure of a topological space are isomorphic to those arising from a singular structure. The chain complexes of delta-complexes are usually simpler than those in the singular case. This will be seen in the computation of the torsion linking form of Lens spaces, since finite bases for the chain groups can be found, thereby making it easy to characterize cochains by their actions on said basis.
+\begin{remark}
+Condition $2$ ensures that the boundary of an element of the subgroup of $C_n(X)$ generated by the elements $\Delta^n\to X$ of the Delta complex is in the subgroup of $C_{n-1}(X)$ generated by the elements $\Delta^{n-1}\to X$ of the Delta complex, making a Delta complex a chain subcomplex. In fact, the inclusion map into the singular complex induces an isomorphism on homology. Condition $2$ also ensures that the cup product on the dual complex is well-defined, since the front and back faces correspond to repeated compositions of vertex-removing framings.
+\end{remark}
+
+\noindent The homology and cohomology groups arising from a delta-complex structure of a topological space are isomorphic to the singular homology and cohomology groups. The chain complexes of delta-complexes are usually simpler than those in the singular case. This will be seen in the computation of the torsion linking form of Lens spaces, since finite bases for the chain groups can be found, thereby making it easy to characterize cochains by their actions on said basis.
 
 
 
@@ -869,38 +925,7 @@ A $\Delta$--complex structure on a space $X$ is a collection of maps $\sigma_\al
 \subsection{Homotopy classification}
 We begin by introducing the homotopy invariant which will be used for the homotopy classification.
 
-\begin{definition}
-Let $M^n$ be a closed oriented manifold with fundamental class $[M]\in H_n(M;\mathbb{Z})$. Let $[\alpha]\in H^a(M;\mathbb{Z})$ and $[\beta]\in H^{n-a+1}(M;\mathbb{Z})$ be torsion classes, i.e. $k[\alpha]=0,m[\beta]=0$ for some $k,m\in\mathbb{N}$. Then we can write $k\alpha=d\gamma$ for some $\gamma\in C^{a-1}(M,\mathbb{Z})$. We define $[\alpha]\vee[\beta]=\frac{1}{k}(\gamma\cup\beta)M\in\mathbb{Q}/\mathbb{Z}$. The \textbf{torsion linking pairing} is then \[T(H^a(M;\mathbb{Z}))\times T(H^{n-a+1}(M;\mathbb{Z}))\to\mathbb{Q}/\mathbb{Z}:([\alpha],[\beta])\mapsto[\alpha]\vee[\beta].\]
-\end{definition}
-\begin{lemma}
-$[\alpha]\vee[\beta]$ is well-defined.
-\end{lemma}
-\begin{proof}
-Let $d\gamma=d\eta=k\alpha$ for $\eta\in C^{a-1}(M,\mathbb{Z})$. Then $d(\gamma-\eta)=0$ so $\gamma-\eta$ is a representative of an element of $H^{a-1}(M;\mathbb{Z})$. \[((\gamma-\eta)\cup\beta)M=([\gamma-\eta]\cup[\beta])M\] so \[m((\gamma-\eta)\cup\beta)M=([\gamma-\eta]\cup[m\beta])M=0.\] Thus $m(\gamma\cup\beta)M=m(\eta\cup\beta)M$ so $(\gamma\cup\beta)M=(\eta\cup\beta)M$, implying independence of $\gamma$.
 
-\noindent Now let $[\alpha]=[\alpha']\in H^a(M;\mathbb{Z})$. Then $\alpha'=\alpha+de$ for some $e\in C^{a-1}(M,\mathbb{Z})$, so \[k\alpha'=d\gamma+dke=d(\gamma+ke).\] \[\frac{1}{k}((\gamma+ke)\cup\beta)M=\frac{1}{k}(\gamma\cup\beta)M+\frac{1}{k}k(e\cup\beta)M=\frac{1}{k}(\gamma\cup\beta)M \in \mathbb{Q}/\mathbb{Z}\] implying independence of $\alpha$.
-
-\noindent Finally, let $[\beta]=[\beta']\in H^{n-a+1}(M;\mathbb{Z})$. Then $\beta'=\beta+df$ for some $f\in C^{n-a}(M,\mathbb{Z})$. \[d(\gamma\cup f)=k(\alpha\cup f)+(-1)^{a-1}(\gamma\cup df)\] so \[\frac{1}{k}(\gamma\cup df)M=\frac{(-1)^{1-a}}{k}d(\gamma\cup f)M=\frac{(-1)^{1-a}}{k}([0],[M])=0.\] Thus \[\frac{1}{k}(\gamma\cup\beta')M=\frac{1}{k}(\gamma\cup(\beta+df))M=\frac{1}{k}(\gamma\cup\beta)M+\frac{1}{k}(\gamma\cup df)M=\frac{1}{k}(\gamma\cup\beta)M,\] implying independence of $\beta$. Thus the pairing is well-defined.
-\end{proof}
-
-\begin{lemma}
-$[\beta]\vee[\alpha]=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]$.
-\end{lemma}
-\begin{proof}
-let $m\beta=d\tau$ for some $\tau\in C^{n-a}(M,\mathbb{Z})$. Then 
-\begin{align*}
-[\beta]\vee[\alpha]&=\frac{1}{m}(\tau\cup\alpha)M\\&=(-1)^{a(n-a)}\frac{1}{m}(\alpha\cup\tau)M\\&=\frac{(-1)^{a(n-a)}}{km}(k\alpha\cup\tau)M\\&=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)M.\end{align*} \[d(\gamma\cup\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup d\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup m\beta)\] so \begin{align*}[\beta]\vee[\alpha]=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)M&=\frac{(-1)^{a(n-a)}}{km}(d(\gamma\cup\tau)M-(-1)^{a-1}(\gamma\cup m\beta)M)\\&=\frac{(-1)^{a(n-a)}}{km}(-1)^a(\gamma\cup m\beta)M\\&=\frac{(-1)^{a(n-a+1)}}{k}(\gamma\cup\beta)M\\&=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]\qedhere\end{align*}
-\end{proof}
-
-\begin{lemma}
-The torsion linking pairing is a non-degenerate bilinear form, where non-degeneracy means that $T(H^{n-a+1}(M,\mathbb{Z}))\to \text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[\beta]\mapsto ([\alpha]\mapsto [\alpha]\vee[\beta])$ is an isomorphism.
-\end{lemma}
-\begin{proof}
-Bilinearity follows from the bilinearity of the cup product.
-
-\noindent By the universal coefficient theorem, \[G:T(H_{a-1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[x]\mapsto([\alpha]\mapsto\frac{1}{k}\gamma_{[\alpha]}(x))\] where $d\gamma=k[\alpha]$. By Poincare duality we have an isomorphism \[D\colon T(H^{n-a+1}(M;\mathbb{Z}))\to T(H_{a-1}(M;\mathbb{Z})):[\beta]\mapsto(-1)^{(n-a+1)(a-1)}[M]\cap[\beta]\] and so \[G\circ D:T(H^{n-a+1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z})\colon [\beta]\mapsto([\alpha]\mapsto \frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(M\cap\beta)\] is also an isomorphism where \[\frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(M\cap\beta)=\frac{(-1)^{(n-a+1)(a-1)}}{k}(\beta\cup\gamma_{[\alpha]})M=\frac{(-1)^{2(n-a+1)(a-1)}}{k}(\gamma_{[\alpha]}\cup\beta)M=[\alpha]\vee[\beta].\]
-\end{proof}
-\noindent So in the case of 3-manifolds like lens spaces, the torsion linking pairing is a symmetric non-degenerate bilinear form on $T(H^2(M;\mathbb{Z}))$. Also, since the cup product is invariant under homotopy-equivalence, the torsion linking pairing is as well.
 
 
 \noindent To compute the torsion linking form of a lens space, we first need to give a lens space a $\Delta$--complex structure. To begin with, we need an easily-visualised model of $S^3$.\\
@@ -960,18 +985,24 @@ Since $T_1$ is represented by a single meridian of $\partial T$, we can identify
 \end{figure}
 
 
-This then gives a model of $L(p;q)$, which we shall now use to obtain a delta complex.
+This then gives a model of $L(p;q)$, which we shall now use to obtain a delta complex.\\
 
-\begin{figure} [hbt!]
-    \centering
-    \includegraphics[width=0.5\linewidth]{8.png}
-\end{figure}
+
+
+
 
 \noindent Consider a filled-in ball with points N and S corresponding to the north and south poles and points $x_0,...,x_{p-1}$ being evenly-spaced points along the equator. Then draw a line through the ball from N to S, lines connecting $x_i$ to $x_{i+1}$, lines connecting $x_i$ to N and lines connecting $x_i$ to S (all geodesic). We then identify the faces on the surface by twisting the top hemisphere by $\frac{2\pi q}{p}$ radians and projecting downwards. This leaves us, after identification, with:\\
 Points: $[N]$ and $[x_0]$ (since $\{x_0,x_q,x_{2q},...\}$ are identified and $q$ is coprime to $p$)\\
 Lines: $[NS]$, $[x_0x_1]$ and $[Nx_0],...,[Nx_{p-1}]$\\
 Faces: $[Nx_0x_1],...,[Nx_{p-2}x_{p-1}],[Nx_0x_{p-1}]$ and $[NSx_0],...,[NSx_{p-1}]$\\
 Slices: $[NSx_0x_1],...,[NSx_{p-2}x_{p-1}],[NSx_0x_{p-1}]$.\\
+(Here we use $[X]$ to refer to the composition of the quotient map with a singular simplex in $S^3$ and the reason for using $[NSx_0x_{p-1}]$ as opposed to $[NSx_{p-1}x_0]$, for example, is to comply with condition $2$ of the definition of a delta complex)\\
+
+\begin{figure} [hbt!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{8.png}
+\end{figure}
+
 Having obtained a delta-complex structure, we are now able to compute the torsion linking form of a lens space:
 \[\text{Let }a_{p-1}=-[NSx_0x_{p-1}]\text{ and }a_i=[NSx_ix_{i+1}]\text{ otherwise.}\]
 \[\text{Let }b_{p-1}=-[Nx_0x_{p-1}]\text{ and }b_i=[Nx_ix_{i+1}]\text{ otherwise.}\]
@@ -984,7 +1015,15 @@ Otherwise, \[\partial b_i=\partial[Nx_ix_{i+1}]=[x_0x_1]-[Nx_{i+1}]+[Nx_i]\]
 so \[\partial b_i=D-F_{i+1}+F_i.\]
 \[\partial c_i=\partial[NSx_i]=[Sx_i]-[Nx_i]+[NS]=[NS]-[Nx_i]+[Nx_{i-q}]\]
 so \[\partial c_i=E-F_i+F_{i-q}.\]
-\[\partial(\sum_{i=0}^{p-1}a_i)=\sum_i([Nx_{i-q}x_{i-q+1}]-[Nx_ix_{i+1}]+[NSx_{i+1}]-[NSx_i])=0\] so $\sum_{i=0}^{p-1}a_i$ is a representative of an element of $H_3(L(p;q);\mathbb{Z})$. In fact, it is a representative of a fundamental class. Call the equivalence class it represents $[M]$.\\
+
+\begin{lemma}
+$\sum_{i=0}^{p-1}a_i$ is a representative of a fundamental class.
+\end{lemma}
+\begin{proof}
+\[\partial(\sum_{i=0}^{p-1}a_i)=\sum_i([Nx_{i-q}x_{i-q+1}]-[Nx_ix_{i+1}]+[NSx_{i+1}]-[NSx_i])=0\] so $\sum_{i=0}^{p-1}a_i$ is a representative of an element of $H_3(L(p;q);\mathbb{Z})$. The coefficients of $a_i$ are all equal and $H_3(L(p;q);\mathbb{Z})\cong\mathbb{Z}$ so $\sum_{i=0}^{p-1}a_i$ has to represent a generator, and hence a fundamental class.
+\end{proof}
+
+Call the equivalence class it represents $[M]$.\\
 $C_1(L(p;q),\mathbb{Z})$ has basis $D,E,F_i$ and $C_2(L(p;q),\mathbb{Z})$ has basis $b_i,c_i$.\\
 Let $\widehat X$ be linear map which sends $X$ to $1$ and all other elements of the basis to $0$. We then have:\\
 \[d\widehat D=\sum_{i=0}^{p-1}\widehat b_i.\]
@@ -1000,12 +1039,39 @@ Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $\alpha$ is a re
 Otherwise, \[p\alpha([Sx_ix_{i+1}])=p\alpha([Nx_{i-q}x_{i+1-q}])=p\alpha(b_{i-q})=(kp+i-q+1)\hat b_{{i-q}}(b_{{i-q}})-(kp+i-q+1)\hat b_{{i-q}}(b_{{i-q}})=0\]where $k\in\mathbb{Z}$ puts $kp+i-q+1$ in the compatible range for the sum of $[1,p-1]$ (The fact that it can't wrap around to $0$ is why cancellation occurs).\\
 Thus, \[[\alpha]\vee[\alpha]=\frac{1}{p}\gamma([NS])\alpha([Sx_{q-1}x_q])=\frac{q}{p}.\]
 
-\noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, taking into account whether or not the homotopy-equivalence is orientation-reversing and choice of element of $H^2(L(p;q);\mathbb{Z})$. This is equivalent to $q_1\equiv\pm q_2m^2\text{ mod }p\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\iff q_2q_2\equiv\pm n^2\text{ mod } p$, where $n=mq_2$.\\
+\noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, taking into account whether or not the homotopy-equivalence is orientation-reversing and choice of element of $H^2(L(p;q);\mathbb{Z})$ (since $[n\alpha]\vee[n\alpha]=n^2[\alpha]\vee[\alpha]$). This is equivalent to $q_1\equiv\pm q_2m^2\text{ mod }p\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\iff q_2q_2\equiv\pm n^2\text{ mod } p$, where $n=mq_2$.\\
 
 \noindent If we were only interested in orientation-preserving homotopy-equivalence, then the condition would be $q_2q_2\equiv n^2\text{ mod } p$; and if we were only interested in orientation-reversing homotopy-equivalence, then the condition would be $q_2q_2\equiv- n^2\text{ mod } p$.
-Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$ is a square mod $p$ $\iff -1$ is a square mod $p\iff p\equiv 1$ mod $4$ for $p$ a prime. This in contrast to compact $2$--manifolds, which always admit orientation-reversing homeomorphisms.
+Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$ is a square mod $p$ $\iff -1$ is a square mod $p\iff p\equiv 1$ mod $4$ for $p$ a prime. This in contrast to compact $2$--manifolds, which always admit orientation-reversing homeomorphisms.\\
+
+\noindent The proof of the sufficiency of this condition is given in exercise 29 in section 4.2 of Hatcher.
 
 
+
+\subsection{Reidemeister torsion}
+
+\begin{definition}
+Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with real coefficients and with no homology and bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix from $b_i\cup\overset{\sim}{b}_{i-1}$ to $c_i$. We then define The \textbf{Reidemeister torsion} \[\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}.\]
+\end{definition}
+
+\begin{remark}
+The Reidemeister torsion is independent of choice of auxiliary bases but not of choice of $c_i$.
+\end{remark}
+
+\noindent Let \[X=\bigcup_{k=0}^n\bigcup_je_j^k\] be a finite cell complex and $(A,\beta)$ a representation of $\pi_1(X)$ in a ring $A$. Let $\overset{\sim}{X}$ be a universal cover. And $\overset{\sim}{e}_j^k$ be a lift of $e_j^k$. Then every other lift of $e_j^k$ is obtained by composition of $\overset{\sim}{e}_j^k$ with a deck transformation (since given $f'$ and $g'$ lifts of $f$ there exists a $\phi\in\text{Aut}(p)$ such that $\phi\circ f'(0)=g'(0)$ which implies $\phi\circ f=g$ by uniqueness). $\text{Aut}(p)=\pi_1(X)$ so we can write \[\overset{\sim}{X}=\bigcup_{k=0}^n\bigcup_{g\in\pi_1(X)}\bigcup_jg\overset{\sim}{e}_j^k.\] Thus multiplication by an element of $\pi_1(x)$ permutes the cells, thereby giving $CC_.(\overset{\sim}{X})$ a $\pi_1(X)$-action. $A$ also has a $\pi_1(X)$ action so we can define $C_k(X;\beta)=CC_k(\overset{\sim}{X})\otimes_{\mathbb{Z}\pi_1(X)} A$, where $\mathbb{Z}\pi_1(X)$ is the free group generated by $\pi_1(X)$. We have an induced boundary map $\partial\colon C_k(X;\beta)\to C_{k-1}(X;\beta)$ which makes $C_k(X;\beta)$ a chain complex with basis $\{\overset{\sim}{e}_j^k\}\otimes\text{id}_A$.
+
+\begin{definition}
+If $C_.(X;\beta)\otimes_{\mathbb{Z}\pi_1(X)}A$ has no homology, then the \textbf{Reidemeister torsion of $X$ with respect to $\beta$} is \[\Delta(X;\beta):=\Delta(C_.(X;\beta)\otimes_{\mathbb{Z}\pi_1(X)}A).\] This is a well-defined element of $A^*/\{\pm\beta(\pi_1(X))\}$.
+\end{definition}
+\begin{remark}
+The ambiguity which required modding out by $\{\pm\beta(\pi_1(X))\}$ to solve arose out of the choice of lifts which form the bases $c_i$ -- the choice of which, unlike that of auxiliary bases, $\Delta(C_.,c_.)$ is not independent.
+\end{remark}
+
+\begin{theorem}
+Let $X$ and $Y$ be topological spaces, let $f:X\to Y$ be a homeomorphism and let $(A,\beta)$ be a representation of $\pi_1(Y)$. Then $\Delta(X;\beta\circ f_*)=\Delta(Y;\beta)$
+\end{theorem}
+
+\noindent Thus the reidemeister torsion is invariant under homeomorphism. However, it is not invariant under homotopy-equivalence. We shall now compute the Reidemeister torsion of a lens space.\\
 
 \subsection{Homeomorphism classification}
 
@@ -1034,29 +1100,6 @@ Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$
 
 \noindent Thus on $L(p;q)$, we have $\partial e^3=0$, $\partial e^2=pe^1$, $\partial e^1=0$ since $p=\text{id}$ modulo the group action. This then gives the same homology groups as were found earlier.\\
 
-\noindent Armed with this construction, we shall now define and compute the Reidemeister torsion.
-
-\begin{definition}
-Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with no homology and bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix from $b_i\cup\overset{\sim}{b}_{i-1}$ to $c_i$. We then define The \textbf{Reidemeister torsion} \[\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}.\]
-\end{definition}
-
-\begin{remark}
-The Reidemeister torsion is independent of choice of auxiliary bases but not of choice of $c_i$.
-\end{remark}
-
-\noindent Let \[X=\bigcup_{k=0}^n\bigcup_je_j^k\] be a finite cell complex and $(A,\beta)$ a representation of $\pi_1(X)$ in a ring $A$. Let $\overset{\sim}{X}$ be a universal cover. And $\overset{\sim}{e}_j^k$ be a lift of $e_j^k$. Then every other lift of $e_j^k$ is obtained by composition of $\overset{\sim}{e}_j^k$ with a deck transformation (since given $f'$ and $g'$ lifts of $f$ there exists a $\phi\in\text{Aut}(p)$ such that $\phi\circ f'(0)=g'(0)$ which implies $\phi\circ f=g$ by uniqueness). $\text{Aut}(p)=\pi_1(X)$ so we can write \[\overset{\sim}{X}=\bigcup_{k=0}^n\bigcup_{g\in\pi_1(X)}\bigcup_jg\overset{\sim}{e}_j^k.\] Thus multiplication by an element of $\pi_1(x)$ permutes the cells, thereby giving $CC_.(\overset{\sim}{X})$ a $\pi_1(X)$-action. $A$ also has a $\pi_1(X)$ action so we can define $C_k(X;\beta)=CC_k(\overset{\sim}{X})\otimes_{\mathbb{Z}\pi_1(X)} A$. We have an induced boundary map $\partial\colon C_k(X;\beta)\to C_{k-1}(X;\beta)$ which makes $C_k(X;\beta)$ a chain complex with basis $\{\overset{\sim}{e}_j^k\}\otimes\text{id}_A$.
-
-\begin{definition}
-If $C_.(X;\beta)\otimes_{\mathbb{Z}\pi_1(X)}A$ has no homology, then the \textbf{Reidemeister torsion of $X$ with respect to $\beta$} is \[\Delta(X;\beta):=\Delta(C_.(X;\beta)\otimes_{\mathbb{Z}\pi_1(X)}A).\] This is a well-defined element of $A^*/\{\pm\beta(\pi_1(X))\}$.
-\end{definition}
-\begin{remark}
-The ambiguity which required modding out by $\{\pm\beta(\pi_1(X))\}$ to solve arose out of the choice of lifts which form the bases $c_i$ -- the choice of which, unlike that of auxiliary bases, $\Delta(C_.,c_.)$ is not independent.
-\end{remark}
-
-\noindent This is invariant under homeomorphism but not homotopy-equivalence. We shall now compute the Reidemeister torsion of a lens space.\\
-
-
-
 \noindent Let $\omega$ be a $p$th root of unity and let $\beta_\omega\colon\mathbb{Z}_p\to \mathbb{C}^*$ be the representation given by $1\mapsto\omega$.
 In $C_.(X;\beta_\omega)\otimes_{\mathbb{Z}\pi_1(X)}\mathbb{C}^*$ we have:\\
 \[\partial(\overset{\sim}{e}_0^3\otimes\text{id})=(\omega-1)(\overset{\sim}{e}_0^2\otimes\text{id}),\]
@@ -1065,7 +1108,7 @@ In $C_.(X;\beta_\omega)\otimes_{\mathbb{Z}\pi_1(X)}\mathbb{C}^*$ we have:\\
 \[0\to\mathbb{C}^*\overset{\omega-1}{\to}\mathbb{C}^*\overset{0}{\to}\mathbb{C}^*\overset{\omega^l-1}{\to}\mathbb{C}^*\to0\text{ whenever }\omega\neq 1.\]
 The non-zero maps are isomorphisms and so the complex has no homology. Hence for $\omega\neq 1$ we have \[\Delta(L(p;q);\beta_\omega)=(\omega^l-1)(\omega-1)\in\mathbb{C}^*/\pm\omega^k\text{ for }k\in\mathbb{Z}.\]
 \[(\omega^l-1)(\omega-1)=\omega^l(1-\omega^{-l})(\omega-1)=(\omega^{-l}-1)(\omega-1)=\omega(\omega^{-l}-1)(1-\omega^{-1})=(\omega^{-l}-1)(\omega^{-1}-1)\] so \[\Delta(L(p;q);\beta_\omega)=\Delta(L(p;-q);\beta_\omega).\]
-It can also be shown that \[(\omega^l-1)(\omega-1)=(\omega^q-1)(\omega-1)\] so \[\Delta(L(p;q);\beta_\omega)=\Delta(L(p;q^{-1});\beta_\omega).\]
+It can also be shown that \[\Delta(L(p;q);\beta_\omega)=\Delta(L(p;q^{-1});\beta_\omega).\]
 Thus two lens spaces $L(p;q_1)$ and $L(p;q_2)$ can only be homeomorphic if $q_1\equiv \pm q_2^{\pm 1}\text{mod }p$.\\
 
 \noindent To give the complete homeomorphism classification, we require the following lemma.
