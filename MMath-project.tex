@@ -10,6 +10,7 @@
 \usepackage[english]{babel}
 \usepackage{mathtools}
 \usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{cite}
 
 \title{The topology of lens spaces}
 \author{Saxon Supple\\Supervisor: Johannes Nordstrom}
@@ -29,12 +30,15 @@
 
 \maketitle
 \begin{abstract}
+
 \noindent Lens spaces are quotient spaces of the $3$-sphere by cyclic groups and provide the simplest examples of manifolds (topological spaces which locally look like Euclidean space) which are homotopy-equivalent but not homeomorphic. This project will study the conditions under which lens spaces are homotopy-equivalent and homeomorphic. To this end we shall introduce the homology and cohomology groups. Being invariants of homotopy-equivalent spaces, it is expected that they would be insufficient for a classification of manifolds which can be homotopy-equivalent but not homeomorphic. However, the homology and cohomology groups are also insufficient for a homotopy-equivalence classification. The torsion linking form will be introduced for the homotopy-equivalence classification, and Reidemeister torsion for the homeomorphism classification.
 \end{abstract}
 \tableofcontents
 
 \section{Introduction}
-\noindent The utility of the homology groups are that homotopy-equivalent spaces have isomorphic homology groups, thereby giving a way to prove that two topological spaces aren't homotopy-equivalent. To prove this, we must first construct a functor sending a continuous map between topological spaces to a homomorphism between their homology groups.\\
+Algebraic topology seeks to classify topological spaces up to homeomorphism and homotopy equivalence by associating algebraic structures to topological spaces which are isomorphic when the spaces are homeomorphic or homotopy-equivalent. The simplest example would be the number of conneted-components - a homeomorphism invariant. The most common homotopy-invariants are the fundamental group, the homology groups and the cohomology groups. This project will first study singular homology, which is the simplest and most general homology theory to study, but has the disadvantage of being difficult to perform action computations on, due to being defined in terms of a potentially uncountably infinite number of continuous maps. The singular homology groups are defined by forming abelian groups, known as chains, from continuous maps of a certain dimension into the topological space which have no boundary, and quotienting by the boundaries of the maps of a dimension one higher; this makes sense because the boundary of a boundary is $0$, as will be proven. We will then see a connection between the fundamental group and the first homotopy group through the Hurewicz theorem, which roughly says that the first homology group is the abelian version of the fundamental group. We will then study the cohomology groups, which are dual to the homology groups. They have the advantage of admitting a ring structure through the cup product, and so have additional structure, giving a finer invariant. We will also see the universal coefficient theorem and Poincare duality, which are results which connect the homology and cohomology groups. Poincare duality however only holds for closed oriented manifolds, however, and is given by an isomorphism involving the cap product and a fundamental class; hence these concepts will also be discussed in detail. Orientation roughly means a consistent choice of coordinate system at each point and can be defined in several ways. Here we shall study the homological definition, which involves a continuous choice of generator of the local homology group at each point on a manifold; local homology is a special case of relative homology: a homology given by "modding out" by a subspace of a topological space. It turns out that closed manifolds, that is manifolds without boundary, admit a simpler definition of orientability: an n--dimensional manifold is orientable if and only if it's n'th homology group is isomorphic to $\mathbb{Z}$. A generator of this group is termed a fundamental class, and represents an orientation of a manifold. Poincare duality then related the $k$'th homology group and $n-k$'th cohomology of an $n$--manifold through an explicit isomorphism given in terms of a fundamentl class. We will then use these objects to attempt to extract topological information about lens spaces, which are quotient spaces of the $3$--sphere by $\mathbb{Z}_p$, where the quotient space is given by the relation that two points are equivalent if they are in the same orbit of the group action. We will see, however, that the fundamental group, homology and cohomology groups only depend on $p$, which turns out to be insufficient. We will thus introduce two new, invariants: the torsion linking form and Reidemeister torsion. The torsion linking form is a homotopy-invariant and is defined on the torsion part of the second cohomology group, where the torsion subgroup is the elements of finite order. However, the torsion linking form requires explicitly defined cochains -- homomorphisms from chains chains to an abelian group -- and as such requires a simpler set of chains than the uncountably infinitely many which singular homology gives. To this end we shall introduce Delta complexes, which are simple enough to allow for lens spaces to be constructed in terms of finitely many chains, yet still allow for cup products, and hence the torsion linking form, with which it is defined, to be computed. The homeomorphism classification then 
+
+
 
 \section{Homology}
 \subsection{Background}
@@ -609,6 +613,7 @@ The result then follows by linearity.
 
 
 \subsection{Universal coefficient theorem}
+\cite{Nordstrom}
 This is the final connection between homology and cohomology which we shall study. It will be used in proving that the torsion linking form is non-degenerate and in obtaining the homology and cohomology groups of lens spaces.\\
 \noindent To state the theorem, we require an additional definition from group theory.
 
@@ -675,7 +680,7 @@ We have \[M-U\subseteq M-x\subseteq M\] and \[\overline{M-U}\subset(M-x)^{\mathr
 \end{proof}
 
 \begin{definition}
-Let $M$ be an $n$--manifold. A \textbf{local orientation} of $M$ is a choice of generator $[M]_x$ of $H_n(M,M-x)$ for each $x\in M$. A local orientation is called \textbf{continuous} if for each $x\in M$ there is an open neighbourhood $U$ and $\alpha\in H_n(M,M-U)$ such that the map induced by the inclusion $(M,M-U)\to(M,M-y)$ maps $\alpha$ to $[M]_y$ for each $y\in U$. An \textbf{orientation} of $M$ is a continuous choice of local orientations. $M$ is \textbf{orientable} if it has an orientation.
+Let $M$ be an $n$--manifold. A \textbf{local orientation} of $M$ at $x\in M$ is a choice of generator $[M]_x$ of $H_n(M,M-x)$. A choice of local orientations is called \textbf{continuous} if for each $x\in M$ there is an open neighbourhood $U$ and $\alpha\in H_n(M,M-U)$ such that the map induced by the inclusion $(M,M-U)\to(M,M-y)$ maps $\alpha$ to $[M]_y$ for each $y\in U$. An \textbf{orientation} of $M$ is a continuous choice of local orientations. $M$ is \textbf{orientable} if it has an orientation.
 \end{definition}
 
 \begin{definition}
@@ -929,7 +934,7 @@ We begin by introducing the homotopy invariant which will be used for the homoto
 
 
 \noindent To compute the torsion linking form of a lens space, we first need to give a lens space a $\Delta$--complex structure. To begin with, we need an easily-visualised model of $S^3$.\\
-
+\cite{Lens}
 \noindent$S^3$ is the set of pairs of complex numbers $(z_0,z_1)$ such that their norms sum to $1$. Representing them in polar coordinates then gives $z_0=r_0e^{i\theta_0}$ and $z_1=r_1e^{i\theta_1}$, with $r_0^2+r_1^2=1$. $r_1$ determines $r_0=\sqrt{1-r_1^2}$ so $(z_0,z_1)$ can be associated with a real triple $(r_1,\theta_0,\theta_1)$, where $0\leq r_1\leq 1$ and $0\leq\theta_0,\theta_1<2\pi$.
 For there to be a bijection between pairs $(z_0,z_1)$ and triples $(r_1,\theta_0,\theta_1)$, we require the following identifications:
 \begin{enumerate}
@@ -996,7 +1001,7 @@ Points: $[N]$ and $[x_0]$ (since $\{x_0,x_q,x_{2q},...\}$ are identified and $q$
 Lines: $[NS]$, $[x_0x_1]$ and $[Nx_0],...,[Nx_{p-1}]$\\
 Faces: $[Nx_0x_1],...,[Nx_{p-2}x_{p-1}],[Nx_0x_{p-1}]$ and $[NSx_0],...,[NSx_{p-1}]$\\
 Slices: $[NSx_0x_1],...,[NSx_{p-2}x_{p-1}],[NSx_0x_{p-1}]$.\\
-(Here we use $[X]$ to refer to the composition of the quotient map with a singular simplex in $S^3$ and the reason for using $[NSx_0x_{p-1}]$ as opposed to $[NSx_{p-1}x_0]$, for example, is to comply with condition $2$ of the definition of a delta complex)\\
+(Here we use $[X]$ to refer to the composition of the quotient map with a singular simplex in the ball and the reason for using $[NSx_0x_{p-1}]$ as opposed to $[NSx_{p-1}x_0]$, for example, is to comply with condition $2$ of the definition of a delta complex)\\
 
 \begin{figure} [hbt!]
     \centering
@@ -1146,5 +1151,9 @@ They are homeomorphic if and only if $q_1\equiv\pm q_2^{\pm 1} \text{ mod }p$.
 $L(7;1)$ and $L(7;2)$ are homotopy-equivalent but not homeomorphic.
 \end{example}
 \noindent This is significant, since it gives a counter-example to a once-believed conjecture that homotopy-equivalent and homeomorphic are equivalent conditions for manifolds.
+
+\bibliographystyle{IEEEtran}
+\bibliography{sources.bib}
+
 \end{document}
 
