@@ -42,7 +42,7 @@ Algebraic topology seeks to classify topological spaces up to homeomorphism and 
 
 \section{Homology}
 \subsection{Background}
-We begin by recalling some definitions and results from MA40040.
+We begin by recalling some basic definitions and results from algebraic topology.
 \begin{definition}
 Let $(X,\mathcal{T})$ and $(Y,\mathcal{T}')$ be topological spaces. A map $f\colon X\to Y$ is \textbf{continuous} if\\
 $f^{-1}(U)\in\mathcal{T}$, $\forall U\in\mathcal{T}'$.
@@ -57,7 +57,7 @@ Let $X$ be a topological space. A \textbf{path} is a continuous map $\gamma$ fro
 \end{definition}
 
 \begin{definition}
-Let $X$ be a topological space and $x_0\in X$. The \textbf{fundamental group} is \[\pi_1(X,x_0)=\{[\gamma]:\gamma\text{ is a loop based at }x_0\}.\]
+Let $X$ be a topological space and $x_0\in X$. The \textbf{fundamental group} is \[\pi_1(X,x_0)=\{[\gamma]:\gamma\text{ is a loop based at }x_0\}.\] under the relation that $\gamma\sim\gamma'$ if $\gamma$ is based homotopic to $\gamma'$.
 \end{definition}
 \noindent This is a group with identity represented by the constant loop, multiplication given by concatenation of loops and $[\alpha]$ having inverse $[\bar \alpha]$, where $\bar \alpha(t)=\alpha(1-t)$.
 
@@ -166,7 +166,7 @@ A k-chain $c\in C_k(X)$ is a \textbf{k-cycle} if $\partial(c)=0$.
 
 
 \begin{lemma}
-$\partial\circ\partial\colon C_k(X)\to C_{k-2}(x)$ is zero.
+$\partial\circ\partial\colon C_k(X)\to C_{k-2}(X)$ is zero.
 \end{lemma}
 \begin{proof}
 Let $\sigma\in C_k(X)$.
@@ -180,7 +180,7 @@ Let $\sigma\in C_k(X)$.
 \end{align*}
 \end{proof}
 
-\noindent A simple example of this fact is that the boundary of a ball is a sphere, which in turn has no boundary.\\
+\noindent This corresponds to the fact that the boundary of a ball is a sphere, which in turn has no boundary.\\
 It also implies that $\text{im}(\partial:C_{k+1}(X)\rightarrow C_k(X))\in\text{ker}(\partial:C_{k}(X)\rightarrow C_{k-1}(X))$,
 allowing the following to be well-defined.
 \begin{definition}
@@ -218,7 +218,7 @@ Now let $f\colon Y\to Z$ and $g\colon X\to X$ be continuous maps. Given $[c]=[\s
 If $f,g\colon X\to Y$ are homotopic continuous maps between topological spaces then $f_*=g_*\colon H_k(X)\to H_k(Y)$
 \end{lemma}
 \begin{proof}
-\cite{Hatcher}Let $F\colon X\times I\to Y$ be a homotopy from $f$ to $g$. Given a singular n--simplex $\sigma\colon\Delta^n\to X$ we can define $\sigma\times\text{id}\colon\Delta^n\times I\to X\times I$ and $F_\#(\sigma\times\text{id})\colon\Delta^n\times I\to Y$. We now decompose $\Delta^n\times I$ as the union of $n+1$-simplices. To do this write $\Delta^n\times I$ as the complex hull of $a_0,...,a_n,b_0,...,b_n$ where $a_i=(e_i,0)$ and $b_i=(e_i,1)$. Then $\Delta^n\times I$ is the union of the $n+1$-simplices $\alpha_i=[a_0,...,a_i,b_i,...,b_n]$. Now define the "prism map" $P\colon C_n(X)\to C_{n+1}(Y)$ by $P(\sigma)=\sum_i(-1)^iF\circ(\sigma\times\text{id})|_{\alpha_i}$. 
+\cite{Hatcher}Let $F\colon X\times I\to Y$ be a homotopy from $f$ to $g$. Given a singular n--simplex $\sigma\colon\Delta^n\to X$ we can define $\sigma\times\text{id}\colon\Delta^n\times I\to X\times I$ and $F_\#(\sigma\times\text{id})\colon\Delta^n\times I\to Y$. We now decompose $\Delta^n\times I$ as the union of $n+1$-simplices. To do this think of $\Delta^n\times I$ as the complex hull of $a_0,...,a_n,b_0,...,b_n$ where $a_i=(e_i,0)$ and $b_i=(e_i,1)$. Then $\Delta^n\times I$ is the union of the $n+1$-simplices $\alpha_i=[a_0,...,a_i,b_i,...,b_n]$. Now define the "prism map" $P\colon C_n(X)\to C_{n+1}(Y)$ by $P(\sigma)=\sum_i(-1)^iF\circ(\sigma\times\text{id})|_{\alpha_i}$. 
 \begin{align*}
 \partial P(\sigma)&=\sum_i(-1)^i[\sum_{j\leq i}(-1)^jF\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_j},...,a_i,b_i,...,b_n]}\\&+\sum_{j> i}(-1)^{(j+1)}F\circ(\sigma\times\text{id})|_{[a_0,...,a_i,b_i,...,\overset{\wedge}{b_j},...,b_n]}].
 \end{align*}
@@ -301,7 +301,7 @@ First note that an element of $\pi_1(X,x_0)$ is of the form $[\gamma]$ for $\gam
 We can then define $h\colon\pi_1(X,x_0)\to H_1(X)$ sending an element $[\gamma]\in\pi_1(X,x_0)$ to $[c_\gamma]\in H_1(X)$ where $c_\gamma$ is $\gamma$ as an element of $C_1(X)$. To show that $h$ is well-defined let $[a]=[b]\in\pi_1(X,x_0)$ and let $F\colon [0,1]^2\to X$ be a based-homotopy from $a$ to $b$. Dividing $[0,1]^2$ into two triangles and parametrising each by $\Delta^2$ allows F to be expressed as $c_F\in C_2(X)$ with $\partial c_F=c_a-c_b\implies [c_a]=[c_b]$ as required.
 
 \noindent \textbf{Next we show that $h$ is a homomorphism.}\\
-Let $[f],[g]\in\pi_1(X,x_0)$ and Define a singular 2-simplex $\sigma\colon\Delta^2\to X$ where $\sigma_{|[e_0,e_1]}=f$, $\sigma_{|[e_1,e_2]}=g$ and $\sigma_{|[e_0,e_2]}=f\cdot g$. Then $\partial(\sigma)=g-f\cdot g+f$ so $h([f][g])=h([f])+h([g])$ making $h$ a homomorphism.
+Let $[f],[g]\in\pi_1(X,x_0)$ and define a singular 2-simplex $\sigma\colon\Delta^2\to X$ where $\sigma_{|[e_0,e_1]}=f$, $\sigma_{|[e_1,e_2]}=g$ and $\sigma_{|[e_0,e_2]}=f\cdot g$. Then $\partial(\sigma)=g-f\cdot g+f$ so $h([f][g])=h([f])+h([g])$ making $h$ a homomorphism.
 
 \noindent \textbf{We now show that $h$ is surjective.}\\
 For the sake of lucidity we will write $[\gamma]$ for $h([\gamma])$ instead of $[c_\gamma]$\\
@@ -314,7 +314,7 @@ h([\eta_0^{n_0}\cdot\eta_1^{n_1}...\cdot\eta_k^{n_k}])&=[n_0\eta_0+...+n_k\eta_k
 \end{align*}since $m_p=0$.\\
 \noindent\textbf{We now find the kernel.}\\
 Let $[\gamma]\in\pi_1(X,x_0)$ such that $h([\gamma])=[0]$.
-Then $\gamma$ is exact so there exists a finite sum of singular 2-simplices $\sum_{i=0}^kn_i\sigma_i$ such that \[\gamma=\partial(\sum_{i=0}^kn_i\sigma_i)=\sum_{i=0}^kn_i\partial(\sigma_i)=\sum_{i=0}^kn_i(\lambda_i+\mu_i+\nu_i)\] Let $\Lambda=\{\lambda_i\}\cup\{\mu_i\}\cup\{\nu_i\}$ and for each end-point $p$ of a singular 1-simplex in $\Lambda$ let $\beta_p$ be a path from $x_0$ to $p$. For each $\theta\in\Lambda$ let $m_\theta$ be the sum of coefficients of $\theta$ in $\sum_{i=0}^kn_i(\lambda_i+\mu_i+\nu_i)$. This sum is equal to $\gamma$ thus $m_\theta$ is $1$ if $\theta=\gamma$ and $0$ otherwise. For each singular 2-simplex $\sigma_i$ the loops $\beta_{\lambda_i(0)}\cdot\lambda_i\cdot\beta_{\lambda_i(1)}^{-1}$, $\beta_{\mu_i(0)}\cdot\mu_i\cdot\beta_{\mu_i(1)}^{-1}$ and $\beta_{\nu_i(0)}\cdot\nu_i\cdot\beta_{\nu_i(1)}^{-1}$ have null-homotopic concatenations. Let $\eta_i=\beta_{\partial\sigma_i(0)}\cdot\partial\sigma_i\cdot\beta_{\partial\sigma_i(1)}^{-1}$. Then $h([\eta_0^{n_0}\cdot...\cdot\eta_k^{n_k}\cdot\gamma^{-1}])=h([\gamma])h([\gamma^{-1}])=[\gamma^{-1}]$. Now write each $[\eta_i]$ as $[\beta_{\lambda_i(0)}\cdot\lambda_i\cdot\beta_{\lambda_i(1)}^{-1}][\beta_{\mu_i(0)}\cdot\mu_i\cdot\beta_{\mu_i(1)}^{-1}][\beta_{\nu_i(0)}\cdot\nu_i\cdot\beta_{\nu_i(1)}^{-1}]$. Then for each $\theta\in\Lambda$ we have that the sum of exponents of $[\beta_{\theta(0)}\cdot\theta\cdot\beta_{\theta(1)}^{-1}]$ is $m_\theta$ The exponents of each $[\beta_{\theta(0)}\cdot\theta\cdot\beta_{\theta(1)}^{-1}]$ in $[\eta_0^{n_0}\cdot...\cdot\eta_k^{n_k}\cdot\gamma^{-1}]$ is then 0 so by the above lemma $[\gamma^{-1}]\in[\pi_1(X,x_0),\pi_1(X,x_0)]$ meaning $[\gamma]$ is as well. Thus $\text{ker }h\subseteq [\pi_1(X,x_0),\pi_1(X,x_0)]$. We also have that $[\pi_1(X,x_0),\pi_1(X,x_0)]\subseteq \text{ker }h$ since $H_1(X)$ is abelian so $\text{ker }h=[\pi_1(X,x_0),\pi_1(X,x_0)]$. The result then follows by the first isomorphism theorem.
+Then $\gamma$ considered as a $1$--simplex is exact so there exists a finite sum of singular 2-simplices $\sum_{i=0}^kn_i\sigma_i$ such that \[\gamma=\partial(\sum_{i=0}^kn_i\sigma_i)=\sum_{i=0}^kn_i\partial(\sigma_i)=\sum_{i=0}^kn_i(\lambda_i+\mu_i+\nu_i)\] Let $\Lambda=\{\lambda_i\}\cup\{\mu_i\}\cup\{\nu_i\}$ and for each end-point $p$ of a singular 1-simplex in $\Lambda$ let $\beta_p$ be a path from $x_0$ to $p$. For each $\theta\in\Lambda$ let $m_\theta$ be the sum of coefficients of $\theta$ in $\sum_{i=0}^kn_i(\lambda_i+\mu_i+\nu_i)$. This sum is equal to $\gamma$ thus $m_\theta$ is $1$ if $\theta=\gamma$ and $0$ otherwise. For each singular 2-simplex $\sigma_i$ the loops $\beta_{\lambda_i(0)}\cdot\lambda_i\cdot\beta_{\lambda_i(1)}^{-1}$, $\beta_{\mu_i(0)}\cdot\mu_i\cdot\beta_{\mu_i(1)}^{-1}$ and $\beta_{\nu_i(0)}\cdot\nu_i\cdot\beta_{\nu_i(1)}^{-1}$ have null-homotopic concatenations. Let $\eta_i=\beta_{\partial\sigma_i(0)}\cdot\partial\sigma_i\cdot\beta_{\partial\sigma_i(1)}^{-1}$. Then $h([\eta_0^{n_0}\cdot...\cdot\eta_k^{n_k}\cdot\gamma^{-1}])=h([\gamma])h([\gamma^{-1}])=[\gamma^{-1}]$. Now write each $[\eta_i]$ as $[\beta_{\lambda_i(0)}\cdot\lambda_i\cdot\beta_{\lambda_i(1)}^{-1}][\beta_{\mu_i(0)}\cdot\mu_i\cdot\beta_{\mu_i(1)}^{-1}][\beta_{\nu_i(0)}\cdot\nu_i\cdot\beta_{\nu_i(1)}^{-1}]$. Then for each $\theta\in\Lambda$ we have that the sum of exponents of $[\beta_{\theta(0)}\cdot\theta\cdot\beta_{\theta(1)}^{-1}]$ is $m_\theta$ The exponents of each $[\beta_{\theta(0)}\cdot\theta\cdot\beta_{\theta(1)}^{-1}]$ in $[\eta_0^{n_0}\cdot...\cdot\eta_k^{n_k}\cdot\gamma^{-1}]$ is then 0 so by the above lemma $[\gamma^{-1}]\in[\pi_1(X,x_0),\pi_1(X,x_0)]$ meaning $[\gamma]$ is as well. Thus $\text{ker }h\subseteq [\pi_1(X,x_0),\pi_1(X,x_0)]$. We also have that $[\pi_1(X,x_0),\pi_1(X,x_0)]\subseteq \text{ker }h$ since $H_1(X)$ is abelian so $\text{ker }h=[\pi_1(X,x_0),\pi_1(X,x_0)]$. The result then follows by the first isomorphism theorem.
 \end{proof}
 
 \begin{corollary}
@@ -337,7 +337,7 @@ Relative homology will shortly be used to define the orientation of manifolds in
 Let $X$ be a topological space and let $A$ be a subspace of $X$. The \textbf{$n$th relative chain group} is \[C_n(X,A):=\frac{C_n(X)}{C_n(A)}.\]
 \end{definition}
 
-\noindent Note that the boundary map \[\partial:C_n(X)\to C_{n-1}(X)\] restricts to a boundary map \[\partial_{|C_n(A)}\to C_{n-1}(A)\] and thus induces a boundary map $\partial'$ on $C_n(X;A)$.
+\noindent Note that the boundary map \[\partial:C_n(X)\to C_{n-1}(X)\] restricts to a boundary map \[\partial_{|C_n(A)}C_n(A)\to C_{n-1}(A)\] and thus induces a boundary map $\partial'$ on $C_n(X;A)$.
 This then gives a chain complex \[...\to C_n(X,A)\overset{\partial'}{\to}C_{n-1}(X,A)\to...\] since $\partial'^2=0$.\\
 
 \noindent This then allows for the following definition.
@@ -361,7 +361,7 @@ Let $X$ be a topological space and let $x_0\in X$. The \textbf{$n$th local homol
 \end{definition}
 
 \begin{theorem}
-(Excision theorem) Let $U\subseteq A\subseteq X$ be topological spaces. If the closure of $U$ is contained in the interior of $A$, then $U$ can be excised.
+(Excision theorem) Let $U\subseteq A\subseteq X$ be topological spaces. If the closure of $U$ is contained in the interior of $A$, then $U$ can be excised.\cite{Hatcher}
 \end{theorem}
 
 
@@ -715,20 +715,23 @@ For a manifold to have a boundary, we would have to consider homeomorphisms to t
 
 \noindent Closed manifolds admit a simpler definition of orientation to the more general one discussed earlier. However, both formulations are equivalent.
 
-\begin{definition}
-An n-dimensional closed manifold $M$ is \textbf{orientable} if $H_n(M)\cong \mathbb{Z}$. The image of a unit is called a \textbf{fundamental class}. An \textbf{orientation} of $M$ is a choice of fundamental class $[M]\in H_n(M)$.
-\end{definition}
 
 \begin{remark}
 A fundamental class can also be defined as a homology class whose restriction to each local homology group gives a local orientation.
 \end{remark}
 
 \begin{theorem}
-Any compact manifold has a fundamental class.
+Any compact oriented manifold has a fundamental class.
 \end{theorem}
 
+\begin{definition}
+An n-dimensional closed manifold $M$ is \textbf{orientable} if $H_n(M)\cong \mathbb{Z}$. The image of a unit is called a \textbf{fundamental class}. An \textbf{orientation} of $M$ is a choice of fundamental class $[M]\in H_n(M)$.
+\end{definition}
+
+
+
 \begin{proposition}
-Let $M$ be a closed n-dimensional manifold. Then $H_n(M)\cong \mathbb{Z}$ if $M$ is orientable. Furthermore, $H_i(M)=0$ for $i>n$.
+Let $M$ be a closed connected n-dimensional manifold. Then $H_n(M)\cong \mathbb{Z}$ if $M$ is orientable. Furthermore, $H_i(M)=0$ for $i>n$.
 \end{proposition}
 
 \begin{definition}
@@ -755,26 +758,30 @@ Let $M$ be a closed orientable $n$--dimensional manifold, let $[M]\in H_n(X)$ be
 \subsection{Torsion linking form}
 
 \begin{definition}
-Let $M^n$ be a closed oriented manifold with fundamental class $[A]\in H_n(M;\mathbb{Z})$. Let $[\alpha]\in H^a(M;\mathbb{Z})$ and $[\beta]\in H^{n-a+1}(M;\mathbb{Z})$ be torsion classes, i.e. $k[\alpha]=0,m[\beta]=0$ for some $k,m\in\mathbb{N}$. Then we can write $k\alpha=d\gamma$ for some $\gamma\in C^{a-1}(M,\mathbb{Z})$. We define $[\alpha]\vee[\beta]=\frac{1}{k}(\gamma\cup\beta)A\in\mathbb{Q}/\mathbb{Z}$. The \textbf{torsion linking pairing} is then \[T(H^a(M;\mathbb{Z}))\times T(H^{n-a+1}(M;\mathbb{Z}))\to\mathbb{Q}/\mathbb{Z}:([\alpha],[\beta])\mapsto[\alpha]\vee[\beta].\]
+Let $M^n$ be a closed oriented manifold with fundamental class $[M]\in H_n(M;\mathbb{Z})$. Let $[\alpha]\in H^a(M;\mathbb{Z})$ and $[\beta]\in H^{n-a+1}(M;\mathbb{Z})$ be torsion classes, i.e. $k[\alpha]=0,m[\beta]=0$ for some $k,m\in\mathbb{N}$. Then we can write $k\alpha=d\gamma$ for some $\gamma\in C^{a-1}(M,\mathbb{Z})$. We define $[\alpha]\vee[\beta]=\frac{1}{k}(\gamma\cup\beta)A\in\mathbb{Q}/\mathbb{Z}$. The \textbf{torsion linking pairing} is then \[T(H^a(M;\mathbb{Z}))\times T(H^{n-a+1}(M;\mathbb{Z}))\to\mathbb{Q}/\mathbb{Z}:([\alpha],[\beta])\mapsto[\alpha]\vee[\beta].\]
 \end{definition}
+
+Let $A$ be a cycle representing the fundamental class $[M]$.
+
 \begin{lemma}
 $[\alpha]\vee[\beta]$ is well-defined.
 \end{lemma}
 \begin{proof}
-Let $d\gamma=d\eta=k\alpha$ for $\eta\in C^{a-1}(M,\mathbb{Z})$. Then $d(\gamma-\eta)=0$ so $\gamma-\eta$ is a representative of an element of $H^{a-1}(M;\mathbb{Z})$. \[((\gamma-\eta)\cup\beta)A=([\gamma-\eta]\cup[\beta])A\] so \[m((\gamma-\eta)\cup\beta)A=([\gamma-\eta]\cup[m\beta])A=0.\] Thus $m(\gamma\cup\beta)A=m(\eta\cup\beta)A$ so $(\gamma\cup\beta)A=(\eta\cup\beta)A$, implying independence of $\gamma$.
+Let $d\gamma=d\eta=k\alpha$ for $\eta\in C^{a-1}(M,\mathbb{Z})$. Then $d(\gamma-\eta)=0$ so $\gamma-\eta$ is a representative of an element of $H^{a-1}(M;\mathbb{Z})$. \[((\gamma-\eta)\cup\beta)A=([\gamma-\eta]\cup[\beta])[M]\] so \[m((\gamma-\eta)\cup\beta)A=([\gamma-\eta]\cup[m\beta])[M]=0.\] Thus $m(\gamma\cup\beta)A=m(\eta\cup\beta)A$ so $(\gamma\cup\beta)A=(\eta\cup\beta)A$, implying independence of $\gamma$.
 
 \noindent Now let $[\alpha]=[\alpha']\in H^a(M;\mathbb{Z})$. Then $\alpha'=\alpha+de$ for some $e\in C^{a-1}(M,\mathbb{Z})$, so \[k\alpha'=d\gamma+dke=d(\gamma+ke).\] \[\frac{1}{k}((\gamma+ke)\cup\beta)A=\frac{1}{k}(\gamma\cup\beta)A+\frac{1}{k}k(e\cup\beta)A=\frac{1}{k}(\gamma\cup\beta)A \in \mathbb{Q}/\mathbb{Z}\] implying independence of $\alpha$.
 
-\noindent Finally, let $[\beta]=[\beta']\in H^{n-a+1}(M;\mathbb{Z})$. Then $\beta'=\beta+df$ for some $f\in C^{n-a}(M,\mathbb{Z})$. \[d(\gamma\cup f)=k(\alpha\cup f)+(-1)^{a-1}(\gamma\cup df)\] so \[\frac{1}{k}(\gamma\cup df)A=\frac{(-1)^{1-a}}{k}d(\gamma\cup f)A=\frac{(-1)^{1-a}}{k}([0],[A])=0.\] Thus \[\frac{1}{k}(\gamma\cup\beta')A=\frac{1}{k}(\gamma\cup(\beta+df))A=\frac{1}{k}(\gamma\cup\beta)A+\frac{1}{k}(\gamma\cup df)A=\frac{1}{k}(\gamma\cup\beta)A,\] implying independence of $\beta$. Thus the pairing is well-defined.
+\noindent Finally, let $[\beta]=[\beta']\in H^{n-a+1}(M;\mathbb{Z})$. Then $\beta'=\beta+df$ for some $f\in C^{n-a}(M,\mathbb{Z})$. \[d(\gamma\cup f)=k(\alpha\cup f)+(-1)^{a-1}(\gamma\cup df)\] so \[\frac{1}{k}(\gamma\cup df)A=\frac{(-1)^{1-a}}{k}d(\gamma\cup f)A=\frac{(-1)^{1-a}}{k}([0],[M])=0.\] Thus \[\frac{1}{k}(\gamma\cup\beta')A=\frac{1}{k}(\gamma\cup(\beta+df))A=\frac{1}{k}(\gamma\cup\beta)A+\frac{1}{k}(\gamma\cup df)A=\frac{1}{k}(\gamma\cup\beta)A,\] implying independence of $\beta$. Thus the pairing is well-defined.
 \end{proof}
 
 \begin{lemma}
 $[\beta]\vee[\alpha]=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]$.
 \end{lemma}
 \begin{proof}
-let $m\beta=d\tau$ for some $\tau\in C^{n-a}(M,\mathbb{Z})$. If we consider $\tau$ and $\alpha$ to be representatives of equivalence classes of $H^*(M,\mathbb{Z}_m)$, we have graded commutativity when evaluating fundamental classes over $m$ in $\mathbb{Q}/\mathbb{Z}$. Thus 
+let $m\beta=d\tau$ for some $\tau\in C^{n-a}(M,\mathbb{Z})$. If we consider $\tau$ and $\alpha$ to be representatives of elements of $H^*(M,\mathbb{Z}_m)$, we have graded commutativity. Thus 
 \begin{align*}
-[\beta]\vee[\alpha]&=\frac{1}{m}(\tau\cup\alpha)A\\&=(-1)^{a(n-a)}\frac{1}{m}(\alpha\cup\tau)A\\&=\frac{(-1)^{a(n-a)}}{km}(k\alpha\cup\tau)A\\&=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)A.\end{align*} \[d(\gamma\cup\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup d\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup m\beta)\] so \begin{align*}[\beta]\vee[\alpha]=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)A&=\frac{(-1)^{a(n-a)}}{km}(d(\gamma\cup\tau)A-(-1)^{a-1}(\gamma\cup m\beta)A)\\&=\frac{(-1)^{a(n-a)}}{km}(-1)^a(\gamma\cup m\beta)A\\&=\frac{(-1)^{a(n-a+1)}}{k}(\gamma\cup\beta)A\\&=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]\qedhere\end{align*}
+[\beta]\vee[\alpha]&=\frac{1}{m}(\tau\cup\alpha)A\\
+&=\frac{1}{m}([\tau]\cup[\alpha],[M])\\&=(-1)^{a(n-a)}\frac{1}{m}([\alpha]\cup[\tau],[M])\\&=(-1)^{a(n-a)}\frac{1}{m}(\alpha\cup\tau)A\\&=\frac{(-1)^{a(n-a)}}{km}(k\alpha\cup\tau)A\\&=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)A\in\mathbb{Q}/\mathbb{Z}.\end{align*} \[d(\gamma\cup\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup d\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup m\beta)\] so \begin{align*}[\beta]\vee[\alpha]=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)A&=\frac{(-1)^{a(n-a)}}{km}(d(\gamma\cup\tau)A-(-1)^{a-1}(\gamma\cup m\beta)A)\\&=\frac{(-1)^{a(n-a)}}{km}(-1)^a(\gamma\cup m\beta)A\\&=\frac{(-1)^{a(n-a+1)}}{k}(\gamma\cup\beta)A\\&=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]\qedhere\end{align*}
 \end{proof}
 
 \begin{lemma}
