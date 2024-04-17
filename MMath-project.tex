@@ -218,7 +218,7 @@ Now let $f\colon Y\to Z$ and $g\colon X\to X$ be continuous maps. Given $[c]=[\s
 If $f,g\colon X\to Y$ are homotopic continuous maps between topological spaces then $f_*=g_*\colon H_k(X)\to H_k(Y)$
 \end{lemma}
 \begin{proof}
-Let $F\colon X\times I\to Y$ be a homotopy from $f$ to $g$. Given a singular n--simplex $\sigma\colon\Delta^n\to X$ we can define $\sigma\times\text{id}\colon\Delta^n\times I\to X\times I$ and $F_\#(\sigma\times\text{id})\colon\Delta^n\times I\to Y$. We now decompose $\Delta^n\times I$ as the union of $n+1$-simplices. To do this write $\Delta^n\times I$ as the complex hull of $a_0,...,a_n,b_0,...,b_n$ where $a_i=(e_i,0)$ and $b_i=(e_i,1)$. Then $\Delta^n\times I$ is the union of the $n+1$-simplices $\alpha_i=[a_0,...,a_i,b_i,...,b_n]$. Now define the "prism map" $P\colon C_n(X)\to C_{n+1}(Y)$ by $P(\sigma)=\sum_i(-1)^iF\circ(\sigma\times\text{id})|_{\alpha_i}$. 
+\cite{Hatcher}Let $F\colon X\times I\to Y$ be a homotopy from $f$ to $g$. Given a singular n--simplex $\sigma\colon\Delta^n\to X$ we can define $\sigma\times\text{id}\colon\Delta^n\times I\to X\times I$ and $F_\#(\sigma\times\text{id})\colon\Delta^n\times I\to Y$. We now decompose $\Delta^n\times I$ as the union of $n+1$-simplices. To do this write $\Delta^n\times I$ as the complex hull of $a_0,...,a_n,b_0,...,b_n$ where $a_i=(e_i,0)$ and $b_i=(e_i,1)$. Then $\Delta^n\times I$ is the union of the $n+1$-simplices $\alpha_i=[a_0,...,a_i,b_i,...,b_n]$. Now define the "prism map" $P\colon C_n(X)\to C_{n+1}(Y)$ by $P(\sigma)=\sum_i(-1)^iF\circ(\sigma\times\text{id})|_{\alpha_i}$. 
 \begin{align*}
 \partial P(\sigma)&=\sum_i(-1)^i[\sum_{j\leq i}(-1)^jF\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_j},...,a_i,b_i,...,b_n]}\\&+\sum_{j> i}(-1)^{(j+1)}F\circ(\sigma\times\text{id})|_{[a_0,...,a_i,b_i,...,\overset{\wedge}{b_j},...,b_n]}].
 \end{align*}
@@ -554,7 +554,7 @@ For distributivity:
 Let $R$ be a commutative ring, $\psi\in H^k(X;R)$ and $\phi\in H^l(X;R)$. Then \[\psi\cup\phi=(-1)^{kl}\phi\cup\psi.\] Thus $H^*(X;R)$ is graded-commutative.
 \end{proposition}
 \begin{proof}
-See Hatcher.
+See Hatcher page $210$\cite{Hatcher}.
 \end{proof}
 
 \begin{proposition}
@@ -566,7 +566,7 @@ As before, it suffices to check this for cochains. Let $\sigma\colon\Delta^{p+q}
 \end{align*}
 \end{proof}
 
-\noindent This makes $f^*$ a ring homomorphism and also shows the functoriality of the cup product needed for the torsion linking form to be a homotopy-invariant.
+\noindent This makes $f^*$ a ring homomorphism.
 
 
 \subsection{Cap product}
@@ -582,7 +582,7 @@ $\partial(\sigma\cap\phi)=(-1)^i(\partial\sigma\cap\phi-\sigma\cap d\phi)$.
 We have
 \[\partial\sigma\cap\phi=\sum_{t=0}^i(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}+\sum_{t=i+1}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]},\]
 \[\sigma\cap d\phi=\sum_{t=0}^{i+1}(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]},\]
-\[\partial(\sigma\cap\phi)=\sum_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}.\] Thus \begin{align*}\text{RHS}&=(-1)^i((-1)^{i+1+1}\phi(\sigma\circ F_{[e_0,...,e_i]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}+\sum_{t=i+1}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]})\\&=(-1)^i(\sum_{t=i}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]})\\&=\sum_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}=\partial(\sigma\cap\phi).\qedhere\end{align*}
+\[\partial(\sigma\cap\phi)=\sum_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}.\] Thus \begin{align*}\text{RHS}&=(-1)^i((-1)^{i+1+1}\phi(\sigma\circ F_{[e_0,...,e_i]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}+\sum_{t=i+1}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]})\\&=(-1)^i(\sum_{t=i}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]})\\&=\sum_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}=\partial(\sigma\cap\phi).\end{align*}\qedhere
 \end{proof}
 
 \begin{proposition}
@@ -596,7 +596,7 @@ The cap product of a cycle and a cocycle is a cycle. $\partial\sigma=0\implies\p
 Let $f\colon X\to Y$ be continuous, $c\in C_{i+j}(X;R)$ and $\phi\in C^i(X;R)$. Then \[f_*(c)\cap\phi=f_*(c\cap f^*(\phi)).\]
 \end{proposition}
 \begin{proof}
-Let $\sigma\colon\Delta^{i+j}\to X$ be a singular simplex. Then $f\sigma\cap\phi=\phi(f\sigma\circ F_{[e_0,...,e_j]})f\sigma\circ F_{[e_j,...,e_{i+j}]}$.
+Let $\sigma\colon\Delta^{i+j}\to X$ be a singular simplex. Then $f\circ\sigma\cap\phi=\phi(f\circ\sigma\circ F_{[e_0,...,e_j]})f\circ\sigma\circ F_{[e_j,...,e_{i+j}]}$.
 The result follows by linearity.
 \end{proof}
 
@@ -621,7 +621,7 @@ This is the final connection between homology and cohomology which we shall stud
 Let $G$ be an abelian group. The \textbf{torsion subgroup} $T(G)$ is the subgroup consisting of all elements of $G$ with finite order. For a prime number p, the \textbf{p-torsion} subgroup $T_p(G)$ is the subgroup consisting of all elements with order a power of p. The \textbf{free part} of $G$, denoted $F(G)$, is the subgroup comprising all elements of infinite order, as well as the identity.
 \end{definition}
 
-\noindent We then have that $G=T(G)\bigoplus F(G)$ for any abelian group $G$.
+\noindent We then have that $G\cong T(G)\oplus F(G)$ for any abelian group $G$.
 
 \begin{proposition}
 If $G$ is a free abelian group or $G\cong\mathbb{Q}$, then $H_k(X)\otimes_\mathbb{Z}G\cong H_k(X;G)$.\\
@@ -632,8 +632,6 @@ If $G=\mathbb{Z}_p$, then \[\frac{H_k(X;\mathbb{Z}_p)}{H_k(X)\otimes_\mathbb{Z}\
 Let $R$ be a commutative ring and let $A$ be an $R$-module.There is a natural inclusion $H_*(X;R)\otimes_RA\xhookrightarrow{}H_*(X;A)$\\
 which is an isomorphism if $A$ is free.
 \end{proposition}
-
-In particular, $H_*(X;\mathbb{R})\cong H_*(X;\mathbb{Q})\otimes_\mathbb{Q}\mathbb{R}\cong H_*(X)\otimes_\mathbb{Z}\mathbb{R}$. If $H_k(X)$ is finitely generated, then \[\text{rk }H_k(X)=\text{dim }H_k(X;\mathbb{R}).\]
 
 \noindent Let $G$ be an abelian group. Recall the natural pairing $H^k(X;G)\times H_k(X)\to G$ given by \[([\psi],[c])\mapsto\psi(c).\]
 
@@ -661,16 +659,11 @@ $K=T(H^k(X;\mathbb{Z}))$.
 If $H_*(X)$ is finitely generated, then the free part of $H^k(X;\mathbb{Z})$ is naturally dual to the free part of $H_k(X;\mathbb{Z})$ and the torsion part of $H^k(X;\mathbb{Z})$ is naturally dual to the torsion part of $H_{k-1}(X)$.
 \end{corollary}
 
-\begin{proposition}
-If $A$ is an $R$-module, then the natural homomorphism\[H^k(X;A)\to\text{Hom}_R(H_k(X;R),A)\]is surjective. If $R$ is a field, then it is an isomorphism.\\
-So for a field $\mathbb{F}$, we have $H_k(X;\mathbb{F})\cong H_k(X;\mathbb{F})^*$.
-\end{proposition}
-
 \section{Topology of manifolds}
 
 \subsection{Orientation of manifolds}
 \begin{definition}
-A topological space $M$ is an \textbf{n-dimensional manifold} if it is Hausdorff and for every $p\in M$ there is an open neighbourhood $U\subseteq M$ containing $p$ and a homeomorphism $f\colon U\to \mathbb{R}^n$.
+A topological space $M$ is an \textbf{n-dimensional manifold} if it is Hausdorff and for every $p\in M$ there is an open neighbourhood $U\subseteq M$ containing $p$ and a homeomorphism $f\colon U\to V$ where $V\subseteq\mathbb{R}^n$ is open.
 \end{definition}
 \begin{lemma}
 Let $M$ be an $n$--manifold, let $x\in M$ and let $U$ be a neighbourhood of $x$ homeomorphic to $\mathbb{R}^n$. Then \[H_n(M,M-x)\cong\mathbb{Z}.\]
@@ -831,16 +824,25 @@ If a group $G$ acts on a topological space $X$ such that the mapping $\rho_g:X\t
 If $X$ is a compact Hausdorff $G$--space and $G$ is finite, then $X/G$ is compact Hausdorff.
 \end{lemma}
 \begin{proof}
+\cite{Lens}
 Let $p:X\to X/G\colon x\mapsto[x]$ be the quotient map. $X/G$ is compact as the continuous image of a compact space. Now let $[x_1],[x_2]\in X/G$ with $[x_1]\neq [x_2]$. Then $g_1\cdot x_1\neq g_2\cdot x_2\forall g_1,g_2\in G$. Thus $p^{-1}([x_1])=G\cdot x_1$ and $p^{-1}([x_2])=G\cdot x_2$ are disjoint. These sets are finite since $G$ is finite. Thus, since $X$ is Hausdorff, we can construct disjoint open sets $U_1,U_2\in X$ such that $p^{-1}([x_1])\subseteq U_1$ and $p^{-1}([x_2])\subseteq U_2$. \[p^{-1}(p(X\backslash U_i))=\bigcup_{g\in G}g\cdot(X\backslash U_i)=\bigcup_{g\in G}\rho_g(X\backslash U_i)\] so $p^{-1}(p(X\backslash U_i))$ is the union of finitely many closed sets so is closed in $X$. Thus, by the definition of the quotient topology, $p(X\backslash U_i)$ is closed in $X/G$ and $w_i=(X/G)\backslash p(X\backslash u_i)$ is open in $X/G$. We have \[p^{-1}([x_i])\subseteq u_i\implies [x_i]\notin p(X\backslash U_i)\implies[x_i]\in w_i.\] Also, \begin{align*}w_1\cap w_2&=((X/G)\backslash p(X\backslash U_1))\cap((X/G)\backslash p(X\backslash u_2))\\&=(X/G)\backslash(p(X\backslash U_1)\cup p(X\backslash U_2))\\&=(X/G)\backslash p((X\backslash U_1)\cup (X\backslash U_2))\\&=(X/G)\backslash p(X\backslash(U_1\cap U_2))\\&=(X/G)\backslash p(X)=\emptyset.\end{align*} Thus $X/G$ is Hausdorff.
 \end{proof}
 
+\begin{lemma}
+An open subset of an $n$--manifold is an $n$--manifold.
+\end{lemma}
+\begin{proof}
+
+\end{proof}
+
 \begin{proposition}
-If $G$ is a finite group acting freely on a $G$--space $X$ and $X$ is a compact $n$--manifold, then $X/G$ is a compact $n$--manifold.
+If $G$ is a finite group acting by a covering space action on $X$ and $X$ is a compact $n$--manifold, then $X/G$ is a compact $n$--manifold.
 \end{proposition}
 \begin{proof}
-$X/G$ is compact Hausdorff by the above lemma. It remains to show that $X/G$ is locally homeomorphic to $\mathbb{R}^n$. Let $G=\{1=g_0,g_1,...,g_m\}$. Given $[x]\in X/G$ there is an $x\in X$ with $p(x)=[x]$. Since $G$ acts freely, we have $g_m\cdot x=x\implies m=0$. Thus, since $X$ is Hausdorff, there exist open neighbourhoods $U_0,...,U_m$ of $g_0\cdot x,...,g_m\cdot x$ respectively such that $U_0\cap U_i=\emptyset$ for $1\leq i\leq m$. Then define \[U=\bigcap_{i=0}^mg_i^{-1}\cdot U_i=\bigcap_{i=0}^m\rho_{g_i}^{-1}(U_i).\] $\rho_{g_i}$ is continuous so $U$ is an open neighbourhood of $x$. Since $X$ is an $n$--manifold, there exists an open neighbourhood $W_x\subseteq X$ of $x$ with $W_x\cong\mathbb{R}^n$, the homeomorphism given by some $h:W_x\to \mathbb{R}^n$.\\ $W_x\cap U$ is open in $W_x$ so $h(W_x\cap U)$ is open in $\mathbb{R}^n$. Since $h(x)\in h(W_x\cap U),\exists\epsilon>0$ with $B_\epsilon(h(x))\subseteq h(W_x\cap U)$. Then $V_x:=h^{-1}(B_\epsilon (h(x)))\cong B_\epsilon(h(x))\cong\mathbb{R}^n$ is an open neighbourhood of $x$ in $U$. We will now show that $p_{|V_x}:V_x\to p(V_x)$ is a homeomorphism. $p_{|V_x}$ is injective: \[p_{|V_x}(x_1)=p_{|V_x}(x_2)\implies[x_1]=[x_2]\implies x_1=g_k\cdot x_2\text{ for some }g_k\in G.\] Then \[x_1,x_2\in V_x\implies x_1,x_2\in u\implies x_1\in g_0^{-1}\cdot U_0=U_0\] and \[x_2\in g_k^{-1}\cdot U_k\implies x_1=g_k\cdot x_2\in U_0\cap U_k\implies U_0\cap U_k\neq \emptyset\implies k=0\implies g_k=1\implies x_1=x_2.\]
-$p_{|V_x}$ is surjective by definition. Since $p:X\to X/G$ is open and continuous, the restriction of $p$ to an open set will also be open and continuous. Thus $p_{|V_x}$ is a homeomorphism so $p(V_x)\cong V_x\cong\mathbb{R}^n$. $p(V_x)$ is an open neighbourhood of $[x]$ in $X/G$ so $X/G$ is an $n$--manifold.
+$X/G$ is compact Hausdorff by the above lemma. It remains to show that $X/G$ is locally homeomorphic to $\mathbb{R}^n$. The quotient map $p:X\to X/G$ is a covering space action so is a local homeomorphism. Thus given $[x]\in X/G$ there is an open neighbourhood $S\subseteq X$ of $x$ such that $p(S)$ is an open neighbourhood of $[x]$ and $p_{|S}:S\to p(S)$ is a homeomorphism. $S$ is also an $n$--manifold by the above lemma so there exists an open neighbhourhood $U\subseteq S$ of $x$ and a homeomorphism $f:V\to U$ where $V\subseteq\mathbb{R}^n$ is open. $p_{|U}:U\to p(U)$ is also a homeomorphism between open sets, since restrictions of homeomorphisms are homeomorphisms and homeomorphisms map open sets to open sets, so $p_{|U}\circ f:V\to p(U)$ is a homeomorphism.
 \end{proof}
+
+
 \begin{corollary}
 $L(p;q)$ is a compact $3$--manifold.
 \end{corollary}
@@ -862,7 +864,7 @@ This is a block matrix so the determinant is the product of the determinants of 
 \end{proof}
 \noindent Now that we have shown that $L(p;q)$ is a closed orientable $3$--manifold, we are able to compute all the homology and cohomology groups of $L(p;q)$ just from the first homology group:\\
 
-\noindent $H^2(L(p;q);\mathbb{Z})\cong\mathbb{Z}_p$ by Poincare duality. $H_3((L(p;q))\cong\mathbb{Z}\cong H^0(L(p;q);\mathbb{Z})$ since $L(p;q)$ is an orientable 3-manifold. $H_0(L(p;q))\cong\mathbb{Z}\cong H^3(L(p;q);\mathbb{Z})$ since $L(p;q)$ is path-connected. $T(H_2(L(p;q)))\cong T(H^3(L(p;q));\mathbb{Z})=0$ and $F(H_2(L(p;q)))\cong F(H^2(L(p;q);\mathbb{Z}))=0$ by the universal coefficient theorem so $H_2(L(p;q))=0=H^1(L(p;q);\mathbb{Z})$. $H_i(L(p;q))=H^i(L(p;q);\mathbb{Z})=0\forall i>3$ since $L(p;q)$ is a 3-manifold.\\
+\noindent \[H^2(L(p;q);\mathbb{Z})\cong\mathbb{Z}_p\] by Poincare duality. \[H_3((L(p;q))\cong\mathbb{Z}\cong H^0(L(p;q);\mathbb{Z})\] since $L(p;q)$ is an orientable 3-manifold. \[H_0(L(p;q))\cong\mathbb{Z}\cong H^3(L(p;q);\mathbb{Z})\] since $L(p;q)$ is path-connected. \[T(H_2(L(p;q)))\cong T(H^3(L(p;q));\mathbb{Z})=0\] and \[F(H_2(L(p;q)))\cong F(H^2(L(p;q);\mathbb{Z}))=0\] by the universal coefficient theorem so \[H_2(L(p;q))=0=H^1(L(p;q);\mathbb{Z}).\] \[H_i(L(p;q))=H^i(L(p;q);\mathbb{Z})=0\forall i>3\] since $L(p;q)$ is a 3-manifold.\\
 
 \noindent The homology and cohomology groups depend only on $p$ and are insufficient for a homotopy-equivalence classification.\\
 
@@ -1055,13 +1057,13 @@ Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$
 
 \subsection{Reidemeister torsion}
 
-\begin{definition}
-Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with real coefficients and with no homology and bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix from $b_i\cup\overset{\sim}{b}_{i-1}$ to $c_i$. We then define The \textbf{Reidemeister torsion} \[\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}.\]
+\begin{definition}\cite{torsion}
+Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with coefficients in a commutative ring and with no homology and bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix from $b_i\cup\overset{\sim}{b}_{i-1}$ to $c_i$. We then define The \textbf{Reidemeister torsion} \[\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}.\]
 \end{definition}
 
-\begin{remark}
+\begin{theorem}
 The Reidemeister torsion is independent of choice of auxiliary bases but not of choice of $c_i$.
-\end{remark}
+\end{theorem}
 
 \noindent Let \[X=\bigcup_{k=0}^n\bigcup_je_j^k\] be a finite cell complex and $(A,\beta)$ a representation of $\pi_1(X)$ in a ring $A$. Let $\overset{\sim}{X}$ be a universal cover. And $\overset{\sim}{e}_j^k$ be a lift of $e_j^k$. Then every other lift of $e_j^k$ is obtained by composition of $\overset{\sim}{e}_j^k$ with a deck transformation (since given $f'$ and $g'$ lifts of $f$ there exists a $\phi\in\text{Aut}(p)$ such that $\phi\circ f'(0)=g'(0)$ which implies $\phi\circ f=g$ by uniqueness). $\text{Aut}(p)=\pi_1(X)$ so we can write \[\overset{\sim}{X}=\bigcup_{k=0}^n\bigcup_{g\in\pi_1(X)}\bigcup_jg\overset{\sim}{e}_j^k.\] Thus multiplication by an element of $\pi_1(x)$ permutes the cells, thereby giving $CC_.(\overset{\sim}{X})$ a $\pi_1(X)$-action. $A$ also has a $\pi_1(X)$ action so we can define $C_k(X;\beta)=CC_k(\overset{\sim}{X})\otimes_{\mathbb{Z}\pi_1(X)} A$, where $\mathbb{Z}\pi_1(X)$ is the free group generated by $\pi_1(X)$. We have an induced boundary map $\partial\colon C_k(X;\beta)\to C_{k-1}(X;\beta)$ which makes $C_k(X;\beta)$ a chain complex with basis $\{\overset{\sim}{e}_j^k\}\otimes\text{id}_A$.
 
@@ -1073,15 +1075,16 @@ The ambiguity which required modding out by $\{\pm\beta(\pi_1(X))\}$ to solve ar
 \end{remark}
 
 \begin{theorem}
-Let $X$ and $Y$ be topological spaces, let $f:X\to Y$ be a homeomorphism and let $(A,\beta)$ be a representation of $\pi_1(Y)$. Then $\Delta(X;\beta\circ f_*)=\Delta(Y;\beta)$
+Let $X$ and $Y$ be cell complexes, let $f:X\to Y$ be a homeomorphism and let $(A,\beta)$ be a representation of $\pi_1(Y)$. Then $\Delta(X;\beta\circ f_*)=\Delta(Y;\beta)$
 \end{theorem}
 
-\noindent Thus the reidemeister torsion is invariant under homeomorphism. However, it is not invariant under homotopy-equivalence. We shall now compute the Reidemeister torsion of a lens space.\\
+\noindent Thus the Reidemeister torsion is invariant under homeomorphism. However, it is not invariant under homotopy-equivalence. We shall now compute the Reidemeister torsion of a lens space.\\
 
 \subsection{Homeomorphism classification}
 
 \noindent We shall now realise lens spaces as cell complexes, in preparation for computing the Reidemeister torsion to give a stronger homeomorphism invariant than the fundamental group.\\
 
+\cite{lecture}
 \noindent We have
 \[L(p;q)=\{(r_1e^{2\pi i\theta_1},r_2e^{2\pi i\theta_2}):r_1^2+r_2^2=1\}/(\theta_1,\theta_2)\sim(\theta_1+\frac{1}{p},\theta_2+\frac{q}{p}).\]
 
@@ -1111,10 +1114,10 @@ In $C_.(X;\beta_\omega)\otimes_{\mathbb{Z}\pi_1(X)}\mathbb{C}^*$ we have:\\
 \[\partial(\overset{\sim}{e}_0^2\otimes\text{id})=(1+\omega+\omega^2+...+\omega^{p-1})(\overset{\sim}{e}_0^1\otimes\text{id}),\]
 \[\partial(\overset{\sim}{e}_0^1\otimes\text{id})=(\omega^l-1)(\overset{\sim}{e}_0^0\otimes\text{id}),\] giving a complex:
 \[0\to\mathbb{C}^*\overset{\omega-1}{\to}\mathbb{C}^*\overset{0}{\to}\mathbb{C}^*\overset{\omega^l-1}{\to}\mathbb{C}^*\to0\text{ whenever }\omega\neq 1.\]
-The non-zero maps are isomorphisms and so the complex has no homology. Hence for $\omega\neq 1$ we have \[\Delta(L(p;q);\beta_\omega)=(\omega^l-1)(\omega-1)\in\mathbb{C}^*/\pm\omega^k\text{ for }k\in\mathbb{Z}.\]
-\[(\omega^l-1)(\omega-1)=\omega^l(1-\omega^{-l})(\omega-1)=(\omega^{-l}-1)(\omega-1)=\omega(\omega^{-l}-1)(1-\omega^{-1})=(\omega^{-l}-1)(\omega^{-1}-1)\] so \[\Delta(L(p;q);\beta_\omega)=\Delta(L(p;-q);\beta_\omega).\]
-It can also be shown that \[\Delta(L(p;q);\beta_\omega)=\Delta(L(p;q^{-1});\beta_\omega).\]
-Thus two lens spaces $L(p;q_1)$ and $L(p;q_2)$ can only be homeomorphic if $q_1\equiv \pm q_2^{\pm 1}\text{mod }p$.\\
+The non-zero maps are isomorphisms and so the complex has no homology. Hence for $\omega\neq 1$ we have \[\Delta(L(p;q);\beta_\omega)=(\omega^l-1)(\omega-1)\in\mathbb{C}^*/\{\pm\omega^k:k\in\mathbb{Z}\}.\]
+\[(\omega^l-1)(\omega-1)=\omega^l(1-\omega^{-l})(\omega-1)=(\omega^{-l}-1)(\omega-1)=\omega(\omega^{-l}-1)(1-\omega^{-1})=(\omega^{-l}-1)(\omega^{-1}-1)\] so \[\Delta(L(p;q);\beta_\omega)=\Delta(L(p;-q);\beta_{\omega^{-1}}).\]
+It can also be shown that \[\Delta(L(p;q);\beta_\omega)=\Delta(L(p;q^{-1});\beta_{\omega^l}).\]
+Thus a necessary condition for two lens spaces $L(p;q_1)$ and $L(p;q_2)$ to be homeomorphic is that $q_1\equiv \pm q_2^{\pm 1}\text{mod }p$.\\
 
 \noindent To give the complete homeomorphism classification, we require the following lemma.
 
