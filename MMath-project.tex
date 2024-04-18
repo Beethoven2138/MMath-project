@@ -13,7 +13,7 @@
 \usepackage{cite}
 
 \title{The topology of lens spaces}
-\author{Saxon Supple\\Supervisor: Johannes Nordstrom}
+\author{Saxon Supple\\Supervisor: Johannes Nordstr\"{o}m}
 \date{April 2024}
 \AddToHook{cmd/section/before}{\clearpage}
 
@@ -35,19 +35,34 @@
 \end{abstract}
 \renewcommand{\abstractname}{Acknowledgements}
 \begin{abstract}
-\noindent I would like to thank Johannes Nordstrom for the considerable help and support he provided me throughout this project, and for being an excellent lecturer in last semester's algebraic topology module.
+\noindent I would like to thank Johannes Nordstr\"{o}m for the considerable help and support he provided throughout this project, and for being an excellent lecturer in last semester's algebraic topology module.
 \end{abstract}
 
 \tableofcontents
 
 \section{Introduction}
-Algebraic topology seeks to classify topological spaces up to homeomorphism and homotopy equivalence by associating algebraic structures to topological spaces which are isomorphic when the spaces are homeomorphic or homotopy-equivalent. The simplest example would be the number of conneted-components -- a homeomorphism invariant. The most common homotopy-invariants are the fundamental group, the homology groups and the cohomology groups. This project will first study singular homology, which is the simplest and most general homology theory to study, but has the disadvantage of being difficult to perform action computations on, due to being defined in terms of a potentially uncountably infinite number of continuous maps. The singular homology groups are defined by forming abelian groups, known as chains, from continuous maps of a certain dimension into the topological space which have no boundary, and quotienting by the boundaries of the maps of a dimension one higher; this makes sense because the boundary of a boundary is $0$, as will be proven. We will then see a connection between the fundamental group and the first homotopy group through the Hurewicz theorem, which roughly says that the first homology group is the abelian version of the fundamental group.\\
+Algebraic topology seeks to distinguish topological spaces up to homeomorphism and homotopy equivalence by associating algebraic structures to topological spaces which are isomorphic when the spaces are homeomorphic or homotopy-equivalent. Most invariants are homotopy invariants, with homeomorphic being a stronger condition than homotopy-equivalent. The simplest example would be the number of conneted-components -- a homotopy invariant. The most commonly used homotopy invariants are the fundamental group, the homology groups and the cohomology groups. This project will first study singular homology, which is the simplest and most general homology theory to study, but has the disadvantage of being difficult to perform actual computations on, due to being defined in terms of a potentially uncountably infinite number of continuous maps. The singular homology groups are defined by forming abelian groups, known as chain groups, from continuous maps of a certain dimension into the topological space which have no boundary, and quotienting by the boundaries of the maps of a dimension one higher; this makes sense because the boundary of a boundary is $0$, as will be proven. We will then see a connection between the fundamental group and the first homotopy group through the Hurewicz theorem, which roughly says that the first homology group is the abelian version of the fundamental group.\\
 
-\noindent We will then study the cohomology groups, which are dual to the homology groups. They have the advantage of admitting a ring structure through the cup product, and so have additional structure, giving a finer invariant. We will also see the universal coefficient theorem and Poincare duality, which are results which connect the homology and cohomology groups. Poincare duality however only holds for closed oriented manifolds, however, and is given by an isomorphism involving the cap product and a fundamental class; hence these concepts will also be discussed in detail. Orientation roughly means a consistent choice of coordinate system at each point and can be defined in several ways. Here we shall study the homological definition, which involves a continuous choice of generator of the local homology group at each point on a manifold; local homology is a special case of relative homology: a homology given by "modding out" by a subspace of a topological space. It turns out that closed manifolds, that is manifolds without boundary, admit a simpler definition of orientability: an n--dimensional manifold is orientable if and only if it's n'th homology group is isomorphic to $\mathbb{Z}$. A generator of this group is termed a fundamental class, and represents an orientation of a manifold. Poincare duality then related the $k$'th homology group and $n-k$'th cohomology of an $n$--manifold through an explicit isomorphism given in terms of a fundamentl class.\\
+\noindent We will then study the cohomology groups, which are dual to the homology groups. They have the advantage of admitting a ring structure through the cup product, and so have additional structure, giving a finer invariant. We will also see the universal coefficient theorem and Poincar\'e duality, which are results which connect the homology and cohomology groups. Poincar\'e duality however only holds for closed oriented manifolds, however, and is given by an isomorphism involving the cap product and a fundamental class; hence these concepts will also be discussed in detail. Orientation on manifolds is a generalized notion of consistent choice of unit normal for surfaces in $\mathbb{R}^3$ and can be defined in several ways. Here we shall study the homological definition, which involves a continuous choice of generator of the local homology group at each point on a manifold; local homology is a special case of relative homology: a homology given by "modding out" by a subspace of a topological space. It turns out that closed manifolds, that is manifolds without boundary, admit a simpler definition of orientability: an n--dimensional manifold is orientable if and only if it's n'th homology group is isomorphic to $\mathbb{Z}$. A generator of this group is termed a fundamental class, and represents an orientation of a manifold. Poincar\'e duality then relates the $k$'th homology group and $(n-k)$'th cohomology of an $n$--manifold through an explicit isomorphism given in terms of a fundamental class.\\
 
-\noindent We will then use these objects to attempt to extract topological information about lens spaces, which are quotient spaces of the $3$--sphere by $\mathbb{Z}_p$, where the quotient space is given by the relation that two points are equivalent if they are in the same orbit of the group action. To state it explicitly, if $S^3$ is given by $S^3=\{(u,v)\in\mathbb{C}^2:|u|^2+|v|^2=1\}$ and $q$ is coprime to $p$, then the lens space $L(p;q)$ is the quotient space given by the action generated by $(v,w)\mapsto(e^{2\pi i/p}v,e^{2\pi iq/p}w)$.\\
+\noindent We will then use these objects to attempt to extract topological information about lens spaces, which are quotient spaces of the $3$--sphere by $\mathbb{Z}_p$, where the quotient space is given by the relation that two points are equivalent if they are in the same orbit of the group action. To state it explicitly, if $S^3$ is given by \[S^3:=\{(u,v)\in\mathbb{C}^2:|u|^2+|v|^2=1\}\] and $q$ is coprime to $p$, then the lens space $L(p;q)$ is the quotient space given by the action generated by \[(v,w)\mapsto(e^{2\pi i/p}v,e^{2\pi iq/p}w).\]
 
-\noindent We will see, however, that the fundamental group, homology and cohomology groups only depend on $p$, which turns out to be insufficient. We will thus introduce two new, invariants: the torsion linking form and Reidemeister torsion. The torsion linking form is a homotopy-invariant and is defined on the torsion part of the second cohomology group, where the torsion subgroup is the elements of finite order. However, the torsion linking form requires explicitly defined cochains -- homomorphisms from chains chains to an abelian group -- and as such requires a simpler set of chains than the uncountably infinitely many which singular homology gives. To this end we shall introduce Delta complexes, which are simple enough to allow for lens spaces to be constructed in terms of finitely many chains, yet still allow for cup products, and hence the torsion linking form, with which it is defined, to be computed. The homeomorphism classification then requires Reidemeister torsion, which is a homeomorphism invariant -- but is not a homotopy invariant -- of cell complexes, where a cell complex is a topological space built combinatorially by beginning with a set of points and iteratively attaching higher-dimensional balls along their boundaries. A Delta complex is a special case of a cell complex, with additional constraints which allow for cup products to be computed, albeit at the cost of added complexity in their construction. The Reidemeister torsion for cell complexes arose out of a more general form for exact sequences of modules with coefficients in a commutative ring; a module refers to a generalisation of a vector space, where the the field is replaced by a ring, and an exact sequence refers to a sequence of modules \[...\overset{f_n}{\to}C_n\overset{f_{n-1}}{\to} C_{n-1}\overset{f_{n-2}}{\to} C_{n-2}\overset{f_{n-3}}{\to}...\] where the image of $f_i$ is the kernel of $f_{i-1}$. The Reidemeister torsion is then formed as the products of the determinants of change of basis matrices, and so the computation of the Reidemeister torsion of a cell complex is the easiest when the modules are $1$--dimensional, since the change of basis matrices will be $1$ by $1$. Thankfully, it is possible to construct such a cell complex structure of a lens space if we forego the delta complex structure. The torsion linking form and Reidemeister torsion comprise the two necessary conditions needed for the homotopy and homeomorphism classification; and although the sufficiency of the condition obtained from the torsion linking form is beyond the scope of this project (it involves the higher homotopy groups and the Whitehead theorem\cite{Hatcher}, which says that a continuous map between cell complexes inducing isomorphisms on all homotopy groups is enough to make it a homotopy equivalence), is it relatively straightforward to construct the homeomorphisms which show the sufficiency of the condition given by the Reidemeister torsion. We will then obtain the following classification:\\
+\noindent 
+We will see the following result for the fundamental group, homology groups and cohomology groups of lens spaces:
+\[\pi_1(L(p;q))\cong\mathbb{Z}_p,\text{ }H_k(L(p;q),\mathbb{Z})\cong\begin{cases}
+       \mathbb{Z} &\quad\text{if }k=0 \\
+       \mathbb{Z}_p &\quad\text{if }k=1 \\
+       0 &\quad\text{if }k=2 \\
+       \mathbb{Z}&\quad\text{if }k=3\\
+       0&\quad\text{otherwise}\\
+     \end{cases},\text{ }H^k(L(p;q),\mathbb{Z})\cong\begin{cases}
+       \mathbb{Z} &\quad\text{if }k=0 \\
+       0 &\quad\text{if }k=1 \\
+       \mathbb{Z}_p &\quad\text{if }k=2 \\
+       \mathbb{Z}&\quad\text{if }k=3\\
+       0&\quad\text{otherwise}\end{cases}\]\\
+
+\noindent These groups only depend on $p$, which turns out to be insufficient. We will introduce two new invariants: the torsion linking form and Reidemeister torsion. The torsion linking form is a homotopy-invariant and is defined on the torsion part of the second cohomology group, where the torsion subgroup consists of all the elements of finite order. However, the torsion linking form requires explicitly defined cochains (homomorphisms from chains to an abelian group) and as such requires a simpler set of chains than the uncountably infinitely many which singular homology gives. To this end we shall introduce Delta complexes, which are simple enough to allow for lens spaces to be constructed in terms of finitely many chains, yet still allow for cup products, and hence the torsion linking form, with which it is defined, to be computed. The homeomorphism classification then requires Reidemeister torsion, which is a homeomorphism invariant -- but is not a homotopy invariant -- of cell complexes, where a cell complex is a topological space built combinatorially by beginning with a set of points and iteratively attaching higher-dimensional balls along their boundaries. A Delta complex is a special case of a cell complex, with additional constraints which allow for cup products to be computed, albeit at the cost of added complexity in their construction. The Reidemeister torsion for cell complexes arose out of a more general form for exact sequences of modules with coefficients in a commutative ring; a module refers to a generalisation of a vector space, where the the field is replaced by a ring, and an exact sequence refers to a sequence of modules \[...\overset{f_n}{\to}C_n\overset{f_{n-1}}{\to} C_{n-1}\overset{f_{n-2}}{\to} C_{n-2}\overset{f_{n-3}}{\to}...\] where the image of $f_i$ is the kernel of $f_{i-1}$. The Reidemeister torsion is then formed as the products of the determinants of change of basis matrices, and so the computation of the Reidemeister torsion of a cell complex is the easiest when the modules are $1$--dimensional, since the change of basis matrices will be $1$ by $1$. Thankfully, it is possible to construct such a cell complex structure of a lens space if we forego the delta complex structure. The torsion linking form and Reidemeister torsion comprise the two necessary conditions needed for the homotopy and homeomorphism classification; and although the sufficiency of the condition obtained from the torsion linking form is beyond the scope of this project (it involves the higher homotopy groups and the Whitehead theorem\cite{Hatcher}, which says that a continuous map between cell complexes inducing isomorphisms on all homotopy groups is enough to make it a homotopy equivalence), it is relatively straightforward to construct the homeomorphisms which show the sufficiency of the condition given by the Reidemeister torsion. We will then obtain the following classification:\\
 
 \noindent Let $L(p;q_1)$ and $L(p;q_2)$ be lens spaces.\\
 They are homotopy equivalent if and only if $q_1q_2\equiv\pm n^2 \text{ mod } p$ for some $n\in\mathbb{N}$.\\
@@ -137,7 +152,7 @@ Let $G$ be a group acting via a covering space action on a simply connected topo
 
 \noindent This is because the quotient map is a covering map, with the group of deck transformations being isomorphic to $G$.\\
 
-\noindent A concept from algebra also needs to be introduced:
+\noindent Some concepts from algebra also needs to be introduced:
 
 \begin{definition}
 An \textbf{exact sequence} is a sequence of morphisms between objects such that the image of one morphism is the kernel of the next morphism.
@@ -156,10 +171,10 @@ A \textbf{chain complex} is a sequence of abelian groups $...,A_0,A_1,A_2,A_3,..
 
 \subsection{Singular homology}
 \begin{definition}
-A \textbf{k-simplex} is the convex hull\[[v_0,...,v_k]:=\{\sum_{i=0}^k\lambda_iv_i:\lambda_i\in [0,1],\sum_{i=0}^k\lambda_i=1\}\]
+A \textbf{k-simplex} is the convex hull\[[v_0,...,v_k]:=\big\{\sum\limits_{i=0}^k\lambda_iv_i:\lambda_i\in [0,1],\sum\limits_{i=0}^k\lambda_i=1\big\}\]
 of $k+1$ linearly independent vectors $v_0,...,v_k\in\mathbb{R}^n$.\\
-The \textbf{standard k-simplex} is\[\Delta^k=[e_0,...,e_k]=\{(t_0,...,t_k)\in\mathbb{R}^k:t_i\geq 0, \sum_{i=0}^kt_i=1\}.\]
-The vectors $v_0,...,v_k$ define a \textbf{framing} \[F_{v_0,...,v_k}\colon\Delta^k\rightarrow [v_0,...,v_k],(t_i)\mapsto \sum_{i=0}^kt_iv_i.\]
+The \textbf{standard k-simplex} is\[\Delta^k=[e_0,...,e_k]=\big\{(t_0,...,t_k)\in\mathbb{R}^k:t_i\geq 0, \sum\limits_{i=0}^kt_i=1\big\}.\]
+The vectors $v_0,...,v_k$ define a \textbf{framing} \[F_{v_0,...,v_k}\colon\Delta^k\rightarrow [v_0,...,v_k],(t_i)\mapsto \sum\limits_{i=0}^kt_iv_i.\]
 \end{definition}
 
 
@@ -170,15 +185,15 @@ The \textbf{faces} of $[v_0,...,v_k]$ are the (k-1)-simplices $[v_0,...,\overset
 \end{definition}
 
 \begin{definition}
-Let $X$ be a topological space. A \textbf{singular k-simplex} in X is a continuous map $\sigma\colon\Delta^k\to X$. The \textbf{k-th chain group} of $X$ is the abelian group\[C_k(X):=\{\sum_{i=0}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in\mathbb{Z},\sigma_i \text{ is a k-simplex}\}\] where the elements are called \textbf{k-chains}.
+Let $X$ be a topological space. A \textbf{singular k-simplex} in X is a continuous map $\sigma\colon\Delta^k\to X$. The \textbf{k-th chain group} of $X$ is the abelian group\[C_k(X):=\{\sum\limits_{i=0}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in\mathbb{Z},\sigma_i \text{ is a k-simplex}\}\] where the elements are called \textbf{k-chains}.
 \end{definition}
 \begin{remark}
-$C_k(X)$ is an example of a \textbf{free abelian group}; that is, an abelian group whose elements are of the form $\sum_in_is_i$ where each $s_i$ belongs to some set $S$.
+$C_k(X)$ is an example of a \textbf{free abelian group}; that is, an abelian group whose elements are of the form $\sum\limits_in_is_i$ where each $s_i$ belongs to some set $S$.
 \end{remark}
 
 
 \begin{definition}
-The \textbf{boundary map} $\partial=\partial_k\colon C_k(X)\to C_{k-1}(X)$ is given by\[\partial\sigma=\sum_{i=0}^k(-1)^i\sigma\circ F_{e_0,...,\overset{\wedge}{e_i},...,e_k}\in C_{k-1}(X)\]
+The \textbf{boundary map} $\partial=\partial_k\colon C_k(X)\to C_{k-1}(X)$ is given by\[\partial\sigma=\sum\limits_{i=0}^k(-1)^i\sigma\circ F_{e_0,...,\overset{\wedge}{e_i},...,e_k}\in C_{k-1}(X)\]
 on single simplices and extended linearly to all of $C_k(X)$.\\
 A k-chain $c\in C_k(X)$ is a \textbf{k-cycle} if $\partial(c)=0$.
 \end{definition}
@@ -191,12 +206,12 @@ $\partial\circ\partial\colon C_k(X)\to C_{k-2}(X)$ is zero.
 \begin{proof}
 Let $\sigma\in C_k(X)$.
 \begin{align*}
-\partial\circ\partial (\sigma)&=\partial(\sum_{i=0}^k(-1)^i\sigma\circ F_{[e_0,...,\overset{\wedge}{e_i},...,e_k]})\\
-&=\sum_{i=0}^k(-1)^i\partial\circ\sigma\circ F_{[e_0,...,\overset{\wedge}{e_i},...,e_k]} \\&\text{by linearity}\\
-&=\sum_{i=0}^k(\sum_{j<i}(-1)^{i+j}\sigma\circ F_{[e_0,...,\overset{\wedge}{e_j},...,\overset{\wedge}{e_i},...,e_k]} + \sum_{i<j}(-1)^{i+j-1}\sigma\circ F_{[e_0,...,\overset{\wedge}{e_i},...,\overset{\wedge}{e_j},...,e_k]}) \\&\text{(since }e_j \text{ gets shifted forward one spot when }e_i\text{ is removed first)}\\
-&=\sum_{i=0}^k(\sum_{j<i}(-1)^{i+j}\sigma\circ F_{[e_0,...,\overset{\wedge}{e_j},...,\overset{\wedge}{e_i},...,e_k]} + \sum_{j<i}(-1)^{i+j-1}\sigma\circ F_{[e_0,...,\overset{\wedge}{e_j},...,\overset{\wedge}{e_i},...,e_k]})
+\partial\circ\partial (\sigma)&=\partial(\sum\limits_{i=0}^k(-1)^i\sigma\circ F_{[e_0,...,\overset{\wedge}{e_i},...,e_k]})\\
+&=\sum\limits_{i=0}^k(-1)^i\partial\circ\sigma\circ F_{[e_0,...,\overset{\wedge}{e_i},...,e_k]} \\&\text{(by linearity)}\\
+&=\sum\limits_{i=0}^k(\sum\limits_{j<i}(-1)^{i+j}\sigma\circ F_{[e_0,...,\overset{\wedge}{e_j},...,\overset{\wedge}{e_i},...,e_k]} + \sum\limits_{i<j}(-1)^{i+j-1}\sigma\circ F_{[e_0,...,\overset{\wedge}{e_i},...,\overset{\wedge}{e_j},...,e_k]}) \\&\text{(since }e_j \text{ gets shifted forward one spot when }e_i\text{ is removed first)}\\
+&=\sum\limits_{i=0}^k(\sum\limits_{j<i}(-1)^{i+j}\sigma\circ F_{[e_0,...,\overset{\wedge}{e_j},...,\overset{\wedge}{e_i},...,e_k]} + \sum\limits_{j<i}(-1)^{i+j-1}\sigma\circ F_{[e_0,...,\overset{\wedge}{e_j},...,\overset{\wedge}{e_i},...,e_k]})
 \\&\text{(interchanging }j\text{ with }i\text{ in the second term)}\\
-&=\sum_{i=0}^k(\sum_{j<i}((-1)^{i+j}+(-1)^{1+j-1})\sigma\circ F_{[e_0,...,\overset{\wedge}{e_j},...,\overset{\wedge}{e_i},...,e_k]})=0
+&=\sum\limits_{i=0}^k(\sum\limits_{j<i}((-1)^{i+j}+(-1)^{1+j-1})\sigma\circ F_{[e_0,...,\overset{\wedge}{e_j},...,\overset{\wedge}{e_i},...,e_k]})=0
 \end{align*}\qedhere
 \end{proof}
 
@@ -212,10 +227,10 @@ The \textbf{degree k singular homology} of $X$ is the abelian group
 
 \noindent To give a more general result we shall allow the chain groups to have coefficients in any abelian group $G$ as opposed to merely $\mathbb{Z}$.
 \begin{definition}
-The k-th singular chain group with coefficients in an abelian group $G$ is \[C_k(X;G):=\{\sum_{i=1}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in G,\sigma_i \text{ is a k-simplex}\}.\] The boundary map $\partial\colon C_k(X;G)\to C_{k-1}(X;G)$ and k-th homology group with coefficients in $G$, $H_k(X;G)$, are then defined as above while replacing $\mathbb{Z}$ with $G$.
+The k-th singular chain group with coefficients in an abelian group $G$ is \[C_k(X;G):=\{\sum\limits_{i=1}^kn_i\sigma_i:k\in\mathbb{N}_0,n_i\in G,\sigma_i \text{ is a k-simplex}\}.\] The boundary map $\partial\colon C_k(X;G)\to C_{k-1}(X;G)$ and k-th homology group with coefficients in $G$, $H_k(X;G)$, are then defined as above while replacing $\mathbb{Z}$ with $G$.
 \end{definition}
 
-\noindent Let $f\colon X\to Y$ be a continuous map between topological spaces. Given a k--simplex $\sigma\colon\Delta^k\to X$ in $X$, $f\circ\sigma$ is a k--simplex in $Y$. This gives rise to a homomorphism \[f_\#\colon C_k(X;G)\to C_k(Y;G):\sum_{i=0}^kn_i\sigma_i\mapsto\sum_{i=0}^kn_if\circ\sigma_i.\]
+\noindent Let $f\colon X\to Y$ be a continuous map between topological spaces. Given a k--simplex $\sigma\colon\Delta^k\to X$ in $X$, $f\circ\sigma$ is a k--simplex in $Y$. This gives rise to a homomorphism \[f_\#\colon C_k(X;G)\to C_k(Y;G):\sum\limits_{i=0}^kn_i\sigma_i\mapsto\sum\limits_{i=0}^kn_if\circ\sigma_i.\]
 \begin{definition}
 This induces a \textbf{push-forward homomorphism} $f_*\colon H_k(X;G)\to H_k(Y;G)$ sending $[c]$ to $[f_\#(c)]$.
 \end{definition}
@@ -229,18 +244,18 @@ The push-forward is functorial.
 \begin{proof}
 Let $X$, $Y$ and $Z$ be topological spaces.
 Clearly $\text{id}_{X*}=\text{id}_{H_k(X;G)}$.\\
-Now let $f\colon Y\to Z$ and $g\colon X\to X$ be continuous maps. Given $[c]=[\sum_{i=0}^kn_i\sigma_i]\in H_k(X;G)$, \[(f\circ g)_*([c])=[\sum_{i=0}^kn_if\circ g(\sigma_i)]=f_*([\sum_{i=0}^kn_ig(\sigma_i)])=f_*\circ g_*([c])\] so $(f\circ g)_*=f_*\circ g_*$.
+Now let $f\colon Y\to Z$ and $g\colon X\to X$ be continuous maps. Given $[c]=[\sum\limits_{i=0}^kn_i\sigma_i]\in H_k(X;G)$, \[(f\circ g)_*([c])=[\sum\limits_{i=0}^kn_if\circ g(\sigma_i)]=f_*([\sum\limits_{i=0}^kn_ig(\sigma_i)])=f_*\circ g_*([c])\] so $(f\circ g)_*=f_*\circ g_*$.
 \end{proof}
 
 \noindent This then implies the standard results from category theory such as the push-forward sending commutative diagrams to commutative diagrams and homeomorphisms to group isomorphisms.
 
-\begin{lemma}
+\begin{theorem}[{Hatcher \cite[Theorem 2.10]{Hatcher}}]
 If $f,g\colon X\to Y$ are homotopic continuous maps between topological spaces then $f_*=g_*\colon H_k(X)\to H_k(Y)$
-\end{lemma}
+\end{theorem}
 \begin{proof}
-\cite{Hatcher}Let $F\colon X\times I\to Y$ be a homotopy from $f$ to $g$. Given a singular n--simplex $\sigma\colon\Delta^n\to X$ we can define $\sigma\times\text{id}\colon\Delta^n\times I\to X\times I$ and $F_\#(\sigma\times\text{id})\colon\Delta^n\times I\to Y$. We now decompose $\Delta^n\times I$ as the union of $n+1$-simplices. To do this think of $\Delta^n\times I$ as the complex hull of $a_0,...,a_n,b_0,...,b_n$ where $a_i=(e_i,0)$ and $b_i=(e_i,1)$. Then $\Delta^n\times I$ is the union of the $n+1$-simplices $\alpha_i=[a_0,...,a_i,b_i,...,b_n]$. Now define the "prism map" $P\colon C_n(X)\to C_{n+1}(Y)$ by $P(\sigma)=\sum_i(-1)^iF\circ(\sigma\times\text{id})|_{\alpha_i}$. 
+Let $F\colon X\times I\to Y$ be a homotopy from $f$ to $g$. Given a singular n--simplex $\sigma\colon\Delta^n\to X$ we can define $\sigma\times\text{id}\colon\Delta^n\times I\to X\times I$ and $F_\#(\sigma\times\text{id})\colon\Delta^n\times I\to Y$. We now decompose $\Delta^n\times I$ as the union of $n+1$-simplices. To do this think of $\Delta^n\times I$ as the complex hull of $a_0,...,a_n,b_0,...,b_n$ where $a_i=(e_i,0)$ and $b_i=(e_i,1)$. Then $\Delta^n\times I$ is the union of the $n+1$-simplices $\alpha_i=[a_0,...,a_i,b_i,...,b_n]$. Now define the "prism map" $P\colon C_n(X)\to C_{n+1}(Y)$ by $P(\sigma)=\sum\limits_i(-1)^iF\circ(\sigma\times\text{id})|_{\alpha_i}$. 
 \begin{align*}
-\partial P(\sigma)&=\sum_i(-1)^i[\sum_{j\leq i}(-1)^jF\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_j},...,a_i,b_i,...,b_n]}\\&+\sum_{j> i}(-1)^{(j+1)}F\circ(\sigma\times\text{id})|_{[a_0,...,a_i,b_i,...,\overset{\wedge}{b_j},...,b_n]}].
+\partial P(\sigma)&=\sum\limits_i(-1)^i[\sum\limits_{j\leq i}(-1)^jF\circ(\sigma\times\text{id})|_{[a_0,...,\overset{\wedge}{a_j},...,a_i,b_i,...,b_n]}\\&+\sum\limits_{j> i}(-1)^{(j+1)}F\circ(\sigma\times\text{id})|_{[a_0,...,a_i,b_i,...,\overset{\wedge}{b_j},...,b_n]}].
 \end{align*}
 The sum of terms with $i=j$ is 
 \begin{multline*}
@@ -261,7 +276,7 @@ We have continuous maps $f\colon X\to Y$ and $g\colon Y\to X$ such that $g\circ 
 If $X$ is path-connected then $H_0(X)=\mathbb{Z}$.
 \end{lemma}
 \begin{proof}
-A singular 0-simplex is a map from a point to a point $x\in X$. let $c=\sum n_i\sigma_i$ be a 0-chain. $\partial c=0$ so $\text{ker}(\partial:C_{0}(x)\rightarrow C_{-1}(X))=C_0(X)$ giving $H_0(X)=\frac{C_0(X)}{\partial C_1(X)}$. Let $x,y\in X$ and let $\sigma_x$ and $\sigma_y$ be their corresponding simplicial 0-simplices. $X$ is path-connected so there exists a simplicial 1-simplex $\sigma$ with $\partial\sigma=\sigma_x-\sigma_y$. Define $f\colon C_0(X)\to\mathbb{Z}:\sum n_ix_i\mapsto\sum n_i$. Clearly $\partial C_1(X)\in \text{ker}f$. Let $z=\sum_{i=0}^ka_i\sigma_i\in\text{ker}f$. Express $a_i\sigma_i$ as $\sum_{j=1}^{|a_i|}a_{ij}\sigma_i$ where $a_{ij}$ is either all $1$ or all $-1$. Thus $z=\sum_{j=1}^rb_j\tau_j$ where $\tau_j\in\{\sigma_0,...,\sigma_k\}$ and $b_j=\pm1$. $|\{j:b_j=1\}|=|\{j:b_j=-1\}|$ so $r$ is even and we can express $z$ as a sum of terms of the form $(\sigma_\alpha - \sigma_\beta)\in\partial C_1(X)$, giving $\text{ker}f\in\partial C_1(X)$. Thus $\text{ker}f\in\partial C_1(X)$. $f$ is surjective so the result follows by the first isomorphism theorem.
+A singular 0-simplex is a map from a point to a point $x\in X$. let $c=\sum\limits n_i\sigma_i$ be a 0-chain. $\partial c=0$ so $\text{ker}(\partial:C_{0}(x)\rightarrow C_{-1}(X))=C_0(X)$ giving $H_0(X)=\frac{C_0(X)}{\partial C_1(X)}$. Let $x,y\in X$ and let $\sigma_x$ and $\sigma_y$ be their corresponding simplicial 0-simplices. $X$ is path-connected so there exists a simplicial 1-simplex $\sigma$ with $\partial\sigma=\sigma_x-\sigma_y$. Define $f\colon C_0(X)\to\mathbb{Z}:\sum\limits n_ix_i\mapsto\sum\limits n_i$. Clearly $\partial C_1(X)\in \text{ker}f$. Let $z=\sum\limits_{i=0}^ka_i\sigma_i\in\text{ker}f$. Express $a_i\sigma_i$ as $\sum\limits_{j=1}^{|a_i|}a_{ij}\sigma_i$ where $a_{ij}$ is either all $1$ or all $-1$. Thus $z=\sum\limits_{j=1}^rb_j\tau_j$ where $\tau_j\in\{\sigma_0,...,\sigma_k\}$ and $b_j=\pm1$. $|\{j:b_j=1\}|=|\{j:b_j=-1\}|$ so $r$ is even and we can express $z$ as a sum of terms of the form $(\sigma_\alpha - \sigma_\beta)\in\partial C_1(X)$, giving $\text{ker}f\in\partial C_1(X)$. Thus $\text{ker}f\in\partial C_1(X)$. $f$ is surjective so the result follows by the first isomorphism theorem.
 \end{proof}
 
 \begin{lemma}
@@ -272,7 +287,14 @@ $H_k(\{\text{pt}\})=\begin{cases}
 \end{lemma}
 \begin{proof}
 There is only one k-simplex $\sigma_k\colon\Delta^k\rightarrow \{\text{pt}\}$, the constant map. Thus $C_k(\{\text{pt}\})=\{n\sigma_k:n\in\mathbb{Z}\}=\mathbb{Z}$.
-Also $\partial_k(n\sigma_k)=\sum_{i=0}^k(-1)^i n\sigma_{k-1}$ which is zero if $k$ is odd and $n\sigma_{k-1}$ if $k$ is even. Thus the induced map on the coefficients of the boundary is $0$ if $k$ is odd and id if $k$ is even. The homology groups will then be $\frac{\mathbb{Z}}{\mathbb{Z}}=0$ or $\frac{\{0\}}{\{0\}}=0$, except for $H_0$ which is $\mathbb{Z}$ since $\{\text{pt}\}$ is path-connected.
+Also $\partial_k(n\sigma_k)=\sum\limits_{i=0}^k(-1)^i n\sigma_{k-1}$ which is zero if $k$ is odd and $n\sigma_{k-1}$ if $k$ is even. Thus the induced map on the coefficients of the boundary is $0$ if $k$ is odd and id if $k$ is even. The homology groups will then be $\frac{\mathbb{Z}}{\mathbb{Z}}=0$ or $\frac{\{0\}}{\{0\}}=0$, except for $H_0$ which is $\mathbb{Z}$ since $\{\text{pt}\}$ is path-connected.
+\end{proof}
+
+\begin{lemma}
+If $\{X_i\}$ is the set of path-components of a topological space $X$, then\[H_k(X;G)\cong\bigoplus_i H_k(X_i;G).\]
+\end{lemma}
+\begin{proof}
+The image of any singular $k$--simplex is contained in a path-component so\[C_k(X;G)\cong\bigoplus_i C_k(X_i;G).\]
 \end{proof}
 
 \subsection{Hurewicz theorem}
@@ -310,7 +332,7 @@ Let $G$ be a group. If $w$ is a word in $G$ such that for any $g\in G$ the expon
 \end{lemma}
 \begin{proof}
 Consider the quotient map $\pi\colon G\to G/[G,G]:g\mapsto[g]$.
-$G/[G,G]$ is abelian so the letters in $[w]$ can be reordered such that $[w]=\sum n_i[a_i]=0$ implying $w\in\text{ker }\pi=[G,G]$. 
+$G/[G,G]$ is abelian so the letters in $[w]$ can be reordered such that $[w]=\sum\limits n_i[a_i]=0$ implying $w\in\text{ker }\pi=[G,G]$. 
 \end{proof}
 
 \begin{theorem}
@@ -325,16 +347,16 @@ Let $[f],[g]\in\pi_1(X,x_0)$ and define a singular 2-simplex $\sigma\colon\Delta
 
 \noindent \textbf{We now show that $h$ is surjective.}\\
 For the sake of lucidity we will write $[\gamma]$ for $h([\gamma])$ instead of $[c_\gamma]$\\
-Let $[\lambda]\in H_1(X)$ where $\lambda=\sum_{i=0}^k n_i\sigma_i$.
-$\partial (\lambda)=0=\sum_{i=0}^k n_i(\sigma_i(1)-\sigma_i(0))$.\\
+Let $[\lambda]\in H_1(X)$ where $\lambda=\sum\limits_{i=0}^k n_i\sigma_i$.
+$\partial (\lambda)=0=\sum\limits_{i=0}^k n_i(\sigma_i(1)-\sigma_i(0))$.\\
 Let $\Lambda=\{\sigma_i(0)\}\cup\{\sigma_i(1)\}$ be the collection of end-points of the $\sigma_i$s.
-For each $p\in\Lambda$ pick a path $\beta_p\colon [0,1]\to X$ from $x_0$ to $p$ (which is possible because $X$ is path-connected). Then \[\sum_{i=0}^k n_i(\sigma_i(1)-\sigma_i(0))=\sum m_pp=0\] where $m_p$ is the sum of the coefficients of $p$ in the sum. This implies that $m_p=0 \forall p$. Now consider the loop $\eta_i=\beta_{\sigma_i(0)}\cdot\sigma_i\cdot\beta_{\sigma_i(1)}^{-1}$ based at $x_0$. Then 
+For each $p\in\Lambda$ pick a path $\beta_p\colon [0,1]\to X$ from $x_0$ to $p$ (which is possible because $X$ is path-connected). Then \[\sum\limits_{i=0}^k n_i(\sigma_i(1)-\sigma_i(0))=\sum\limits m_pp=0\] where $m_p$ is the sum of the coefficients of $p$ in the sum. This implies that $m_p=0 \forall p$. Now consider the loop $\eta_i=\beta_{\sigma_i(0)}\cdot\sigma_i\cdot\beta_{\sigma_i(1)}^{-1}$ based at $x_0$. Then 
 \begin{align*}
-h([\eta_0^{n_0}\cdot\eta_1^{n_1}...\cdot\eta_k^{n_k}])&=[n_0\eta_0+...+n_k\eta_k]\\&=[\sum_{i=0}^kn_i(\beta_{\sigma_i(0)}+\sigma_i-\beta_{\sigma_i(1)})]\\&=[\sum_{i=0}^kn_i\sigma_i+\sum_{i=0}^kn_i(\beta_{\sigma_i(0)}-\beta_{\sigma_i(1)})]\\&=[\sum_{i=0}^kn_i\sigma_i-\sum m_p\beta_p]\\&=[\sum_{i=0}^kn_i\sigma_i]=[\lambda]
+h([\eta_0^{n_0}\cdot\eta_1^{n_1}...\cdot\eta_k^{n_k}])&=[n_0\eta_0+...+n_k\eta_k]\\&=\big[\sum\limits_{i=0}^kn_i(\beta_{\sigma_i(0)}+\sigma_i-\beta_{\sigma_i(1)})\big]\\&=\big[\sum\limits_{i=0}^kn_i\sigma_i+\sum\limits_{i=0}^kn_i(\beta_{\sigma_i(0)}-\beta_{\sigma_i(1)})\big]\\&=\big[\sum\limits_{i=0}^kn_i\sigma_i-\sum\limits m_p\beta_p\big]\\&=\big[\sum\limits_{i=0}^kn_i\sigma_i\big]=[\lambda]
 \end{align*}since $m_p=0$.\\
 \noindent\textbf{We now find the kernel.}\\
 Let $[\gamma]\in\pi_1(X,x_0)$ such that $h([\gamma])=[0]$.
-Then $\gamma$ considered as a $1$--simplex is exact so there exists a finite sum of singular 2-simplices $\sum_{i=0}^kn_i\sigma_i$ such that \[\gamma=\partial(\sum_{i=0}^kn_i\sigma_i)=\sum_{i=0}^kn_i\partial(\sigma_i)=\sum_{i=0}^kn_i(\lambda_i+\mu_i+\nu_i)\] Let $\Lambda=\{\lambda_i\}\cup\{\mu_i\}\cup\{\nu_i\}$ and for each end-point $p$ of a singular 1-simplex in $\Lambda$ let $\beta_p$ be a path from $x_0$ to $p$. For each $\theta\in\Lambda$ let $m_\theta$ be the sum of coefficients of $\theta$ in $\sum_{i=0}^kn_i(\lambda_i+\mu_i+\nu_i)$. This sum is equal to $\gamma$ thus $m_\theta$ is $1$ if $\theta=\gamma$ and $0$ otherwise. For each singular 2-simplex $\sigma_i$ the loops $\beta_{\lambda_i(0)}\cdot\lambda_i\cdot\beta_{\lambda_i(1)}^{-1}$, $\beta_{\mu_i(0)}\cdot\mu_i\cdot\beta_{\mu_i(1)}^{-1}$ and $\beta_{\nu_i(0)}\cdot\nu_i\cdot\beta_{\nu_i(1)}^{-1}$ have null-homotopic concatenations. Let $\eta_i=\beta_{\partial\sigma_i(0)}\cdot\partial\sigma_i\cdot\beta_{\partial\sigma_i(1)}^{-1}$. Then $h([\eta_0^{n_0}\cdot...\cdot\eta_k^{n_k}\cdot\gamma^{-1}])=h([\gamma])h([\gamma^{-1}])=[\gamma^{-1}]$. Now write each $[\eta_i]$ as $[\beta_{\lambda_i(0)}\cdot\lambda_i\cdot\beta_{\lambda_i(1)}^{-1}][\beta_{\mu_i(0)}\cdot\mu_i\cdot\beta_{\mu_i(1)}^{-1}][\beta_{\nu_i(0)}\cdot\nu_i\cdot\beta_{\nu_i(1)}^{-1}]$. Then for each $\theta\in\Lambda$ we have that the sum of exponents of $[\beta_{\theta(0)}\cdot\theta\cdot\beta_{\theta(1)}^{-1}]$ is $m_\theta$ The exponents of each $[\beta_{\theta(0)}\cdot\theta\cdot\beta_{\theta(1)}^{-1}]$ in $[\eta_0^{n_0}\cdot...\cdot\eta_k^{n_k}\cdot\gamma^{-1}]$ is then 0 so by the above lemma $[\gamma^{-1}]\in[\pi_1(X,x_0),\pi_1(X,x_0)]$ meaning $[\gamma]$ is as well. Thus $\text{ker }h\subseteq [\pi_1(X,x_0),\pi_1(X,x_0)]$. We also have that $[\pi_1(X,x_0),\pi_1(X,x_0)]\subseteq \text{ker }h$ since $H_1(X)$ is abelian so $\text{ker }h=[\pi_1(X,x_0),\pi_1(X,x_0)]$. The result then follows by the first isomorphism theorem.
+Then $\gamma$ considered as a $1$--simplex is exact so there exists a finite sum of singular 2-simplices $\sum\limits_{i=0}^kn_i\sigma_i$ such that \[\gamma=\partial\big(\sum\limits_{i=0}^kn_i\sigma_i\big)=\sum\limits_{i=0}^kn_i\partial(\sigma_i)=\sum\limits_{i=0}^kn_i(\lambda_i+\mu_i+\nu_i)\] Let $\Lambda=\{\lambda_i\}\cup\{\mu_i\}\cup\{\nu_i\}$ and for each end-point $p$ of a singular 1-simplex in $\Lambda$ let $\beta_p$ be a path from $x_0$ to $p$. For each $\theta\in\Lambda$ let $m_\theta$ be the sum of coefficients of $\theta$ in $\sum\limits_{i=0}^kn_i(\lambda_i+\mu_i+\nu_i)$. This sum is equal to $\gamma$ thus $m_\theta$ is $1$ if $\theta=\gamma$ and $0$ otherwise. For each singular 2-simplex $\sigma_i$ the loops $\beta_{\lambda_i(0)}\cdot\lambda_i\cdot\beta_{\lambda_i(1)}^{-1}$, $\beta_{\mu_i(0)}\cdot\mu_i\cdot\beta_{\mu_i(1)}^{-1}$ and $\beta_{\nu_i(0)}\cdot\nu_i\cdot\beta_{\nu_i(1)}^{-1}$ have null-homotopic concatenations. Let $\eta_i=\beta_{\partial\sigma_i(0)}\cdot\partial\sigma_i\cdot\beta_{\partial\sigma_i(1)}^{-1}$. Then $h([\eta_0^{n_0}\cdot...\cdot\eta_k^{n_k}\cdot\gamma^{-1}])=h([\gamma])h([\gamma^{-1}])=[\gamma^{-1}]$. Now write each $[\eta_i]$ as $[\beta_{\lambda_i(0)}\cdot\lambda_i\cdot\beta_{\lambda_i(1)}^{-1}][\beta_{\mu_i(0)}\cdot\mu_i\cdot\beta_{\mu_i(1)}^{-1}][\beta_{\nu_i(0)}\cdot\nu_i\cdot\beta_{\nu_i(1)}^{-1}]$. Then for each $\theta\in\Lambda$ we have that the sum of exponents of $[\beta_{\theta(0)}\cdot\theta\cdot\beta_{\theta(1)}^{-1}]$ is $m_\theta$ The exponents of each $[\beta_{\theta(0)}\cdot\theta\cdot\beta_{\theta(1)}^{-1}]$ in $[\eta_0^{n_0}\cdot...\cdot\eta_k^{n_k}\cdot\gamma^{-1}]$ is then 0 so by the above lemma $[\gamma^{-1}]\in[\pi_1(X,x_0),\pi_1(X,x_0)]$ meaning $[\gamma]$ is as well. Thus $\text{ker }h\subseteq [\pi_1(X,x_0),\pi_1(X,x_0)]$. We also have that $[\pi_1(X,x_0),\pi_1(X,x_0)]\subseteq \text{ker }h$ since $H_1(X)$ is abelian so $\text{ker }h=[\pi_1(X,x_0),\pi_1(X,x_0)]$. The result then follows by the first isomorphism theorem.
 \end{proof}
 
 \begin{corollary}
@@ -352,12 +374,12 @@ H_1(\mathbb{R}P^n)&=\begin{cases}
 \end{corollary}
 
 \subsection{Relative homology}
-Relative homology will shortly be used to define the orientation of manifolds in terms of homology.
+Relative homology will be used to define the orientation of manifolds in terms of homology.
 \begin{definition}
-Let $X$ be a topological space and let $A$ be a subspace of $X$. The \textbf{$n$th relative chain group} is \[C_n(X,A):=\frac{C_n(X)}{C_n(A)}.\]
+\cite{wiki}Let $X$ be a topological space and let $A$ be a subspace of $X$. The \textbf{$n$'th relative chain group} is \[C_n(X,A):=\frac{C_n(X)}{C_n(A)}.\]
 \end{definition}
 
-\noindent Note that the boundary map \[\partial:C_n(X)\to C_{n-1}(X)\] restricts to a boundary map \[\partial_{|C_n(A)}C_n(A)\to C_{n-1}(A)\] and thus induces a boundary map $\partial'$ on $C_n(X;A)$.
+\noindent The boundary map \[\partial:C_n(X)\to C_{n-1}(X)\] restricts to a boundary map \[\partial_{|C_n(A)}:C_n(A)\to C_{n-1}(A)\] and thus induces a boundary map $\partial'$ on $C_n(X;A)$.
 This then gives a chain complex \[...\to C_n(X,A)\overset{\partial'}{\to}C_{n-1}(X,A)\to...\] since $\partial'^2=0$.\\
 
 \noindent This then allows for the following definition.
@@ -381,19 +403,19 @@ Let $X$ be a topological space and let $x_0\in X$. The \textbf{$n$th local homol
 \end{definition}
 
 \begin{theorem}
-(Excision theorem) Let $U\subseteq A\subseteq X$ be topological spaces. If the closure of $U$ is contained in the interior of $A$, then $U$ can be excised.\cite{Hatcher}
+(Excision theorem) Let $U\subseteq A\subseteq X$ be topological spaces. If the closure of $U$ is contained in the interior of $A$, then $U$ can be excised.
 \end{theorem}
 
 
 
 \section{Cohomology}
-Cohomology is the dual notion to homology -- instead of chains, we have cochains (homomorphisms of chains); and instead of boundaries, we have coboundaries. We shall see that the cohomology groups admit a ring structure, providing them with more content. We shall also study Poincare duality and the universal coefficient theorem, which give relationships between the homology and cohomology groups.
+Cohomology is the dual notion to homology -- instead of chains, we have cochains (homomorphisms of chains); and instead of boundaries, we have coboundaries. We shall see that the cohomology groups admit a ring structure, providing them with more content. We shall also study Poincar\'e duality and the universal coefficient theorem, which give relationships between the homology and cohomology groups.
 
 
-\subsection{Modules}
+\subsection{Modules}[Introduction to tor \cite{tor}][Differential topology \cite{Nordstrom}]
 \noindent The context in which the homomorphisms hitherto mentioned arise is that of modules, which are generalisations of vector spaces, where the field is replaced by a ring. Free abelian groups, like the homology groups, are examples of modules. We shall now develop the basic theory of modules to allow for the definition of the cohomology groups.
 \begin{definition}
-\cite{tor}Let $R$ be a commutative ring with a unit. An \textbf{R-module} $M$ is an abelian group with a map $f\colon R\times M\to M$ such that if $f(r,m)$ is denoted by $rm$ then $(r_1r_2)m=r_1(r_2m)$ and $1m=m$. We usually abbreviate R-modules to modules.
+Let $R$ be a commutative ring with a unit. An \textbf{R-module} $M$ is an abelian group with a map $f\colon R\times M\to M$ such that if $f(r,m)$ is denoted by $rm$ then $(r_1r_2)m=r_1(r_2m)$ and $1m=m$. We usually abbreviate R-modules to modules.
 \end{definition}
 \begin{remark}
 More specifically we defined a \textbf{left R-module}. If instead multiplication were defined to satisfy $r_1(r_2m)=(r_2r_1)m$ then $M$ would be a \textbf{right R-module}.
@@ -405,14 +427,14 @@ Let $M$ and $N$ be R-modules. An \textbf{R-module homomorphism} $f\colon M\to N$
 
 \begin{example}
 An abelian group $G$ is a $\mathbb{Z}$-module given by $ng=$$\begin{cases}
-       \sum_{i=1}^ng &\quad\text{if }n>0 \\
+       \sum\limits_{i=1}^ng &\quad\text{if }n>0 \\
        0 &\quad\text{if }n=0 \\
-       -\sum_{i=1}^{-n}g &\quad\text{if }n<0 \\
+       -\sum\limits_{i=1}^{-n}g &\quad\text{if }n<0 \\
      \end{cases}$\\
 \end{example}
 
 \begin{definition}
-Let $A$ and $B$ be R-modules. Their \textbf{direct sum} $A\bigoplus B$ is the module $A\times B$ under component-wise operations i.e. $(a_1,b_1)+(a_2,b_2)=(a_1+a_2,b_1+b_2)$ and $r(a,b)=(ra,rb)$. This can be extended to any finite collection of R-modules.
+Let $A$ and $B$ be R-modules. Their \textbf{direct sum} $A\oplus B$ is the module $A\times B$ under component-wise operations i.e. $(a_1,b_1)+(a_2,b_2)=(a_1+a_2,b_1+b_2)$ and $r(a,b)=(ra,rb)$. This can be extended to any finite collection of R-modules.
 \end{definition}
 
 \begin{definition}
@@ -433,24 +455,24 @@ Given a module $M$ and submodule $N$, the \textbf{quotient R-module of M by N} i
 \end{definition}
 
 \begin{definition}
-Let $M$ and $N$ be modules. Let $I$ denote the submodule of $M\times N$ generated by the set of elements of the form $(\lambda m_1+m_2,n)-\lambda(m_1,n)-(m_2,n)$, $(m,\lambda n_1+n_2)-\lambda(m,n_1)-(m,n_2)$ for $m,m_1,m_2\in M$, $n,n_1,n_2\in N$ and $\lambda\in R$. Then the \textbf{tensor product} of $M$ and $N$ is $M\bigotimes_R N=R^{M\times N}/I$ whose elements are represented as $m\otimes n$ for $m\in M$, $n\in N$.
+Let $M$ and $N$ be modules. Let $I$ denote the submodule of $M\times N$ generated by the set of elements of the form $(\lambda m_1+m_2,n)-\lambda(m_1,n)-(m_2,n)$, $(m,\lambda n_1+n_2)-\lambda(m,n_1)-(m,n_2)$ for $m,m_1,m_2\in M$, $n,n_1,n_2\in N$ and $\lambda\in R$. Then the \textbf{tensor product} of $M$ and $N$ is $M\otimes_R N=R^{M\times N}/I$ whose elements are represented as $m\otimes n$ for $m\in M$, $n\in N$.
 \end{definition}
 
 \noindent This gives rise to the relations \[(m_1+m_2)\otimes n=m_1\otimes n+m_2\otimes n,\]\[m\otimes(n_1+n_2)=m\otimes n_1+m\otimes n_2\text{ and}\] \[(rm)\otimes n=m\otimes (rn)=r(m\otimes n)\text{ for }r\in R.\]
 
 \begin{example}
-If $p$ and $q$ are coprime then $\mathbb{Z}_p\bigotimes_\mathbb{Z}\mathbb{Z}_q=0$ since there exist $m,n\in\mathbb{Z}$ such that $mp+nq=1$ (Bezout's lemma) so $a\otimes b=(mp+nq)a\otimes b=(mpa)\otimes b + a\otimes(nqb)=0\forall a\otimes b\in\mathbb{Z}_p\bigotimes_\mathbb{Z}\mathbb{Z}_q$.
+If $p$ and $q$ are coprime then $\mathbb{Z}_p\otimes_\mathbb{Z}\mathbb{Z}_q=0$ since there exist $m,n\in\mathbb{Z}$ such that $mp+nq=1$ (Bezout's lemma) so $a\otimes b=(mp+nq)a\otimes b=(mpa)\otimes b + a\otimes(nqb)=0\forall a\otimes b\in\mathbb{Z}_p\otimes_\mathbb{Z}\mathbb{Z}_q$.
 \end{example}
 \begin{example}
-$C_k(X;G)=C_k(X)\bigotimes_\mathbb{Z}G$.
+$C_k(X;G)=C_k(X)\otimes_\mathbb{Z}G$.
 \end{example}
 
 \begin{example}
-$\mathbb{Z}_m\bigotimes\mathbb{Z}_n=\mathbb{Z}_{gcd(m,n)}$.
+$\mathbb{Z}_m\otimes\mathbb{Z}_n=\mathbb{Z}_{gcd(m,n)}$.
 \end{example}
 \begin{proof}
 We have the first isomorphism for modules that given a module homomorphism $f:M\to N$, $M/\text{ker }f\cong\text{im }f$ (the proof is analogous to the cases for groups, rings and vector spaces).
-So, define a module homomorphism $g\colon\mathbb{Z}\to\mathbb{Z}_m\bigotimes\mathbb{Z}_n:z\mapsto z(1\otimes 1)$. $g$ is surjective so $\text{im }g=\mathbb{Z}_m\bigotimes\mathbb{Z}_n$. Clearly $\langle\text{gcd}(m,n)\rangle\subseteq\text{ker }g$. Now let $x\notin \langle\text{gcd}(m,n)\rangle$. Then $x=s\text{gcd}(m,n)+k$ with $0<k<\text{gcd}(m,n)$ by division with remainder. $g(x)=s\text{gcd}(m,n)(1\otimes 1)+g(k)=k(1\otimes 1)\neq 0\implies x\notin\text{ker }g$ so $x\in\text{ker }g\implies x\in\langle\text{gcd}(m,n)\rangle$ giving $\langle\text{gcd}(m,n)\rangle=\text{ker }g$.
+So, define a module homomorphism $g\colon\mathbb{Z}\to\mathbb{Z}_m\otimes\mathbb{Z}_n:z\mapsto z(1\otimes 1)$. $g$ is surjective so $\text{im }g=\mathbb{Z}_m\otimes\mathbb{Z}_n$. Clearly $\langle\text{gcd}(m,n)\rangle\subseteq\text{ker }g$. Now let $x\notin \langle\text{gcd}(m,n)\rangle$. Then $x=s\text{gcd}(m,n)+k$ with $0<k<\text{gcd}(m,n)$ by division with remainder. $g(x)=s\text{gcd}(m,n)(1\otimes 1)+g(k)=k(1\otimes 1)\neq 0\implies x\notin\text{ker }g$ so $x\in\text{ker }g\implies x\in\langle\text{gcd}(m,n)\rangle$ giving $\langle\text{gcd}(m,n)\rangle=\text{ker }g$.
 \end{proof}
 
 
@@ -511,15 +533,13 @@ Let $X$ and $Y$ be homotopy-equivalent topological spaces. Then \[H^k(X;G)\cong 
 Dualise the proof of the homotopy-invariance of homology.
 \end{proof}
 \noindent Thus the cohomology groups are also invariant under homotopy-equivalence like the homology groups.
-
-\noindent We shall now give the cohomology groups a ring structure, via the cup product. This will turn out to be necessary for the definition of the torsion linking form.
-
 \subsection{Cup product and ring structure of cohomology}
+\noindent We shall now give the cohomology groups a ring structure via the cup product. This will turn out to be necessary for the definition of the torsion linking form.
 \begin{definition}
 \cite{quick}Let $R$ be a ring and $X$ be a topological space. The \textbf{cup product} is the product on cochains\[C^i(X;R)\times C^j(X;R)\to C^{i+j}(X;R):(\psi,\phi)\mapsto\psi\cup\phi\] where \[(\psi\cup\phi)\sigma=\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_i,...,e_{i+j}]})\] for a singular $i+j$-simplex $\sigma\colon\Delta^{i+j}\to X$ and is extended linearly to $C_{i+j}(X)$.
 \end{definition}
 
-Informally, this means evaluating $\psi$ on the front face of $\sigma$, evaluating $\phi$ on the back face of $\sigma$, and multiplying them together.
+\noindent Informally, this means evaluating $\psi$ on the front face of $\sigma$, evaluating $\phi$ on the back face of $\sigma$, and multiplying them together.
 
 \begin{lemma}
 $d(\psi\cup\phi)=(d\psi)\cup\phi+(-1)^i\psi\cup d\phi$.
@@ -528,12 +548,12 @@ $d(\psi\cup\phi)=(d\psi)\cup\phi+(-1)^i\psi\cup d\phi$.
 Let $\sigma\colon\Delta^{i+j+1}\to X$ be a singular simplex.
 
 \begin{align*}
-d(\psi\cup\phi)(\sigma)&=\psi\cup\phi(\partial\sigma)\\&=\psi\cup\phi(\sum_{t=0}^{j+k+1}(-1)^t\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})\\&=\sum_{t=0}^{i+j+1}(-1)^t\psi\cup\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})\\&=\sum_{t=0}^{i}(-1)^t\psi\cup\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})+\sum_{t=i+1}^{i+j+1}(-1)^t\psi\cup\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})\\&=\sum_{t=0}^i(-1)^t\psi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+1}]})\phi(\sigma\circ F_{[e_{i+1},...,e_{i+j+1}]})\\&+\sum_{t=i+1}^{i+j+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,e_{i}]})\phi(\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j+1}]})\\
-&=\sum_{t=0}^{i+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+1}]})\phi(\sigma\circ F_{[e_{i+1},...,e_{i+j+1}]})\\&+\sum_{t=i}^{i+j+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,e_{i}]})\phi(\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j+1}]}).
+d(\psi\cup\phi)(\sigma)&=\psi\cup\phi(\partial\sigma)\\&=\psi\cup\phi\big(\sum\limits_{t=0}^{j+k+1}(-1)^t\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+j+1}]}\big)\\&=\sum\limits_{t=0}^{i+j+1}(-1)^t\psi\cup\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})\\&=\sum\limits_{t=0}^{i}(-1)^t\psi\cup\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})+\sum\limits_{t=i+1}^{i+j+1}(-1)^t\psi\cup\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})\\&=\sum\limits_{t=0}^i(-1)^t\psi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+1}]})\phi(\sigma\circ F_{[e_{i+1},...,e_{i+j+1}]})\\&+\sum\limits_{t=i+1}^{i+j+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,e_{i}]})\phi(\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j+1}]})\\
+&=\sum\limits_{t=0}^{i+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+1}]})\phi(\sigma\circ F_{[e_{i+1},...,e_{i+j+1}]})\\&+\sum\limits_{t=i}^{i+j+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,e_{i}]})\phi(\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j+1}]}).
 \end{align*}
 
-\noindent We have \[(d\psi\cup\phi)(\sigma)=\sum_{t=0}^{i+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+1}]})\phi(\sigma\circ F_{[e_{i+1},...,e_{i+j+1}]})\]
-and \[(-1)^i(\psi\cup d\phi)(\sigma)=\sum_{t=i}^{i+j+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_i,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})\] When these expressions are added, the last term of the first sum cancels with the first term of the second sum, leaving $d(\psi\cup\phi)(\sigma)$.
+\noindent We have \[(d\psi\cup\phi)(\sigma)=\sum\limits_{t=0}^{i+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},...,e_{i+1}]})\phi(\sigma\circ F_{[e_{i+1},...,e_{i+j+1}]})\]
+and \[(-1)^i(\psi\cup d\phi)(\sigma)=\sum\limits_{t=i}^{i+j+1}(-1)^t\psi(\sigma\circ F_{[e_0,...,e_i]})\phi(\sigma\circ F_{[e_i,...,\overset{\wedge}{e_t},...,e_{i+j+1}]})\] When these expressions are added, the last term of the first sum cancels with the first term of the second sum, leaving $d(\psi\cup\phi)(\sigma)$.
 \end{proof}
 
 \begin{proposition}
@@ -575,7 +595,7 @@ For distributivity:
 Let $R$ be a commutative ring, $\psi\in H^k(X;R)$ and $\phi\in H^l(X;R)$. Then \[\psi\cup\phi=(-1)^{kl}\phi\cup\psi.\] Thus $H^*(X;R)$ is graded-commutative.
 \end{proposition}
 \begin{proof}
-See Hatcher page $210$\cite{Hatcher}.
+See Hatcher page $210$\cite[210]{Hatcher}.
 \end{proof}
 
 \begin{proposition}
@@ -591,7 +611,7 @@ As before, it suffices to check this for cochains. Let $\sigma\colon\Delta^{p+q}
 
 
 \subsection{Cap product}
-Poincare duality gives explicit isomorphisms between the homology and cohomology groups. However, we first need to study the cap product, with which the Poincare duality isomorphism is defined.
+Poincar\'e duality gives explicit isomorphisms between the homology and cohomology groups. However, we first need to study the cap product, with which the Poincar\'e duality isomorphism is defined.
 \begin{definition}
 Let $X$ be a topological space and $R$ a commutative ring with an identity element. The \textbf{cap product} $C_{i+j}(X;R)\times C^i(X;R)\to C_j(X;R):(c,\phi)\mapsto c\cap\phi$ given by \[\sigma\cap\phi=\phi(\sigma\circ F_{[e_0,...,e_i]})\sigma\circ F_{[e_i,...,e_{i+j}]}\] for $\sigma\colon\Delta^j\to X$ a singular simplex and $\phi\in C^{i+j}(X;R)$ and extended linearly.
 \end{definition}
@@ -601,9 +621,9 @@ $\partial(\sigma\cap\phi)=(-1)^i(\partial\sigma\cap\phi-\sigma\cap d\phi)$.
 \end{lemma}
 \begin{proof}
 We have
-\[\partial\sigma\cap\phi=\sum_{t=0}^i(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}+\sum_{t=i+1}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]},\]
-\[\sigma\cap d\phi=\sum_{t=0}^{i+1}(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]},\]
-\[\partial(\sigma\cap\phi)=\sum_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}.\] Thus \begin{align*}\text{RHS}&=(-1)^i((-1)^{i+1+1}\phi(\sigma\circ F_{[e_0,...,e_i]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}+\sum_{t=i+1}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]})\\&=(-1)^i(\sum_{t=i}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]})\\&=\sum_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}=\partial(\sigma\cap\phi).\end{align*}\qedhere
+\[\partial\sigma\cap\phi=\sum\limits_{t=0}^i(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}+\sum\limits_{t=i+1}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]},\]
+\[\sigma\cap d\phi=\sum\limits_{t=0}^{i+1}(-1)^t\phi(\sigma\circ F_{[e_0,...,\overset{\wedge}{e_t},..,e_{i+1}]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]},\]
+\[\partial(\sigma\cap\phi)=\sum\limits_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}.\] Thus \begin{align*}\text{RHS}&=(-1)^i((-1)^{i+1+1}\phi(\sigma\circ F_{[e_0,...,e_i]})\sigma\circ F_{[e_{i+1},...,e_{i+j}]}+\sum\limits_{t=i+1}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]})\\&=(-1)^i(\sum\limits_{t=i}^{i+j}(-1)^t\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]})\\&=\sum\limits_{t=i}^{i+j}(-1)^{t-i}\phi(\sigma\circ F_{[e_0,..,e_{i}]})\sigma\circ F_{[e_{i},...,\overset{\wedge}{e_t},...,e_{i+j}]}=\partial(\sigma\cap\phi).\end{align*}\qedhere
 \end{proof}
 
 \begin{proposition}
@@ -614,10 +634,10 @@ The cap product of a cycle and a cocycle is a cycle. $\partial\sigma=0\implies\p
 \end{proof}
 
 \begin{proposition}
-Let $f\colon X\to Y$ be continuous, $c\in C_{i+j}(X;R)$ and $\phi\in C^i(X;R)$. Then \[f_*(c)\cap\phi=f_*(c\cap f^*(\phi)).\]
+Let $f\colon X\to Y$ be continuous, $c\in C_{i+j}(X;R)$ and $\phi\in C^i(Y;R)$. Then \[f_*(c)\cap\phi=f_*(c\cap f^*(\phi)).\]
 \end{proposition}
 \begin{proof}
-Let $\sigma\colon\Delta^{i+j}\to X$ be a singular simplex. Then $f\circ\sigma\cap\phi=\phi(f\circ\sigma\circ F_{[e_0,...,e_j]})f\circ\sigma\circ F_{[e_j,...,e_{i+j}]}$.
+Let $\sigma\colon\Delta^{i+j}\to X$ be a singular simplex. Then $(f\circ\sigma)\cap\phi=\phi(f\circ\sigma\circ F_{[e_0,...,e_j]})f\circ\sigma\circ F_{[e_j,...,e_{i+j}]}$.
 The result follows by linearity.
 \end{proof}
 
@@ -634,7 +654,7 @@ The result then follows by linearity.
 
 
 \subsection{Universal coefficient theorem}
-\cite{Nordstrom}
+\cite[Differential topology]{Nordstrom}
 This is the final connection between homology and cohomology which we shall study. It will be used in proving that the torsion linking form is non-degenerate and in obtaining the homology and cohomology groups of lens spaces.\\
 \noindent To state the theorem, we require an additional definition from group theory.
 
@@ -681,14 +701,14 @@ If $H_*(X)$ is finitely generated, then the free part of $H^k(X;\mathbb{Z})$ is 
 \end{corollary}
 
 \section{Topology of manifolds}
-Manifolds contain additional topological information and allow for additional topological invariants to be defined on them. We will first see that manifolds admit a concept of orientation, as a consequence of their nth local homology groups being isomorphic to $\mathbb{Z}$, which allows for isomorphisms between the homology and cohomology groups to be defined (Poincare duality). We will also see that certain types of manifolds admit a topological invariant known as the torsion linking form, which will be used for the homotopy classification of lens spaces.
+Manifolds are spaces locally homeomorphic to $\mathbb{R}^n$ and allow for additional topological invariants to be defined on them. We will first see that manifolds admit a concept of orientation, as a consequence of their $n$'th local homology groups being isomorphic to $\mathbb{Z}$, which allows for isomorphisms between the homology and cohomology groups to be defined (Poincar\'e duality). We will also see that certain types of manifolds admit a topological invariant known as the torsion linking form, which will be used for the homotopy classification of lens spaces.
 \subsection{Orientation of manifolds}
-Orientation roughly refers to a consistent choice of coordinate system at each point on a manifold. We have already seen formulations of the concept in Differential and geometric analysis \cite{dga} through orientation forms or consistent choices of unit normal on submanifolds. However, here we shall present the homological definition, and see a result that will allow us to infer the orientability of lens spaces from the orientability of $S^3$.
+We have already seen formulations of the concept of orientation in Differential and geometric analysis \cite{dga} through orientation forms or consistent choices of unit normals on submanifolds. However, here we shall present the homological definition, and see a result that will allow us to infer the orientability of lens spaces from the orientability of $S^3$.
 \begin{definition}
 A topological space $M$ is an \textbf{n-dimensional manifold} if it is Hausdorff and for every $p\in M$ there is an open neighbourhood $U\subseteq M$ containing $p$ and a homeomorphism $f\colon U\to V$ where $V\subseteq\mathbb{R}^n$ is open.
 \end{definition}
 \begin{lemma}
-Let $M$ be an $n$--manifold, let $x\in M$ and let $U$ be a neighbourhood of $x$ homeomorphic to $\mathbb{R}^n$. Then \[H_n(M,M-x)\cong\mathbb{Z}.\]
+\cite{wiki}Let $M$ be an $n$--manifold, let $x\in M$ and let $U$ be a neighbourhood of $x$ homeomorphic to $\mathbb{R}^n$. Then \[H_n(M,M-x)\cong\mathbb{Z}.\]
 \end{lemma}
 \begin{proof}
 We have \[M-U\subseteq M-x\subseteq M\] and \[\overline{M-U}\subset(M-x)^{\mathrm{o}}\] so by the excision theorem we have \[H_n(M,M-x)\cong H_n(U,U-x)\cong H_n(\mathbb{R}^n,\mathbb{R}^n-x).\] $\mathbb{R}^n\cong D^n$ and $S^{n-1}$ is a deformation retract of $\mathbb{R}^n-x$ so \[H_n(M,M-x)\cong H_n(D^n,S^{n-1}).\] The long exact sequence stated earlier then gives the long exact sequence \[...\to H_n(D^n)\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to H_{n-1}(D^n)\to...\] The disk is contractible so $H_k(D^n)=0\forall k$. We thus have the short exact sequence \[0\to H_n(D^n,S^{n-1})\to H_{n-1}(S^{n-1})\to 0.\] Thus \[H_n(M,M-x)\cong H_{n-1}(S^{n-1})\cong\mathbb{Z}.\]
@@ -710,6 +730,27 @@ Note that a homeomorphism between oriented manifolds will always be either orien
 The homological definitions of orientation and orientation-preserving/reversing homeomorphisms are consistent with those from MA40254 \cite{dga}for submanifolds in terms of differential forms.
 \end{remark}
 
+\begin{lemma}[A short survey of lens spaces{\cite[1.1.6]{Lens}}]
+If $X$ is a compact Hausdorff space acted on by a finite group $G$ by homeomorphisms, then $X/G$ is compact Hausdorff.
+\end{lemma}
+\begin{proof}
+Let $p:X\to X/G\colon x\mapsto[x]$ be the quotient map. $X/G$ is compact as the continuous image of a compact space. Now let $[x_1],[x_2]\in X/G$ with $[x_1]\neq [x_2]$. Then $g_1\cdot x_1\neq g_2\cdot x_2\forall g_1,g_2\in G$. Thus $p^{-1}([x_1])=G\cdot x_1$ and $p^{-1}([x_2])=G\cdot x_2$ are disjoint. These sets are finite since $G$ is finite. Thus, since $X$ is Hausdorff, we can construct disjoint open sets $U_1,U_2\in X$ such that $p^{-1}([x_1])\subseteq U_1$ and $p^{-1}([x_2])\subseteq U_2$. \[p^{-1}(p(X\backslash U_i))=\bigcup_{g\in G}g\cdot(X\backslash U_i)=\bigcup_{g\in G}\rho_g(X\backslash U_i)\] so $p^{-1}(p(X\backslash U_i))$ is the union of finitely many closed sets so is closed in $X$. Thus, by the definition of the quotient topology, $p(X\backslash U_i)$ is closed in $X/G$ and $w_i=(X/G)\backslash p(X\backslash u_i)$ is open in $X/G$. We have \[p^{-1}([x_i])\subseteq u_i\implies [x_i]\notin p(X\backslash U_i)\implies[x_i]\in w_i.\] Also, \begin{align*}w_1\cap w_2&=((X/G)\backslash p(X\backslash U_1))\cap((X/G)\backslash p(X\backslash u_2))\\&=(X/G)\backslash(p(X\backslash U_1)\cup p(X\backslash U_2))\\&=(X/G)\backslash p((X\backslash U_1)\cup (X\backslash U_2))\\&=(X/G)\backslash p(X\backslash(U_1\cap U_2))\\&=(X/G)\backslash p(X)=\emptyset.\end{align*} Thus $X/G$ is Hausdorff.
+\end{proof}
+
+\begin{lemma}
+An open subset of an $n$--manifold is an $n$--manifold.
+\end{lemma}
+\begin{proof}
+Let $M$ be an $n$--manifold and let $U\subseteq M$ be open. Let $x\in U$. Then there exists an open neighbourhood $S\subseteq M$ of $x$ and a homeomorphism $f:S\to V$ where $V\subseteq\mathbb{R}^n$ is open. $S\cap U$ is then also an open neighbourhood of $x$ and $f_{|U}U\to f(U)$ is also a homeomorphism between open sets, since the restriction of a homeomorphism is a homeomorphism and homeomorphisms map open sets to open sets. $U$ is also Hausdorff as a subspace of a Hausdorff space so $U$ is an $n$--manifold.
+\end{proof}
+
+\begin{proposition}
+If $G$ is a finite group acting by a covering space action on $X$ and $X$ is a compact $n$--manifold, then $X/G$ is a compact $n$--manifold.
+\end{proposition}
+\begin{proof}
+$X/G$ is compact Hausdorff by the above lemma. It remains to show that $X/G$ is locally homeomorphic to $\mathbb{R}^n$. The quotient map $p:X\to X/G$ is a covering map so is a local homeomorphism. Thus given $[x]\in X/G$ there is an open neighbourhood $S\subseteq X$ of $x$ such that $p(S)$ is an open neighbourhood of $[x]$ and $p_{|S}:S\to p(S)$ is a homeomorphism. $S$ is also an $n$--manifold by the above lemma so there exists an open neighbhourhood $U\subseteq S$ of $x$ and a homeomorphism $f:V\to U$ where $V\subseteq\mathbb{R}^n$ is open. $p_{|U}:U\to p(U)$ is also a homeomorphism between open sets, since restrictions of homeomorphisms are homeomorphisms and homeomorphisms map open sets to open sets, so $p_{|U}\circ f:V\to p(U)$ is a homeomorphism.
+\end{proof}
+
 \begin{theorem}
 If we have a covering space action of a group $G$ on a connected orientable manifold $M$ by orientation-preserving homeomorphisms, then $M/G$ is also orientable.
 \end{theorem}
@@ -717,13 +758,10 @@ If we have a covering space action of a group $G$ on a connected orientable mani
 Let $p:M\to M/G$ be the quotient map and let $[M]_x$ be an orientation of $M$. $p$ is a covering map so a local homeomorphism. Thus, for every $x\in M$ there exists an open neighbourhood $U_x$ such that $p_{|U_x}\to p(U_x)$ is a homeomorphism, giving an isomorphism \[H_n(U_x,U_x-x)\overset{(p_{|U_x})_*}{\longrightarrow}H_n(p(U_x),p(U_x)-p(x)).\] Excision then gives isomorphisms \[H_n(M,M-x)\cong H_n(U_x,U_x-x)\] and \[H_n(p(U_x),p(U_x)-p(x))\cong H_n(M/G,M/G-p(x)),\] implying \[H_n(M,M-x)\cong H_n(M/G,M/G-p(x)).\] We thus have an orientation on $M/G$ given by $(p_{|U_x})_*([M]_x)$ which is well-defined since $G$ acts by orientation-preserving homeomorphisms.
 \end{proof}
 
-\begin{remark}
-This theorem will be used later to show that lens spaces are orientable.
-\end{remark}
 
-\subsection{Poincare duality}
+\subsection{Poincar\'e duality}
 
-\noindent Having studied the cap product, we are now ready to state Poincare duality. However, Poincare duality doesn't hold for arbitrary topological spaces, but for closed oriented manifolds. We shall now define and study those terms.
+\noindent Having studied the cap product, we are now ready to state Poincar\'e duality. However, Poincar\'e duality doesn't hold for arbitrary topological spaces, but for closed oriented manifolds. We shall now define and study those terms.
 
 
 
@@ -737,10 +775,6 @@ For a manifold to have a boundary, we would have to consider homeomorphisms to t
 
 \noindent Closed manifolds admit a simpler definition of orientation to the more general one discussed earlier. However, both formulations are equivalent.
 
-
-\begin{remark}
-A fundamental class can also be defined as a homology class whose restriction to each local homology group gives a local orientation.
-\end{remark}
 
 \begin{theorem}
 Any compact oriented manifold has a fundamental class.
@@ -772,19 +806,19 @@ Let $M$ be a closed orientable $n$--dimensional manifold, let $[M]\in H_n(X)$ be
 \end{definition}
 
 
-\noindent We can now state the poincare Duality theorem as an explicit isomorphism.
+\noindent We can now state the Poincar\'e Duality theorem as an explicit isomorphism.
 
 \begin{theorem}
-(Poincare Duality)\cite{Hatcher}. If $M$ is a closed $R$-orientable $n$-manifold with fundamental class $[M]\in H_n(M;R)$, then the map $D\colon H^k(M;R)\to H_{n-k}(M;R)$ defined by $D([\alpha])=[M]\cap[\alpha]$ is an isomorphism for all $k$.
+(Poincar\'e Duality)\cite{Hatcher}. If $M$ is a closed $R$-orientable $n$-manifold with fundamental class $[M]\in H_n(M;R)$, then the map $D\colon H^k(M;R)\to H_{n-k}(M;R)$ defined by $D([\alpha])=[M]\cap[\alpha]$ is an isomorphism for all $k$.
 \end{theorem}
 
 \subsection{Torsion linking form}
-The torsion linking form is a homotopy invariant for closed oriented manifolds. We shall state it and prove basic results about it here.
+The torsion linking form is a homotopy invariant for closed oriented manifolds. We shall define it and prove basic results about it here.
 \begin{definition}
-Let $M^n$ be a closed oriented manifold with fundamental class $[M]\in H_n(M;\mathbb{Z})$. Let $[\alpha]\in H^a(M;\mathbb{Z})$ and $[\beta]\in H^{n-a+1}(M;\mathbb{Z})$ be torsion classes, i.e. $k[\alpha]=0,m[\beta]=0$ for some $k,m\in\mathbb{N}$. Then we can write $k\alpha=d\gamma$ for some $\gamma\in C^{a-1}(M,\mathbb{Z})$. We define $[\alpha]\vee[\beta]=\frac{1}{k}(\gamma\cup\beta)A\in\mathbb{Q}/\mathbb{Z}$. The \textbf{torsion linking pairing} is then \[T(H^a(M;\mathbb{Z}))\times T(H^{n-a+1}(M;\mathbb{Z}))\to\mathbb{Q}/\mathbb{Z}:([\alpha],[\beta])\mapsto[\alpha]\vee[\beta].\]
+Let $M^n$ be a closed oriented manifold with fundamental class $[M]\in H_n(M;\mathbb{Z})$. Let $[\alpha]\in H^a(M;\mathbb{Z})$ and $[\beta]\in H^{n-a+1}(M;\mathbb{Z})$ be torsion classes, i.e. $k[\alpha]=0,m[\beta]=0$ for some $k,m\in\mathbb{N}$. Then we can write $k\alpha=d\gamma$ for some $\gamma\in C^{a-1}(M,\mathbb{Z})$. Let $A$ be a cycle representing the fundamental class $[M]$. We define $[\alpha]\vee[\beta]=\frac{1}{k}(\gamma\cup\beta)A\in\mathbb{Q}/\mathbb{Z}$. The \textbf{torsion linking pairing} is then \[T(H^a(M;\mathbb{Z}))\times T(H^{n-a+1}(M;\mathbb{Z}))\to\mathbb{Q}/\mathbb{Z}:([\alpha],[\beta])\mapsto[\alpha]\vee[\beta].\]
 \end{definition}
 
-Let $A$ be a cycle representing the fundamental class $[M]$.
+
 
 \begin{lemma}
 $[\alpha]\vee[\beta]$ is well-defined.
@@ -801,10 +835,10 @@ Let $d\gamma=d\eta=k\alpha$ for $\eta\in C^{a-1}(M,\mathbb{Z})$. Then $d(\gamma-
 $[\beta]\vee[\alpha]=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]$.
 \end{lemma}
 \begin{proof}
-let $m\beta=d\tau$ for some $\tau\in C^{n-a}(M,\mathbb{Z})$. If we consider $\tau$ and $\alpha$ to be representatives of elements of $H^*(M,\mathbb{Z}_m)$, we have graded commutativity. Thus 
+Let $m\beta=d\tau$ for some $\tau\in C^{n-a}(M,\mathbb{Z})$. If we consider $\tau$ and $\alpha$ to be representatives of elements of $H^*(M,\mathbb{Z}_m)$, we have graded commutativity. Thus 
 \begin{align*}
 [\beta]\vee[\alpha]&=\frac{1}{m}(\tau\cup\alpha)A\\
-&=\frac{1}{m}([\tau]\cup[\alpha],[M])\\&=(-1)^{a(n-a)}\frac{1}{m}([\alpha]\cup[\tau],[M])\\&=(-1)^{a(n-a)}\frac{1}{m}(\alpha\cup\tau)A\\&=\frac{(-1)^{a(n-a)}}{km}(k\alpha\cup\tau)A\\&=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)A\in\mathbb{Q}/\mathbb{Z}.\end{align*} \[d(\gamma\cup\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup d\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup m\beta)\] so \begin{align*}[\beta]\vee[\alpha]=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)A&=\frac{(-1)^{a(n-a)}}{km}(d(\gamma\cup\tau)A-(-1)^{a-1}(\gamma\cup m\beta)A)\\&=\frac{(-1)^{a(n-a)}}{km}(-1)^a(\gamma\cup m\beta)A\\&=\frac{(-1)^{a(n-a+1)}}{k}(\gamma\cup\beta)A\\&=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]\qedhere\end{align*}
+&=\frac{1}{m}([\tau]\cup[\alpha],[M])\\&=(-1)^{a(n-a)}\frac{1}{m}([\alpha]\cup[\tau],[M])\\&=(-1)^{a(n-a)}\frac{1}{m}(\alpha\cup\tau)A\\&=\frac{(-1)^{a(n-a)}}{km}(k\alpha\cup\tau)A\\&=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)A\in\mathbb{Q}/\mathbb{Z}.\end{align*} Furthermore,\[d(\gamma\cup\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup d\tau)=(d\gamma\cup\tau)+(-1)^{a-1}(\gamma\cup m\beta)\] so \begin{align*}[\beta]\vee[\alpha]=\frac{(-1)^{a(n-a)}}{km}(d\gamma\cup\tau)A&=\frac{(-1)^{a(n-a)}}{km}(d(\gamma\cup\tau)A-(-1)^{a-1}(\gamma\cup m\beta)A)\\&=\frac{(-1)^{a(n-a)}}{km}(-1)^a(\gamma\cup m\beta)A\\&=\frac{(-1)^{a(n-a+1)}}{k}(\gamma\cup\beta)A\\&=(-1)^{a(n-a+1)}[\alpha]\vee[\beta]\qedhere\end{align*}
 \end{proof}
 
 \begin{lemma}
@@ -813,7 +847,7 @@ The torsion linking pairing is a non-degenerate bilinear form, where non-degener
 \begin{proof}
 Bilinearity follows from the bilinearity of the cup product.
 
-\noindent By the universal coefficient theorem, we have an isomorphism \[G:T(H_{a-1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[x]\mapsto([\alpha]\mapsto\frac{1}{k}\gamma_{[\alpha]}(x))\] where $d\gamma_{[\alpha]}=k[\alpha]$. By Poincare duality we have an isomorphism \[D\colon T(H^{n-a+1}(M;\mathbb{Z}))\to T(H_{a-1}(M;\mathbb{Z})):[\beta]\mapsto(-1)^{(n-a+1)(a-1)}[M]\cap[\beta]\] and so \[G\circ D:T(H^{n-a+1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z})\colon [\beta]\mapsto([\alpha]\mapsto \frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(A\cap\beta)\] is also an isomorphism where \[\frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(A\cap\beta)=\frac{(-1)^{(n-a+1)(a-1)}}{k}(\beta\cup\gamma_{[\alpha]})A=\frac{(-1)^{2(n-a+1)(a-1)}}{k}(\gamma_{[\alpha]}\cup\beta)A=[\alpha]\vee[\beta].\]
+\noindent By the universal coefficient theorem, we have an isomorphism \[G:T(H_{a-1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z}):[x]\mapsto([\alpha]\mapsto\frac{1}{k}\gamma_{[\alpha]}(x))\] where $d\gamma_{[\alpha]}=k[\alpha]$. By Poincar\'e duality we have an isomorphism \[D\colon T(H^{n-a+1}(M;\mathbb{Z}))\to T(H_{a-1}(M;\mathbb{Z})):[\beta]\mapsto(-1)^{(n-a+1)(a-1)}[M]\cap[\beta]\] and so \[G\circ D:T(H^{n-a+1}(M;\mathbb{Z}))\to\text{Hom}(T(H^a(M;\mathbb{Z})),\mathbb{Q}/\mathbb{Z})\colon [\beta]\mapsto([\alpha]\mapsto \frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(A\cap\beta)\] is also an isomorphism where \[\frac{(-1)^{(n-a+1)(a-1)}}{k}\gamma_{[\alpha]}(A\cap\beta)=\frac{(-1)^{(n-a+1)(a-1)}}{k}(\beta\cup\gamma_{[\alpha]})A=\frac{(-1)^{2(n-a+1)(a-1)}}{k}(\gamma_{[\alpha]}\cup\beta)A=[\alpha]\vee[\beta].\]
 \end{proof}
 \noindent So in the case of 3-manifolds like lens spaces, the torsion linking pairing is a symmetric non-degenerate bilinear form on $T(H^2(M;\mathbb{Z}))$. Also, since the cup product is invariant under homotopy-equivalence, the torsion linking pairing is as well.
 
@@ -827,7 +861,7 @@ In this section we shall apply the theory developed erstwhile and introduce addi
 \subsection{Lens spaces}
 Here we shall define lens spaces and derive the basic results about them. In particular, we shall prove that they are closed orientable $3$--manifolds and compute their fundamental group, homology groups and cohomology groups.
 \begin{definition}
-The \textbf{3-sphere } $S^3=\{(u,v)\in\mathbb{C}^2:|u|^2+|v|^2=1\}$.
+The \textbf{3-sphere } $S^3:=\{(u,v)\in\mathbb{C}^2:|u|^2+|v|^2=1\}$.
 \end{definition}
 
 \begin{definition}
@@ -851,34 +885,9 @@ The multiplication map induced by the group action is clearly continuous for all
 Now let $(a,b)\in S^3$. If $S=(B_{|a|\text{sin}(\frac{\pi}{100p})}(a)\cap |a|S^1,B_{|b|\text{sin}(\frac{\pi}{100p})}(b)\cap |b|S^1)$ then $gS\cap S=\emptyset$ for all non-trivial $g\in \mathbb{Z}_p$ so the action is a covering space action giving $\pi_1(L(p;q))\cong \mathbb{Z}_p$. $H_1(L(p;q))\cong \mathbb{Z}_p$ by the Hurewicz theorem.
 \end{proof}
 
-\noindent We shall now show that lens spaces are closed orientable $3$--manifolds.
-
-\begin{lemma}
-If $X$ is a compact Hausdorff space acted on by a finite group $G$ by homeomorphisms, then $X/G$ is compact Hausdorff.
-\end{lemma}
-\begin{proof}
-\cite{Lens}
-Let $p:X\to X/G\colon x\mapsto[x]$ be the quotient map. $X/G$ is compact as the continuous image of a compact space. Now let $[x_1],[x_2]\in X/G$ with $[x_1]\neq [x_2]$. Then $g_1\cdot x_1\neq g_2\cdot x_2\forall g_1,g_2\in G$. Thus $p^{-1}([x_1])=G\cdot x_1$ and $p^{-1}([x_2])=G\cdot x_2$ are disjoint. These sets are finite since $G$ is finite. Thus, since $X$ is Hausdorff, we can construct disjoint open sets $U_1,U_2\in X$ such that $p^{-1}([x_1])\subseteq U_1$ and $p^{-1}([x_2])\subseteq U_2$. \[p^{-1}(p(X\backslash U_i))=\bigcup_{g\in G}g\cdot(X\backslash U_i)=\bigcup_{g\in G}\rho_g(X\backslash U_i)\] so $p^{-1}(p(X\backslash U_i))$ is the union of finitely many closed sets so is closed in $X$. Thus, by the definition of the quotient topology, $p(X\backslash U_i)$ is closed in $X/G$ and $w_i=(X/G)\backslash p(X\backslash u_i)$ is open in $X/G$. We have \[p^{-1}([x_i])\subseteq u_i\implies [x_i]\notin p(X\backslash U_i)\implies[x_i]\in w_i.\] Also, \begin{align*}w_1\cap w_2&=((X/G)\backslash p(X\backslash U_1))\cap((X/G)\backslash p(X\backslash u_2))\\&=(X/G)\backslash(p(X\backslash U_1)\cup p(X\backslash U_2))\\&=(X/G)\backslash p((X\backslash U_1)\cup (X\backslash U_2))\\&=(X/G)\backslash p(X\backslash(U_1\cap U_2))\\&=(X/G)\backslash p(X)=\emptyset.\end{align*} Thus $X/G$ is Hausdorff.
-\end{proof}
-
-\begin{lemma}
-An open subset of an $n$--manifold is an $n$--manifold.
-\end{lemma}
-\begin{proof}
-Let $M$ be an $n$--manifold and let $U\subseteq M$ be open. Let $x\in U$. Then there exists an open neighbourhood $S\subseteq M$ of $x$ and a homeomorphism $f:S\to V$ where $V\subseteq\mathbb{R}^n$ is open. $S\cap U$ is then also an open neighbourhood of $x$ and $f_{|U}U\to f(U)$ is also a homeomorphism between open sets, since the restriction of a homeomorphism is a homeomorphism and homeomorphisms map open sets to open sets. $U$ is also Hausdorff as a subspace of a Hausdorff space so $U$ is an $n$--manifold.
-\end{proof}
-
 \begin{proposition}
-If $G$ is a finite group acting by a covering space action on $X$ and $X$ is a compact $n$--manifold, then $X/G$ is a compact $n$--manifold.
-\end{proposition}
-\begin{proof}
-$X/G$ is compact Hausdorff by the above lemma. It remains to show that $X/G$ is locally homeomorphic to $\mathbb{R}^n$. The quotient map $p:X\to X/G$ is a covering map so is a local homeomorphism. Thus given $[x]\in X/G$ there is an open neighbourhood $S\subseteq X$ of $x$ such that $p(S)$ is an open neighbourhood of $[x]$ and $p_{|S}:S\to p(S)$ is a homeomorphism. $S$ is also an $n$--manifold by the above lemma so there exists an open neighbhourhood $U\subseteq S$ of $x$ and a homeomorphism $f:V\to U$ where $V\subseteq\mathbb{R}^n$ is open. $p_{|U}:U\to p(U)$ is also a homeomorphism between open sets, since restrictions of homeomorphisms are homeomorphisms and homeomorphisms map open sets to open sets, so $p_{|U}\circ f:V\to p(U)$ is a homeomorphism.
-\end{proof}
-
-
-\begin{corollary}
 $L(p;q)$ is a compact $3$--manifold.
-\end{corollary}
+\end{proposition}
 \begin{proof}
 $S^3$ is closed and bounded, and so compact by the Heine-Borel theorem. $S^3$ is also a manifold, which can be seen either by stereographic projection or by the regular value theorem from MA40254. The action of $\mathbb{Z}_p$ is free so $L(p;q)$ is a compact $3$--manifold.
 \end{proof}
@@ -900,7 +909,7 @@ Alternatively, we could note that $\phi$ is homotopic to the identity and thus i
 \end{remark}
 \noindent Now that we have shown that $L(p;q)$ is a closed orientable $3$--manifold, we are able to compute all the homology and cohomology groups of $L(p;q)$ just from the first homology group:\\
 
-\noindent \[H^2(L(p;q);\mathbb{Z})\cong\mathbb{Z}_p\] by Poincare duality. \[H_3((L(p;q))\cong\mathbb{Z}\cong H^0(L(p;q);\mathbb{Z})\] since $L(p;q)$ is an orientable 3-manifold. \[H_0(L(p;q))\cong\mathbb{Z}\cong H^3(L(p;q);\mathbb{Z})\] since $L(p;q)$ is path-connected. \[T(H_2(L(p;q)))\cong T(H^3(L(p;q));\mathbb{Z})=0\] and \[F(H_2(L(p;q)))\cong F(H^2(L(p;q);\mathbb{Z}))=0\] by the universal coefficient theorem so \[H_2(L(p;q))=0=H^1(L(p;q);\mathbb{Z}).\] \[H_i(L(p;q))=H^i(L(p;q);\mathbb{Z})=0\forall i>3\] since $L(p;q)$ is a 3-manifold.\\
+\noindent \[H^2(L(p;q);\mathbb{Z})\cong\mathbb{Z}_p\] by Poincar\'e duality. \[H_3((L(p;q))\cong\mathbb{Z}\cong H^0(L(p;q);\mathbb{Z})\] since $L(p;q)$ is an orientable 3-manifold. \[H_0(L(p;q))\cong\mathbb{Z}\cong H^3(L(p;q);\mathbb{Z})\] since $L(p;q)$ is path-connected. \[T(H_2(L(p;q)))\cong T(H^3(L(p;q));\mathbb{Z})=0\] and \[F(H_2(L(p;q)))\cong F(H^2(L(p;q);\mathbb{Z}))=0\] by the universal coefficient theorem so \[H_2(L(p;q))=0=H^1(L(p;q);\mathbb{Z}).\] \[H_i(L(p;q))=H^i(L(p;q);\mathbb{Z})=0\forall i>3\] since $L(p;q)$ is a 3-manifold.\\
 
 \noindent The homology and cohomology groups depend only on $p$ and are insufficient for a homotopy-equivalence classification.\\
 
@@ -926,7 +935,7 @@ Let $X^n$ be a finite cell complex. Then $CC_k(X)$ is the free abelian group gen
 \end{definition}
 
 \begin{definition}
-Let $e_i^k$ be a $k$-cell with an attaching map $\phi_i\colon S^{k-1}\to X^{k-1}$. Given a $(k-1)$-cell $e_j^{k-1}$ we have a map $\phi_i^j:\phi_i^{-1}(e_j^{k-1})\to e_j^{k-1}:x\mapsto\phi_i(x)$. Then We define the boundary map $\partial\colon CC_k(X)\to CC_{k-1(X)}$ by $\partial e_i^k=\sum_jdeg(\phi_i^j)e_j^{k-1}$ and extending linearly.
+Let $e_i^k$ be a $k$-cell with an attaching map $\phi_i\colon S^{k-1}\to X^{k-1}$. Given a $(k-1)$-cell $e_j^{k-1}$ we have a map $\phi_i^j:\phi_i^{-1}(e_j^{k-1})\to e_j^{k-1}:x\mapsto\phi_i(x)$. Then We define the boundary map $\partial\colon CC_k(X)\to CC_{k-1(X)}$ by $\partial e_i^k=\sum\limits_jdeg(\phi_i^j)e_j^{k-1}$ and extending linearly.
 \end{definition}
 
 \begin{definition}
@@ -942,7 +951,7 @@ The resultant homology and cohomology groups $H_k(CC_k(X;G),\partial)$ and $H^k(
 \end{definition}
 
 \begin{proposition}
-Let $G$ be an abelian group. Then\[H_k(CC_k(X;G),\partial)\cong H_k(X;G)\] and \[H^k(CC^k(X;G),d)\cong H^k(X;G)\] for all $k\in\mathbb{N}$.
+\cite{Nordstrom}Let $G$ be an abelian group. Then\[H_k(CC_k(X;G),\partial)\cong H_k(X;G)\] and \[H^k(CC^k(X;G),d)\cong H^k(X;G)\] for all $k\in\mathbb{N}$.
 \end{proposition}
 
 \subsection{Delta complexes}
@@ -959,14 +968,14 @@ A $\Delta$--complex structure on a space $X$ is a collection of maps $\sigma_\al
 Condition $2$ ensures that the boundary of an element of the subgroup of $C_n(X)$ generated by the elements $\Delta^n\to X$ of the Delta complex is in the subgroup of $C_{n-1}(X)$ generated by the elements $\Delta^{n-1}\to X$ of the Delta complex, making a Delta complex a chain subcomplex. In fact, the inclusion map into the singular complex induces an isomorphism on homology. Condition $2$ also ensures that the cup product on the dual complex is well-defined, since the front and back faces correspond to repeated compositions of vertex-removing framings.
 \end{remark}
 
-\noindent Being special cases of cell complexes, the homology and cohomology groups arising from a delta-complex structure of a topological space are isomorphic to the singular homology and cohomology groups. The chain complexes of delta-complexes are usually simpler than those in the singular case. This will be seen in the computation of the torsion linking form of Lens spaces, since finite bases for the chain groups can be found, thereby making it easy to characterize cochains by their actions on said basis.
+\noindent Being special cases of cell complexes, the homology and cohomology groups arising from a delta-complex structure of a topological space are isomorphic to the singular homology and cohomology groups. The chain complexes of delta-complexes are usually simpler than those in the singular case. This will be seen in the computation of the torsion linking form of Lens spaces, since finite bases for the chain groups can be found, thereby making it easy to characterize cochains by their actions on said bases.
 
 
 
 
 \subsection{Homotopy classification}
 To compute the torsion linking form of a lens space, we first need to give a lens space a $\Delta$--complex structure. To begin with, we need an easily-visualised model of $S^3$.\\
-\cite{Lens}
+\cite[Page 5]{Lens}
 \noindent$S^3$ is the set of pairs of complex numbers $(z_0,z_1)$ such that their norms sum to $1$. Representing them in polar coordinates then gives $z_0=r_0e^{i\theta_0}$ and $z_1=r_1e^{i\theta_1}$, with $r_0^2+r_1^2=1$. $r_1$ determines $r_0=\sqrt{1-r_1^2}$ so $(z_0,z_1)$ can be associated with a real triple $(r_1,\theta_0,\theta_1)$, where $0\leq r_1\leq 1$ and $0\leq\theta_0,\theta_1<2\pi$.
 For there to be a bijection between pairs $(z_0,z_1)$ and triples $(r_1,\theta_0,\theta_1)$, we require the following identifications:
 \begin{enumerate}
@@ -1047,52 +1056,61 @@ Slices: $[NSx_0x_1],...,[NSx_{p-2}x_{p-1}],[NSx_0x_{p-1}]$.\\
 \[\text{Let }D=[x_0x_1].\]
 \[\text{Let }E=[NS].\]
 \[\text{Let }F_i=[Nx_i].\]
-\[-\partial b_{p-1}=\partial[Nx_0x_{p-1}]=[x_0x_{p-1}]-[Nx_{p-1}]+[Nx_0]=[Nx_0]-[Nx_{p-1}]-[x_0x_1]\]
-Otherwise, \[\partial b_i=\partial[Nx_ix_{i+1}]=[x_0x_1]-[Nx_{i+1}]+[Nx_i]\]
-so 
 \begin{lemma}$\partial b_i=D-F_{i+1}+F_i$.
 \end{lemma}
-\[\partial c_i=\partial[NSx_i]=[Sx_i]-[Nx_i]+[NS]=[NS]-[Nx_i]+[Nx_{i-q}]\]
-so 
+\begin{proof}
+\[-\partial b_{p-1}=\partial[Nx_0x_{p-1}]=[x_0x_{p-1}]-[Nx_{p-1}]+[Nx_0]=[Nx_0]-[Nx_{p-1}]-[x_0x_1].\]
+Otherwise, \[\partial b_i=\partial[Nx_ix_{i+1}]=[x_0x_1]-[Nx_{i+1}]+[Nx_i].\]
+\end{proof}
+
 \begin{lemma}
 $\partial c_i=E-F_i+F_{i-q}$.
 \end{lemma}
+\begin{proof}
+\[\partial c_i=\partial[NSx_i]=[Sx_i]-[Nx_i]+[NS]=[NS]-[Nx_i]+[Nx_{i-q}].\]
+\end{proof}
 
 \begin{lemma}
-$\sum_{i=0}^{p-1}a_i$ is a representative of a fundamental class.
+$\sum\limits_{i=0}^{p-1}a_i$ is a representative of a fundamental class.
 \end{lemma}
 \begin{proof}
-\[\partial(\sum_{i=0}^{p-1}a_i)=\sum_i([Nx_{i-q}x_{i-q+1}]-[Nx_ix_{i+1}]+[NSx_{i+1}]-[NSx_i])=0\] so $\sum_{i=0}^{p-1}a_i$ is a representative of an element of $H_3(L(p;q);\mathbb{Z})$. The coefficients of $a_i$ are all equal and $H_3(L(p;q);\mathbb{Z})\cong\mathbb{Z}$ so $\sum_{i=0}^{p-1}a_i$ has to represent a generator, since $\partial(\sum_{i=0}^{p-1}\lambda_i a_i)=0$ if and only if all $\lambda_i$ are equal. Thus $\sum_{i=0}^{p-1}a_i$ represents a fundamental class.
+\[\partial(\sum\limits_{i=0}^{p-1}a_i)=\sum\limits_i([Nx_{i-q}x_{i-q+1}]-[Nx_ix_{i+1}]+[NSx_{i+1}]-[NSx_i])=0\] so $\sum\limits_{i=0}^{p-1}a_i$ is a representative of an element of $H_3(L(p;q);\mathbb{Z})$. The coefficients of $a_i$ are all equal and $H_3(L(p;q);\mathbb{Z})\cong\mathbb{Z}$ so $\sum\limits_{i=0}^{p-1}a_i$ has to represent a generator, since $\partial(\sum\limits_{i=0}^{p-1}\lambda_i a_i)=0$ if and only if all $\lambda_i$ are equal. Thus $\sum\limits_{i=0}^{p-1}a_i$ represents a fundamental class.
 \end{proof}
 
 \noindent Call the equivalence class it represents $[M]$.\\
 $C_1(L(p;q),\mathbb{Z})$ has basis $D,E,F_i$ and $C_2(L(p;q),\mathbb{Z})$ has basis $b_i,c_i$.\\
 Let $\widehat X$ be linear map which sends $X$ to $1$ and all other elements of the basis to $0$. We then have:\\
-\[d\widehat D=\sum_{i=0}^{p-1}\widehat b_i.\]
-\[d\widehat E=\sum_{i=0}^{p-1}\widehat c_i.\]
+\[d\widehat D=\sum\limits_{i=0}^{p-1}\widehat b_i.\]
+\[d\widehat E=\sum\limits_{i=0}^{p-1}\widehat c_i.\]
 \[d\widehat F_i=\widehat b_i-\widehat b_{i-1}-\widehat c_i+\widehat c_{i+q}.\]
-Then define \[\gamma=\widehat D + (\sum_{i=0}^{p-1}i\widehat F_i)+q\widehat E\in C^1(L(p;q);\mathbb{Z}).\]
+Then define \[\gamma=\widehat D + (\sum\limits_{i=0}^{p-1}i\widehat F_i)+q\widehat E\in C^1(L(p;q);\mathbb{Z}).\]
 \begin{align*}
-d\gamma&=\sum_{i=0}^{p-1}\widehat b_i+(\sum_{i=0}^{p-1}i(\widehat b_i-\widehat b_{i-1}-\widehat c_i+\widehat c_{i+q}))+\sum_{i=0}^{p-1}q\hat c_i\\
-&=\sum_{i=0}^{p-1}((i+1)\widehat b_i-i\widehat b_{i-1}-(i-q)\widehat c_i+i\widehat c_{i+q})\equiv 0\text{ mod }p.
+d\gamma&=\sum\limits_{i=0}^{p-1}\widehat b_i+(\sum\limits_{i=0}^{p-1}i(\widehat b_i-\widehat b_{i-1}-\widehat c_i+\widehat c_{i+q}))+\sum\limits_{i=0}^{p-1}q\hat c_i\\
+&=\sum\limits_{i=0}^{p-1}((i+1)\widehat b_i-i\widehat b_{i-1}-(i-q)\widehat c_i+i\widehat c_{i+q})\equiv 0\text{ mod }p.
 \end{align*}
-Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $\alpha$ is a representative of an element in $H^2(L(p;q);\mathbb{Z})$ with $p[\alpha]=[0]$. Also note that $\gamma(E)=q$.
+Let $\alpha=\frac{1}{p}d\gamma\in C^2(L(p;q);\mathbb{Z})$. Then $\alpha$ is a representative of an element in $H^2(L(p;q);\mathbb{Z})$ with $p[\alpha]=[0]$. 
+\begin{proposition}
+$[\alpha]\vee[\alpha]=\frac{q}{p}.$
+\end{proposition}
+\begin{proof}
+Note that $\gamma(E)=q$.
 \[p\alpha([Sx_{q-1}x_q])=p\alpha([Nx_{p-1}x_0])=p\alpha(b_{p-1})=(p-1+1)\hat b_{p-1}(b_{p-1})-0\times\hat b_{-1}(b_{p-1})=p\]\[\implies \alpha([Sx_{q-1}x_q])=1.\]
-Otherwise, \[p\alpha([Sx_ix_{i+1}])=p\alpha([Nx_{i-q}x_{i+1-q}])=p\alpha(b_{i-q})=(kp+i-q+1)\hat b_{{i-q}}(b_{{i-q}})-(kp+i-q+1)\hat b_{{i-q}}(b_{{i-q}})=0\]where $k\in\mathbb{Z}$ puts $kp+i-q+1$ in the compatible range for the sum of $[1,p-1]$ (The fact that it can't wrap around to $0$ is why cancellation occurs). Thus, \begin{proposition}$[\alpha]\vee[\alpha]=\frac{1}{p}\gamma([NS])\alpha([Sx_{q-1}x_q])=\frac{q}{p}.$\end{proposition}
+Otherwise, \[p\alpha([Sx_ix_{i+1}])=p\alpha([Nx_{i-q}x_{i+1-q}])=p\alpha(b_{i-q})=(kp+i-q+1)\hat b_{{i-q}}(b_{{i-q}})-(kp+i-q+1)\hat b_{{i-q}}(b_{{i-q}})=0\]where $k\in\mathbb{Z}$ puts $kp+i-q+1$ in the compatible range for the sum of $[1,p-1]$ (The fact that it can't wrap around to $0$ is why cancellation occurs). Thus, \[[\alpha]\vee[\alpha]=\frac{1}{p}\gamma([NS])\alpha([Sx_{q-1}x_q])=\frac{q}{p}.\]\end{proof}
 
-\noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, taking into account whether or not the homotopy-equivalence is orientation-reversing and choice of element of $H^2(L(p;q);\mathbb{Z})$ (since $[n\alpha]\vee[n\alpha]=n^2[\alpha]\vee[\alpha]$). This is equivalent to $q_1\equiv\pm q_2m^2\text{ mod }p\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\iff q_2q_2\equiv\pm n^2\text{ mod } p$, where $n=mq_2$.\\
+\noindent We then have that if $L(p;q_1)$ and $L(p;q_2)$ are homotopy-equivalent, then $\frac{q_1}{p}=\pm\frac{q_2}{p}m^2$ for some integer $m$, taking into account whether or not the homotopy-equivalence is orientation-reversing and choice of element of $H^2(L(p;q);\mathbb{Z})$ (since $[n\alpha]\vee[n\alpha]=n^2[\alpha]\vee[\alpha]$). This is equivalent to \begin{align*}
+q_1\equiv\pm q_2m^2\text{ mod }p&\iff q_1q_2^{-1}\equiv\pm m^2\text{ mod }p\\&\iff q_1q_2\equiv\pm(mq_2)^2\text{ mod } p\\&\iff q_2q_2\equiv\pm n^2\text{ mod } p\text{, where }n=mq_2.\end{align*}\\
 
 \noindent If we were only interested in orientation-preserving homotopy-equivalence, then the condition would be $q_2q_2\equiv n^2\text{ mod } p$; and if we were only interested in orientation-reversing homotopy-equivalence, then the condition would be $q_2q_2\equiv- n^2\text{ mod } p$.
 Thus $L(p;q)$ is orientation-reversing homotopy-equivalent to itself iff $q(-q)$ is a square mod $p$ $\iff -1$ is a square mod $p\iff p\equiv 1$ mod $4$ for $p$ a prime. This in contrast to compact $2$--manifolds, which by the classification of compact surfaces\cite{intro} always admit orientation-reversing homeomorphisms.\\
 
-\noindent The proof of the sufficiency of this condition is given in exercise 29 in section 4.2 of Hatcher.
+\noindent The proof of the sufficiency of this condition is given in exercise 29 in section 4.2 of Hatcher. \cite{Hatcher}
 
 
 
-\subsection{Reidemeister torsion}
-
-\begin{definition}\cite{torsion}
-Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with coefficients in a commutative ring and with no homology and bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix from $b_i\cup\overset{\sim}{b}_{i-1}$ to $c_i$. We then define The \textbf{Reidemeister torsion} \[\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}.\]
+\subsection{Reidemeister torsion}[Notes on Reidemeister torsion\cite{torsion}][Pierre ALbin\cite{lecture}]
+We shall now define the invariant which will give us the homeomorphism classification.
+\begin{definition}
+Let $0\to C_n\overset{\partial}{\to}C_{n-1}\overset{\partial}{\to}C_{n-2}\overset{\partial}{\to}...\overset{\partial}{\to}C_{0}\to 0$ be a chain complex with coefficients in a commutative ring and with no homology and bases $c_i$ of $C_i$. We can then pick auxiliary bases $b_i\cup\overset{\sim}{b}_{i-1}$ of $C_i$ where $b_i$ is a basis for $\text{Im }\partial_{i+1}$ and $\partial\overset{\sim}{b}_{i-1}=b_{i-1}$. Then let $[b_i\cup\overset{\sim}{b}_{i-1}|c_i]$ be the determinant of the change of basis matrix from $b_i\cup\overset{\sim}{b}_{i-1}$ to $c_i$. We then define the \textbf{Reidemeister torsion} \[\Delta(C_.,c_.)=\prod_{i=0}^n[b_i\cup\overset{\sim}{b}_{i-1}|c_i]^{(-1)^i}.\]
 \end{definition}
 
 \begin{theorem}
@@ -1112,13 +1130,12 @@ The ambiguity which required modding out by $\{\pm\beta(\pi_1(X))\}$ to solve ar
 Let $X$ and $Y$ be cell complexes, let $f:X\to Y$ be a homeomorphism and let $(A,\beta)$ be a representation of $\pi_1(Y)$. Then $\Delta(X;\beta\circ f_*)=\Delta(Y;\beta)$
 \end{theorem}
 
-\noindent Thus the Reidemeister torsion is invariant under homeomorphism. However, it is not invariant under homotopy-equivalence. We shall now compute the Reidemeister torsion of a lens space.\\
+\noindent Thus the Reidemeister torsion is invariant under homeomorphism. However, it is not invariant under homotopy-equivalence.
 
-\subsection{Homeomorphism classification}
+\subsection{Homeomorphism classification}[Pierre Albin\cite{lecture}]
 
 \noindent We shall now realise lens spaces as cell complexes, in preparation for computing the Reidemeister torsion to give a stronger homeomorphism invariant than the fundamental group.\\
 
-\cite{lecture}
 \noindent We have
 \[L(p;q)=\{(r_1e^{2\pi i\theta_1},r_2e^{2\pi i\theta_2}):r_1^2+r_2^2=1\}/(\theta_1,\theta_2)\sim(\theta_1+\frac{1}{p},\theta_2+\frac{q}{p}).\]
 
@@ -1136,9 +1153,9 @@ Let $X$ and $Y$ be cell complexes, let $f:X\to Y$ be a homeomorphism and let $(A
 
 \noindent Thus $\rho$ permutes the cells so taking the quotient gives a cell complex structure \[L(p;q)=e^0\cup e^1\cup e^2\cup e^3.\]
 
-\[\partial e_0^3=e_1^2-e_0^2=(\rho-\text{id})(e_0^2)\]
-\[\partial e_1^2=e_0^1+...+e_{p-1}^1=(\text{id}+\rho+...+\rho^{p-1})(e_0^1)\]
-\[\partial e_0^1=e_l^0-e_0^0=(\rho^l-\text{id})(e_0^0)\] where $lq\cong1\text{ mod }p$ (so that $l$ corresponds to rotating by $\frac{2\pi i}{p}$).
+\[\partial e_0^3=e_1^2-e_0^2=(\rho-\text{id})(e_0^2),\]
+\[\partial e_1^2=e_0^1+...+e_{p-1}^1=(\text{id}+\rho+...+\rho^{p-1})(e_0^1),\]
+\[\partial e_0^1=e_l^0-e_0^0=(\rho^l-\text{id})(e_0^0),\] where $lq\cong1\text{ mod }p$.
 
 \noindent Thus on $L(p;q)$, we have $\partial e^3=0$, $\partial e^2=pe^1$, $\partial e^1=0$ since $p=\text{id}$ modulo the group action. This then gives the same homology groups as were found earlier.\\
 
@@ -1149,12 +1166,14 @@ In $C_.(X;\beta_\omega)\otimes_{\mathbb{Z}\pi_1(X)}\mathbb{C}^*$ we have:\\
 \[\partial(\overset{\sim}{e}_0^1\otimes\text{id})=(\omega^l-1)(\overset{\sim}{e}_0^0\otimes\text{id}),\] giving a complex:
 \[0\to\mathbb{C}^*\overset{\omega-1}{\to}\mathbb{C}^*\overset{0}{\to}\mathbb{C}^*\overset{\omega^l-1}{\to}\mathbb{C}^*\to0\text{ whenever }\omega\neq 1.\]
 The non-zero maps are isomorphisms and so the complex has no homology. Hence for $\omega\neq 1$ we have \[\Delta(L(p;q);\beta_\omega)=(\omega^l-1)(\omega-1)\in\mathbb{C}^*/\{\pm\omega^k:k\in\mathbb{Z}\}.\]
-\[(\omega^l-1)(\omega-1)=\omega^l(1-\omega^{-l})(\omega-1)=(\omega^{-l}-1)(\omega-1)=\omega(\omega^{-l}-1)(1-\omega^{-1})=(\omega^{-l}-1)(\omega^{-1}-1)\] so \[\Delta(L(p;q);\beta_\omega)=\Delta(L(p;-q);\beta_{\omega^{-1}}).\]
-It can also be shown that \[\Delta(L(p;q);\beta_\omega)=\Delta(L(p;q^{-1});\beta_{\omega^l}).\]
 
-\noindent Thus a necessary condition for two lens spaces $L(p;q_1)$ and $L(p;q_2)$ to be homeomorphic is that $q_1\equiv \pm q_2^{\pm 1}\text{mod }p$.\\
+\noindent The following lemma then gives the necessary conditions for the homeomorphism classification.
 
-\noindent To give the complete homeomorphism classification, we require the following lemma.
+\begin{lemma}
+Given $q_1$, $q_2$ and a primitive $p$th root of unity $\omega$, there is another primitive root of unity $\nu$ such that $\Delta(L(p;q_1),\beta_\omega)=\Delta(L(p;q_2),\beta_\nu)$ only if $q_1\equiv\pm q_2\text{ mod }p$ or $q_1q_2\equiv\pm 1\text{ mod }p$
+\end{lemma}
+
+\noindent To prove the sufficiency of the above lemma for the homeomorphism classification, we require the following lemma.
 
 \begin{lemma}
 Let X be a topological space. Let $G_1$ and $G_2$ be conjugate subgroups of Homeo$(X)$ defining covering space actions of $X$. Then $X/G_1\cong X/G_2$.
